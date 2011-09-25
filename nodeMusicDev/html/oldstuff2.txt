@@ -1,0 +1,1846 @@
+
+
+
+
+
+
+
+//taking out hover row orange cause its glitchy
+.musicItemsTable td:hover
+	{
+		color: #ffffff;
+	}
+	
+	.musicItemsTable tr:hover
+	{
+		color: #ffffff;
+	}
+	
+	.musicItemsTableRow:hover
+	{
+	color: #ffffff;
+background: rgb(224,127,58); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(224,127,58,1) 1%, rgba(183,38,16,1) 46%, rgba(204,0,0,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(224,127,58,1)), color-stop(46%,rgba(183,38,16,1)), color-stop(100%,rgba(204,0,0,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(224,127,58,1) 1%,rgba(183,38,16,1) 46%,rgba(204,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(224,127,58,1) 1%,rgba(183,38,16,1) 46%,rgba(204,0,0,1) 100%); /* Opera11.10+ */
+background: -ms-linear-gradient(top, rgba(224,127,58,1) 1%,rgba(183,38,16,1) 46%,rgba(204,0,0,1) 100%); /* IE10+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e07f3a', endColorstr='#cc0000',GradientType=0 ); /* IE6-9 */
+background: linear-gradient(top, rgba(224,127,58,1) 1%,rgba(183,38,16,1) 46%,rgba(204,0,0,1) 100%); /* W3C */
+
+	}
+
+
+
+<!-- backup 08/26.  before major top float fix.-->
+<html>
+  <head>
+      <title>Node Music</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=9" />
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+      
+      <style type="text/css">
+
+	.floatingTopBox{
+		 height: 0;
+	    left: 0;
+	    position: fixed;
+	    top: 0;
+	    width: 100%;
+	    z-index: 100;
+	}
+	
+	.audioPlayerContainer
+	{
+		float:left;
+	}
+	
+	.searchBox{
+		padding: 60px 20px 60px 20px;//top right bottom left
+		width: 100%;
+		border: 1px solid black;
+	  -moz-border-radius: 25px 1px 10px 0px;
+	  -webkit-border-top-right-radius: 1px;
+	  -webkit-border-bottom-right-radius: 10px;
+	  -webkit-border-bottom-left-radius: 0px;
+	  border-radius: 25px 1px 10px 0px;
+	  float:left;
+	  /*margin-top: 50px;*/
+
+	  /*-webkit-box-shadow: 8px 8px 10px #333333;
+	  -moz-box-shadow:8px 8px 10px #333333;
+	  box-shadow:8px 8px 10px #333333;*/
+	}
+	
+	.searchBox label{
+		width:60px;
+	  border: 1px solid gray;
+	  padding: 8px;
+	  -moz-border-radius: 0px 1px 0px 20px;
+	  -webkit-border-top-right-radius: 1px;
+	  -webkit-border-bottom-right-radius: 0px;
+	  -webkit-border-bottom-left-radius: 20px;
+	  border-radius: 0px 1px 0px 20px;
+
+	  /* -- CSS3 Shadow - create a shadow around each input element -- */ 
+	  -webkit-box-shadow: 0px 0px 4px #aaa;
+	  -moz-box-shadow: 0px 0px 4px #aaa; 
+	  box-shadow: 0px 0px 4px #aaa;
+ 
+	  /* -- CSS3 Transition - define what the transition will be applied to (i.e. the background) -- */		
+	  -webkit-transition: background 0.3s linear;
+
+
+	  background: #E3E9F2; /* old browsers */
+	  background: -moz-linear-gradient(top, #E3E9F2 0%, #ABC0C9 100%); /* firefox */
+	  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E3E9F2), color-stop(100%,#ABC0C9)); /* webkit */
+	  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E3E9F2', endColorstr='#ABC0C9',GradientType=0 ); /* ie */
+	}
+	
+	.searchBox input{
+		width:100%;
+	}
+	
+	.musicControls{
+
+
+	}
+	
+	.pluginMusicItemsPlayer{
+				max-height: 60px;
+		background: gray;
+		background: transparent;
+	}
+	
+	.downloadFileAsInputContainer{
+	  
+	  
+	}
+	
+	.downloadFileAsInputContainer input{
+	  width:100%;
+	
+	}
+
+	  
+	.mainContainer {
+	  border: 1px solid black;
+	  -moz-border-radius: 25px 1px 10px 0px;
+	  -webkit-border-top-right-radius: 1px;
+	  -webkit-border-bottom-right-radius: 10px;
+	  -webkit-border-bottom-left-radius: 0px;
+	  border-radius: 25px 1px 10px 0px;
+
+	  
+	  
+	  -webkit-box-shadow: 8px 8px 10px #333333;
+	  -moz-box-shadow:8px 8px 10px #333333;
+	  box-shadow:8px 8px 10px #333333;
+
+	  padding:10px 10px 20px 10px;
+	  width: 97%;
+	  min-width: 190px;
+	  margin-left: 1%;
+	  margin-right: 2%;
+	  margin-top:5%;
+	  
+		background: rgb(140,140,140); /* Old browsers */
+		background: -moz-linear-gradient(left, rgba(140,140,140,1) 0%, rgba(160,160,160,1) 47%, rgba(150,150,150,1) 69%, rgba(155,155,155,1) 86%, rgba(150,150,150,1) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(140,140,140,1)), color-stop(47%,rgba(160,160,160,1)), color-stop(69%,rgba(150,150,150,1)), color-stop(86%,rgba(155,155,155,1)), color-stop(100%,rgba(150,150,150,1))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(left, rgba(140,140,140,1) 0%,rgba(160,160,160,1) 47%,rgba(150,150,150,1) 69%,rgba(155,155,155,1) 86%,rgba(150,150,150,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(left, rgba(140,140,140,1) 0%,rgba(160,160,160,1) 47%,rgba(150,150,150,1) 69%,rgba(155,155,155,1) 86%,rgba(150,150,150,1) 100%); /* Opera11.10+ */
+		background: -ms-linear-gradient(left, rgba(140,140,140,1) 0%,rgba(160,160,160,1) 47%,rgba(150,150,150,1) 69%,rgba(155,155,155,1) 86%,rgba(150,150,150,1) 100%); /* IE10+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c8c8c', endColorstr='#969696',GradientType=1 ); /* IE6-9 */
+		background: linear-gradient(left, rgba(140,140,140,1) 0%,rgba(160,160,160,1) 47%,rgba(150,150,150,1) 69%,rgba(155,155,155,1) 86%,rgba(150,150,150,1) 100%); /* W3C */
+	  
+	}
+
+	
+
+	body
+	{
+	  height: 100%;
+	  margin: 0px;
+	  background-repeat: none;
+	  
+	  
+	  background: rgb(51,51,51); /* Old browsers */
+background: -moz-linear-gradient(left, rgba(51,51,51,1) 0%, rgba(13,13,13,1) 24%, rgba(53,53,53,1) 49%, rgba(56,56,56,1) 68%, rgba(51,51,51,1) 76%, rgba(56,56,56,1) 87%, rgba(27,27,27,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(51,51,51,1)), color-stop(24%,rgba(13,13,13,1)), color-stop(49%,rgba(53,53,53,1)), color-stop(68%,rgba(56,56,56,1)), color-stop(76%,rgba(51,51,51,1)), color-stop(87%,rgba(56,56,56,1)), color-stop(100%,rgba(27,27,27,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left, rgba(51,51,51,1) 0%,rgba(13,13,13,1) 24%,rgba(53,53,53,1) 49%,rgba(56,56,56,1) 68%,rgba(51,51,51,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left, rgba(51,51,51,1) 0%,rgba(13,13,13,1) 24%,rgba(53,53,53,1) 49%,rgba(56,56,56,1) 68%,rgba(51,51,51,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%); /* Opera11.10+ */
+background: -ms-linear-gradient(left, rgba(51,51,51,1) 0%,rgba(13,13,13,1) 24%,rgba(53,53,53,1) 49%,rgba(56,56,56,1) 68%,rgba(51,51,51,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%); /* IE10+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#1b1b1b',GradientType=1 ); /* IE6-9 */
+background: linear-gradient(left, rgba(51,51,51,1) 0%,rgba(13,13,13,1) 24%,rgba(53,53,53,1) 49%,rgba(56,56,56,1) 68%,rgba(51,51,51,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%); /* W3C */
+	}
+
+	html{
+	  height: 100%;
+	  
+	}
+
+	input { 		
+	  padding: 8px; 
+	  background: #fff; 
+	  font-size: 14px; 
+	  color: #555; 
+	  border: 1px #ddd solid;
+	  /* -- CSS3 Shadow - create a shadow around each input element -- */ 
+	  -webkit-box-shadow: 0px 0px 4px #aaa;
+	  -moz-box-shadow: 0px 0px 4px #aaa; 
+	  box-shadow: 0px 0px 4px #aaa;
+ 
+	  /* -- CSS3 Transition - define what the transition will be applied to (i.e. the background) -- */		
+	  -webkit-transition: background 0.3s linear;
+	}
+
+	.playButton 
+	{
+	  font-family: Arial;
+      color: #ffffff;
+      font-size: 35px;
+      padding: 18px;
+      text-decoration: none;
+      
+      -webkit-border-radius: 17px;
+      -moz-border-radius: 17px;
+      -webkit-box-shadow: 4px 4px 16px #383638;
+      -moz-box-shadow: 4px 4px 16px #383638;
+      text-shadow: 1px 1px 4px #9e9e9e;
+      border: solid #636363 1px;
+      background: -webkit-gradient(linear, 0 0, 0 100%, from(#6e737a), to(#262626));
+      background: -moz-linear-gradient(top, #6e737a, #262626);
+      -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#6e737a, endColorStr=#262626);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#6e737a, endColorStr=#262626);
+      display:inline-block;
+
+	  
+	}
+
+	.playButton:hover 
+	{ 		
+	  background: -webkit-gradient(linear, 0 0, 0 100%, from(#7fa7c7), to(#4e6070));
+      background: -moz-linear-gradient(top, #7fa7c7, #4e6070);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#6e737a, endColorstr=#262626);
+      cursor:pointer;
+	}
+
+	input:hover 
+	{ 
+	  background: #eee; 
+	}
+	
+	a 
+	{
+	  color:#c9de96;
+	}
+
+	@font-face {
+	 /*font-family: serif;*/
+	  /*font-family: 'MadeWithBRegular';
+	  src: url('madewithb-webfont.eot');
+	  src: url('madewithb-webfont.eot?iefix') format('eot'),
+	  url('madewithb-webfont.woff') format('woff'),
+	  url('madewithb-webfont.ttf') format('truetype'),
+	  url('madewithb-webfont.svg#webfontL2V63zYC') format('svg');
+	  font-weight: normal;
+	  font-style: normal;*/
+
+	}
+
+	.heading
+	{
+	  font-family: 'MadeWithBRegular';
+	  font-size: 40px;
+	  text-align: center;
+	  width:100%;
+	  margin-left: 25%;
+	  margin-right: 25%;
+	}
+	
+	
+	.musicItemsTable
+	{
+		border: 0;
+		border-width: 0px;
+		padding: 0px 0px 0px 0px;
+		border-style: none;
+		cellpadding: 0px;
+		border-spacing: 0px;
+		width: 100%;
+	}
+	
+    .playColumn{
+    	width: 5%;
+    }
+    
+    .artistColumn{
+		width: 30%;
+    }
+    
+    .songColumn{
+		width: 45%;
+    }
+    
+    .albumColumn{
+		width: 20%;
+    }
+	
+	
+	.musicItemPlay
+	{
+		
+	}
+	
+	.musicItemSongName
+	{
+		overflow: hidden;
+		/*white-space: nowrap;*/
+	}
+	
+	.musicItemArtist
+	{
+		overflow: hidden;
+		/*white-space: nowrap;*/
+	}
+	
+	.musicItemAlbum
+	{
+		overflow: hidden;
+		/*white-space: nowrap;*/
+	}
+	
+	.musicItemsTable td
+	{
+		border: 0 none;
+		font-family: Arial;
+      color: #424242;
+      font-size: 20px;
+       text-shadow: 1px 1px 4px #9e9e9e;
+	}
+	
+	
+	
+	
+	.greenGradient
+	{
+		background: rgb(178,70,3); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(178,70,3,1) 0%, rgba(209,89,4,1) 45%, rgba(193,25,0,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(178,70,3,1)), color-stop(45%,rgba(209,89,4,1)), color-stop(100%,rgba(193,25,0,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(178,70,3,1) 0%,rgba(209,89,4,1) 45%,rgba(193,25,0,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(178,70,3,1) 0%,rgba(209,89,4,1) 45%,rgba(193,25,0,1) 100%); /* Opera11.10+ */
+background: -ms-linear-gradient(top, rgba(178,70,3,1) 0%,rgba(209,89,4,1) 45%,rgba(193,25,0,1) 100%); /* IE10+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b24603', endColorstr='#c11900',GradientType=0 ); /* IE6-9 */
+background: linear-gradient(top, rgba(178,70,3,1) 0%,rgba(209,89,4,1) 45%,rgba(193,25,0,1) 100%); /* W3C */
+	
+	}
+	
+	.selectedMusicItem
+	{
+	    background: #ebf1f6; /* Old browsers */
+        background: -moz-linear-gradient(top, #ebf1f6 0%, #abd3ee 50%, #89c3eb 51%, #d5ebfb 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ebf1f6), color-stop(50%,#abd3ee), color-stop(51%,#89c3eb), color-stop(100%,#d5ebfb)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #ebf1f6 0%,#abd3ee 50%,#89c3eb 51%,#d5ebfb 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #ebf1f6 0%,#abd3ee 50%,#89c3eb 51%,#d5ebfb 100%); /* Opera11.10+ */
+        background: -ms-linear-gradient(top, #ebf1f6 0%,#abd3ee 50%,#89c3eb 51%,#d5ebfb 100%); /* IE10+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebf1f6', endColorstr='#d5ebfb',GradientType=0 ); /* IE6-9 */
+        background: linear-gradient(top, #ebf1f6 0%,#abd3ee 50%,#89c3eb 51%,#d5ebfb 100%); /* W3C */
+	}
+	
+	.evenMusicItem
+	{
+	   width:100%;
+	    min-width:100%;
+        background: rgb(242,242,242); /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(242,242,242,1) 0%, rgba(247,247,247,1) 50%, rgba(242,242,242,1) 99%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(242,242,242,1)), color-stop(50%,rgba(247,247,247,1)), color-stop(99%,rgba(242,242,242,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(242,242,242,1) 0%,rgba(247,247,247,1) 50%,rgba(242,242,242,1) 99%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(242,242,242,1) 0%,rgba(247,247,247,1) 50%,rgba(242,242,242,1) 99%); /* Opera11.10+ */
+        background: -ms-linear-gradient(top, rgba(242,242,242,1) 0%,rgba(247,247,247,1) 50%,rgba(242,242,242,1) 99%); /* IE10+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */
+        background: linear-gradient(top, rgba(242,242,242,1) 0%,rgba(247,247,247,1) 50%,rgba(242,242,242,1) 99%); /* W3C */
+	}
+	
+	.oddMusicItem
+	{
+	    width:100%;
+	    min-width:100%;
+        background: rgb(226,226,226); /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(232,232,232,1) 49%, rgba(234,234,234,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(226,226,226,1)), color-stop(49%,rgba(232,232,232,1)), color-stop(100%,rgba(234,234,234,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(226,226,226,1) 0%,rgba(232,232,232,1) 49%,rgba(234,234,234,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(226,226,226,1) 0%,rgba(232,232,232,1) 49%,rgba(234,234,234,1) 100%); /* Opera11.10+ */
+        background: -ms-linear-gradient(top, rgba(226,226,226,1) 0%,rgba(232,232,232,1) 49%,rgba(234,234,234,1) 100%); /* IE10+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#eaeaea',GradientType=0 ); /* IE6-9 */
+        background: linear-gradient(top, rgba(226,226,226,1) 0%,rgba(232,232,232,1) 49%,rgba(234,234,234,1) 100%); /* W3C */
+	}
+	.currentlyPlayingMusicItem{
+		background: rgb(235,241,246); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(235,241,246,1) 0%, rgba(171,211,238,1) 50%, rgba(137,195,235,1) 51%, rgba(213,235,251,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(235,241,246,1)), color-stop(50%,rgba(171,211,238,1)), color-stop(51%,rgba(137,195,235,1)), color-stop(100%,rgba(213,235,251,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(235,241,246,1) 0%,rgba(171,211,238,1) 50%,rgba(137,195,235,1) 51%,rgba(213,235,251,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(235,241,246,1) 0%,rgba(171,211,238,1) 50%,rgba(137,195,235,1) 51%,rgba(213,235,251,1) 100%); /* Opera11.10+ */
+background: -ms-linear-gradient(top, rgba(235,241,246,1) 0%,rgba(171,211,238,1) 50%,rgba(137,195,235,1) 51%,rgba(213,235,251,1) 100%); /* IE10+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebf1f6', endColorstr='#d5ebfb',GradientType=0 ); /* IE6-9 */
+background: linear-gradient(top, rgba(235,241,246,1) 0%,rgba(171,211,238,1) 50%,rgba(137,195,235,1) 51%,rgba(213,235,251,1) 100%); /* W3C */
+	}
+	.blackGradient{
+		background: rgb(211,211,211); /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(211,211,211,1) 0%, rgba(243,243,243,1) 32%, rgba(214,214,214,1) 65%, rgba(211,211,211,1) 99%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(211,211,211,1)), color-stop(32%,rgba(243,243,243,1)), color-stop(65%,rgba(214,214,214,1)), color-stop(99%,rgba(211,211,211,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(211,211,211,1) 0%,rgba(243,243,243,1) 32%,rgba(214,214,214,1) 65%,rgba(211,211,211,1) 99%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(211,211,211,1) 0%,rgba(243,243,243,1) 32%,rgba(214,214,214,1) 65%,rgba(211,211,211,1) 99%); /* Opera11.10+ */
+        background: -ms-linear-gradient(top, rgba(211,211,211,1) 0%,rgba(243,243,243,1) 32%,rgba(214,214,214,1) 65%,rgba(211,211,211,1) 99%); /* IE10+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3d3d3', endColorstr='#d3d3d3',GradientType=0 ); /* IE6-9 */
+        background: linear-gradient(top, rgba(211,211,211,1) 0%,rgba(243,243,243,1) 32%,rgba(214,214,214,1) 65%,rgba(211,211,211,1) 99%); /* W3C */
+	}
+
+div.jp-audio{
+	/* Edit the font-size to counteract inherited font sizing.
+	* Eg. 1.25em = 1 / 0.8em
+	*/
+	font-size:1.25em;
+	font-family:Verdana, Arial, sans-serif;
+	line-height:1.6;
+	color: #666;
+}
+
+div.jp-audio {
+	width:420px;
+}
+
+div.jp-interface {
+	position: relative;
+	background-color:#eee;
+	width:418px; 
+	border:1px solid #009be3;
+}
+div.jp-audio div.jp-type-single div.jp-interface {
+	height:80px;
+	border-bottom:none;
+}
+div.jp-audio div.jp-type-playlist div.jp-interface {
+	height:80px;
+}
+
+div.jp-interface ul.jp-controls {
+	list-style-type:none;
+	padding:0;
+	margin: 0;
+}
+div.jp-interface ul.jp-controls li {
+	/* position: absolute; */
+	display:inline;
+}
+div.jp-interface ul.jp-controls a {
+	position: absolute;
+	overflow:hidden;
+	text-indent:-9999px;
+}
+a.jp-play,
+a.jp-pause {
+	width:40px;
+	height:40px;
+	z-index:1;
+}
+div.jp-audio div.jp-type-single a.jp-play,
+div.jp-audio div.jp-type-single a.jp-pause {
+	top:20px;
+	left:40px;
+}
+div.jp-audio div.jp-type-playlist a.jp-play,
+div.jp-audio div.jp-type-playlist a.jp-pause {
+	top:20px;
+	left:48px;
+}
+
+a.jp-play {
+	background: url("/html/css/jplayer.blue.monday.jpg") 0 0 no-repeat;
+}
+a.jp-play:hover {
+	background: url("/html/css/jplayer.blue.monday.jpg") -41px 0 no-repeat;
+}
+a.jp-pause {
+	background: url("/html/css/jplayer.blue.monday.jpg") 0 -42px no-repeat;
+	display: none;
+}
+a.jp-pause:hover {
+	background: url("/html/css/jplayer.blue.monday.jpg") -41px -42px no-repeat;
+}
+div.jp-audio div.jp-type-single a.jp-stop {
+	top:26px;
+	left:90px;
+}
+div.jp-audio div.jp-type-playlist a.jp-stop {
+	top:26px;
+	left:126px;
+}
+
+a.jp-stop {
+	background: url("/html/css/jplayer.blue.monday.jpg") 0 -83px no-repeat;
+	width:28px;
+	height:28px;
+	z-index:1;
+}
+a.jp-stop:hover {
+	background: url("/html/css/jplayer.blue.monday.jpg") -29px -83px no-repeat;
+}
+div.jp-audio div.jp-type-playlist a.jp-previous {
+	left:20px;
+	top:26px;
+}
+
+a.jp-previous {
+background: url("/html/css/jplayer.blue.monday.jpg") 0 -112px no-repeat;
+width:28px;
+height:28px;
+}
+a.jp-previous:hover {
+background: url("/html/css/jplayer.blue.monday.jpg") -29px -112px no-repeat;
+}
+div.jp-audio div.jp-type-playlist a.jp-next {
+	left:88px;
+	top:26px;
+}
+
+a.jp-next {
+background: url("/html/css/jplayer.blue.monday.jpg") 0 -141px no-repeat;
+width:28px;
+height:28px;
+}
+a.jp-next:hover {
+background: url("/html/css/jplayer.blue.monday.jpg") -29px -141px no-repeat;
+}
+div.jp-progress {
+position: absolute;
+overflow:hidden;
+background-color: #ddd;
+}
+div.jp-audio div.jp-type-single div.jp-progress {
+top:32px;
+left:130px;
+width:122px;
+height:15px;
+}
+div.jp-audio div.jp-type-playlist div.jp-progress {
+top:32px;
+left:164px;
+width:122px;
+height:15px;
+}
+
+div.jp-seek-bar {
+background: url("/html/css/jplayer.blue.monday.jpg") 0 -202px repeat-x;
+width:0px;
+height:15px; 
+/*height:100%;*/
+cursor: pointer;
+}
+div.jp-play-bar {
+background: url("/html/css/jplayer.blue.monday.jpg") 0 -218px repeat-x ;
+width:0px;
+height:15px; 
+/*height:100%;*/
+}
+/* The seeking class is added/removed inside jPlayer */
+div.jp-seeking-bg {
+background: url("pbar-ani.gif");
+}
+a.jp-mute,
+a.jp-unmute {
+width:18px;
+height:15px;
+}
+div.jp-audio div.jp-type-single a.jp-mute,
+div.jp-audio div.jp-type-single a.jp-unmute {
+top:32px;
+left:274px;
+}
+div.jp-audio div.jp-type-playlist a.jp-mute,
+div.jp-audio div.jp-type-playlist a.jp-unmute {
+top:32px;
+left:296px;
+}
+
+a.jp-mute {
+background: url("/html/css/jplayer.blue.monday.jpg") 0 -186px no-repeat;
+}
+a.jp-mute:hover {
+background: url("/html/css/jplayer.blue.monday.jpg") -19px -170px no-repeat;
+}
+a.jp-unmute {
+background: url("/html/css/jplayer.blue.monday.jpg") 0 -170px no-repeat;
+display: none;
+}
+a.jp-unmute:hover {
+background: url("/html/css/jplayer.blue.monday.jpg") -19px -186px no-repeat;
+}
+div.jp-volume-bar {
+position: absolute;
+overflow:hidden;
+background: url("/html/css/jplayer.blue.monday.jpg") 0 -250px repeat-x;
+width:46px;
+height:5px;
+cursor: pointer;
+}
+div.jp-audio div.jp-type-single div.jp-volume-bar {
+top:37px;
+left:302px;
+}
+div.jp-audio div.jp-type-playlist div.jp-volume-bar {
+top:37px;
+left:324px;
+}
+
+div.jp-volume-bar-value {
+background: url("/html/css/jplayer.blue.monday.jpg") 0 -256px repeat-x;
+width:0px;
+height:5px;
+}
+div.jp-current-time,
+div.jp-duration {
+position: absolute;
+font-size:.64em;
+font-style:oblique;
+}
+div.jp-duration {
+text-align: right;
+}
+div.jp-audio div.jp-type-single div.jp-current-time,
+div.jp-audio div.jp-type-single div.jp-duration {
+top:49px;
+left:130px;
+width:122px;
+}
+div.jp-audio div.jp-type-playlist div.jp-current-time,
+div.jp-audio div.jp-type-playlist div.jp-duration {
+top:49px;
+left:164px;
+width:122px;
+}
+
+div.jp-playlist {
+width:418px; 
+background-color:#ccc;
+border:1px solid #009be3;
+border-top:none;
+}
+div.jp-playlist ul {
+list-style-type:none;
+margin:0;
+padding:0 20px;
+/* background-color:#ccc; */
+/* border:1px solid #009be3; */
+/* border-top:none; */
+/* width:378px; */
+font-size:.72em;
+}
+div.jp-type-single div.jp-playlist li {
+padding:5px 0 5px 20px;
+font-weight:bold;
+}
+div.jp-type-playlist div.jp-playlist li {
+padding:5px 0 4px 20px;
+border-bottom:1px solid #eee;
+}
+/*
+div.jp-video div.jp-playlist li {
+padding:5px 0 5px 20px;
+font-weight:bold;
+}
+*/
+div.jp-type-playlist div.jp-playlist li.jp-playlist-last {
+padding:5px 0 5px 20px;
+border-bottom:none;
+}
+div.jp-type-playlist div.jp-playlist li.jp-playlist-current {
+list-style-type:square;
+list-style-position:inside;
+padding-left:8px;
+}
+div.jp-type-playlist div.jp-playlist a {
+color: #666;
+text-decoration: none;
+}
+div.jp-type-playlist div.jp-playlist a:hover {
+color:#0d88c1;
+}
+div.jp-type-playlist div.jp-playlist a.jp-playlist-current {
+color:#0d88c1;
+}
+div.jp-type-playlist div.jp-playlist div.jp-free-media {
+display:inline;
+margin-left:20px;
+}
+div.jp-video div.jp-video-play {
+background: transparent url("jplayer.blue.monday.video.play.png") no-repeat center;
+/* position: relative; */
+position: absolute;
+cursor:pointer;
+z-index:2;
+}
+
+div.jp-jplayer {
+width:0px;
+height:0px;
+}
+
+div.jp-jplayer {
+background-color: #000000;
+} 
+      </style>
+      
+      
+      <script type="text/javascript" src="/html/scripts/jqueryMin.js"></script>
+      <script type="text/javascript" src="/html/scripts/underscore-min.js"></script>
+      <script type="text/javascript" src="/html/scripts/jquery.jplayer.min.js"></script>
+      
+      <script type="text/javascript">
+      	
+      	function closureTestOne(){
+      		var memoization = [];
+      		memoization.push(1);
+      	}
+      	
+      	
+      	
+      	
+      	//===============  music player  ===================================================================================================
+      	//var audioCheck = document.createElement('audio');
+      	var musicItemsPlayer = {
+      		options: 0,
+      		//supportsAudioTag : !!(audioCheck.canPlayType) && !!(audioCheck.canPlayType("audio/mpeg")),
+      		trArray: 0, //all the trs
+      		areAnyRowsHidden: false, //optimize filtering
+      		currentMatchingItems : 0,//this will be updated every time search criteria changes
+      		displayTableRowsInGroupsOf : 100,
+      		currentMatchingItemsNextStartIndex : 0,
+      		tableTemplateFunction: 0, //points to underscore.js generated function
+      		trTemplateFunction: 0, //points to underscore.js generated function
+      		$musicItemsTableContainer : 0,
+      		$musicItemsTableBody : 0,
+      		$jPlayer : 0,
+      		currentPlayingSongId : 0,
+      		init: function(options){
+      			var defaultOptions = {
+	      			playButtonClickHandler : this.playButtonClickHandler,
+	      			searchBoxOnChangeHandler : this.searchBoxOnChangeHandler,
+	      			searchBoxKeyPressHandler : this.searchBoxKeyPressHandler,
+	      			$musicControls : $('#musicControls'),
+	      			$searchResult : $('#searchResult')
+	      		};
+	      		
+	      		this.options = defaultOptions;
+	      		
+      			//listen for the play button click. call on the appropriate handler.
+		      	$("body").delegate('.playButton', 'click', this.options.playButtonClickHandler);
+		      	
+		      	//listen for search input box changes, so we can filter the 
+		      	this.trArray = document.getElementsByTagName('tr');
+		      	
+		      	$(window).scroll(musicItemsPlayer.scrollHandler);
+		      	
+		      	this.currentMatchingItems = this.musicItems;//for scrolling
+		      	
+		      	//add binary searching for matchingItems array
+		      	Array.prototype.binarySearchMatchingItems = function(musicItemId){
+		      		if(musicItemId == undefined || musicItemId == '')
+		      			return -1;
+		      			
+		      		var high = this.length -1;
+		      		var low = 0;
+		      		var mid = 0;
+		      		var potentialMatch = 0;
+		      		
+		      		while(low <= high){
+		      			mid = Math.floor((low + high) / 2);
+		      			//if(this[mid] == undefined)
+		      				//alert(mid);
+		      			potentialMatch = this[mid].id;//musicItem.id
+		      			if(potentialMatch > musicItemId){
+		      				high = mid - 1; 
+		      			}else if(potentialMatch < musicItemId){
+		      				low = mid + 1;
+		      			}else{
+		      				return mid;
+		      			}
+		      		}//end while
+		      		
+		      		return -1;
+		      	};
+		      	
+		      	
+		      	
+		      	//get text of trTemplate
+	      		var tableTemplateText = document.getElementById('tableTemplate').innerHTML;//$("#tableTemplate").text(); <fuck you ie bitch
+	      		tableTemplateText = tableTemplateText.replace(/<_/gi, "<").replace(/%_/gi,"%");//get rid of bad symbols / hack to bypass grasshopper rendering.
+	      		
+	      		//generate and render the template
+	      		this.tableTemplateFunction = _.template(tableTemplateText);
+		      	
+		      	//get text of trTemplate
+	      		var trTemplateText = document.getElementById('trTemplate').innerHTML;//$("#trTemplate").text();
+	      		trTemplateText = trTemplateText.replace(/<_/gi, "<").replace(/%_/gi,"%");//get rid of bad symbols / hack to bypass grasshopper rendering.
+	      		
+	      		//generate the function we will use to render the template.
+	      		this.trTemplateFunction = _.template(trTemplateText);
+		      	
+		      	//now we can create the table
+		      	var musicItems = musicItemsPlayer.musicItems.slice(0, this.displayTableRowsInGroupsOf);
+		      	
+		      	this.$musicItemsTableContainer = $("#musicItemsTableContainer");
+		      	
+      			this.displaySomeMusicItems(musicItems, true);
+		      	
+		      	//now we can hold reference to the body
+		      	this.$musicItemsTableBody = $("#musicItemsTableBody");
+		      	this.musicItemsTableBody = document.getElementById("musicItemsTableBody");
+		      	
+		      	//initialize the jplayer music player
+		      	$('#musicControls').jPlayer({
+		      	//this.$jPlayer = $('#musicControls').jPlayer;
+		      	//this.$jPlayer({
+					  ready: function () {
+					   //$(this).jPlayer("setMedia", {
+					    //m4a: "/media/mysound.mp4",
+					    //oga: "/media/mysound.ogg"
+					   //});
+					  },
+					  ended: function (event) {
+						musicItemsPlayer.songHasEndedHandler(event);
+					  },
+					  swfPath: "/html/scripts",
+					  supplied: "mp3"
+					 });
+		      	
+		      	
+		      	
+		      	$("body")
+		      		.delegate('#searchBoxInput', 'keyup', this.options.searchBoxOnChangeHandler)
+		      		.delegate('#searchBoxInput', 'change', this.options.searchBoxOnChangeHandler);
+		      	
+	      	}, //end init
+	      	scrollHandler : function(){
+	      		var scrollTop = $("body").scrollTop();
+	      		var windowHeight = $(window).height();
+	      		var documentHeight = $(document).height();
+	      		
+	      		//musicItemsPlayer.options.$searchResult.html("scroll top: " + scrollTop + "   window Height: " + windowHeight); //+ "   document height: " + documentHeight);
+	      		console.log("scroll top: " + scrollTop + "   window Height: " + windowHeight + "   document height: " + documentHeight);
+	      		
+	      		var calculation = scrollTop + windowHeight + 100;
+	      		if(calculation > documentHeight){
+	      			//console.log("close " + calculation);
+	      			
+	      			if(musicItemsPlayer.currentMatchingItems.length){
+						
+						//only calculate and display if there is more to display
+						if(musicItemsPlayer.currentMatchingItemsNextStartIndex + musicItemsPlayer.displayTableRowsInGroupsOf <= musicItemsPlayer.currentMatchingItems.length){
+						
+							//calculate new batch
+							musicItemsPlayer.currentMatchingItemsNextStartIndex += musicItemsPlayer.displayTableRowsInGroupsOf;//we must calculate first to avoid duplicates on first scroll down event.
+		      				var batchToDisplay = musicItemsPlayer.currentMatchingItems.slice(musicItemsPlayer.currentMatchingItemsNextStartIndex, musicItemsPlayer.currentMatchingItemsNextStartIndex + musicItemsPlayer.displayTableRowsInGroupsOf);
+		      				
+		      				//console.log('next start index : ' + musicItemsPlayer.currentMatchingItemsNextStartIndex);
+		      				
+		      				//display new batch by appending them to existing table
+		      				musicItemsPlayer.displaySomeMusicItems(batchToDisplay, false);
+	      				}
+	      			}
+	      		}
+	      		
+	      	},
+	      	searchBoxOnChangeHandler : function(){
+	      		//get the current text for the search
+	      		var searchCriteria = this.value;
+	      		
+	      		var matchingItems = musicItemsPlayer.searchForMusicItems(searchCriteria);
+	      		if(matchingItems == undefined) matchingItems = {length: 0};
+	      		musicItemsPlayer.options.$searchResult.html(matchingItems.length);//let user know how many items have been found
+	      		
+	      		//keep track of matching items so we can do things like support scrolling auto load.
+	      		musicItemsPlayer.currentMatchingItems = matchingItems;
+	      		
+	      		//reset counter
+	      		musicItemsPlayer.currentMatchingItemsNextStartIndex = 0;
+	      		
+	      		musicItemsPlayer.displaySearchResult(matchingItems);
+	      			
+	      	},
+	      	displaySearchResult : function(matchingItems){
+	      		//only allow 100 items to be displayed at firs
+	      		if(matchingItems.length > this.displayTableRowsInGroupsOf){
+	      			matchingItems = matchingItems.slice(0, this.displayTableRowsInGroupsOf);
+	      		}
+	      		this.displaySomeMusicItems(matchingItems, true);//clear out and then display.
+	      	},
+	      	searchForMusicItems : function(searchCriteria){
+	      		var matchingItems = new Array();
+	      		//iterate over each item
+	      		for(var i = 0; i < musicItemsPlayer.musicItems.length; ++i){
+	      			var potentialItem = musicItemsPlayer.musicItems[i];
+	      			
+	      			if(potentialItem.fullPath.indexOf(searchCriteria) >= 0){ //<-- not case sensitive. fix it on the server!
+	      			//if(potentialItem.fullPath.match(new RegExp(searchCriteria, "i"))){  //<-- slowest
+	      			//if(potentialItem.fullPath.toLowerCase().indexOf(searchCriteria) >= 0){ //<-- slow
+	      				matchingItems.push(potentialItem);
+	      			}
+	      		
+	      		}
+	      		
+	      		return matchingItems;
+	      	},
+	      	playButtonClickHandler : function(){
+	      		//'this' will be the div with the attribute 'data-musicItemId'
+	      		var $this = $(this);
+	      		
+	      		var songId = $this.attr('data-musicItemId');
+	      		
+	      		musicItemsPlayer.playMusicItem(songId);
+	      	},
+	      	playMusicItem : function(songId){
+	      		
+	      		//remove the class from any playing items
+	      		$('#musicItem_' + this.currentPlayingSongId).removeClass('currentlyPlayingMusicItem');
+	      		
+	      		//add the css class .currentlyPlayingMusicItem
+	      		$('#musicItem_' + songId).addClass('currentlyPlayingMusicItem');
+	      		
+	      		this.currentPlayingSongId = songId;
+	      		$('#musicControls').jPlayer("setMedia", {
+	      			mp3: '/getSong?songId='+songId
+	      		});
+				$('#musicControls').jPlayer("play");
+	      	},
+	      	songHasEndedHandler : function(e){
+	      		//alert('song is over ' + e.data.finishedSongId);
+	      		var potentialNextSongId = musicItemsPlayer.currentPlayingSongId;//e.data.finishedSongId;
+	      		musicItemsPlayer.songHasEnded(potentialNextSongId);
+	      		
+	      	},
+	      	songHasEnded : function(songId){
+	      		//this won't work. you need to binary search current matchingItems. it can tell you if your id surpasses the id of the last item.
+	      		//var $potentialTr = $('#musicItem_'+songId);
+	      		
+	      		if(this.currentMatchingItems == undefined || this.currentMatchingItems == 0 || this.currentMatchingItems.length <=0){
+	      			alert('no more matching items to play');
+	      			return;
+	      		}
+	      			
+	      		var songWhichEndedIndex = -1;
+	      		//find index of current song in matching items. 
+	      		for(var i = 0; i < this.currentMatchingItems.length; ++i){
+	      			var matchingItem = this.currentMatchingItems[i];
+	      			if(matchingItem.id == songId){
+	      				//we found the song that just ended.
+	      				songWhichEndedIndex = i;
+	      				break;
+	      			}
+	      		}
+	      		
+	      		console.log('songWhichEndedIndex : ' + songWhichEndedIndex);
+	      		if(songWhichEndedIndex < 0)
+	      			return;
+	      			
+	      		//increase index by 1 and get and play the song.
+	      		var nextIndex = songWhichEndedIndex + 1;
+	      		
+	      		//see if we're at the end of the list.
+	      		if(nextIndex >= this.currentMatchingItems.length)
+	      			return;
+	      		
+	      		var nextMusicItemToPlay = this.currentMatchingItems[nextIndex];
+	      		
+	      		console.log('next music item to play : ' + nextMusicItemToPlay.id);
+	      		this.playMusicItem(nextMusicItemToPlay.id);
+	      		
+	      	},
+	      	displaySomeMusicItems : function(musicItems, shouldClearFirst){
+	      		
+	      		
+	      		//append or replace with the results
+	      		if(shouldClearFirst){
+		      		var tableHtml = this.tableTemplateFunction({'musicItems':musicItems});
+	      			this.$musicItemsTableContainer.html(tableHtml);
+		      		this.$musicItemsTableBody = $("#musicItemsTableBody");//reset reference since we have recreated the table.
+		      		//this.musicItemsTableBody = document.getElementById("musicItemsTableBody");
+	      		}else{
+	      		
+		      		var trHtml = this.trTemplateFunction({'musicItems':musicItems});
+		      		
+	      			this.$musicItemsTableBody.append(trHtml);
+	      			//this.musicItemsTableBody = document.getElementById("musicItemsTableBody");
+	      			//this.musicItemsTableBody.innerHtml = this.musicItemsTableBody.innerHtml.replace('undefined', '') + trHtml;
+	      		}
+	      	},
+	      	musicItems : [ <%for (var i in musicItems) { var musicItem = musicItems[i];%><%h JSON.stringify(musicItem) %> <% if(i < musicItems.length - 1){%>, <%}}%>]
+	      	
+      	};
+      	
+      	//===============  searchBox  ===================================================================================================
+      	
+      	$(document).ready(function(){
+      		musicItemsPlayer.init();
+      		//musicItemsPlayer.recreateMusicControl('nothing.mp3');
+      		
+      	});
+
+      </script>
+      
+      <script id="tableTemplate" type="text/html">
+      	<table id="musicItemsTable" class="musicItemsTable blackGradient">
+			<col class="playColumn" />
+			<col class="artistColumn" />
+  			<col class="songColumn" />
+  			<col class="albumColumn" />
+			<thead>
+				<tr>
+					<th></th><th>Artist</th><th>Song</th><th>Album</th>
+				</tr>
+			</thead>
+			<tbody id="musicItemsTableBody"><_% for (var i in musicItems) { 
+					var musicItem = musicItems[i];
+					var rowClass = i%2 == 0 ? "evenMusicItem" : "oddMusicItem";
+					%_>
+		  			<tr id="musicItem_<_%=musicItem.id%_>" class="musicItemsTableRow <_%=rowClass%_>">
+		    			<td class="musicItemPlay"><button type="button" class="playButton" data-musicItemId="<_%=musicItem.id%_>"> Play </button></td>
+		    			<td class="musicItemArtist"><_%=musicItem.artist%_></td>
+		    			<td class="musicItemSongName"><_%=musicItem.songName%_></td>
+		    			<td class="musicItemAlbum"><_%=musicItem.album%_></td>
+		  			</tr><_%}%_>
+			</tbody>
+		</table>
+      </script>
+      
+      <script id="trTemplate" type="text/html">
+		<_%
+		 if(musicItems.length <= 0){return;}
+		 for (var i = 0; i < musicItems.length; ++i) { 
+					var musicItem = musicItems[i];
+                    var rowClass = i%2 == 0 ? "evenMusicItem" : "oddMusicItem";
+					%_>
+		  			<tr id="musicItem_<_%=musicItem.id%_>" class="musicItemsTableRow <_%=rowClass%_>">
+		    			<td class="musicItemPlay"><button type="button" class="playButton" data-musicItemId="<_%=musicItem.id%_>"> Play </button></td>
+		    			<td class="musicItemArtist"><_%=musicItem.artist%_></td>
+		    			<td class="musicItemSongName"><_%=musicItem.songName%_></td>
+		    			<td class="musicItemAlbum"><_%=musicItem.album%_></td>
+		  			</tr><_%}%_>
+      </script>
+  </head>
+  <body>
+
+	<div class="floatingTopBox">
+		
+		<div class="audioPlayerContainer">
+			<div class="jp-audio">
+				<div class="jp-type-single">
+					<div id="jp_interface_1" class="jp-interface">
+		
+						<ul class="jp-controls">
+							<li><a href="#" class="jp-play" tabindex="1">play</a></li>
+							<li><a href="#" class="jp-pause" tabindex="1">pause</a></li>
+							<li><a href="#" class="jp-stop" tabindex="1">stop</a></li>
+							<li><a href="#" class="jp-mute" tabindex="1">mute</a></li>
+							<li><a href="#" class="jp-unmute" tabindex="1">unmute</a></li>
+		
+						</ul>
+						<div class="jp-progress">
+							<div class="jp-seek-bar">
+								<div class="jp-play-bar"></div>
+							</div>
+						</div>
+						<div class="jp-volume-bar">
+							<div class="jp-volume-bar-value"></div>
+						</div>
+		
+						<div class="jp-current-time"></div>
+						<div class="jp-duration"></div>
+					</div>
+					<!--			<div id="jp_playlist_1" class="jp-playlist">-->
+					<!--				<ul>-->
+					<!--					<li>Bubble</li>-->
+					<!--				</ul>-->
+					<!--			</div>-->
+		
+				</div>
+			</div>
+		</div>
+
+	     <div id="searchBox" class="searchBox greenGradient">
+	<!--     	<label for="searchBoxInput">Search</label>-->
+	     	<input id="searchBoxInput" placeholder="search"/>
+	     	<span id="searchResult"><%=musicItems.length%></span>
+	     </div> 
+	     
+	     <div style="clear:both;"></div>
+	</div><!-- end floatingTopBox -->
+	
+    
+   <div id="mainContainer" class="mainContainer">
+<!--     <span class="heading">Music</span>-->
+
+
+	<div id="musicControls" class="musicControls">
+	</div>
+     
+     <br/>
+     <br/>
+     <br/>
+     
+	
+	<div id="musicItemsTableContainer">
+	</div>
+	
+
+   </div>
+
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- backup on 8/18 . just put css3 orange and grey -->
+<html>
+  <head>
+      <title>Node Music</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=9" />
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+      <style type="text/css">
+
+	.searchBox{
+		padding: 20px 20px 20px 20px;
+		width: 60%;
+		border: 1px solid black;
+	  -moz-border-radius: 25px 1px 10px 0px;
+	  -webkit-border-top-right-radius: 1px;
+	  -webkit-border-bottom-right-radius: 10px;
+	  -webkit-border-bottom-left-radius: 0px;
+	  border-radius: 25px 1px 10px 0px;
+
+	  
+	  
+	  -webkit-box-shadow: 8px 8px 10px #333333;
+	  -moz-box-shadow:8px 8px 10px #333333;
+	  box-shadow:8px 8px 10px #333333;
+	}
+	
+	.searchBox label{
+		width:60px; 
+	  border: 1px solid gray;
+	  padding: 8px;
+	  -moz-border-radius: 0px 1px 0px 20px;
+	  -webkit-border-top-right-radius: 1px;
+	  -webkit-border-bottom-right-radius: 0px;
+	  -webkit-border-bottom-left-radius: 20px;
+	  border-radius: 0px 1px 0px 20px;
+
+	  /* -- CSS3 Shadow - create a shadow around each input element -- */ 
+	  -webkit-box-shadow: 0px 0px 4px #aaa;
+	  -moz-box-shadow: 0px 0px 4px #aaa; 
+	  box-shadow: 0px 0px 4px #aaa;
+ 
+	  /* -- CSS3 Transition - define what the transition will be applied to (i.e. the background) -- */		
+	  -webkit-transition: background 0.3s linear;
+
+
+	  background: #E3E9F2; /* old browsers */
+	  background: -moz-linear-gradient(top, #E3E9F2 0%, #ABC0C9 100%); /* firefox */
+	  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E3E9F2), color-stop(100%,#ABC0C9)); /* webkit */
+	  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E3E9F2', endColorstr='#ABC0C9',GradientType=0 ); /* ie */
+	}
+	
+	.searchBox input{
+		width:60%;
+	}
+	
+	.musicControls{
+		width:40%;
+		margin-top: 10px;
+
+	}
+	
+	.pluginMusicItemsPlayer{
+				max-height: 60px;
+		background: gray;
+		background: transparent;
+	}
+	
+	.downloadFileAsInputContainer{
+	  
+	  
+	}
+	
+	.downloadFileAsInputContainer input{
+	  width:100%;
+	
+	}
+
+	  
+	.inputsContainer {
+	  border: 1px solid black;
+	  -moz-border-radius: 25px 1px 10px 0px;
+	  -webkit-border-top-right-radius: 1px;
+	  -webkit-border-bottom-right-radius: 10px;
+	  -webkit-border-bottom-left-radius: 0px;
+	  border-radius: 25px 1px 10px 0px;
+
+	  
+	  
+	  -webkit-box-shadow: 8px 8px 10px #333333;
+	  -moz-box-shadow:8px 8px 10px #333333;
+	  box-shadow:8px 8px 10px #333333;
+
+	  padding:20px 10px 20px 10px;
+	  width: 80%;
+	  min-width: 190px;
+	  margin-left: 5%;
+	  margin-top:5%;
+	  
+		background: rgb(140,140,140); /* Old browsers */
+		background: -moz-linear-gradient(left, rgba(140,140,140,1) 0%, rgba(160,160,160,1) 47%, rgba(150,150,150,1) 69%, rgba(155,155,155,1) 86%, rgba(150,150,150,1) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(140,140,140,1)), color-stop(47%,rgba(160,160,160,1)), color-stop(69%,rgba(150,150,150,1)), color-stop(86%,rgba(155,155,155,1)), color-stop(100%,rgba(150,150,150,1))); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(left, rgba(140,140,140,1) 0%,rgba(160,160,160,1) 47%,rgba(150,150,150,1) 69%,rgba(155,155,155,1) 86%,rgba(150,150,150,1) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(left, rgba(140,140,140,1) 0%,rgba(160,160,160,1) 47%,rgba(150,150,150,1) 69%,rgba(155,155,155,1) 86%,rgba(150,150,150,1) 100%); /* Opera11.10+ */
+		background: -ms-linear-gradient(left, rgba(140,140,140,1) 0%,rgba(160,160,160,1) 47%,rgba(150,150,150,1) 69%,rgba(155,155,155,1) 86%,rgba(150,150,150,1) 100%); /* IE10+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8c8c8c', endColorstr='#969696',GradientType=1 ); /* IE6-9 */
+		background: linear-gradient(left, rgba(140,140,140,1) 0%,rgba(160,160,160,1) 47%,rgba(150,150,150,1) 69%,rgba(155,155,155,1) 86%,rgba(150,150,150,1) 100%); /* W3C */
+	  
+	}
+
+	
+
+	body
+	{
+	  height: 100%;
+	  margin: 0px;
+	  background-repeat: none;
+	  
+	  
+	  background: rgb(51,51,51); /* Old browsers */
+background: -moz-linear-gradient(left, rgba(51,51,51,1) 0%, rgba(13,13,13,1) 24%, rgba(53,53,53,1) 49%, rgba(56,56,56,1) 68%, rgba(51,51,51,1) 76%, rgba(56,56,56,1) 87%, rgba(27,27,27,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(51,51,51,1)), color-stop(24%,rgba(13,13,13,1)), color-stop(49%,rgba(53,53,53,1)), color-stop(68%,rgba(56,56,56,1)), color-stop(76%,rgba(51,51,51,1)), color-stop(87%,rgba(56,56,56,1)), color-stop(100%,rgba(27,27,27,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left, rgba(51,51,51,1) 0%,rgba(13,13,13,1) 24%,rgba(53,53,53,1) 49%,rgba(56,56,56,1) 68%,rgba(51,51,51,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left, rgba(51,51,51,1) 0%,rgba(13,13,13,1) 24%,rgba(53,53,53,1) 49%,rgba(56,56,56,1) 68%,rgba(51,51,51,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%); /* Opera11.10+ */
+background: -ms-linear-gradient(left, rgba(51,51,51,1) 0%,rgba(13,13,13,1) 24%,rgba(53,53,53,1) 49%,rgba(56,56,56,1) 68%,rgba(51,51,51,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%); /* IE10+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#1b1b1b',GradientType=1 ); /* IE6-9 */
+background: linear-gradient(left, rgba(51,51,51,1) 0%,rgba(13,13,13,1) 24%,rgba(53,53,53,1) 49%,rgba(56,56,56,1) 68%,rgba(51,51,51,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%); /* W3C */
+	}
+
+	html{
+	  height: 100%;
+	  
+	}
+
+	input { 		
+	  padding: 8px; 
+	  background: #fff; 
+	  font-size: 14px; 
+	  color: #555; 
+	  border: 1px #ddd solid;
+	  /* -- CSS3 Shadow - create a shadow around each input element -- */ 
+	  -webkit-box-shadow: 0px 0px 4px #aaa;
+	  -moz-box-shadow: 0px 0px 4px #aaa; 
+	  box-shadow: 0px 0px 4px #aaa;
+ 
+	  /* -- CSS3 Transition - define what the transition will be applied to (i.e. the background) -- */		
+	  -webkit-transition: background 0.3s linear;
+	}
+
+	.playButton 
+	{
+	  font-family: Arial;
+      color: #ffffff;
+      font-size: 35px;
+      padding: 18px;
+      text-decoration: none;
+      -webkit-border-radius: 17px;
+      -moz-border-radius: 17px;
+      -webkit-box-shadow: 4px 4px 16px #383638;
+      -moz-box-shadow: 4px 4px 16px #383638;
+      text-shadow: 1px 1px 4px #9e9e9e;
+      border: solid #636363 1px;
+      background: -webkit-gradient(linear, 0 0, 0 100%, from(#6e737a), to(#262626));
+      background: -moz-linear-gradient(top, #6e737a, #262626);
+      -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#6e737a, endColorStr=#262626);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#6e737a, endColorStr=#262626);
+      display:inline-block;
+
+	  
+	}
+
+	.playButton:hover 
+	{ 		
+	  background: -webkit-gradient(linear, 0 0, 0 100%, from(#7fa7c7), to(#4e6070));
+      background: -moz-linear-gradient(top, #7fa7c7, #4e6070);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#6e737a, endColorstr=#262626);
+      cursor:pointer;
+	}
+
+	input:hover 
+	{ 
+	  background: #eee; 
+	}
+	
+	a 
+	{
+	  color:#c9de96;
+	}
+
+	@font-face {
+	 /*font-family: serif;*/
+	  /*font-family: 'MadeWithBRegular';
+	  src: url('madewithb-webfont.eot');
+	  src: url('madewithb-webfont.eot?iefix') format('eot'),
+	  url('madewithb-webfont.woff') format('woff'),
+	  url('madewithb-webfont.ttf') format('truetype'),
+	  url('madewithb-webfont.svg#webfontL2V63zYC') format('svg');
+	  font-weight: normal;
+	  font-style: normal;*/
+
+	}
+
+	.heading
+	{
+	  font-family: 'MadeWithBRegular';
+	  font-size: 40px;
+	  text-align: center;
+	  width:100%;
+	  margin-left: 25%;
+	  margin-right: 25%;
+	}
+	
+	
+	.musicItemsTable
+	{
+		border: 0;
+		border-width: 0px;
+		padding: 0px 0px 0px 0px;
+		border-style: none;
+		cellpadding: 0px;
+		border-spacing: 0px;
+		table-layout: fixed;
+	}
+	
+	.musicItemPlay
+	{
+		width: 10%;
+		min-width: 10%;
+		max-width: 10%;
+	}
+	
+	.musicItemSong
+	{
+		width: 40%;
+		min-width: 40%;
+		max-width: 40%;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+	
+	.musicItemArtist
+	{
+		width: 30%;
+		min-width: 30%;
+		max-width: 30%;
+		overflow: hidden;
+				white-space: nowrap;
+	}
+	
+	.musicItemAlbum
+	{
+		width: 20%;
+		min-width: 20%;
+		max-width: 20%;
+		overflow: hidden;
+				white-space: nowrap;
+	}
+	
+	.musicItemsTable td
+	{
+		border: 0 none;
+		font-family: Arial;
+      color: #424242;
+      font-size: 20px;
+       text-shadow: 1px 1px 4px #9e9e9e;
+	}
+	
+	.musicItemsTable td:hover
+	{
+		color: #ffffff;
+	}
+	
+	.musicItemsTable tr:hover
+	{
+		color: #ffffff;
+	}
+	
+	.musicItemsTableRow:hover
+	{
+	color: #ffffff;
+background: rgb(224,127,58); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(224,127,58,1) 1%, rgba(183,38,16,1) 46%, rgba(204,0,0,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(224,127,58,1)), color-stop(46%,rgba(183,38,16,1)), color-stop(100%,rgba(204,0,0,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(224,127,58,1) 1%,rgba(183,38,16,1) 46%,rgba(204,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(224,127,58,1) 1%,rgba(183,38,16,1) 46%,rgba(204,0,0,1) 100%); /* Opera11.10+ */
+background: -ms-linear-gradient(top, rgba(224,127,58,1) 1%,rgba(183,38,16,1) 46%,rgba(204,0,0,1) 100%); /* IE10+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e07f3a', endColorstr='#cc0000',GradientType=0 ); /* IE6-9 */
+background: linear-gradient(top, rgba(224,127,58,1) 1%,rgba(183,38,16,1) 46%,rgba(204,0,0,1) 100%); /* W3C */
+
+	}
+	
+	
+	.greenGradient
+	{
+		background: rgb(178,70,3); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(178,70,3,1) 0%, rgba(209,89,4,1) 45%, rgba(193,25,0,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(178,70,3,1)), color-stop(45%,rgba(209,89,4,1)), color-stop(100%,rgba(193,25,0,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(178,70,3,1) 0%,rgba(209,89,4,1) 45%,rgba(193,25,0,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(178,70,3,1) 0%,rgba(209,89,4,1) 45%,rgba(193,25,0,1) 100%); /* Opera11.10+ */
+background: -ms-linear-gradient(top, rgba(178,70,3,1) 0%,rgba(209,89,4,1) 45%,rgba(193,25,0,1) 100%); /* IE10+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b24603', endColorstr='#c11900',GradientType=0 ); /* IE6-9 */
+background: linear-gradient(top, rgba(178,70,3,1) 0%,rgba(209,89,4,1) 45%,rgba(193,25,0,1) 100%); /* W3C */
+	
+	}
+	
+	.selectedMusicItem
+	{
+	    background: #ebf1f6; /* Old browsers */
+        background: -moz-linear-gradient(top, #ebf1f6 0%, #abd3ee 50%, #89c3eb 51%, #d5ebfb 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ebf1f6), color-stop(50%,#abd3ee), color-stop(51%,#89c3eb), color-stop(100%,#d5ebfb)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #ebf1f6 0%,#abd3ee 50%,#89c3eb 51%,#d5ebfb 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #ebf1f6 0%,#abd3ee 50%,#89c3eb 51%,#d5ebfb 100%); /* Opera11.10+ */
+        background: -ms-linear-gradient(top, #ebf1f6 0%,#abd3ee 50%,#89c3eb 51%,#d5ebfb 100%); /* IE10+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebf1f6', endColorstr='#d5ebfb',GradientType=0 ); /* IE6-9 */
+        background: linear-gradient(top, #ebf1f6 0%,#abd3ee 50%,#89c3eb 51%,#d5ebfb 100%); /* W3C */
+	}
+	
+	.evenMusicItem
+	{
+	   width:100%;
+	    min-width:100%;
+        background: rgb(242,242,242); /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(242,242,242,1) 0%, rgba(247,247,247,1) 50%, rgba(242,242,242,1) 99%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(242,242,242,1)), color-stop(50%,rgba(247,247,247,1)), color-stop(99%,rgba(242,242,242,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(242,242,242,1) 0%,rgba(247,247,247,1) 50%,rgba(242,242,242,1) 99%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(242,242,242,1) 0%,rgba(247,247,247,1) 50%,rgba(242,242,242,1) 99%); /* Opera11.10+ */
+        background: -ms-linear-gradient(top, rgba(242,242,242,1) 0%,rgba(247,247,247,1) 50%,rgba(242,242,242,1) 99%); /* IE10+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */
+        background: linear-gradient(top, rgba(242,242,242,1) 0%,rgba(247,247,247,1) 50%,rgba(242,242,242,1) 99%); /* W3C */
+	}
+	
+	.oddMusicItem
+	{
+	    width:100%;
+	    min-width:100%;
+        background: rgb(226,226,226); /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(232,232,232,1) 49%, rgba(234,234,234,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(226,226,226,1)), color-stop(49%,rgba(232,232,232,1)), color-stop(100%,rgba(234,234,234,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(226,226,226,1) 0%,rgba(232,232,232,1) 49%,rgba(234,234,234,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(226,226,226,1) 0%,rgba(232,232,232,1) 49%,rgba(234,234,234,1) 100%); /* Opera11.10+ */
+        background: -ms-linear-gradient(top, rgba(226,226,226,1) 0%,rgba(232,232,232,1) 49%,rgba(234,234,234,1) 100%); /* IE10+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#eaeaea',GradientType=0 ); /* IE6-9 */
+        background: linear-gradient(top, rgba(226,226,226,1) 0%,rgba(232,232,232,1) 49%,rgba(234,234,234,1) 100%); /* W3C */
+	}
+	
+	.blackGradient{
+		background: rgb(211,211,211); /* Old browsers */
+        background: -moz-linear-gradient(top, rgba(211,211,211,1) 0%, rgba(243,243,243,1) 32%, rgba(214,214,214,1) 65%, rgba(211,211,211,1) 99%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(211,211,211,1)), color-stop(32%,rgba(243,243,243,1)), color-stop(65%,rgba(214,214,214,1)), color-stop(99%,rgba(211,211,211,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(211,211,211,1) 0%,rgba(243,243,243,1) 32%,rgba(214,214,214,1) 65%,rgba(211,211,211,1) 99%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, rgba(211,211,211,1) 0%,rgba(243,243,243,1) 32%,rgba(214,214,214,1) 65%,rgba(211,211,211,1) 99%); /* Opera11.10+ */
+        background: -ms-linear-gradient(top, rgba(211,211,211,1) 0%,rgba(243,243,243,1) 32%,rgba(214,214,214,1) 65%,rgba(211,211,211,1) 99%); /* IE10+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3d3d3', endColorstr='#d3d3d3',GradientType=0 ); /* IE6-9 */
+        background: linear-gradient(top, rgba(211,211,211,1) 0%,rgba(243,243,243,1) 32%,rgba(214,214,214,1) 65%,rgba(211,211,211,1) 99%); /* W3C */
+	}
+
+      </style>
+      
+      
+      <script type="text/javascript" src="/html/scripts/jqueryMin.js"></script>
+      <script type="text/javascript" src="/html/scripts/underscore-min.js"></script>
+      <script type="text/javascript">
+      	
+      	//===============  music player  ===================================================================================================
+      	var audioCheck = document.createElement('audio');
+      	var musicItemsPlayer = {
+      		options: 0,
+      		supportsAudioTag : !!(audioCheck.canPlayType) && !!(audioCheck.canPlayType("audio/mpeg")),
+      		trArray: 0, //all the trs
+      		areAnyRowsHidden: false, //optimize filtering
+      		currentMatchingItems : 0,//this will be updated every time search criteria changes
+      		displayTableRowsInGroupsOf : 100,
+      		currentMatchingItemsNextStartIndex : 0,
+      		tableTemplateFunction: 0, //points to underscore.js generated function
+      		trTemplateFunction: 0, //points to underscore.js generated function
+      		$musicItemsTableContainer : 0,
+      		$musicItemsTableBody : 0,
+      		init: function(options){
+      			var defaultOptions = {
+	      			playButtonClickHandler : this.playButtonClickHandler,
+	      			searchBoxOnChangeHandler : this.searchBoxOnChangeHandler,
+	      			searchBoxKeyPressHandler : this.searchBoxKeyPressHandler,
+	      			$musicControls : $('#musicControls'),
+	      			$searchResult : $('#searchResult')
+	      		};
+	      		
+	      		this.options = defaultOptions;
+	      		
+      			//listen for the play button click. call on the appropriate handler.
+		      	$("body").delegate('.playButton', 'click', this.options.playButtonClickHandler);
+		      	
+		      	//listen for search input box changes, so we can filter the 
+		      	this.trArray = document.getElementsByTagName('tr');
+		      	
+		      	$(window).scroll(musicItemsPlayer.scrollHandler);
+		      	
+		      	this.currentMatchingItems = this.musicItems;//for scrolling
+		      	
+		      	//add binary searching for matchingItems array
+		      	Array.prototype.binarySearchMatchingItems = function(musicItemId){
+		      		if(musicItemId == undefined || musicItemId == '')
+		      			return -1;
+		      			
+		      		var high = this.length -1;
+		      		var low = 0;
+		      		var mid = 0;
+		      		var potentialMatch = 0;
+		      		
+		      		while(low <= high){
+		      			mid = Math.floor((low + high) / 2);
+		      			//if(this[mid] == undefined)
+		      				//alert(mid);
+		      			potentialMatch = this[mid].id;//musicItem.id
+		      			if(potentialMatch > musicItemId){
+		      				high = mid - 1; 
+		      			}else if(potentialMatch < musicItemId){
+		      				low = mid + 1;
+		      			}else{
+		      				return mid;
+		      			}
+		      		}//end while
+		      		
+		      		return -1;
+		      	};
+		      	
+		      	
+		      	
+		      	//get text of trTemplate
+	      		var tableTemplateText = document.getElementById('tableTemplate').innerHTML;//$("#tableTemplate").text(); <fuck you ie bitch
+	      		tableTemplateText = tableTemplateText.replace(/<_/gi, "<").replace(/%_/gi,"%");//get rid of bad symbols / hack to bypass grasshopper rendering.
+	      		
+	      		//generate and render the template
+	      		this.tableTemplateFunction = _.template(tableTemplateText);
+		      	
+		      	//get text of trTemplate
+	      		var trTemplateText = document.getElementById('trTemplate').innerHTML;//$("#trTemplate").text();
+	      		trTemplateText = trTemplateText.replace(/<_/gi, "<").replace(/%_/gi,"%");//get rid of bad symbols / hack to bypass grasshopper rendering.
+	      		
+	      		//generate and render the template
+	      		this.trTemplateFunction = _.template(trTemplateText);
+		      	
+		      	//now we can create the table
+		      	var musicItems = musicItemsPlayer.musicItems.slice(0, this.displayTableRowsInGroupsOf);
+		      	
+		      	this.$musicItemsTableContainer = $("#musicItemsTableContainer");
+		      	
+      			this.displaySomeMusicItems(musicItems, true);
+		      	
+		      	//now we can hold reference to the body
+		      	this.$musicItemsTableBody = $("#musicItemsTableBody");
+		      	this.musicItemsTableBody = document.getElementById("musicItemsTableBody");
+		      	
+		      	$("body")
+		      		.delegate('#searchBoxInput', 'keyup', this.options.searchBoxOnChangeHandler)
+		      		.delegate('#searchBoxInput', 'change', this.options.searchBoxOnChangeHandler);
+		      	
+	      	}, //end init
+	      	scrollHandler : function(){
+	      		var scrollTop = $("body").scrollTop();
+	      		var windowHeight = $(window).height();
+	      		var documentHeight = $(document).height();
+	      		
+	      		//musicItemsPlayer.options.$searchResult.html("scroll top: " + scrollTop + "   window Height: " + windowHeight); //+ "   document height: " + documentHeight);
+	      		console.log("scroll top: " + scrollTop + "   window Height: " + windowHeight + "   document height: " + documentHeight);
+	      		
+	      		var calculation = scrollTop + windowHeight + 100;
+	      		if(calculation > documentHeight){
+	      			//console.log("close " + calculation);
+	      			
+	      			if(musicItemsPlayer.currentMatchingItems.length){
+						
+						//only calculate and display if there is more to display
+						if(musicItemsPlayer.currentMatchingItemsNextStartIndex + musicItemsPlayer.displayTableRowsInGroupsOf <= musicItemsPlayer.currentMatchingItems.length){
+						
+							//calculate new batch
+							musicItemsPlayer.currentMatchingItemsNextStartIndex += musicItemsPlayer.displayTableRowsInGroupsOf;//we must calculate first to avoid duplicates on first scroll down event.
+		      				var batchToDisplay = musicItemsPlayer.currentMatchingItems.slice(musicItemsPlayer.currentMatchingItemsNextStartIndex, musicItemsPlayer.currentMatchingItemsNextStartIndex + musicItemsPlayer.displayTableRowsInGroupsOf);
+		      				
+		      				//console.log('next start index : ' + musicItemsPlayer.currentMatchingItemsNextStartIndex);
+		      				
+		      				//display new batch by appending them to existing table
+		      				musicItemsPlayer.displaySomeMusicItems(batchToDisplay, false);
+	      				}
+	      			}
+	      		}
+	      		
+	      	},
+	      	searchBoxOnChangeHandler : function(){
+	      		//get the current text for the search
+	      		var searchCriteria = this.value;
+	      		
+	      		var matchingItems = musicItemsPlayer.searchForMusicItems(searchCriteria);
+	      		if(matchingItems == undefined) matchingItems = {length: 0};
+	      		musicItemsPlayer.options.$searchResult.html(matchingItems.length);//let user know how many items have been found
+	      		
+	      		//keep track of matching items so we can do things like support scrolling auto load.
+	      		musicItemsPlayer.currentMatchingItems = matchingItems;
+	      		
+	      		//reset counter
+	      		musicItemsPlayer.currentMatchingItemsNextStartIndex = 0;
+	      		
+	      		musicItemsPlayer.displaySearchResult(matchingItems);
+	      			
+	      	},
+	      	displaySearchResult : function(matchingItems){
+	      		//only allow 100 items to be displayed at firs
+	      		if(matchingItems.length > this.displayTableRowsInGroupsOf){
+	      			matchingItems = matchingItems.slice(0, this.displayTableRowsInGroupsOf);
+	      		}
+	      		this.displaySomeMusicItems(matchingItems, true);//clear out and then display.
+	      	},
+	      	searchForMusicItems : function(searchCriteria){
+	      		var matchingItems = new Array();
+	      		//iterate over each item
+	      		for(var i = 0; i < musicItemsPlayer.musicItems.length; ++i){
+	      			var potentialItem = musicItemsPlayer.musicItems[i];
+	      			
+	      			if(potentialItem.fullPath.indexOf(searchCriteria) >= 0){
+	      				matchingItems.push(potentialItem);
+	      			}
+	      		
+	      		}
+	      		
+	      		return matchingItems;
+	      	},
+	      	playButtonClickHandler : function(){
+	      		//'this' will be the div with the attribute 'data-musicItemId'
+	      		var $this = $(this);
+	      		
+	      		var songId = $this.attr('data-musicItemId');
+	      		
+	      		musicItemsPlayer.playMusicItem(songId);
+	      	},
+	      	playMusicItem : function(songId){
+	      		//this.recreateMusicControl('/getSong?songId='+songId);
+	      		
+	      		//use html 5 if possible
+	      		if(musicItemsPlayer.supportsAudioTag){
+		      		var $embedMusicControl = $('<audio>').attr({
+		      			src : '/getSong?songId='+songId,
+		      			controls : 'controls',
+		      			autoplay : 'true'
+		      		}).addClass('embedMusicControl')
+		      		.bind('ended', {finishedSongId:songId},this.songHasEndedHandler);
+	      		}else{
+	      			var $embedMusicControl = $('<embed>').attr({
+	      				src : '/getSong?songId='+songId,
+	      				type : 'audio/mpeg'
+	      			}).addClass('embedMusicControl');
+	      		}
+	      		
+	      		//empty and re-populate
+	      		this.options.$musicControls
+	      			.empty()
+	      			.append($embedMusicControl);
+	      	},
+	      	recreateMusicControl : function(url){
+	      		//use html 5 if possible
+	      		if(musicItemsPlayer.supportsAudioTag){
+		      		var $embedMusicControl = $('<audio>').attr({
+		      			src : url,
+		      			controls : 'controls',
+		      			autoplay : 'true'
+		      		}).addClass('embedMusicControl')
+		      		.bind('ended', {finishedSongId:songId},this.songHasEndedHandler);
+	      		}else{
+	      			var $embedMusicControl = $('<embed class="pluginMusicItemsPlayer">').attr({
+	      				src : url,
+	      				type : 'audio/mpeg'
+	      			}).addClass('embedMusicControl');
+	      		}
+	      		
+	      		//empty and re-populate
+	      		this.options.$musicControls
+	      			.empty()
+	      			.append($embedMusicControl);
+	      	},
+	      	songHasEndedHandler : function(e){
+	      		//alert('song is over ' + e.data.finishedSongId);
+	      		var potentialNextSongId = e.data.finishedSongId;
+	      		musicItemsPlayer.songHasEnded(potentialNextSongId);
+	      		
+	      	},
+	      	songHasEnded : function(songId){
+	      		//this won't work. you need to binary search current matchingItems. it can tell you if your id surpasses the id of the last item.
+	      		//var $potentialTr = $('#musicItem_'+songId);
+	      		
+	      		if(this.currentMatchingItems == undefined || this.currentMatchingItems == 0 || this.currentMatchingItems.length <=0){
+	      			alert('no more matching items to play');
+	      			return;
+	      		}
+	      			
+	      		var songWhichEndedIndex = -1;
+	      		//find index of current song in matching items. 
+	      		for(var i = 0; i < this.currentMatchingItems.length; ++i){
+	      			var matchingItem = this.currentMatchingItems[i];
+	      			if(matchingItem.id == songId){
+	      				//we found the song that just ended.
+	      				songWhichEndedIndex = i;
+	      				break;
+	      			}
+	      		}
+	      		
+	      		console.log('songWhichEndedIndex : ' + songWhichEndedIndex);
+	      		if(songWhichEndedIndex < 0)
+	      			return;
+	      			
+	      		//increase index by 1 and get and play the song.
+	      		var nextIndex = songWhichEndedIndex + 1;
+	      		
+	      		//see if we're at the end of the list.
+	      		if(nextIndex >= this.currentMatchingItems.length)
+	      			return;
+	      		
+	      		var nextMusicItemToPlay = this.currentMatchingItems[nextIndex];
+	      		
+	      		console.log('next music item to play : ' + nextMusicItemToPlay.id);
+	      		this.playMusicItem(nextMusicItemToPlay.id);
+	      		
+	      	},
+	      	displaySomeMusicItems : function(musicItems, shouldClearFirst){
+	      		
+	      		
+	      		//append or replace with the results
+	      		if(shouldClearFirst){
+		      		var tableHtml = this.tableTemplateFunction({'musicItems':musicItems});
+	      			this.$musicItemsTableContainer.html(tableHtml);
+		      		this.$musicItemsTableBody = $("#musicItemsTableBody");//reset reference since we have recreated the table.
+		      		//this.musicItemsTableBody = document.getElementById("musicItemsTableBody");
+	      		}else{
+	      		
+		      		var trHtml = this.trTemplateFunction({'musicItems':musicItems});
+		      		
+	      			this.$musicItemsTableBody.append(trHtml);
+	      			//this.musicItemsTableBody = document.getElementById("musicItemsTableBody");
+	      			//this.musicItemsTableBody.innerHtml = this.musicItemsTableBody.innerHtml.replace('undefined', '') + trHtml;
+	      		}
+	      	},
+	      	musicItems : [ <%for (var i in musicItems) { var musicItem = musicItems[i];%><%h JSON.stringify(musicItem) %> <% if(i < musicItems.length - 1){%>, <%}}%>]
+	      	
+      	};
+      	
+      	//===============  searchBox  ===================================================================================================
+      	
+      	$(document).ready(function(){
+      		musicItemsPlayer.init();
+      		//musicItemsPlayer.recreateMusicControl('nothing.mp3');
+      		
+      	});
+
+      </script>
+      
+      <script id="tableTemplate" type="text/html">
+      	<table id="musicItemsTable" class="musicItemsTable blackGradient">
+			<thead>
+				<tr>
+					<th></th><th>Artist</th><th>Song</th><th>Album</th><th></th>
+				</tr>
+			</thead>
+			<tbody id="musicItemsTableBody"><_% for (var i in musicItems) { 
+					var musicItem = musicItems[i];
+					var rowClass = i%2 == 0 ? "evenMusicItem" : "oddMusicItem";
+					%_>
+		  			<tr id="musicItem_<_%=musicItem.id%_>" class="musicItemsTableRow <_%=rowClass%_>">
+		    			<td class="musicItemPlay"><button type="button" class="playButton" data-musicItemId="<_%=musicItem.id%_>"> Play </button></td>
+		    			<td class="musicItemArtist"><_%=musicItem.artist%_></td>
+		    			<td class="musicItemSongName"><_%=musicItem.songName%_></td>
+		    			<td class="musicItemAlbum"><_%=musicItem.album%_></td>
+		  			</tr><_%}%_>
+			</tbody>
+		</table>
+      </script>
+      
+      <script id="trTemplate" type="text/html">
+		<_%
+		 if(musicItems.length <= 0){return;}
+		 for (var i = 0; i < musicItems.length; ++i) { 
+					var musicItem = musicItems[i];
+                    var rowClass = i%2 == 0 ? "evenMusicItem" : "oddMusicItem";
+					%_>
+		  			<tr id="musicItem_<_%=musicItem.id%_>" class="musicItemsTableRow <_%=rowClass%_>">
+		    			<td class="musicItemPlay"><button type="button" class="playButton" data-musicItemId="<_%=musicItem.id%_>"> Play </button></td>
+		    			<td class="musicItemArtist"><_%=musicItem.artist%_></td>
+		    			<td class="musicItemSongName"><_%=musicItem.songName%_></td>
+		    			<td class="musicItemAlbum"><_%=musicItem.album%_></td>
+		  			</tr><_%}%_>
+      </script>
+  </head>
+  <body>
+
+    
+   <div id="inputsContainer" class="inputsContainer">
+<!--     <span class="heading">Music</span>-->
+
+	<span id="musicControls" class="musicControls">
+     
+     </span>
+     
+     <span id="searchBox" class="searchBox greenGradient">
+<!--     	<label for="searchBoxInput">Search</label>-->
+     	<input id="searchBoxInput" placeholder="search"/>
+     	<span id="searchResult"><%=musicItems.length%></span>
+     </span>     
+     
+     <br/>
+     <br/>
+     <br/>
+     
+	
+	<div id="musicItemsTableContainer">
+	</div>
+	
+
+   </div>
+
+
+  </body>
+</html>

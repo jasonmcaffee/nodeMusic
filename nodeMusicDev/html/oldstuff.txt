@@ -1,0 +1,651 @@
+musicItems : [ <%for (var i in musicItems) { var musicItem = musicItems[i];%> <%h JSON.stringify(musicItem) %>, <%}%>]
+
+
+
+displayOnlyTheseMusicItems : function(musicItemsToDisplay){
+	      		//first hide all rows
+	      		$('#musicItemsTable tr').hide();
+	      		
+	      		//now iterate over each matched element, construct id, select, and show
+	      		for(var i = 0; i < musicItemsToDisplay.length; ++i){
+	      			var musicItemToDisplay = musicItemsToDisplay[i];
+	      			var selector = '#musicItem_' + musicItemToDisplay.id;
+	      			$(selector).show();
+	      			
+	      		}
+	      	},
+	      	
+
+displayOnlyTheseMusicItems : function(musicItemsToDisplay){
+	      		//first hide all rows
+	      		//$('#musicItemsTable tr').hide();
+	      		//var $musicItemTable = $('#musicItemsTable');
+	      		
+	      		//temporarily hide the table so we can hide each individual row without screen update
+	      		//$musicItemTable.css('display', 'none');//.hide();
+	      		
+	      		//hide each individual row
+	      		//$musicItemTable.find('tr').hide();
+	      		
+	      		//var mit = document.getElementById('musicItemsTable');
+	      		//mit.style.display = 'none';
+	      		
+	      		//var trArray = document.getElementsByTagName('tr');
+	      		//what if we only iterated over the one's which were visible?
+	      		for(var i = 0; i< musicItemsPlayer.trArray.length; ++i){
+	      			musicItemsPlayer.trArray[i].style.display = 'none';
+	      		}
+	      		
+	      		//now iterate over each matched element, construct id, select, and show
+	      		for(var i = 0; i < musicItemsToDisplay.length; ++i){
+	      			var musicItemToDisplay = musicItemsToDisplay[i];
+	      			var selector = 'musicItem_' + musicItemToDisplay.id;
+	      			//$(selector).show();
+	      			document.getElementById(selector).style.display = '';
+	      		}
+	      		
+	      		//show the table again
+	      		//$musicItemTable.show();
+	      		//mit.style.display = '';//this causes break somehow. thissssssssssss is fffffffaster 
+	      		
+	      	},
+	      	
+	      	
+	      	
+<table id="musicItemsTable" class="musicItemsTable">
+		<thead>
+			<tr>
+				<th></th><th>Artist</th><th>Song</th><th>Album</th><th></th>
+			</tr>
+		</thead>
+		<tbody> <% for (var i in musicItems) { 
+				var musicItem = musicItems[i];%>
+	  			<tr id="musicItem_<%=musicItem.id%>" class="fileUrlInputContainer">
+	    			<td class="musicItemPlay"><button type="button" class="playButton" data-musicItemId="<%=musicItem.id%>"> Play </button></td>
+	    			<td class="musicItemArtist"><%=musicItem.artist%></td>
+	    			<td class="musicItemSongName"><%=musicItem.songName%></td>
+	    			<td class="musicItemAlbum"><%=musicItem.album%></td> 
+	  			</tr><%}%>
+		</tbody>
+	</table>
+	
+	
+	
+	
+	
+	
+	
+	
+	<table id="musicItemsTable" class="musicItemsTable">
+			<thead>
+				<tr>
+					<th></th><th>Artist</th><th>Song</th><th>Album</th><th></th>
+				</tr>
+			</thead>
+			<tbody> <_% for (var i in musicItemsPlayer.musicItems) { 
+					var musicItem = musicItems[i];%_>
+		  			<tr id="musicItem_<_%=musicItem.id%_>" class="fileUrlInputContainer">
+		    			<td class="musicItemPlay"><button type="button" class="playButton" data-musicItemId="<_%=musicItem.id%_>"> Play </button></td>
+		    			<td class="musicItemArtist"><_%=musicItem.artist%_></td>
+		    			<td class="musicItemSongName"><_%=musicItem.songName%_></td>
+		    			<td class="musicItemAlbum"><_%=musicItem.album%_></td>
+		  			</tr><_%}%_>
+			</tbody>
+		</table>
+	
+	musicItems : [ <%for (var i in musicItems) { var musicItem = musicItems[i];%><%h JSON.stringify({id: musicItem.id, fullPath:musicItem.fullPath}) %> <% if(i < musicItems.length - 1){%>, <%}}%>]
+	
+	
+	
+	
+	
+	
+	//get text of trTemplate
+      		//var trTemplateText = $("#trTemplate").text();
+      		//trTemplateText = trTemplateText.replace("<_%", "<%").replace("%_>", "%>");//get rid of hack to bypass grasshopper rendering.
+      		
+      		//var trTemplate = _.template(trTemplateText);
+      		//var tableHtml = trTemplate({'musicItemsPlayer':musicItemsPlayer});
+      		//$("#musicItemsTableContainer").html(tableHtml);
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+      		
+<html>
+  <head>
+      <title>Node Music</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=9" />
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+      <style type="text/css">
+
+	.searchBox{
+		
+	}
+	
+	.searchBox label{
+		width:100%;
+	  border: 1px solid gray;
+	  padding: 8px;
+	  -moz-border-radius: 0px 1px 0px 20px;
+	  -webkit-border-top-right-radius: 1px;
+	  -webkit-border-bottom-right-radius: 0px;
+	  -webkit-border-bottom-left-radius: 20px;
+	  border-radius: 0px 1px 0px 20px;
+
+	  /* -- CSS3 Shadow - create a shadow around each input element -- */ 
+	  -webkit-box-shadow: 0px 0px 4px #aaa;
+	  -moz-box-shadow: 0px 0px 4px #aaa; 
+	  box-shadow: 0px 0px 4px #aaa;
+ 
+	  /* -- CSS3 Transition - define what the transition will be applied to (i.e. the background) -- */		
+	  -webkit-transition: background 0.3s linear;
+
+
+	  background: #E3E9F2; /* old browsers */
+	  background: -moz-linear-gradient(top, #E3E9F2 0%, #ABC0C9 100%); /* firefox */
+	  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E3E9F2), color-stop(100%,#ABC0C9)); /* webkit */
+	  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E3E9F2', endColorstr='#ABC0C9',GradientType=0 ); /* ie */
+	}
+	
+	.musicControls{
+		width:100%;
+	}
+	
+	.downloadFileAsInputContainer{
+	  
+	  
+	}
+	
+	.downloadFileAsInputContainer input{
+	  width:100%;
+	
+	}
+
+	.downloadFileAsInputContainer label{
+	  width:100%;
+	  border: 1px solid gray;
+	  padding: 8px;
+	  -moz-border-radius: 0px 1px 0px 20px;
+	  -webkit-border-top-right-radius: 1px;
+	  -webkit-border-bottom-right-radius: 0px;
+	  -webkit-border-bottom-left-radius: 20px;
+	  border-radius: 0px 1px 0px 20px;
+
+	  /* -- CSS3 Shadow - create a shadow around each input element -- */ 
+	  -webkit-box-shadow: 0px 0px 4px #aaa;
+	  -moz-box-shadow: 0px 0px 4px #aaa; 
+	  box-shadow: 0px 0px 4px #aaa;
+ 
+	  /* -- CSS3 Transition - define what the transition will be applied to (i.e. the background) -- */		
+	  -webkit-transition: background 0.3s linear;
+
+
+	  background: #E3E9F2; /* old browsers */
+	  background: -moz-linear-gradient(top, #E3E9F2 0%, #ABC0C9 100%); /* firefox */
+	  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E3E9F2), color-stop(100%,#ABC0C9)); /* webkit */
+	  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E3E9F2', endColorstr='#ABC0C9',GradientType=0 ); /* ie */
+	}
+	  
+	.inputsContainer {
+	  border: 1px solid black;
+	  -moz-border-radius: 25px 1px 10px 0px;
+	  -webkit-border-top-right-radius: 1px;
+	  -webkit-border-bottom-right-radius: 10px;
+	  -webkit-border-bottom-left-radius: 0px;
+	  border-radius: 25px 1px 10px 0px;
+
+	  background: #8CD1FF; /* old browsers */
+	  background: -moz-linear-gradient(top, #8CD1FF 0%, #4CBDFF 37%, #3091C1 100%); /* firefox */
+	  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#8CD1FF), color-stop(37%,#4CBDFF), color-stop(100%,#3091C1)); /* webkit */
+	  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8CD1FF', endColorstr='#3091C1',GradientType=0 ); /* ie */
+	  
+	  -webkit-box-shadow: 8px 8px 10px #333333;
+	  -moz-box-shadow:8px 8px 10px #333333;
+	  box-shadow:8px 8px 10px #333333;
+
+	  padding:20px 10px 20px 10px;
+	  width: 80%;
+	  min-width: 190px;
+	  margin-left: 5%;
+	  margin-top:5%;
+	  
+	}
+
+	
+
+	body{
+	  /*height: 100%;*/
+	  margin: 0px;
+	  background-repeat: none;
+	  background: #919191; /* old browsers */
+	  background: -moz-linear-gradient(top, #919191 0%, #333333 100%); /* firefox */
+	  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#919191), color-stop(100%,#333333)); /* webkit */
+	  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#919191', endColorstr='#333333',GradientType=0 ); /* ie */	}
+
+	html{
+	  height: 100%;
+	}
+
+	input { 		
+	  padding: 8px; 
+	  background: #fff; 
+	  font-size: 14px; 
+	  color: #555; 
+	  border: 1px #ddd solid;
+	  /* -- CSS3 Shadow - create a shadow around each input element -- */ 
+	  -webkit-box-shadow: 0px 0px 4px #aaa;
+	  -moz-box-shadow: 0px 0px 4px #aaa; 
+	  box-shadow: 0px 0px 4px #aaa;
+ 
+	  /* -- CSS3 Transition - define what the transition will be applied to (i.e. the background) -- */		
+	  -webkit-transition: background 0.3s linear;
+	}
+
+	.submitButton {
+	  text-align:center;
+
+	  margin-left: 20%;
+	  margin-right: 20%;
+	  margin-top: 5%;
+	  width:60%;
+	  background: #E3E9F2; /* old browsers */
+	  background: -moz-linear-gradient(top, #E3E9F2 0%, #ABC0C9 100%); /* firefox */
+	  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E3E9F2), color-stop(100%,#ABC0C9)); /* webkit */
+	  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E3E9F2', endColorstr='#ABC0C9',GradientType=0 ); /* ie */
+	  
+	  -moz-border-radius: 5px 5px 5px 5px;
+	  -webkit-border-top-right-radius: 5px;
+	  -webkit-border-bottom-right-radius: 5px;
+	  -webkit-border-bottom-left-radius: 5px;
+	  border-radius: 5px 5px 5px 5px;
+
+	  
+	}
+
+	.submitButton:hover { 		
+	  -webkit-box-shadow: 0px 0px 20px #555;
+	  -moz-box-shadow: 0px 0px 20px #aaa; 
+	  box-shadow: 0px 0px 20px #555;		
+	  cursor:  pointer; 
+	  background: #c9de96; /* old browsers */
+	  background: -moz-linear-gradient(top, #c9de96 0%, #8ab66b 44%, #398235 100%); /* firefox */
+	  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c9de96), color-stop(44%,#8ab66b), color-stop(100%,#398235)); /* webkit */
+	  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9de96', endColorstr='#398235',GradientType=0 ); /* ie */
+
+	}
+
+	input:hover { 
+	  background: #eee; 
+	}
+	a {
+	  color:#c9de96;
+	}
+
+	@font-face {
+	 font-family: serif;
+	  /*font-family: 'MadeWithBRegular';
+	  src: url('madewithb-webfont.eot');
+	  src: url('madewithb-webfont.eot?iefix') format('eot'),
+	  url('madewithb-webfont.woff') format('woff'),
+	  url('madewithb-webfont.ttf') format('truetype'),
+	  url('madewithb-webfont.svg#webfontL2V63zYC') format('svg');
+	  font-weight: normal;
+	  font-style: normal;*/
+	}
+
+	.heading{
+	  font-family: 'MadeWithBRegular';
+	  font-size: 40px;
+	  text-align: center;
+	  width:100%;
+	  margin-left: 25%;
+	  margin-right: 25%;
+	}
+	
+	.greenGradient{
+		background: rgb(107,186,112); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(107,186,112,1) 0%, rgba(85,147,93,1) 48%, rgba(93,158,96,1) 80%, rgba(107,186,112,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(107,186,112,1)), color-stop(48%,rgba(85,147,93,1)), color-stop(80%,rgba(93,158,96,1)), color-stop(100%,rgba(107,186,112,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(107,186,112,1) 0%,rgba(85,147,93,1) 48%,rgba(93,158,96,1) 80%,rgba(107,186,112,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(107,186,112,1) 0%,rgba(85,147,93,1) 48%,rgba(93,158,96,1) 80%,rgba(107,186,112,1) 100%); /* Opera11.10+ */
+background: -ms-linear-gradient(top, rgba(107,186,112,1) 0%,rgba(85,147,93,1) 48%,rgba(93,158,96,1) 80%,rgba(107,186,112,1) 100%); /* IE10+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6bba70', endColorstr='#6bba70',GradientType=0 ); /* IE6-9 */
+background: linear-gradient(top, rgba(107,186,112,1) 0%,rgba(85,147,93,1) 48%,rgba(93,158,96,1) 80%,rgba(107,186,112,1) 100%); /* W3C */
+	
+	}
+
+      </style>
+      
+      
+      <script type="text/javascript" src="/html/scripts/jqueryMin.js"></script>
+      <script type="text/javascript" src="/html/scripts/underscore-min.js"></script>
+      <script type="text/javascript">
+      	
+      	//===============  music player  ===================================================================================================
+      	var audioCheck = document.createElement('audio');
+      	var musicItemsPlayer = {
+      		options: 0,
+      		supportsAudioTag : !!(audioCheck.canPlayType) && !!(audioCheck.canPlayType("audio/mpeg")),
+      		trArray: 0, //all the trs
+      		areAnyRowsHidden: false, //optimize filtering
+      		init: function(options){
+      			var defaultOptions = {
+	      			playButtonClickHandler : this.playButtonClickHandler,
+	      			searchBoxOnChangeHandler : this.searchBoxOnChangeHandler,
+	      			searchBoxKeyPressHandler : this.searchBoxKeyPressHandler,
+	      			$musicControls : $('#musicControls'),
+	      			$searchResult : $('#searchResult')
+	      		};
+	      		
+	      		this.options = defaultOptions;
+	      		
+      			//listen for the play button click. call on the appropriate handler.
+		      	$("body").delegate('.playButton', 'click', this.options.playButtonClickHandler);
+		      	
+		      	//listen for search input box changes, so we can filter the 
+		      	this.trArray = document.getElementsByTagName('tr');
+		      	
+		      	//add binary searching for matchingItems array
+		      	Array.prototype.binarySearchMatchingItems = function(musicItemId){
+		      		if(musicItemId == undefined || musicItemId == '')
+		      			return -1;
+		      			
+		      		var high = this.length -1;
+		      		var low = 0;
+		      		var mid = 0;
+		      		var potentialMatch = 0;
+		      		
+		      		while(low <= high){
+		      			mid = Math.floor((low + high) / 2);
+		      			//if(this[mid] == undefined)
+		      				//alert(mid);
+		      			potentialMatch = this[mid].id;//musicItem.id
+		      			if(potentialMatch > musicItemId){
+		      				high = mid - 1; 
+		      			}else if(potentialMatch < musicItemId){
+		      				low = mid + 1;
+		      			}else{
+		      				return mid;
+		      			}
+		      		}//end while
+		      		
+		      		return -1;
+		      	};
+		      	
+		      	$("body")
+		      		.delegate('#searchBoxInput', 'keyup', this.options.searchBoxOnChangeHandler);
+		      		//.delegate('#searchBoxInput', 'change', this.options.searchBoxOnChangeHandler);
+		      	
+	      	}, //end init
+	      	searchBoxOnChangeHandler : function(){
+	      		//get the current text for the search
+	      		var searchCriteria = this.value;
+	      		
+	      		if(searchCriteria.length >= 3){
+		      		var matchingItems = musicItemsPlayer.searchForMusicItems(searchCriteria);
+		      		if(matchingItems == undefined) matchingItems = {length: 0};
+		      		musicItemsPlayer.options.$searchResult.html(matchingItems.length);//let user know how many items have been found
+		      		
+		      		if(matchingItems.length > 0){
+		      			musicItemsPlayer.areAnyRowsHidden = true;
+		      			musicItemsPlayer.displayOnlyTheseMusicItems(matchingItems);
+		      		}
+	      			
+	      		}else if(musicItemsPlayer.areAnyRowsHidden){ //we need to show all rows now
+	      			musicItemsPlayer.areAnyRowsHidden = false;
+	      			musicItemsPlayer.displayOnlyTheseMusicItems(musicItemsPlayer.musicItems);
+	      		}
+	     
+	      	},
+	      	displayOnlyTheseMusicItems : function(musicItemsToDisplay){
+	      		//first hide all rows
+	      		//$('#musicItemsTable tr').hide();
+	      		//var $musicItemTable = $('#musicItemsTable');
+	      		
+	      		//temporarily hide the table so we can hide each individual row without screen update
+	      		//$musicItemTable.css('display', 'none');//.hide();
+	      		
+	      		//hide each individual row
+	      		//$musicItemTable.find('tr').hide();
+	      		
+	      		//var mit = document.getElementById('musicItemsTable');
+	      		//mit.style.display = 'none';
+	      		
+	      		//var trArray = document.getElementsByTagName('tr');
+	      		//what if we only iterated over the one's which were visible?
+	      		if(musicItemsToDisplay.length == this.trArray.length){
+	      			//we don't need to hide anymore.
+	      		}else{
+		      		for(var i = 0; i< this.trArray.length; ++i){
+		      			var tr = this.trArray[i];
+		      			var trId = tr.id.substring(10);//lob off 'musicItem_'
+		      			var indexOfTrInItemsToDisplay = musicItemsToDisplay.binarySearchMatchingItems(trId);//todo: web worker?
+		      			//if the tr doesn't exist, we should hide it
+		      			if(indexOfTrInItemsToDisplay == -1){
+		      				tr.style.display = 'none';
+		      			}
+		      		}
+	      		}
+	      		
+	      		//now iterate over each matched element, construct id, select, and show
+	      		for(var i = 0; i < musicItemsToDisplay.length; ++i){
+	      			var musicItemToDisplay = musicItemsToDisplay[i];
+	      			var selector = 'musicItem_' + musicItemToDisplay.id;
+	      			//$(selector).show();
+	      			document.getElementById(selector).style.display = '';
+	      		}
+	      		
+	      		//show the table again
+	      		//$musicItemTable.show();
+	      		//mit.style.display = '';//this causes break somehow. thissssssssssss is fffffffaster 
+	      		
+	      	},
+	      	hideTheseRows : function(startIndex, endIndex){
+	      		for(var i = startIndex; i< endIndex; ++i){
+	      			this.trArray[i].style.display = 'none';
+	      		}
+	      	},
+	      	searchForMusicItems : function(searchCriteria){
+	      		var matchingItems = new Array();
+	      		//iterate over each item
+	      		for(var i = 0; i < musicItemsPlayer.musicItems.length; ++i){
+	      			var potentialItem = musicItemsPlayer.musicItems[i];
+	      			
+	      			if(potentialItem.fullPath.indexOf(searchCriteria) >= 0){
+	      				matchingItems.push(potentialItem);
+	      			}
+	      		
+	      		}
+	      		
+	      		return matchingItems;
+	      	},
+	      	playButtonClickHandler : function(){
+	      		//'this' will be the div with the attribute 'data-musicItemId'
+	      		var $this = $(this);
+	      		
+	      		var songId = $this.attr('data-musicItemId');
+	      		
+	      		musicItemsPlayer.playMusicItem(songId);
+	      	},
+	      	playMusicItem : function(songId){
+	      		//use html 5 if possible
+	      		if(musicItemsPlayer.supportsAudioTag){
+		      		var $embedMusicControl = $('<audio>').attr({
+		      			src : '/getSong?songId='+songId,
+		      			controls : 'controls',
+		      			autoplay : 'true'
+		      		}).addClass('embedMusicControl')
+		      		.bind('ended', {finishedSongId:songId},this.songHasEndedHandler);
+	      		}else{
+	      			var $embedMusicControl = $('<embed>').attr({
+	      				src : '/getSong?songId='+songId,
+	      				type : 'audio/mpeg',
+	      			}).addClass('embedMusicControl');
+	      		}
+	      		
+	      		//empty and re-populate
+	      		this.options.$musicControls
+	      			.empty()
+	      			.append($embedMusicControl);
+	      	},
+	      	songHasEndedHandler : function(e){
+	      		//alert('song is over ' + e.data.finishedSongId);
+	      		var potentialNextSongId = e.data.finishedSongId + 1;
+	      		var $potentialTr = $('#musicItem_'+potentialNextSongId);
+	      		
+	      		//first determine if it exists
+	      		if($potentialTr.length){
+	      			//now check to see if it is visible
+	      			if($potentialTr.is(':visible')){
+	      				musicItemsPlayer.playMusicItem(potentialNextSongId);
+	      			}else{
+	      				//recursion!
+	      			}
+	      		}else{
+	      			alert('no more songs to play in this list');
+	      		}
+	      		
+	      	},
+	      	displaySomeMusicItems : function(musicItems){
+	      		//get text of trTemplate
+	      		var trTemplateText = $("#trTemplate").text();
+	      		trTemplateText = trTemplateText.replace(/<_/gi, "<").replace(/%_/gi,"%");//get rid of hack to bypass grasshopper rendering.
+	      		
+	      		var trTemplate = _.template(trTemplateText);
+	      		var tableHtml = trTemplate({'musicItems':musicItems});
+	      		$("#musicItemsTableContainer").html(tableHtml);
+	      	},
+	      	musicItems : [ <%for (var i in musicItems) { var musicItem = musicItems[i];%><%h JSON.stringify(musicItem) %> <% if(i < musicItems.length - 1){%>, <%}}%>]
+	      	
+      	};
+      	
+      	//===============  searchBox  ===================================================================================================
+      	
+      	$(document).ready(function(){
+      		musicItemsPlayer.init();
+      		var musicItems = musicItemsPlayer.musicItems.slice(0, 100);
+      		musicItemsPlayer.displaySomeMusicItems(musicItems);
+      	});
+
+      </script>
+      
+      <script id="trTemplate" type="text/javascript">
+		<table id="musicItemsTable" class="musicItemsTable">
+			<thead>
+				<tr>
+					<th></th><th>Artist</th><th>Song</th><th>Album</th><th></th>
+				</tr>
+			</thead>
+			<tbody> <_% for (var i in musicItems) { 
+					var musicItem = musicItems[i];%_>
+		  			<tr id="musicItem_<_%=musicItem.id%_>" class="fileUrlInputContainer">
+		    			<td class="musicItemPlay"><button type="button" class="playButton" data-musicItemId="<_%=musicItem.id%_>"> Play </button></td>
+		    			<td class="musicItemArtist"><_%=musicItem.artist%_></td>
+		    			<td class="musicItemSongName"><_%=musicItem.songName%_></td>
+		    			<td class="musicItemAlbum"><_%=musicItem.album%_></td>
+		  			</tr><_%}%_>
+			</tbody>
+		</table>
+      </script>
+  </head>
+  <body>
+
+    
+   <div id="inputsContainer" class="inputsContainer">
+     <span class="heading">File&nbsp;Swindler</span>
+
+     <div id="searchBox" class="searchBox greenGradient">
+     	<label for="searchBoxInput">Search</label>
+     	<input id="searchBoxInput" placeholder="search"/>
+     	<span id="searchResult"><%=musicItems.length%></span>
+     </div>     
+     
+     <div id="musicControls" class="musicControls">
+     
+     </div>
+	
+	<div id="musicItemsTableContainer">
+	</div>
+	
+
+   </div>
+
+
+  </body>
+</html>
+
+      		
