@@ -1,0 +1,21 @@
+root@ubuntu:~# ssh-keygen -t rsa -C "jasonlmcaffee@gmail.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /root/.ssh/id_rsa.
+Your public key has been saved in /root/.ssh/id_rsa.pub.
+The key fingerprint is:
+cb:04:56:43:58:25:d3:c5:ec:87:76:37:9c:cf:85:db jasonlmcaffee@gmail.com
+The key's randomart image is:
++--[ RSA 2048]----+
+|       +Bo.+.    |
+|      .. +. o    |
+|      o    . ....|
+|     . .    + ++o|
+|        S  . o =+|
+|       o .    . E|
+|        o        |
+|                 |
+|                 |
++-----------------+

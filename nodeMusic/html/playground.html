@@ -1,0 +1,447 @@
+<html>
+  <head>
+  
+<!--  		<meta name="viewport" content="" />  initial-scale=.02; minimum-scale=0.1; width=device-width; maximum-scale=40.0; user-scalable=1;-->
+      <title>Node Music</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=9" />
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+      
+      <style type="text/css">
+
+      </style>
+      
+      <link type="text/css" rel="stylesheet" href="/html/css/nodeMusicNew.css"/>
+
+      
+      
+      <script type="text/javascript" src="/html/scripts/jqueryMin.js"></script>
+      <script type="text/javascript" src="/html/scripts/underscore-min.js"></script>
+      <script type="text/javascript" src="/html/scripts/jquery.jplayer.min.js"></script>
+      
+      <script type="text/javascript">
+       		
+      	//===============  music player  ===================================================================================================
+      	//var audioCheck = document.createElement('audio');
+      	var musicItemsPlayer = {
+      		options: 0,
+      		//supportsAudioTag : !!(audioCheck.canPlayType) && !!(audioCheck.canPlayType("audio/mpeg")),
+      		trArray: 0, //all the trs
+      		areAnyRowsHidden: false, //optimize filtering
+      		currentMatchingItems : 0,//this will be updated every time search criteria changes
+      		displayTableRowsInGroupsOf : 100,
+      		currentMatchingItemsNextStartIndex : 0,
+      		tableTemplateFunction: 0, //points to underscore.js generated function
+      		trTemplateFunction: 0, //points to underscore.js generated function
+      		$musicItemsTableContainer : 0,
+      		$musicItemsTableBody : 0,
+      		$jPlayer : 0,
+      		currentPlayingSongId : 0,
+      		$body : 0,
+	      	$window : 0,
+	      	$document : 0,
+	      	$floatingTopBox : 0,
+	      	isMobileBrowser : 0,
+      		init: function(options){
+      			var defaultOptions = {
+	      			playButtonClickHandler : this.playButtonClickHandler,
+	      			searchBoxOnChangeHandler : this.searchBoxOnChangeHandler,
+	      			searchBoxKeyPressHandler : this.searchBoxKeyPressHandler,
+	      			$musicControls : $('#musicControls'),
+	      			$searchResult : $('#searchResult')
+	      		};
+	      		
+	      		this.options = defaultOptions;
+	      		
+      			//listen for the play button click. call on the appropriate handler.
+		      	$("body").delegate('.playButton', 'click', this.options.playButtonClickHandler);
+		      	
+		      	//listen for search input box changes, so we can filter the 
+		      	this.trArray = document.getElementsByTagName('tr');
+		      	
+		      	//listen for scroll events
+		      	$(window).scroll(musicItemsPlayer.scrollHandler);
+		      	
+		      	this.currentMatchingItems = this.musicItems;//for scrolling
+		      	
+		      	//when scrolling we need these. cache
+		      	this.$body = $("body");
+	      		this.$window = $(window);
+	      		this.$document = $(document);
+	      		this.$floatingTopBox = $(".floatingTopBox");
+	      		
+		      	this.isMobileBrowser = (/iphone|ipad|ipod|android|blackberry|mini|windowssce|palm/i.test(navigator.userAgent.toLowerCase()));
+		      	
+		      	//alert(this.isMobileBrowser);
+		      	//add binary searching for matchingItems array
+		      	Array.prototype.binarySearchMatchingItems = function(musicItemId){
+		      		if(musicItemId == undefined || musicItemId == '')
+		      			return -1;
+		      			
+		      		var high = this.length -1;
+		      		var low = 0;
+		      		var mid = 0;
+		      		var potentialMatch = 0;
+		      		
+		      		while(low <= high){
+		      			mid = Math.floor((low + high) / 2);
+		      			//if(this[mid] == undefined)
+		      				//alert(mid);
+		      			potentialMatch = this[mid].id;//musicItem.id
+		      			if(potentialMatch > musicItemId){
+		      				high = mid - 1; 
+		      			}else if(potentialMatch < musicItemId){
+		      				low = mid + 1;
+		      			}else{
+		      				return mid;
+		      			}
+		      		}//end while
+		      		
+		      		return -1;
+		      	};
+		      	
+		      	
+		      	
+		      	//get text of trTemplate
+	      		var tableTemplateText = document.getElementById('tableTemplate').innerHTML;//$("#tableTemplate").text(); <fuck you ie bitch
+	      		tableTemplateText = tableTemplateText.replace(/<_/gi, "<").replace(/%_/gi,"%");//get rid of bad symbols / hack to bypass grasshopper rendering.
+	      		
+	      		//generate and render the template
+	      		this.tableTemplateFunction = _.template(tableTemplateText);
+		      	
+		      	//get text of trTemplate
+	      		var trTemplateText = document.getElementById('trTemplate').innerHTML;//$("#trTemplate").text();
+	      		trTemplateText = trTemplateText.replace(/<_/gi, "<").replace(/%_/gi,"%");//get rid of bad symbols / hack to bypass grasshopper rendering.
+	      		
+	      		//generate the function we will use to render the template.
+	      		this.trTemplateFunction = _.template(trTemplateText);
+		      	
+		      	//now we can create the table
+		      	var musicItems = musicItemsPlayer.musicItems.slice(0, this.displayTableRowsInGroupsOf);
+		      	
+		      	this.$musicItemsTableContainer = $("#musicItemsTableContainer");
+		      	
+      			this.displaySomeMusicItems(musicItems, true);
+		      	
+		      	//now we can hold reference to the body
+		      	this.$musicItemsTableBody = $("#musicItemsTableBody");
+		      	this.musicItemsTableBody = document.getElementById("musicItemsTableBody");
+		      	
+		      	//initialize the jplayer music player
+		      	$('#musicControls').jPlayer({
+		      	//this.$jPlayer = $('#musicControls').jPlayer;
+		      	//this.$jPlayer({
+					  ready: function () {
+					   //$(this).jPlayer("setMedia", {
+					    //m4a: "/media/mysound.mp4",
+					    //oga: "/media/mysound.ogg"
+					   //});
+					  },
+					  ended: function (event) {
+						musicItemsPlayer.songHasEndedHandler(event);
+					  },
+					  swfPath: "/html/scripts",
+					  supplied: "mp3"
+					 });
+		      	
+		      	
+		      	
+		      	$("body")
+		      		.delegate('#searchBoxInput', 'keyup', this.options.searchBoxOnChangeHandler)
+		      		.delegate('#searchBoxInput', 'change', this.options.searchBoxOnChangeHandler);
+		      	
+	      	}, //end init
+	      	scrollHandler : function(){
+	      		var scrollTop = musicItemsPlayer.$body.scrollTop();
+	      		var windowHeight = musicItemsPlayer.$window.height();
+	      		var documentHeight = musicItemsPlayer.$document.height();
+	      		
+				//move the top box so that it floats when scrolling
+				//only do this for mobile browsers. its shaky on desktop, and deskktop can just use fixed position.
+				if(musicItemsPlayer.isMobileBrowser)
+	      			musicItemsPlayer.$floatingTopBox.offset({top:scrollTop});
+	      		
+	      		//alert('is mobile browser : ' + this.isMobileBrowser);
+	      		
+	      		//musicItemsPlayer.options.$searchResult.html("scroll top: " + scrollTop + "   window Height: " + windowHeight); //+ "   document height: " + documentHeight);
+	      		//console.log("scroll top: " + scrollTop + "   window Height: " + windowHeight + "   document height: " + documentHeight);
+	      		
+	      		var calculation = scrollTop + windowHeight + 100;
+	      		if(calculation > documentHeight){
+	      			//console.log("close " + calculation);
+	      			
+	      			if(musicItemsPlayer.currentMatchingItems.length){
+						
+						//only calculate and display if there is more to display
+						if(musicItemsPlayer.currentMatchingItemsNextStartIndex + musicItemsPlayer.displayTableRowsInGroupsOf <= musicItemsPlayer.currentMatchingItems.length){
+						
+							//calculate new batch
+							musicItemsPlayer.currentMatchingItemsNextStartIndex += musicItemsPlayer.displayTableRowsInGroupsOf;//we must calculate first to avoid duplicates on first scroll down event.
+		      				var batchToDisplay = musicItemsPlayer.currentMatchingItems.slice(musicItemsPlayer.currentMatchingItemsNextStartIndex, musicItemsPlayer.currentMatchingItemsNextStartIndex + musicItemsPlayer.displayTableRowsInGroupsOf);
+		      				
+		      				//console.log('next start index : ' + musicItemsPlayer.currentMatchingItemsNextStartIndex);
+		      				
+		      				//display new batch by appending them to existing table
+		      				musicItemsPlayer.displaySomeMusicItems(batchToDisplay, false);
+	      				}
+	      			}
+	      		}
+	      		
+	      	},
+	      	searchBoxOnChangeHandler : function(){
+	      		//get the current text for the search
+	      		var searchCriteria = this.value;
+	      		
+	      		var matchingItems = musicItemsPlayer.searchForMusicItems(searchCriteria);
+	      		if(matchingItems == undefined) matchingItems = {length: 0};
+	      		musicItemsPlayer.options.$searchResult.html(matchingItems.length);//let user know how many items have been found
+	      		
+	      		//keep track of matching items so we can do things like support scrolling auto load.
+	      		musicItemsPlayer.currentMatchingItems = matchingItems;
+	      		
+	      		//reset counter
+	      		musicItemsPlayer.currentMatchingItemsNextStartIndex = 0;
+	      		
+	      		musicItemsPlayer.displaySearchResult(matchingItems);
+	      			
+	      	},
+	      	displaySearchResult : function(matchingItems){
+	      		//only allow 100 items to be displayed at firs
+	      		if(matchingItems.length > this.displayTableRowsInGroupsOf){
+	      			matchingItems = matchingItems.slice(0, this.displayTableRowsInGroupsOf);
+	      		}
+	      		this.displaySomeMusicItems(matchingItems, true);//clear out and then display.
+	      	},
+	      	searchForMusicItems : function(searchCriteria){
+	      		var matchingItems = new Array();
+	      		//iterate over each item
+	      		for(var i = 0; i < musicItemsPlayer.musicItems.length; ++i){
+	      			var potentialItem = musicItemsPlayer.musicItems[i];
+	      			
+	      			if(potentialItem.fullPath.indexOf(searchCriteria) >= 0){ //<-- not case sensitive. fix it on the server!
+	      			//if(potentialItem.fullPath.match(new RegExp(searchCriteria, "i"))){  //<-- slowest
+	      			//if(potentialItem.fullPath.toLowerCase().indexOf(searchCriteria) >= 0){ //<-- slow
+	      				matchingItems.push(potentialItem);
+	      			}
+	      		
+	      		}
+	      		
+	      		return matchingItems;
+	      	},
+	      	playButtonClickHandler : function(){
+	      		//'this' will be the div with the attribute 'data-musicItemId'
+	      		var $this = $(this);
+	      		
+	      		var songId = $this.attr('data-musicItemId');
+	      		
+	      		musicItemsPlayer.playMusicItem(songId);
+	      	},
+	      	playMusicItem : function(songId){
+	      		
+	      		//remove the class from any playing items
+	      		$('#musicItem_' + this.currentPlayingSongId).removeClass('currentlyPlayingMusicItem');
+	      		
+	      		//add the css class .currentlyPlayingMusicItem
+	      		$('#musicItem_' + songId).addClass('currentlyPlayingMusicItem');
+	      		
+	      		this.currentPlayingSongId = songId;
+	      		$('#musicControls').jPlayer("setMedia", {
+	      			mp3: '/getSong?songId='+songId
+	      		});
+				$('#musicControls').jPlayer("play");
+	      	},
+	      	songHasEndedHandler : function(e){
+	      		//alert('song is over ' + e.data.finishedSongId);
+	      		var potentialNextSongId = musicItemsPlayer.currentPlayingSongId;//e.data.finishedSongId;
+	      		musicItemsPlayer.songHasEnded(potentialNextSongId);
+	      		
+	      	},
+	      	songHasEnded : function(songId){
+	      		//this won't work. you need to binary search current matchingItems. it can tell you if your id surpasses the id of the last item.
+	      		//var $potentialTr = $('#musicItem_'+songId);
+	      		
+	      		if(this.currentMatchingItems == undefined || this.currentMatchingItems == 0 || this.currentMatchingItems.length <=0){
+	      			alert('no more matching items to play');
+	      			return;
+	      		}
+	      			
+	      		var songWhichEndedIndex = -1;
+	      		//find index of current song in matching items. 
+	      		for(var i = 0; i < this.currentMatchingItems.length; ++i){
+	      			var matchingItem = this.currentMatchingItems[i];
+	      			if(matchingItem.id == songId){
+	      				//we found the song that just ended.
+	      				songWhichEndedIndex = i;
+	      				break;
+	      			}
+	      		}
+	      		
+	      		//console.log('songWhichEndedIndex : ' + songWhichEndedIndex);
+	      		if(songWhichEndedIndex < 0)
+	      			return;
+	      			
+	      		//increase index by 1 and get and play the song.
+	      		var nextIndex = songWhichEndedIndex + 1;
+	      		
+	      		//see if we're at the end of the list.
+	      		if(nextIndex >= this.currentMatchingItems.length)
+	      			return;
+	      		
+	      		var nextMusicItemToPlay = this.currentMatchingItems[nextIndex];
+	      		
+	      		//console.log('next music item to play : ' + nextMusicItemToPlay.id);
+	      		this.playMusicItem(nextMusicItemToPlay.id);
+	      		
+	      	},
+	      	displaySomeMusicItems : function(musicItems, shouldClearFirst){
+	      		
+	      		
+	      		//append or replace with the results
+	      		if(shouldClearFirst){
+		      		var tableHtml = this.tableTemplateFunction({'musicItems':musicItems});
+	      			this.$musicItemsTableContainer.html(tableHtml);
+		      		this.$musicItemsTableBody = $("#musicItemsTableBody");//reset reference since we have recreated the table.
+		      		//this.musicItemsTableBody = document.getElementById("musicItemsTableBody");
+	      		}else{
+	      		
+		      		var trHtml = this.trTemplateFunction({'musicItems':musicItems});
+		      		
+	      			this.$musicItemsTableBody.append(trHtml);
+	      			//this.musicItemsTableBody = document.getElementById("musicItemsTableBody");
+	      			//this.musicItemsTableBody.innerHtml = this.musicItemsTableBody.innerHtml.replace('undefined', '') + trHtml;
+	      		}
+	      	},
+	      	musicItems : [ {"fullPath":"/root/mainshare/music/(500) days of summer [2009] soundtrack ost/01 a story of boy meets girl.mp3","songName":"01 a story of boy meets girl.mp3","artist":"(500) days of summer [2009] soundtrack ost","album":"unknown","size":1529041,"id":0} , {"fullPath":"/root/mainshare/music/(500) days of summer [2009] soundtrack ost/02 us.mp3","songName":"02 us.mp3","artist":"(500) days of summer [2009] soundtrack ost","album":"unknown","size":4640293,"id":1} , {"fullPath":"/root/mainshare/music/(500) days of summer [2009] soundtrack ost/03 there is a light that never goes.mp3","songName":"03 there is a light that never goes.mp3","artist":"(500) days of summer [2009] soundtrack ost","album":"unknown","size":3904714,"id":2} , {"fullPath":"/root/mainshare/music/(500) days of summer [2009] soundtrack ost/04 bad kids.mp3","songName":"04 bad kids.mp3","artist":"(500) days of summer [2009] soundtrack ost","album":"unknown","size":2056471,"id":3} , {"fullPath":"/root/mainshare/music/(500) days of summer [2009] soundtrack ost/05 please, please, please, let me ge.mp3","songName":"05 please, please, please, let me ge.mp3","artist":"(500) days of summer [2009] soundtrack ost","album":"unknown","size":1805315,"id":4} , {"fullPath":"/root/mainshare/music/(500) days of summer [2009] soundtrack ost/06 there goes the fear.mp3","songName":"06 there goes the fear.mp3","artist":"(500) days of summer [2009] soundtrack ost","album":"unknown","size":6658626,"id":5} , {"fullPath":"/root/mainshare/music/(500) days of summer [2009] soundtrack ost/07 you make my dreams.mp3","songName":"07 you make my dreams.mp3","artist":"(500) days of summer [2009] soundtrack ost","album":"unknown","size":2969306,"id":6} , {"fullPath":"/root/mainshare/music/(500) days of summer [2009] soundtrack ost/08 sweet disposition.mp3","songName":"08 sweet disposition.mp3","artist":"(500) days of summer [2009] soundtrack ost","album":"unknown","size":3737517,"id":7} ]
+	      	
+      	};
+      	
+      	
+      	
+      	//===============  searchBox  ===================================================================================================
+      	
+      	$(document).ready(function(){
+      		musicItemsPlayer.init();
+      		//musicItemsPlayer.recreateMusicControl('nothing.mp3');
+      		
+      	});
+
+      </script>
+      
+      <script id="tableTemplate" type="text/html">
+      	<table id="musicItemsTable" class="musicItemsTable blackGradient">
+			<col class="playColumn" />
+			<col class="artistColumn" />
+  			<col class="songColumn" />
+  			<col class="albumColumn" />
+			<thead>
+				<tr>
+					<th></th><th>Artist</th><th>Song</th><th>Album</th>
+				</tr>
+			</thead>
+			<tbody id="musicItemsTableBody"><_% for (var i in musicItems) { 
+					var musicItem = musicItems[i];
+					var rowClass = i%2 == 0 ? "evenMusicItem" : "oddMusicItem";
+					%_>
+		  			<tr id="musicItem_<_%=musicItem.id%_>" class="musicItemsTableRow <_%=rowClass%_>">
+		    			<td class="musicItemPlay"><button type="button" class="playButton" data-musicItemId="<_%=musicItem.id%_>"> </button></td>
+		    			<td class="musicItemArtist"><_%=musicItem.artist%_></td>
+		    			<td class="musicItemSongName"><_%=musicItem.songName%_></td>
+		    			<td class="musicItemAlbum"><_%=musicItem.album%_></td>
+		  			</tr><_%}%_>
+			</tbody>
+		</table>
+      </script>
+      
+      <script id="trTemplate" type="text/html">
+		<_%
+		 if(musicItems.length <= 0){return;}
+		 for (var i = 0; i < musicItems.length; ++i) { 
+					var musicItem = musicItems[i];
+                    var rowClass = i%2 == 0 ? "evenMusicItem" : "oddMusicItem";
+					%_>
+		  			<tr id="musicItem_<_%=musicItem.id%_>" class="musicItemsTableRow <_%=rowClass%_>">
+		    			<td class="musicItemPlay"><button type="button" class="playButton" data-musicItemId="<_%=musicItem.id%_>"> </button></td>
+		    			<td class="musicItemArtist"><_%=musicItem.artist%_></td>
+		    			<td class="musicItemSongName"><_%=musicItem.songName%_></td>
+		    			<td class="musicItemAlbum"><_%=musicItem.album%_></td>
+		  			</tr><_%}%_>
+      </script>
+
+  </head>
+  <body class="body">
+	
+	
+	<div class="floatingTopBox simpleGreyGradient">
+
+		<div class="audioPlayerContainer">
+		
+			<div class="jp-audio">
+				<div class="jp-type-single">
+					<div id="jp_interface_1" class="jp-interface">
+		
+						<ul class="jp-controls">
+
+							<li><a href="#" class="jp-play" tabindex="1">play</a></li>
+							<li><a href="#" class="jp-pause" tabindex="1">pause</a></li>
+							<li><a href="#" class="jp-stop" tabindex="1">stop</a></li>
+<!--							<li><a href="#" class="jp-mute" tabindex="1">mute</a></li>-->
+<!--							<li><a href="#" class="jp-unmute" tabindex="1">unmute</a></li>-->
+							<li><a href="#" class="searchButton" tabindex="1">search</a></li>
+						</ul>
+						<div class="jp-progress">
+
+							<div class="jp-seek-bar">
+								<div class="jp-play-bar"></div>
+							</div>
+						</div>
+<!--						<div class="jp-volume-bar">-->
+<!--							<div class="jp-volume-bar-value"></div>-->
+<!--						</div>-->
+		
+						<div class="jp-current-time"></div>
+						<div class="jp-duration"></div>
+						
+						<div class="volumeButton">
+
+							<div class="volumeBarTop volumeBarNotFilled"></div>
+							<div class="volumeBarMiddle volumeBarFilled"></div>
+							<div class="volumeBarBottom volumeBarFilled"></div>
+						</div>
+						
+						<div class="artistCurrentlyPlaying">Artist</div>
+						<div class="songCurrentlyPlaying">Song Currently Playing</div>
+						
+					</div>
+				</div>
+
+			</div>
+			<div id="floatCutOffFix" style="float:left;">&nbsp;</div>
+			<div style="clear:both"></div>
+			
+			<div id="statusMessagePanel">
+				status message
+			</div>
+		</div>
+		
+		<span id="searchBox" class="searchBox">
+			
+			<input id="searchBoxInput" placeholder="search"/>
+
+	     	<span id="searchResult">9206</span>
+	     	
+	     </span> 
+
+<!--	     <div style="clear:both;"></div>-->
+	</div><!-- end floatingTopBox -->
+	
+    
+   <div id="mainContainer" class="mainContainer">
+		<div id="musicControls" class="musicControls">
+		</div>
+		
+		<div id="musicItemsTableContainer">
+		</div>
+   </div>
+
+
+  </body>
+</html>
