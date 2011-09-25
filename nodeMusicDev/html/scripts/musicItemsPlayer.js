@@ -1,6 +1,6 @@
 
 //todo: pump in music items asynchronously
-
+//version2.0
 //===============  music player  ===================================================================================================
 //var audioCheck = document.createElement('audio');
 var musicItemsPlayer = {
