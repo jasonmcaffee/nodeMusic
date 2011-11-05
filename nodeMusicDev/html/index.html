@@ -2,7 +2,7 @@
   <head>
 	  <!--<meta name="viewport" content="" />  initial-scale=.02; minimum-scale=0.1; width=device-width; maximum-scale=40.0; user-scalable=1;-->
 	  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.5, user-scalable=yes">-->
-		<meta name="viewport" content="initial-scale=1; width=device-width; user-scalable=0;" />
+	  <meta name="viewport" content="initial-scale=1; width=device-width; user-scalable=0;" />
 	  <meta name="apple-mobile-web-app-capable" content="yes">
 	  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	  
@@ -12,13 +12,20 @@
       
       <title>Node Music</title>
       
-      <script type="text/javascript" src="/html/scripts/jqueryMin.js"></script>
+            <script type="text/javascript" src="/html/scripts/jqueryMin.js"></script>
+      
+<!--      <script type="text/javascript" src="/html/scripts/jquery-1.6.4.js"></script>-->
+      
       <script type="text/javascript" src="/html/scripts/underscore-min.js"></script>
+<!--      <script type="text/javascript" src="/html/scripts/jquery.jplayer.js"></script>-->
+      
       <script type="text/javascript" src="/html/scripts/jquery.jplayer.min.js"></script>
+      <script type="text/javascript" src="/html/scripts/musicItemsPlayer.js"></script>
       
       <link type="text/css" rel="stylesheet" href="/html/css/nodeMusic.css"/>
-      <link type="text/css" rel="stylesheet" href="/html/css/musicItemsPlayer.css"/>
-      <script type="text/javascript" src="/html/scripts/musicItemsPlayer.js"></script>
+<!--      <link type="text/css" rel="stylesheet" href="/html/css/musicItemsPlayer.css"/>-->
+     
+     
       <script type="text/javascript">
 		
       	$(document).ready(function(){
@@ -30,6 +37,8 @@
       	});
 
       </script>
+      
+      
       <script id="tableTemplate" type="text/html">
       	<table id="musicItemsTable" class="musicItemsTable blackGradient">
 			
@@ -67,20 +76,24 @@
 		  			</tr><_%}%_>
       </script>
   </head>
+  
   <body>
+  
+	<!-- jplayer gets assigned to this -->
+	<div id="musicControls" class="jp-audio"></div>
 
 	<div class="floatingTopBox simpleGreyGradient">
 		
 		<div id="searchBox" class="searchBox">
-			<div class="optionsGearButtonContainer">
+			<div id="optionsGearButtonContainer" class="optionsGearButtonContainer">
 				<img id="optionsGearButton" class="optionsGearButton" alt="extended options" src="/html/images/optionsGear.png"/>
 			</div>
 			<div class="searchBoxInputContainer">
 				<input id="searchBoxInput" placeholder="search"/>
 			</div>
-	     	<div class="searchResultContainer buttonGreyGradient">
-	     		<span id="searchResult" class="searchResult"><%=musicItems.length%></span>
-	     	</div>
+<!--	     	<div class="searchResultContainer buttonGreyGradient">-->
+<!--	     		<span id="searchResult" class="searchResult"><%=musicItems.length%></span>-->
+<!--	     	</div>-->
 	    </div> 
 		
 		<div id="audioPlayerContainer" class="audioPlayerContainer">
@@ -97,15 +110,15 @@
 					<img id="nextTrackButton" class="nextTrackButton musicControlButton" alt="next track button" src="/html/images/nextButton.png"/>
 				</div>
 				<div class="volumeContainer">
-					<img id="volumeButton1" class="volumeButton musicControlButton" alt="volume 1" src="/html/images/volumeCircleFilled.png"/>
-					<img id="volumeButton2" class="volumeButton musicControlButton" alt="volume 2" src="/html/images/volumeCircleFilled.png"/>
-					<img id="volumeButton3" class="volumeButton musicControlButton" alt="volume 3" src="/html/images/volumeCircleNotFilled.png"/>
+					<img id="volumeButtonOne" class="volumeButton musicControlButton" alt="volume 1" src="/html/images/volumeCircleFilled.png"/>
+					<img id="volumeButtonTwo" class="volumeButton musicControlButton" alt="volume 2" src="/html/images/volumeCircleFilled.png"/>
+					<img id="volumeButtonThree" class="volumeButton musicControlButton" alt="volume 3" src="/html/images/volumeCircleNotFilled.png"/>
 				</div>
 			</div>
 		 	
 		</div><!-- end audioPlayerContainer -->
 		
-		<div id="musicControls" class="musicControls"></div>
+		
 		
 	</div><!-- end floatingTopBox -->
 	

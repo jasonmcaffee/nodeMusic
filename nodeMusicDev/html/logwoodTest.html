@@ -1,0 +1,62 @@
+<html>
+  <head>
+  	<script type="text/javascript" src="/html/scripts/jqueryMin.js"></script>
+  	<script type="text/javascript" src="/html/scripts/logwood.js"></script>
+  	
+  	<script type="text/javascript">
+		
+		logwood.init();
+
+		$(function(){
+			$("body").delegate("#logButton", "click", handleLogButtonClick);
+  		});
+
+		function handleLogButtonClick(e){
+			var serializedFormData = $('#logFormTest').serialize();
+			var logMessages = [];
+			logMessages.push({datetime:new Date().toUTCString(), logLevel:0, logMessage:'some text for a message'});
+			logMessages.push({datetime:new Date().toUTCString(), logLevel:0, logMessage:'garbllell'});
+			logMessages.push({datetime:new Date().toUTCString(), logLevel:0, logMessage:'macho'});
+
+			log('serializedFormData : ' + serializedFormData);
+			$.ajax({
+				type: 'post',
+				url: 'logwoodTest', 
+				data: {"logMessages": JSON.stringify(logMessages)}//,//JSON.stringify(
+				//contentType: 'application/json'
+			})  //{"logMessages": logMessages}
+			.success(function(data){
+				$('#serverResponseDiv').html('--------------------<br/>' + data);
+			})
+			.error(function() {
+				alert('an error occurred sending the log');
+			});
+			
+			e.preventDefault();
+			return false;
+		}
+
+		function log(message){
+			document.getElementById('logDiv').innerHTML += '<br/>' + message;
+		}
+  		
+  		
+  	</script>
+  </head>
+  <body>
+  
+  	<form id="logFormTest" action="logwoodTest" method="post">
+  		<input type="text" name="demoText" value="123abc"/>
+  		<input type="text" name="demoText" value="456abc"/>
+  		<input type="text" name="demoText" value="789abc"/>
+  		<input id="logButton" type="submit" value="send"/>
+  	</form>
+  	
+  	<div id="logDiv">
+  	</div>
+  	
+  	<div id="serverResponseDiv">
+  	</div>
+  
+  </body>
+ </html>

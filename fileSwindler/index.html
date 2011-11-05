@@ -1,0 +1,336 @@
+<html>
+  <head>
+      <title>File Swindler</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=9" />
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+      <style type="text/css">
+
+	.inputTable{
+	  width:100%;
+	  border-spacing: 0px;
+	  border-style: none;
+	  padding: 0px;
+	}
+	.labelTd {
+	  width:15%;
+	  padding:0px 0px 0px 0px;
+	  border-width:0px;
+	  border-style:none;
+	}
+	.inputTd {
+	  width:85%;
+	  padding: 0px 0px 0px 0px;
+	  
+	  border-width:0px;
+	  border-style:none;
+	}
+	.fileUrlInputContainer{
+	  
+	}
+	
+	.fileUrlInputContainer input{
+	  width:100%;
+	}
+
+	.fileUrlInputContainer label{
+	  width:100%;
+	  border: 1px solid gray;
+	  padding: 8px;
+	  -moz-border-radius: 20px 1px 0px 0px;
+	  -webkit-border-top-right-radius: 1px;
+	  -webkit-border-bottom-right-radius: 0px;
+	  -webkit-border-bottom-left-radius: 0px;
+	  border-radius: 20px 1px 0px 0px;
+
+	  /* -- CSS3 Shadow - create a shadow around each input element -- */ 
+	  -webkit-box-shadow: 0px 0px 4px #aaa;
+	  -moz-box-shadow: 0px 0px 4px #aaa; 
+	  box-shadow: 0px 0px 4px #aaa;
+ 
+	  /* -- CSS3 Transition - define what the transition will be applied to (i.e. the background) -- */		
+	  -webkit-transition: background 0.3s linear;
+
+	  background: #E3E9F2; /* old browsers */
+	  background: -moz-linear-gradient(top, #E3E9F2 0%, #ABC0C9 100%); /* firefox */
+	  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E3E9F2), color-stop(100%,#ABC0C9)); /* webkit */
+	  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E3E9F2', endColorstr='#ABC0C9',GradientType=0 ); /* ie */
+	}
+
+	.downloadFileAsInputContainer{
+	  
+	  
+	}
+	
+	.downloadFileAsInputContainer input{
+	  width:100%;
+	
+	}
+
+	.downloadFileAsInputContainer label{
+	  width:100%;
+	  border: 1px solid gray;
+	  padding: 8px;
+	  -moz-border-radius: 0px 1px 0px 20px;
+	  -webkit-border-top-right-radius: 1px;
+	  -webkit-border-bottom-right-radius: 0px;
+	  -webkit-border-bottom-left-radius: 20px;
+	  border-radius: 0px 1px 0px 20px;
+
+	  /* -- CSS3 Shadow - create a shadow around each input element -- */ 
+	  -webkit-box-shadow: 0px 0px 4px #aaa;
+	  -moz-box-shadow: 0px 0px 4px #aaa; 
+	  box-shadow: 0px 0px 4px #aaa;
+ 
+	  /* -- CSS3 Transition - define what the transition will be applied to (i.e. the background) -- */		
+	  -webkit-transition: background 0.3s linear;
+
+
+	  background: #E3E9F2; /* old browsers */
+	  background: -moz-linear-gradient(top, #E3E9F2 0%, #ABC0C9 100%); /* firefox */
+	  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E3E9F2), color-stop(100%,#ABC0C9)); /* webkit */
+	  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E3E9F2', endColorstr='#ABC0C9',GradientType=0 ); /* ie */
+	}
+	  
+	.inputsContainer {
+	  border: 1px solid black;
+	  -moz-border-radius: 25px 1px 10px 0px;
+	  -webkit-border-top-right-radius: 1px;
+	  -webkit-border-bottom-right-radius: 10px;
+	  -webkit-border-bottom-left-radius: 0px;
+	  border-radius: 25px 1px 10px 0px;
+
+	  background: #8CD1FF; /* old browsers */
+	  background: -moz-linear-gradient(top, #8CD1FF 0%, #4CBDFF 37%, #3091C1 100%); /* firefox */
+	  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#8CD1FF), color-stop(37%,#4CBDFF), color-stop(100%,#3091C1)); /* webkit */
+	  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8CD1FF', endColorstr='#3091C1',GradientType=0 ); /* ie */
+	  
+	  -webkit-box-shadow: 8px 8px 10px #333333;
+	  -moz-box-shadow:8px 8px 10px #333333;
+	  box-shadow:8px 8px 10px #333333;
+
+	  padding:20px 10px 20px 10px;
+	  max-width: 550px;
+	  min-width: 190px;
+	  margin-left: 5%;
+	  margin-top:5%;
+	  
+	}
+
+	.aboutFileSwindler {
+	  border: 1px solid black;
+	  -moz-border-radius: 25px 1px 10px 0px;
+	  -webkit-border-top-right-radius: 1px;
+	  -webkit-border-bottom-right-radius: 10px;
+	  -webkit-border-bottom-left-radius: 0px;
+	  border-radius: 25px 1px 10px 0px;
+
+	  background: #919191; /* old browsers */
+	  background: -moz-linear-gradient(top, #919191 0%, #333333 100%); /* firefox */
+	  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#919191), color-stop(100%,#333333)); /* webkit */
+	  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#919191', endColorstr='#333333',GradientType=0 ); /* ie */	
+	  
+	  -webkit-box-shadow: 8px 8px 10px #333333;
+	  -moz-box-shadow:8px 8px 10px #333333;
+	  box-shadow:8px 8px 10px #333333;
+
+	  padding:20px 10px 20px 10px;
+	  max-width: 550px;
+	  min-width: 190px;
+	  margin-left: 5%;
+	  margin-top:5%;
+	  
+	  color: #D4DCDD;
+	}
+
+
+
+	.errorsContainer {
+	  border: 1px solid black;
+	  border-radius: 25px 1px 10px 0px;
+	  -moz-border-radius: 25px 1px 10px 0px;
+	  -webkit-border-top-right-radius: 1px;
+	  -webkit-border-bottom-right-radius: 10px;
+	  -webkit-border-bottom-left-radius: 0px;
+
+	  background: #E54B4B; /* old browsers */
+	  background: -moz-linear-gradient(top, #E54B4B 0%, #8f0222 44%, #CE1B00 100%); /* firefox */
+	  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E54B4B), color-stop(44%,#8f0222), color-stop(100%,#CE1B00)); /* webkit */
+	  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E54B4B', endColorstr='#CE1B00',GradientType=0 ); /* ie */
+	  
+	  padding:2px; 2px 2px 2px;
+	  max-width: 590px;
+	  min-width: 240px;	 
+	}
+
+	body{
+	  /*height: 100%;*/
+	  margin: 0px;
+	  background-repeat: none;
+	  background: #919191; /* old browsers */
+	  background: -moz-linear-gradient(top, #919191 0%, #333333 100%); /* firefox */
+	  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#919191), color-stop(100%,#333333)); /* webkit */
+	  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#919191', endColorstr='#333333',GradientType=0 ); /* ie */	}
+
+	html{
+	  height: 100%;
+	}
+
+	input { 		
+	  padding: 8px; 
+	  background: #fff; 
+	  font-size: 14px; 
+	  color: #555; 
+	  border: 1px #ddd solid;
+	  /* -- CSS3 Shadow - create a shadow around each input element -- */ 
+	  -webkit-box-shadow: 0px 0px 4px #aaa;
+	  -moz-box-shadow: 0px 0px 4px #aaa; 
+	  box-shadow: 0px 0px 4px #aaa;
+ 
+	  /* -- CSS3 Transition - define what the transition will be applied to (i.e. the background) -- */		
+	  -webkit-transition: background 0.3s linear;
+	}
+
+	.submitButton {
+	  text-align:center;
+
+	  margin-left: 20%;
+	  margin-right: 20%;
+	  margin-top: 5%;
+	  width:60%;
+	  background: #E3E9F2; /* old browsers */
+	  background: -moz-linear-gradient(top, #E3E9F2 0%, #ABC0C9 100%); /* firefox */
+	  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E3E9F2), color-stop(100%,#ABC0C9)); /* webkit */
+	  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E3E9F2', endColorstr='#ABC0C9',GradientType=0 ); /* ie */
+	  
+	  -moz-border-radius: 5px 5px 5px 5px;
+	  -webkit-border-top-right-radius: 5px;
+	  -webkit-border-bottom-right-radius: 5px;
+	  -webkit-border-bottom-left-radius: 5px;
+	  border-radius: 5px 5px 5px 5px;
+
+	  
+	}
+
+	.submitButton:hover { 		
+	  -webkit-box-shadow: 0px 0px 20px #555;
+	  -moz-box-shadow: 0px 0px 20px #aaa; 
+	  box-shadow: 0px 0px 20px #555;		
+	  cursor:  pointer; 
+	  background: #c9de96; /* old browsers */
+	  background: -moz-linear-gradient(top, #c9de96 0%, #8ab66b 44%, #398235 100%); /* firefox */
+	  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c9de96), color-stop(44%,#8ab66b), color-stop(100%,#398235)); /* webkit */
+	  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9de96', endColorstr='#398235',GradientType=0 ); /* ie */
+
+	}
+
+	input:hover { 
+	  background: #eee; 
+	}
+	a {
+	  color:#c9de96;
+	}
+
+	@font-face {
+	  font-family: 'MadeWithBRegular';
+	  src: url('madewithb-webfont.eot');
+	  src: url('madewithb-webfont.eot?iefix') format('eot'),
+	  url('madewithb-webfont.woff') format('woff'),
+	  url('madewithb-webfont.ttf') format('truetype'),
+	  url('madewithb-webfont.svg#webfontL2V63zYC') format('svg');
+	  font-weight: normal;
+	  font-style: normal;
+	}
+
+	.heading{
+	  font-family: 'MadeWithBRegular';
+	  font-size: 40px;
+	  text-align: center;
+	  width:100%;
+	  margin-left: 25%;
+	  margin-right: 25%;
+	}
+
+      </style>
+      <script type="text/javascript">
+		
+	//only query the dom once to get the downloadFileAs input element
+	var downloadFileAsInput, errorContainer;
+	window.onload = function(){
+	  downloadFileAsInput = document.getElementById("downloadFileAsInput");
+	  errorsContainer = document.getElementById("errorsContainer");
+	}
+
+	//when the file url is changed, we'll automatically generate a suggested name to download the file as.
+	function fileUrlChanged(fileUrlInputValue){
+	  var lastSlashIndex = fileUrlInputValue.lastIndexOf('/');
+	  var lastDotIndex = fileUrlInputValue.lastIndexOf('.');
+
+	  if(lastDotIndex < lastSlashIndex + 1){
+	    downloadFileAsInput.value = '';
+	    return;
+	  }		
+	  //calculate a suggested download name
+	  var fileName = fileUrlInputValue.substring(lastSlashIndex + 1, lastDotIndex) + '.txt';
+	  downloadFileAsInput.value = fileName;
+	}
+
+	function clearError(){
+	  if(errorsContainer && errorsContainer !== 'undefined'){
+	    errorsContainer.style.display = 'none';
+	  }
+	}
+      </script>
+  </head>
+  <body> 
+
+    
+    <div id="inputsContainer" class="inputsContainer">
+      <span class="heading">File&nbsp;Swindler</span>
+      <% if(hasError) { %>
+	<div id="errorsContainer" class="errorsContainer">
+	  <p><%= errorMessage %></p>
+	</div>
+      <%}%>
+
+      <% if(successMessage){ %>
+	<div id="successContainer" class="successContainer">
+	  <p><%= successMessage %></p>
+	</div>
+      <%}%>
+
+      <form id="mainForm" name="mainForm" action="/" method="post">
+	<table id="inputTable" class="inputTable">
+	<tbody>
+	  <tr id="fileUrlInputContainer" class="fileUrlInputContainer">
+	    <td class="labelTd"><label for="fileUrlInput">file&nbsp;url:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></td>
+	    <td class="inputTd"><input type="text" id="fileUrlInput" name="fileUrl" value="<%=fileUrl%>" onchange="javascript:fileUrlChanged(this.value)" onkeyup="javascript:fileUrlChanged(this.value)" autocomplete="on" placeholder="http://www.example.com/example.exe"/></td>
+	  </tr>
+	
+	  <tr id="downloadFileAsInputContainer" class="downloadFileAsInputContainer">
+	    <td class="labelTd"><label for="downloadFileAsInput">download&nbsp;as:</label></td>
+	    <td class="inputTd"><input type="text" id="downloadFileAsInput" name="downloadFileAs" value="<%=downloadFileAs%>" autocomplete="on" placeholder="example.txt (auto generated)"></td>
+	  </tr>
+	
+	</tbody>
+	</table>
+	<input type="submit" value="get file" class="submitButton" onclick="javascript:clearError()"/>
+
+      </form>
+
+    </div>
+
+    <div id="aboutFileSwindler" class="aboutFileSwindler">
+      <p>
+	Have a file you can't access due to a proxy restriction?  Is your IP Address blocked from a server?  File Swindler can help.
+      </p>
+      <p>
+	File Swindler will grab the file for you and send it back to you as any file name that you'd like.  Simply paste or type the url to the file and enter the file name you'd like to download the file as.
+      </p>
+
+      <p>
+	File Swindler is built on node.js and runs on a ubuntu virtual machine.  Source code can be found here: <a href="/fileSwindler.js">source</a>
+      </p>
+    </div>
+
+  </body>
+</html>

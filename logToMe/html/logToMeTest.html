@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title>log to me</title>
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="/html/scripts/jquery-1.6.4.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("body").delegate("#logMessagesButton", "click", logToMeClient.logMessages);
+			});
+			
+			//var socket = io.connect('http://192.168.0.110');
+			//listen for the server sending us log messages.
+			//socket.on('logMessageBatchTransmition', function(data){
+			//	alert('horray!');
+			//});
+			//socket.emit('readyToReceiveLogs', {some:'data'});
+					
+			var logToMeClient = {
+				socket : 0,//socket.io socket connection with the server
+				options : {
+					//default handler for server sending us a batch of log messages
+					logMessageBatchTransmissionHandler : function(data){
+						console.log('message received from server: ' + data);
+					}
+				},
+				init : function(opts){
+					$.extend(this.options, opts);
+					
+					this.socket = io.connect('http://192.168.0.110');
+					//listen for the server sending us log messages.
+					this.socket.on('logMessageBatchTransmition', this.options.logMessageBatchTransmissionHandler);
+					
+					this.socket.emit('readyToReceiveLogs', {some:'data'});
+				},
+				logMessages : function(){
+					console.log('logToMeClient.logMessages called.');
+					
+					this.socket.emit('logMessages', logToMeClient.getNextLogMessageBatch());
+					
+				}, 
+				getNextLogMessageBatch : function(){
+					return {
+						logMessages : [
+							{logLevel: 0, logMessage: "some message about some things", datetime: new Date().toUTCString()}
+						]
+					}
+				}
+			};
+			
+			logToMeClient.init();
+		</script>
+	</head>
+	<body>
+		<h1>Log to me testing</h1>
+		
+		
+		<input id="logMessagesButton" type="button" value="log messages"/>
+		
+	</body>
+</html>

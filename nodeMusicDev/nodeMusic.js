@@ -3,6 +3,8 @@ var http = require('http'); //for http client requests
 var sys = require('sys');//for streaming response for file back to the client
 var fs = require('fs');//for file system
 var musicItemRepository = require('./musicItemRepository.js').musicItemRepository;//fetching files
+var logwoodService = require('./logwoodService.js').logwoodService;
+
 
 var nodeMusic = {
 		options : {
@@ -13,6 +15,43 @@ var nodeMusic = {
 
 musicItemRepository.init(nodeMusic.options.musicRootFilePath);
 log('musicItems repository called on start.')
+
+gh.get('/logwoodTest', function(parameters){
+	console.log('get logwoodTest called');
+	
+	this.render('html/logwoodTest');
+});
+
+
+gh.post('/logwoodTest', function(parameters){
+	console.log('param demoText : ' + this.params['demoText']);
+	//console.log('param logMessages : ' + this.params['logMessages']);
+
+	for(var prop in this.params){
+		console.log('prop : '+ prop + '\n value : ' + this.params[prop]);
+	}
+	
+	//grab the logMessages and parse them from a string to a json object
+	var logMessages = JSON.parse(this.params['logMessages']);
+	
+	if(!logMessages || !logMessages.length || logMessages.length <= 0){
+		this.renderError(500,"we did not recieve any log messages from you, or there was an error parsing them.");
+		return;}
+	
+	console.log('logMessages length : ' + logMessages.length);
+	
+	//send messages to logwoodService
+	logwoodService.logMessages(logMessages);
+	
+	this.response.end();
+	
+	//this.render('html/logwoodTest');
+});
+
+gh.get('/jplayerTest', function(paramaters){
+	
+	this.render('html/jplayerTest');
+});
 
 ////musicItems : [ <%for (var i in musicItems) { var musicItem = musicItems[i];%> <%h JSON.stringify(musicItem) %>, <%}%>]
 //get method for index

@@ -25,9 +25,9 @@ var musicItemsPlayer = {
   	$statusMessage : 0,
   	$songCurrentlyPlaying : 0,
   	$artistCurrentlyPlaying : 0,
-  	$volumeBarTop: 0,
-  	$volumeBarMiddle : 0,
-  	$volumeBarBottom : 0,
+  	$volumeBarOne: 0,
+  	$volumeBarTwo : 0,
+  	$volumeBarThree : 0,
   	$searchBox : 0,
   	$optionsGear : 0,
   	$audioPlayerContainer : 0,
@@ -56,12 +56,12 @@ var musicItemsPlayer = {
   		this.$body = $("body");
 
       	//listen for volume button changes
-      	this.$body.delegate('#volumeBarBottom', 'click', this.volumeButtonBottomClickHandler);
-      	this.$body.delegate('#volumeBarMiddle', 'click', this.volumeButtonMiddleClickHandler);
-      	this.$body.delegate('#volumeBarTop', 'click', this.volumeButtonTopClickHandler);
-		this.$volumeBarBottom = $('#volumeBarBottom');
-		this.$volumeBarMiddle = $('#volumeBarMiddle');
-		this.$volumeBarTop = $('#volumeBarTop');
+      	this.$body.delegate('#volumeButtonOne', 'click', this.volumeButtonOneClickHandler);
+      	this.$body.delegate('#volumeButtonTwo', 'click', this.volumeButtonTwoClickHandler);
+      	this.$body.delegate('#volumeButtonThree', 'click', this.volumeButtonThreeClickHandler);
+		this.$volumeBarThree = $('#volumeButtonThree');
+		this.$volumeBarTwo = $('#volumeButtonTwo');
+		this.$volumeBarOne = $('#volumeButtonOne');
 		
 		//options gear click stuff ///////////////////////////////////////////////////////////////////////////////////
 		this.$audioPlayerContainer = $("#audioPlayerContainer");
@@ -69,7 +69,7 @@ var musicItemsPlayer = {
 		this.$playPauseButton = $("#playPauseButton");
 		this.$nextTrackButton = $("#nextTrackButton");
 		
-		this.$body.delegate('#optionsGearButton', 'click', this.optionsGearClickHandler);
+		this.$body.delegate('#optionsGearButtonContainer', 'click', this.optionsGearClickHandler);//changed to container so bigger hit target on phone. (was too small, hard to hit)
 		this.$body.delegate('#playPauseButton', 'click', this.playPauseButtonClickHandler);
 		this.$body.delegate('#nextTrackButton', 'click', this.nextTrackButtonClickHandler);
 		
@@ -78,13 +78,12 @@ var musicItemsPlayer = {
 		if(this.isMobileBrowser){
 			this.$body.delegate('.musicItemsTable tr', 'click', this.tableSingleTapHandler);
 		}else{
-			
 			this.$body.delegate('.musicItemsTable tr', 'dblclick', this.tableRowDoubleClickHandler);
 		}
       	//listen for search input box changes, so we can filter the 
       	this.trArray = document.getElementsByTagName('tr');
       	
-      	//listen for scroll events
+      	//listen for scroll events - <-- no need as we no longer need to correct location (device absolute)
       	//$(window).scroll(musicItemsPlayer.scrollHandler);
       	
       	this.currentMatchingItems = this.musicItems;//for scrolling
@@ -96,12 +95,8 @@ var musicItemsPlayer = {
 
   		this.$songCurrentlyPlaying = $('#songCurrentlyPlaying');
   		this.$artistCurrentlyPlaying = $('#artistCurrentlyPlaying');
-  		
-  		
 
-		this.$searchBox = $("#searchBox");
-		
-		//this.$body.delegate("#searchButton", "click", this.searchButtonClickHandler);
+		//this.$searchBox = $("#searchBox");
       	
       	//add binary searching for matchingItems array
       	Array.prototype.binarySearchMatchingItems = function(musicItemId){
@@ -158,21 +153,16 @@ var musicItemsPlayer = {
       	this.musicItemsTableBody = document.getElementById("musicItemsTableBody");
       	
       	//initialize the jplayer music player
-      	$('#musicControls').jPlayer({
-      	//this.$jPlayer = $('#musicControls').jPlayer;
-      	//this.$jPlayer({
-			  ready: function () {
-			   //$(this).jPlayer("setMedia", {
-			    //m4a: "/media/mysound.mp4",
-			    //oga: "/media/mysound.ogg"
-			   //});
-			  },
-			  ended: function (event) {
-				musicItemsPlayer.songHasEndedHandler(event);
-			  },
-			  swfPath: "/html/scripts",
-			  supplied: "mp3"
-			 });
+      	this.options.$musicControls.jPlayer({
+		  ready: function () {
+				console.log('ready to jplay');
+		  },
+		  ended: function (event) {
+			musicItemsPlayer.songHasEndedHandler(event);
+		  },
+		  swfPath: "/html/scripts",
+		  supplied: "mp3"
+	    });
       	
       	
       	
@@ -180,9 +170,17 @@ var musicItemsPlayer = {
       		.delegate('#searchBoxInput', 'keyup', this.options.searchBoxOnChangeHandler)
       		.delegate('#searchBoxInput', 'change', this.options.searchBoxOnChangeHandler);
       	
+      	//var $musicControls = $("#musicControls");
+//      	this.options.$musicControls.bind($.jPlayer.event.play, function(event){
+//      		alert('playing song');
+//      	}).bind($.jPlayer.event.loadstart, function(event){
+//      		alert('loading song');
+//      	})
+      	
+      	
   	}, //end init
   	nextTrackButtonClickHandler : function(e){
-  		
+  		musicItemsPlayer.songHasEnded(musicItemsPlayer.currentPlayingSongId);
   	},
   	switchPlayButtonToPause : function(){
   		musicItemsPlayer.$playPauseButton.attr('src', '/html/images/pause.png');
@@ -195,27 +193,51 @@ var musicItemsPlayer = {
   		
   		var songId = 1;
   		
-  		var $musicControls = $("#musicControls");
+  		//var $musicControls = $("#musicControls");
   		
-  		var jPlayerStatus = $musicControls.data("jPlayer").status;
+  		var jPlayerStatus = musicItemsPlayer.options.$musicControls.data("jPlayer").status;
   		var isPaused = jPlayerStatus.paused;
   		var isPlayingSomething = !isPaused && jPlayerStatus.currentTime > 0;
   		
   		if(isPaused && jPlayerStatus.currentTime > 0){
   			//resume from where they paused it.
-  			$musicControls.jPlayer("play");
+  			musicItemsPlayer.options.$musicControls.jPlayer("play");
   			
   			//change the button image
   			musicItemsPlayer.switchPlayButtonToPause();
   		}else{
   			if(isPlayingSomething){
 	  			musicItemsPlayer.switchPauseButtonToPlay();
-	  			$musicControls.jPlayer("pause");
+	  			musicItemsPlayer.options.$musicControls.jPlayer("pause");
   			}else{
-  				alert('there is nothing to play.')
+  				alert('sorry, something is wrong.');
   			}
   		}
   		
+  	},
+    playMusicItem : function(songId){
+  		
+  		//remove the class from any playing items
+  		$('#musicItem_' + this.currentPlayingSongId).removeClass('currentlyPlayingMusicItem');
+  		
+  		//add the css class .currentlyPlayingMusicItem
+  		$('#musicItem_' + songId).addClass('currentlyPlayingMusicItem');
+  		
+  		this.currentPlayingSongId = songId;
+  		
+  		//this.options.$musicControls.jPlayer("clearMedia");
+  		
+  		this.options.$musicControls.jPlayer("setMedia", {
+  			mp3: '/getSong?songId='+songId
+
+		}).jPlayer("play");
+  		
+  		
+
+		var musicItemCurrentlyPlaying = this.musicItems[songId];
+      	this.$songCurrentlyPlaying.html(musicItemCurrentlyPlaying.songName);
+      	this.$artistCurrentlyPlaying.html(musicItemCurrentlyPlaying.artist);
+      	
   	},
   	optionsGearClickHandler: function(e){
   		//toggle minimize maximize of audioPlayerContainer
@@ -249,15 +271,10 @@ var musicItemsPlayer = {
 		if(musicItemsPlayer.isMobileBrowser)
   			musicItemsPlayer.$floatingTopBox.offset({top:scrollTop});
   		
-  		//alert('is mobile browser : ' + this.isMobileBrowser);
-  		
-  		//musicItemsPlayer.options.$searchResult.html("scroll top: " + scrollTop + "   window Height: " + windowHeight); //+ "   document height: " + documentHeight);
-  		//console.log("scroll top: " + scrollTop + "   window Height: " + windowHeight + "   document height: " + documentHeight);
-  		
   		var calculation = scrollTop + windowHeight + 100;
   		if(calculation > documentHeight){
   			//console.log("close " + calculation);
-  			musicItemsPlayer.statusMessage('looks like we are at the bottom');
+  			//musicItemsPlayer.statusMessage('looks like we are at the bottom');
   			if(musicItemsPlayer.currentMatchingItems.length){
 				
 				//only calculate and display if there is more to display
@@ -281,28 +298,31 @@ var musicItemsPlayer = {
   		musicItemsPlayer.$searchBox.show();
   		$("#searchBoxInput").focus();
   	},
-  	volumeButtonTopClickHandler : function(e){
+  	volumeButtonOneClickHandler : function(e){
 		var self = musicItemsPlayer;
-		musicItemsPlayer.$volumeBarTop.addClass('volumeBarFilled').removeClass('volumeBarNotFilled');
-		musicItemsPlayer.$volumeBarMiddle.addClass('volumeBarFilled').removeClass('volumeBarNotFilled');
-		//musicItemsPlayer.$volumeBarBottom.addClass('volumeBarFilled').removeClass('volumeBarNotFilled');
-		$('#musicControls').jPlayer( "volume", 1 ) ;
+		musicItemsPlayer.$volumeBarOne.attr('src', '/html/images/volumeCircleFilled.png');  //.addClass('volumeBarFilled').removeClass('volumeBarNotFilled');
+		musicItemsPlayer.$volumeBarTwo.attr('src', '/html/images/volumeCircleNotFilled.png');  //.addClass('volumeBarFilled').removeClass('volumeBarNotFilled');
+		musicItemsPlayer.$volumeBarThree.attr('src', '/html/images/volumeCircleNotFilled.png');  //.addClass('volumeBarFilled').removeClass('volumeBarNotFilled');
+		
+		musicItemsPlayer.options.$musicControls.jPlayer( "volume", .25 ) ;
 		
   	},
-  	volumeButtonMiddleClickHandler : function(e){
+  	volumeButtonTwoClickHandler : function(e){
   		var self = musicItemsPlayer;
-		musicItemsPlayer.$volumeBarTop.removeClass('volumeBarFilled').addClass('volumeBarNotFilled');
-		musicItemsPlayer.$volumeBarMiddle.addClass('volumeBarFilled').removeClass('volumeBarNotFilled');
-		//musicItemsPlayer.$volumeBarBottom.addClass('volumeBarFilled').removeClass('volumeBarNotFilled');
-		$('#musicControls').jPlayer( "volume", .75 ) ;
+  		musicItemsPlayer.$volumeBarOne.attr('src', '/html/images/volumeCircleFilled.png');  //.addClass('volumeBarFilled').removeClass('volumeBarNotFilled');
+		musicItemsPlayer.$volumeBarTwo.attr('src', '/html/images/volumeCircleFilled.png');  //.addClass('volumeBarFilled').removeClass('volumeBarNotFilled');
+		musicItemsPlayer.$volumeBarThree.attr('src', '/html/images/volumeCircleNotFilled.png');  //.addClass('volumeBarFilled').removeClass('volumeBarNotFilled');
+		
+		musicItemsPlayer.options.$musicControls.jPlayer( "volume", .75 );
   	},
-  	volumeButtonBottomClickHandler :function(e){
+  	volumeButtonThreeClickHandler :function(e){
   		var self = musicItemsPlayer;
-		musicItemsPlayer.$volumeBarTop.removeClass('volumeBarFilled').addClass('volumeBarNotFilled');
-		musicItemsPlayer.$volumeBarMiddle.removeClass('volumeBarFilled').addClass('volumeBarNotFilled');
-		//musicItemsPlayer.$volumeBarBottom.addClass('volumeBarFilled').removeClass('volumeBarNotFilled');
+  		musicItemsPlayer.$volumeBarOne.attr('src', '/html/images/volumeCircleFilled.png');  //.addClass('volumeBarFilled').removeClass('volumeBarNotFilled');
+		musicItemsPlayer.$volumeBarTwo.attr('src', '/html/images/volumeCircleFilled.png');  //.addClass('volumeBarFilled').removeClass('volumeBarNotFilled');
+		musicItemsPlayer.$volumeBarThree.attr('src', '/html/images/volumeCircleFilled.png');  //.addClass('volumeBarFilled').removeClass('volumeBarNotFilled');
+		
 
-		$('#musicControls').jPlayer( "volume",  .25 ) ;
+		musicItemsPlayer.options.$musicControls.jPlayer( "volume",  1 ) ;
   	},
   	searchBoxOnChangeHandler : function(){
   		//get the current text for the search
@@ -344,35 +364,13 @@ var musicItemsPlayer = {
   		
   		return matchingItems;
   	},
-  	playMusicItem : function(songId){
-  		
-  		//remove the class from any playing items
-  		$('#musicItem_' + this.currentPlayingSongId).removeClass('currentlyPlayingMusicItem');
-  		
-  		//add the css class .currentlyPlayingMusicItem
-  		$('#musicItem_' + songId).addClass('currentlyPlayingMusicItem');
-  		
-  		this.currentPlayingSongId = songId;
-
-  		this.statusMessage('getting song...');
-  		$('#musicControls').jPlayer("setMedia", {
-  			mp3: '/getSong?songId='+songId
-  		});
-
-  		this.statusMessage('playing song...');
-		$('#musicControls').jPlayer("play");
-
-		var musicItemCurrentlyPlaying = this.musicItems[songId];
-      	this.$songCurrentlyPlaying.html(musicItemCurrentlyPlaying.songName);
-      	this.$artistCurrentlyPlaying.html(musicItemCurrentlyPlaying.artist);
-      	
-  	},
+  	
   	songHasEndedHandler : function(e){
-  		//alert('song is over ' + e.data.finishedSongId);
-  		var potentialNextSongId = musicItemsPlayer.currentPlayingSongId;//e.data.finishedSongId;
-  		musicItemsPlayer.songHasEnded(potentialNextSongId);
+  		
+  		musicItemsPlayer.songHasEnded(musicItemsPlayer.currentPlayingSongId);
   		
   	},
+  	
   	songHasEnded : function(songId){
   		//this won't work. you need to binary search current matchingItems. it can tell you if your id surpasses the id of the last item.
   		//var $potentialTr = $('#musicItem_'+songId);

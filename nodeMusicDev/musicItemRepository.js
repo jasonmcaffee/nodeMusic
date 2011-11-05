@@ -8,7 +8,7 @@ module.exports.musicItemRepository = {
 		_musicItems : 0,
 		_files : 0,
 		_currentFileCount : 0,
-		_maxFiles : 200 ,//break recursive function. stop scanning fs after this number is reached
+		_maxFiles : 2000 ,//break recursive function. stop scanning fs after this number is reached
 		init : function(filePath){
 			log('init called on musicItemRepository');
 			if(!this.hasBeenInitialized){

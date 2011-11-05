@@ -47,24 +47,26 @@ body.scrolled[orient="landscape"] .floatingTopBox {
 }
 
 .optionsGearButtonContainer{
+	cursor:pointer;/**/
 	margin-left:1%;
 	display:inline-block;
-	width:13%;
+	width:30%;
 	vertical-align: middle;
 	text-align: center;
 	
 }
 
 .optionsGearButton{
-
-	max-height:90%;
-	max-width:90%;
+/*	cursor:pointer;*/
+	padding-right:2%;
+	max-height:60%;
+	max-width:60%;
 	
 }
 
 .searchBoxInputContainer{
-	margin-left:2%;
-	width:58%;
+	
+	width:66%;
 	display:inline-block;
 	vertical-align: middle;
 }
@@ -83,12 +85,12 @@ body.scrolled[orient="landscape"] .floatingTopBox {
 	box-shadow: 0px 0px 4px #aaa;
 	
 	/* -- CSS3 Transition - define what the transition will be applied to (i.e. the background) -- */		
-	-webkit-transition: background 0.3s linear;
+/*	-webkit-transition: background 0.3s linear;*/
 	
 }
 	
 .searchResultContainer{
-	width:19%;
+	width:15%;
 	margin-left:1%;
 /*	margin-top:-.6%;*/
 	display:inline-block;
@@ -108,10 +110,7 @@ height:100%;
 }
 
 .searchResult{
-	
-	
-	
-	font-size: 160%;
+	font-size: 100%;
 	font-family: 'Aclonica', serif;
 	color: #FFFCFA;
 /*	text-shadow:3px 4px 7px #000000, 0px -1px 5px #878787;*/
@@ -141,6 +140,8 @@ text-shadow:0px 0px 6px #000000, 0px -1px 7px #878787;
 	overflow: hidden;
 	vertical-align: middle;
 	text-align: center;
+	white-space:nowrap;
+/*	max-height:30px;*/
 	padding-left:1%;
 	padding-top:1%;
 	padding-bottom:1%;
@@ -230,7 +231,7 @@ text-shadow:0px 0px 6px #000000, 0px -1px 7px #878787
 
 
 .musicControls{
-
+ display:none;
 
 }
 
