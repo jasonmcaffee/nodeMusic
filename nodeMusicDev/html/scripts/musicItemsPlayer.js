@@ -27,7 +27,7 @@ var musicItemsPlayer = {
   	$artistCurrentlyPlaying : 0,
   	$volumeBarOne: 0,
   	$volumeBarTwo : 0,
-  	$volumeBarThree : 0,
+  	$volumeBarThree : 0,//innapropriately named
   	$searchBox : 0,
   	$optionsGear : 0,
   	$audioPlayerContainer : 0,
