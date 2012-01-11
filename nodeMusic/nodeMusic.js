@@ -6,7 +6,8 @@ var musicItemRepository = require('./musicItemRepository.js').musicItemRepositor
 
 var nodeMusic = {
 		options : {
-			musicRootFilePath : '/root/mainshare/music'
+			//musicRootFilePath : '/root/mainshare/music'
+      musicRootFilePath: '/Volumes/g$/music'
 		}
 		
 };
