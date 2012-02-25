@@ -1,6 +1,6 @@
 var gh = require('grasshopper'); //for mvc framework
 var http = require('http'); //for http client requests
-var sys = require('sys');//for streaming response for file back to the client
+var sys = require('util');//for streaming response for file back to the client
 var fs = require('fs');//for file system
 var musicItemRepository = require('./musicItemRepository.js').musicItemRepository;//fetching files
 
@@ -13,7 +13,7 @@ var nodeMusic = {
 };
 
 musicItemRepository.init(nodeMusic.options.musicRootFilePath);
-log('musicItems repository called on start.')
+log('musicItems repository called on start.');
 
 ////musicItems : [ <%for (var i in musicItems) { var musicItem = musicItems[i];%> <%h JSON.stringify(musicItem) %>, <%}%>]
 //get method for index
@@ -87,8 +87,9 @@ function log(message){
 	console.log(message);
 }
 
+console.log('trying to launch the server');
 //start the server
-gh.serve(80);
+gh.serve(1000);
 
 
 

@@ -46,6 +46,7 @@ module.exports.musicItemRepository = {
 		},
 		
 		getMusicItemById : function(id, successCallback, errorCallback){
+
 			this.getMusicItems(function(musicItems){
 				var foundMusicItem = musicItems[id];
 				

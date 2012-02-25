@@ -2,9 +2,13 @@ var httpProxy = require('http-proxy');
 var http = require('http');
 
 var options = {
-	hostnameOnly : true,
+	hostnameOnly : false,
 	router : {
-		'fileswindler.com' : '127.0.0.1:8001'
+		'fileswindler.com' : '127.0.0.1:8001',
+        'music.jasonmcaffee.com' : '127.0.0.1:1000',  //node music
+        'demos.jasonmcaffee.com' : '127.0.0.1:1001',
+        'labs.jasonmcaffee.com' :'127.0.0.1:1001'
+
 	}
 };
 
