@@ -38,8 +38,24 @@ musicItemRepository.getMusicItems(function(musicItems){
 /* ====================================================================================================  Controller Functions ==== */
 app.get('/', function(req,res){
     console.log('main entry point get called.');
-    res.render('../views/main.html', viewModel);
+    var etag = req.header('If-None-Match');
+    console.log('etag is : ' + etag);
+    res.header('etag', '123-1330270258000');
+    res.header('last-modified', 'Sun, 26 Feb 2012 15:30:58 GMT');
+    res.header('cache-control', 'public, max-age=0');
+    res.header('date', 'Tue, 28 Feb 2012 02:12:06 GMT');
 
+    if(etag && etag != ''){
+        res.send(304);
+    }else{
+        res.render('../views/main.html', viewModel);
+    }
+
+});
+
+app.get('/getMusicItemsAsJson', function(req,res){
+   console.log('getMusicItemsAsJson');
+    res.json(viewModel);
 });
 
 
