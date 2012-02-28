@@ -8,7 +8,7 @@ var logwoodService = require('./logwoodService.js').logwoodService;
 
 var nodeMusic = {
 		options : {
-			musicRootFilePath : '/root/mainshare/music'
+			musicRootFilePath : '/musicShare/music'//'/root/mainshare/music'
 		}
 		
 };

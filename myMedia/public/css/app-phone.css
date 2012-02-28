@@ -1,0 +1,23 @@
+
+@media screen and (min-width: 100px) and (max-width: 500px) {
+
+    body{
+        background-color: #003f81;
+    }
+
+    p {
+        margin: 0px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 20px;
+        line-height: 25px;
+    }
+
+    /*for tablets and phones, we dont want to have margins on the side of the main column. */
+    .main-containing-column{
+        /* sizing */
+        width: 88%; /* leave room for the blue banner to wrap (its width is 104%) */
+
+
+    }
+
+}

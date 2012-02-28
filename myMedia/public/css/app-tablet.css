@@ -1,0 +1,15 @@
+
+@media screen and (min-width: 600px) and (max-width: 1200px) {
+
+    body{
+        background-color: black;
+    }
+
+    /*for tablets and phones, we dont want to have margins on the side of the main column. */
+    .main-containing-column{
+        /* sizing */
+        width: 93%; /* leave room for the blue banner to wrap (its width is 104%) */
+
+
+    }
+}

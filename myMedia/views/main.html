@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+    <title>Music</title>
+    <!-- core styling -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <!-- app styling -->
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/app-tablet.css">
+    <link rel="stylesheet" href="css/app-phone.css">
+    <link rel="stylesheet" href="css/app-large-phone.css">
+
+    <!--[if gte IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie.css" />
+    <![endif]-->
+
+    <!-- initial view should be zoomed correctly on mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+    <!-- apple ios specific styling. fullscreen and translucent status bar. -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Load the script "js/main.js" as our entry point, along with requirejs -->
+    <script data-main="js/main" src="js/lib/require/require.js"></script>
+
+</head>
+<body>
+
+<div class="main-containing-column">
+
+    <!-- header -->
+    <div class="header">
+       header
+    </div>
+
+    <div id="musicItemsGridWidgetContainer">
+        loading..
+    </div>
+</div>
+
+
+<!-- scripts at the bottom -->
+<!-- initial load of the page will contain json data for template rendering. -->
+<script type="text/javascript">
+    var viewModel = {{- JSON.stringify(viewModel)}};
+</script>
+
+<!-- core lib -->
+
+
+
+<!-- templates -->
+<script id="musicItemsTableTemplate" type="text/html">
+    <table id="musicItemsTable" class="music-items-table">
+
+        <col class="artist-column" />
+        <col class="song-column" />
+        <col class="album-column" />
+        <thead>
+            <tr>
+                <th>Artist</th><th>Song</th><th>Album</th>
+            </tr>
+        </thead>
+        <tbody id="musicItemsTableBody">
+            <% for (var i in musicItems) {
+                var musicItem = musicItems[i];
+                var rowClass = i%2 == 0 ? "even-music-item" : "odd-music-item";
+            %>
+                <tr id="musicItem_<%=musicItem.id%>" class="music-items-table-row <%=rowClass%>" data-musicItemId="<%=musicItem.id%>">
+                    <td class="music-item-artist"><%=musicItem.artist%></td>
+                    <td class="music-item-song-name"><%=musicItem.songName%></td>
+                    <td class="music-item-album"><%=musicItem.album%></td>
+                </tr>
+            <%}%>
+        </tbody>
+    </table>
+</script>
+<script id="musicItemsTableRowsTemplate" type="text/html">
+    <% for (var i in musicItems) {
+    var musicItem = musicItems[i];
+    var rowClass = i%2 == 0 ? "even-music-item" : "odd-music-item";
+    %>
+    <tr id="musicItem_<%=musicItem.id%>" class="music-items-table-row <%=rowClass%>" data-musicItemId="<%=musicItem.id%>">
+        <td class="music-item-artist"><%=musicItem.artist%></td>
+        <td class="music-item-song-name"><%=musicItem.songName%></td>
+        <td class="music-item-album"><%=musicItem.album%></td>
+    </tr>
+    <%}%>
+</script>
+
+
+</body>
+</html>

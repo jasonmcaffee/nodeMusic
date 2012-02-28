@@ -1,0 +1,88 @@
+/* --------------------------------------------------
+   Table of Contents
+-----------------------------------------------------
+:: Shared Styles
+:: Page Name 1
+:: Page Name 2
+*/
+
+
+/* -----------------------------------------
+   Shared Styles
+----------------------------------------- */
+html, body{
+    height: 100%; /* for overlapped styling in the header, and for % heights, all containers must have height set */
+    width:100%;
+    background: #4C4C4C; /* gradient repeats issue fix. just show the last color stop of the gradient (bottom)*/
+}
+
+body{
+    height: 100%; /* for % heights, all containers must have height set */
+    width:100%;
+    /*fix background css gradient repeating http://stackoverflow.com/questions/2869212/css3-gradient-background-set-on-body-doesnt-stretch-but-instead-repeats*/
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+
+
+    /*color*/
+    color:black;
+    background: rgb(96,96,96); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(96,96,96,1) 0%, rgba(104,104,104,1) 19%, rgba(107,107,107,1) 49%, rgba(94,94,94,1) 84%, rgba(76,76,76,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(96,96,96,1)), color-stop(19%,rgba(104,104,104,1)), color-stop(49%,rgba(107,107,107,1)), color-stop(84%,rgba(94,94,94,1)), color-stop(100%,rgba(76,76,76,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%); /* IE10+ */
+    background: linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606060', endColorstr='#4c4c4c',GradientType=0 ); /* IE6-9 */
+
+
+}
+
+/*overwrite some of bootstraps stuff*/
+.container-fluid{
+    min-width: 120px;
+}
+
+.header{
+
+}
+
+.main-containing-column{
+    width:90%;
+}
+
+
+.music-items-table{
+
+}
+
+.artist-column{
+
+}
+
+.song-column{
+
+}
+
+.album-column{
+
+}
+
+.music-items-table-row{
+
+}
+
+.music-item-artist{
+
+}
+
+.music-item-song-name{
+
+}
+
+.music-item-album{
+
+}
+
