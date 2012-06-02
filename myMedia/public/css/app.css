@@ -29,23 +29,14 @@ html{
     background-repeat: no-repeat;
     background-attachment: fixed;
 
-
-
 }
 
 body{
     height: 100%; /* for % heights, all containers must have height set */
     width:100%;
 
-
-    /*background-attachment:fixed !important;*//*this does not work on iphone & android. they will get the repeat declared above.*/
-
-
-
-
     /*fix background css gradient repeating http://stackoverflow.com/questions/2869212/css3-gradient-background-set-on-body-doesnt-stretch-but-instead-repeats*/
     margin: 0;
-
     /*works for desktop, not phones*/
     /*background: #fff URL('http://www.lzsu.com/uploads/Green-Fields-Cloudy-Weather-Desktop-Wallpaper.jpg') top center fixed repeat;*/
 
