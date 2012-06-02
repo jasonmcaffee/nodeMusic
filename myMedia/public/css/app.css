@@ -46,40 +46,28 @@ body{
     /*fix background css gradient repeating http://stackoverflow.com/questions/2869212/css3-gradient-background-set-on-body-doesnt-stretch-but-instead-repeats*/
     margin: 0;
 
-    background: #fff URL('http://www.lzsu.com/uploads/Green-Fields-Cloudy-Weather-Desktop-Wallpaper.jpg') top center fixed repeat;
-
-
-    /*background-repeat: no-repeat;*/
-    /*background-attachment: fixed;*/
-    /*background-image:url('http://www.lzsu.com/uploads/Green-Fields-Cloudy-Weather-Desktop-Wallpaper.jpg');*/
-
-
-
-
-    /*background: rgb(27,27,27); *//* Old browsers */
-    /*background: -moz-linear-gradient(left,  rgba(27,27,27,1) 1%, rgba(66,66,66,1) 17%, rgba(73,73,73,1) 48%, rgba(56,56,56,1) 79%, rgba(27,27,27,1) 100%); *//* FF3.6+ */
-    /*background: -webkit-gradient(linear, left top, right top, color-stop(1%,rgba(27,27,27,1)), color-stop(17%,rgba(66,66,66,1)), color-stop(48%,rgba(73,73,73,1)), color-stop(79%,rgba(56,56,56,1)), color-stop(100%,rgba(27,27,27,1))); *//* Chrome,Safari4+ */
-    /*background: -webkit-linear-gradient(left,  rgba(27,27,27,1) 1%,rgba(66,66,66,1) 17%,rgba(73,73,73,1) 48%,rgba(56,56,56,1) 79%,rgba(27,27,27,1) 100%); *//* Chrome10+,Safari5.1+ */
-    /*background: -o-linear-gradient(left,  rgba(27,27,27,1) 1%,rgba(66,66,66,1) 17%,rgba(73,73,73,1) 48%,rgba(56,56,56,1) 79%,rgba(27,27,27,1) 100%); *//* Opera 11.10+ */
-    /*background: -ms-linear-gradient(left,  rgba(27,27,27,1) 1%,rgba(66,66,66,1) 17%,rgba(73,73,73,1) 48%,rgba(56,56,56,1) 79%,rgba(27,27,27,1) 100%); *//* IE10+ */
-    /*background: linear-gradient(left,  rgba(27,27,27,1) 1%,rgba(66,66,66,1) 17%,rgba(73,73,73,1) 48%,rgba(56,56,56,1) 79%,rgba(27,27,27,1) 100%); *//* W3C */
-    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b1b1b', endColorstr='#1b1b1b',GradientType=1 ); *//* IE6-9 */
-
-
-
-
-
-
-    /*background-image:url('http://www.lzsu.com/uploads/Green-Fields-Cloudy-Weather-Desktop-Wallpaper.jpg');*/
-    /*background-repeat: no-repeat;*/
-    /*background-attachment: fixed;*/
-    /*background-repeat:no-repeat; *//*repeat will not occur on desktop*/
-    /*background-attachment:fixed !important;*//*this does not work on iphone & android. they will get the repeat declared above.*/
-
-
+    /*works for desktop, not phones*/
+    /*background: #fff URL('http://www.lzsu.com/uploads/Green-Fields-Cloudy-Weather-Desktop-Wallpaper.jpg') top center fixed repeat;*/
 
 }
 
+#bg {
+    position:fixed;
+    top:-50%;
+    left:-50%;
+    width:200%;
+    height:200%;
+}
+#bg img {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    min-width:50%;
+    min-height:50%;
+}
 
 .floating-header{
     height: 100px;
@@ -115,6 +103,8 @@ body{
     -webkit-box-sizing: border-box;
     box-sizing:        border-box;
 
+    position: relative;
+    z-index: 2;
 
 }
 
@@ -287,3 +277,31 @@ body{
         inset 0 -15px 30px rgba(0,0,0,0.3);
 }
 
+
+
+/*background-repeat: no-repeat;*/
+/*background-attachment: fixed;*/
+/*background-image:url('http://www.lzsu.com/uploads/Green-Fields-Cloudy-Weather-Desktop-Wallpaper.jpg');*/
+
+
+
+
+/*background: rgb(27,27,27); *//* Old browsers */
+/*background: -moz-linear-gradient(left,  rgba(27,27,27,1) 1%, rgba(66,66,66,1) 17%, rgba(73,73,73,1) 48%, rgba(56,56,56,1) 79%, rgba(27,27,27,1) 100%); *//* FF3.6+ */
+/*background: -webkit-gradient(linear, left top, right top, color-stop(1%,rgba(27,27,27,1)), color-stop(17%,rgba(66,66,66,1)), color-stop(48%,rgba(73,73,73,1)), color-stop(79%,rgba(56,56,56,1)), color-stop(100%,rgba(27,27,27,1))); *//* Chrome,Safari4+ */
+/*background: -webkit-linear-gradient(left,  rgba(27,27,27,1) 1%,rgba(66,66,66,1) 17%,rgba(73,73,73,1) 48%,rgba(56,56,56,1) 79%,rgba(27,27,27,1) 100%); *//* Chrome10+,Safari5.1+ */
+/*background: -o-linear-gradient(left,  rgba(27,27,27,1) 1%,rgba(66,66,66,1) 17%,rgba(73,73,73,1) 48%,rgba(56,56,56,1) 79%,rgba(27,27,27,1) 100%); *//* Opera 11.10+ */
+/*background: -ms-linear-gradient(left,  rgba(27,27,27,1) 1%,rgba(66,66,66,1) 17%,rgba(73,73,73,1) 48%,rgba(56,56,56,1) 79%,rgba(27,27,27,1) 100%); *//* IE10+ */
+/*background: linear-gradient(left,  rgba(27,27,27,1) 1%,rgba(66,66,66,1) 17%,rgba(73,73,73,1) 48%,rgba(56,56,56,1) 79%,rgba(27,27,27,1) 100%); *//* W3C */
+/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b1b1b', endColorstr='#1b1b1b',GradientType=1 ); *//* IE6-9 */
+
+
+
+
+
+
+/*background-image:url('http://www.lzsu.com/uploads/Green-Fields-Cloudy-Weather-Desktop-Wallpaper.jpg');*/
+/*background-repeat: no-repeat;*/
+/*background-attachment: fixed;*/
+/*background-repeat:no-repeat; *//*repeat will not occur on desktop*/
+/*background-attachment:fixed !important;*//*this does not work on iphone & android. they will get the repeat declared above.*/
