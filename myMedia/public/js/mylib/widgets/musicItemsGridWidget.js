@@ -1,8 +1,9 @@
 define([
     'mylib/log',
     'lib/jquery/jqueryModule',
-    'lib/underscore/underscoreModule'
-], function(log, $, _){
+    'lib/underscore/underscoreModule',
+    'mylib/models/MusicPlayer'
+], function(log, $, _, MusicPlayer){
 
     /**
      * displays table/grid for song name, artist, album, etc.
@@ -48,17 +49,22 @@ define([
         this.registerScrollHandler();//we will append items to the table as the user scrolls. for performance
         this.registerSongClickHandler();
 
+        this.musicPlayer = new MusicPlayer();
+
     }
 
     //==========================  UI Event Handling =============================================================================
     musicItemsGridWidget.prototype.registerSongClickHandler = function(){
-        this.$musicItemsGridWidgetContainer.on('click', 'tr', function(event){
+        log('registerSongClickHandler called.');
+        var self = this;
+        this.$musicItemsGridWidgetContainer.on('click', 'div.music-items-table-row', function(event){
             var songId = $(this).attr('data-musicItemId');
             log('musicItemId was clicked for : ' + songId);
 
             //create an audio tag with src = '/getSong?songId='+songId
-            var songToPlay = new Audio('/getSong?songId='+songId);
-            songToPlay.play();
+//            var songToPlay = new Audio('/getSong?songId='+songId);
+//            songToPlay.play();
+             self.musicPlayer.playSong(songId);
         });
     };
 
