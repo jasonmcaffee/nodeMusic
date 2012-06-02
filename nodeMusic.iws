@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ceeac2c7-78a6-4f3c-bded-feb57e3c81aa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myMedia/public/css/app.css" afterPath="$PROJECT_DIR$/myMedia/public/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myMedia/views/main.html" afterPath="$PROJECT_DIR$/myMedia/views/main.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeMusic.iws" afterPath="$PROJECT_DIR$/nodeMusic.iws" />
     </list>
     <ignored path="nodeMusic.iws" />
@@ -110,7 +109,7 @@
       <file leaf-file-name="app.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myMedia/public/css/app.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="85" selection-start="1635" selection-end="1635" vertical-scroll-proportion="0.3558719">
+            <state line="9" column="133" selection-start="225" selection-end="225" vertical-scroll-proportion="0.12811388">
               <folding />
             </state>
           </provider>
@@ -187,8 +186,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="138" />
-    <option name="y" value="113" />
+    <option name="x" value="178" />
+    <option name="y" value="35" />
     <option name="width" value="2390" />
     <option name="height" value="1338" />
   </component>
@@ -683,7 +682,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="138" y="113" width="2390" height="1338" extended-state="0" />
+    <frame x="178" y="35" width="2390" height="1338" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -871,7 +870,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myMedia/public/css/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="85" selection-start="1635" selection-end="1635" vertical-scroll-proportion="0.3558719">
+        <state line="9" column="133" selection-start="225" selection-end="225" vertical-scroll-proportion="0.12811388">
           <folding />
         </state>
       </provider>

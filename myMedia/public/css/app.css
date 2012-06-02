@@ -26,8 +26,8 @@ html{
 
     /*fix background css gradient repeating http://stackoverflow.com/questions/2869212/css3-gradient-background-set-on-body-doesnt-stretch-but-instead-repeats*/
     margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    /*background-repeat: no-repeat;*/
+    /*background-attachment: fixed;*/
 
 }
 
