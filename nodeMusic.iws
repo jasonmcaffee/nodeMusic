@@ -65,7 +65,7 @@
       <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myMedia/views/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="22" selection-start="1770" selection-end="1770" vertical-scroll-proportion="-11.52">
+            <state line="34" column="12" selection-start="1389" selection-end="1389" vertical-scroll-proportion="-7.68">
               <folding />
             </state>
           </provider>
@@ -110,7 +110,7 @@
       <file leaf-file-name="app.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myMedia/public/css/app.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="44" selection-start="2624" selection-end="2624" vertical-scroll-proportion="0.25622776">
+            <state line="53" column="85" selection-start="1635" selection-end="1635" vertical-scroll-proportion="0.3558719">
               <folding />
             </state>
           </provider>
@@ -187,8 +187,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="212" />
-    <option name="y" value="513" />
+    <option name="x" value="138" />
+    <option name="y" value="113" />
     <option name="width" value="2390" />
     <option name="height" value="1338" />
   </component>
@@ -683,7 +683,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="212" y="513" width="2390" height="1338" extended-state="0" />
+    <frame x="138" y="113" width="2390" height="1338" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -744,7 +744,7 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="have decent design for myMedia. trying to get background image to position:fixed, but not working in android." />
+    <option name="LAST_COMMIT_MESSAGE" value="yes! no one said it could be done, but i did it!&#10;fixed background position on android&#10;http://snipplr.com/view/52718/" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -762,6 +762,7 @@
     <MESSAGE value="scrollHandler and append working" />
     <MESSAGE value="project files" />
     <MESSAGE value="have decent design for myMedia. trying to get background image to position:fixed, but not working in android." />
+    <MESSAGE value="yes! no one said it could be done, but i did it!&#10;fixed background position on android&#10;http://snipplr.com/view/52718/" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -863,14 +864,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myMedia/views/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="22" selection-start="1770" selection-end="1770" vertical-scroll-proportion="-11.52">
+        <state line="34" column="12" selection-start="1389" selection-end="1389" vertical-scroll-proportion="-7.68">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myMedia/public/css/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="44" selection-start="2624" selection-end="2624" vertical-scroll-proportion="0.25622776">
+        <state line="53" column="85" selection-start="1635" selection-end="1635" vertical-scroll-proportion="0.3558719">
           <folding />
         </state>
       </provider>

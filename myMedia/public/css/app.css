@@ -51,6 +51,7 @@ body{
 
 }
 
+/*genius solution for getting fixed background image: http://snipplr.com/view/52718/ */
 #bg {
     position:fixed;
     top:-50%;
