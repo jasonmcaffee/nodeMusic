@@ -10,10 +10,22 @@
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
-html, body{
+/*html, body{*/
+    /*height: 100%; *//* for overlapped styling in the header, and for % heights, all containers must have height set */
+    /*width:100%;*/
+    /*background: white; *//* gradient repeats issue fix. just show the last color stop of the gradient (bottom)*/
+
+
+
+
+/*}*/
+
+html{
     height: 100%; /* for overlapped styling in the header, and for % heights, all containers must have height set */
     width:100%;
-    background: #4C4C4C; /* gradient repeats issue fix. just show the last color stop of the gradient (bottom)*/
+    background-image:url('http://www.lzsu.com/uploads/Green-Fields-Cloudy-Weather-Desktop-Wallpaper.jpg');
+    background-repeat:repeat; /*repeat will not occur on desktop*/
+    background-attachment:fixed !important;/*this does not work on iphone & android. they will get the repeat declared above.*/
 }
 
 body{
@@ -21,72 +33,226 @@ body{
     width:100%;
     /*fix background css gradient repeating http://stackoverflow.com/questions/2869212/css3-gradient-background-set-on-body-doesnt-stretch-but-instead-repeats*/
     margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    /*background-repeat: no-repeat;*/
+    /*background-attachment: fixed;*/
 
+    background-attachment:fixed !important;/*this does not work on iphone & android. they will get the repeat declared above.*/
 
 
     /*color*/
-    color:black;
-    background: rgb(96,96,96); /* Old browsers */
-    background: -moz-linear-gradient(top,  rgba(96,96,96,1) 0%, rgba(104,104,104,1) 19%, rgba(107,107,107,1) 49%, rgba(94,94,94,1) 84%, rgba(76,76,76,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(96,96,96,1)), color-stop(19%,rgba(104,104,104,1)), color-stop(49%,rgba(107,107,107,1)), color-stop(84%,rgba(94,94,94,1)), color-stop(100%,rgba(76,76,76,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%); /* IE10+ */
-    background: linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606060', endColorstr='#4c4c4c',GradientType=0 ); /* IE6-9 */
+    /*color:black;*/
+    /*background: rgb(96,96,96);*/
+    /*background: -moz-linear-gradient(top,  rgba(96,96,96,1) 0%, rgba(104,104,104,1) 19%, rgba(107,107,107,1) 49%, rgba(94,94,94,1) 84%, rgba(76,76,76,1) 100%);*/
+    /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(96,96,96,1)), color-stop(19%,rgba(104,104,104,1)), color-stop(49%,rgba(107,107,107,1)), color-stop(84%,rgba(94,94,94,1)), color-stop(100%,rgba(76,76,76,1)));*/
+    /*background: -webkit-linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%);*/
+    /*background: -o-linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%);*/
+    /*background: -ms-linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%);*/
+    /*background: linear-gradient(top,  rgba(96,96,96,1) 0%,rgba(104,104,104,1) 19%,rgba(107,107,107,1) 49%,rgba(94,94,94,1) 84%,rgba(76,76,76,1) 100%);*/
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606060', endColorstr='#4c4c4c',GradientType=0 );*/
 
 
 }
 
-/*overwrite some of bootstraps stuff*/
-.container-fluid{
-    min-width: 120px;
-}
 
-.header{
+.floating-header{
+    height: 100;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    /* padding: 10px 10px 60px 20px;//top right bottom left
 
+         border: 1px solid black;
+       -moz-border-radius: 25px;
+       -webkit-border-top-right-radius: 25px;
+       -webkit-border-bottom-right-radius: 25px;
+       -webkit-border-bottom-left-radius: 25px;
+       border-radius: 25px;*/
+
+    padding-top: 10px;
 }
 
 .main-containing-column{
-    width:90%;
+    width:100%;
+    height: 100%; /* for % heights, all containers must have height set */
 }
 
 
 .music-items-grid-widget-container{
-
+    width:100%;
+    height: 100%; /* for % heights, all containers must have height set */
+    padding: 1%;
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing:        border-box;
 }
 
 .music-items-table{
-
+     width: 100%;
+    height: 100%; /* for % heights, all containers must have height set */
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing:        border-box;
 }
 
-.artist-column{
 
+.music-items-table-body{
+    width:100%;
+    height: 100%; /* for % heights, all containers must have height set */
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing:        border-box;
+}
+.music-items-table-row {
+    width: 100%;
+    height: 50px; /* using % here is a performance hit! scrolling stutters*/
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing:        border-box;
+    margin-top: 1px;
 }
 
-.song-column{
+.music-items-table-row > div {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing:        border-box;
 
-}
 
-.album-column{
-
-}
-
-.music-items-table-row{
 
 }
 
 .music-item-artist{
 
+    width: 25%;
+    /*overflow-x:hidden;*/
+    /*overflow-y:hidden;*/
 }
 
 .music-item-song-name{
-
+    width: 48%;
+    /*overflow-x:hidden;*/
+    /*overflow-y:hidden;*/
 }
 
 .music-item-album{
+    width: 25%;
+    /*text-overflow: ellipsis-word;*/
+    /*overflow-x:hidden;*/
+    /*overflow-y:hidden;*/
+}
 
+.top-glass{
+    background: -moz-linear-gradient(top,  rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 6%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.22)), color-stop(6%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,0.22) 0%,rgba(255,255,255,0) 6%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(255,255,255,0.22) 0%,rgba(255,255,255,0) 6%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(255,255,255,0.22) 0%,rgba(255,255,255,0) 6%,rgba(255,255,255,0) 100%); /* IE10+ */
+    background: linear-gradient(top,  rgba(255,255,255,0.22) 0%,rgba(255,255,255,0) 6%,rgba(255,255,255,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#38ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+
+
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+
+
+
+
+
+}
+.even-music-item, .odd-music-item{
+    font-family: 'PT Sans', arial, serif;
+    color:#ffffff;
+    /*text-align:center;*/
+    font-size:12px;
+    font-weight:bold;
+
+    padding:10px;
+
+    text-shadow: /* Simulating Text Stroke */
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+
+    border: 1px solid rgba(0,0,0,0.5);
+    border-bottom: 2px solid rgba(0,0,0,0.5);
+
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+
+
+    background: -moz-linear-gradient(left,  rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 1%, rgba(79,79,79,0.12) 5%, rgba(79,79,79,0.12) 50%, rgba(79,79,79,0.12) 95%, rgba(255,255,255,0.05) 99%, rgba(255,255,255,0.1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0.1)), color-stop(1%,rgba(255,255,255,0.05)), color-stop(5%,rgba(79,79,79,0.12)), color-stop(50%,rgba(79,79,79,0.12)), color-stop(95%,rgba(79,79,79,0.12)), color-stop(99%,rgba(255,255,255,0.05)), color-stop(100%,rgba(255,255,255,0.1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.05) 1%,rgba(79,79,79,0.12) 5%,rgba(79,79,79,0.12) 50%,rgba(79,79,79,0.12) 95%,rgba(255,255,255,0.05) 99%,rgba(255,255,255,0.1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.05) 1%,rgba(79,79,79,0.12) 5%,rgba(79,79,79,0.12) 50%,rgba(79,79,79,0.12) 95%,rgba(255,255,255,0.05) 99%,rgba(255,255,255,0.1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.05) 1%,rgba(79,79,79,0.12) 5%,rgba(79,79,79,0.12) 50%,rgba(79,79,79,0.12) 95%,rgba(255,255,255,0.05) 99%,rgba(255,255,255,0.1) 100%); /* IE10+ */
+    background: linear-gradient(left,  rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.05) 1%,rgba(79,79,79,0.12) 5%,rgba(79,79,79,0.12) 50%,rgba(79,79,79,0.12) 95%,rgba(255,255,255,0.05) 99%,rgba(255,255,255,0.1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1affffff', endColorstr='#1affffff',GradientType=1 ); /* IE6-9 */
+
+
+}
+
+/*********************************************************************************************** Buttons ********************************************/
+.stop-button{
+    width:100px;
+    height: 50px;
+
+    font-family: 'PT Sans', arial, serif;
+    color:#ffffff;
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+
+    padding:10px;
+
+    text-shadow: /* Simulating Text Stroke */
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+
+    border: 1px solid rgba(0,0,0,0.5);
+    border-bottom: 3px solid rgba(0,0,0,0.5);
+
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+
+    background: rgba(0,0,0,0.25);
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,0.5), /* Exterior Shadow */
+        inset 0 1px rgba(255,255,255,0.3), /* Top light Line */
+        inset 0 10px rgba(255,255,255,0.2), /* Top Light Shadow */
+        inset 0 10px 20px rgba(255,255,255,0.25), /* Sides Light Shadow */
+        inset 0 -15px 30px rgba(0,0,0,0.3); /* Dark Background */
+
+    -o-box-shadow:
+        0 2px 8px rgba(0,0,0,0.5),
+        inset 0 1px rgba(255,255,255,0.3),
+        inset 0 10px rgba(255,255,255,0.2),
+        inset 0 10px 20px rgba(255,255,255,0.25),
+        inset 0 -15px 30px rgba(0,0,0,0.3);
+
+    -webkit-box-shadow:
+        0 2px 8px rgba(0,0,0,0.5),
+        inset 0 1px rgba(255,255,255,0.3),
+        inset 0 10px rgba(255,255,255,0.2),
+        inset 0 10px 20px rgba(255,255,255,0.25),
+        inset 0 -15px 30px rgba(0,0,0,0.3);
+
+    -moz-box-shadow:
+        0 2px 8px rgba(0,0,0,0.5),
+        inset 0 1px rgba(255,255,255,0.3),
+        inset 0 10px rgba(255,255,255,0.2),
+        inset 0 10px 20px rgba(255,255,255,0.25),
+        inset 0 -15px 30px rgba(0,0,0,0.3);
 }
 

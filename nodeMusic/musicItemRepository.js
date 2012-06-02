@@ -85,7 +85,7 @@ module.exports.musicItemRepository = {
 			var songName = foundFile.fullPath.substring(songNameBeginIndex + 1);
 			
 			//var artist = foundFile.fullPath.replace('/root/mainshare/music/', '');
-      var artist = foundFile.fullPath.replace('/Volumes/g$/music/', '');
+      var artist = foundFile.fullPath.replace('/volumes/fourtera_2012/music/', '');
 			artist = artist.replace('/' + songName, '');//artist/album now
 			
 			var albumBeginIndex = artist.lastIndexOf('/');

@@ -46,10 +46,22 @@ define([
 
         //event registration
         this.registerScrollHandler();//we will append items to the table as the user scrolls. for performance
+        this.registerSongClickHandler();
 
     }
 
     //==========================  UI Event Handling =============================================================================
+    musicItemsGridWidget.prototype.registerSongClickHandler = function(){
+        this.$musicItemsGridWidgetContainer.on('click', 'tr', function(event){
+            var songId = $(this).attr('data-musicItemId');
+            log('musicItemId was clicked for : ' + songId);
+
+            //create an audio tag with src = '/getSong?songId='+songId
+            var songToPlay = new Audio('/getSong?songId='+songId);
+            songToPlay.play();
+        });
+    };
+
     musicItemsGridWidget.prototype.registerScrollHandler = function(){
         var self = this;//callbacks
         var $body = $("body");

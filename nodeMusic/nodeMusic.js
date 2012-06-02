@@ -7,7 +7,7 @@ var musicItemRepository = require('./musicItemRepository.js').musicItemRepositor
 var nodeMusic = {
 		options : {
 			//musicRootFilePath : '/root/mainshare/music'
-      musicRootFilePath: '/musicShare/music'//'/Volumes/g$/music'
+      musicRootFilePath: '/volumes/fourtera_2012/music'//'/Volumes/g$/music'
 		}
 		
 };
