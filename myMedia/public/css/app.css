@@ -200,19 +200,22 @@ body{
 
 .music-item-artist{
 
-    width: 25%;
-    /*overflow-x:hidden;*/
-    /*overflow-y:hidden;*/
+    width: 24%;
+
+
 }
 
 .music-item-song-name{
     width: 48%;
     /*overflow-x:hidden;*/
     /*overflow-y:hidden;*/
+    color:#D6EBFF;
 }
 
 .music-item-album{
-    width: 25%;
+    width: 24%;
+    color:#FFFFCC;
+
     /*text-overflow: ellipsis-word;*/
     /*overflow-x:hidden;*/
     /*overflow-y:hidden;*/
@@ -233,6 +236,7 @@ body{
         1px -1px 0 #000,
         -1px 1px 0 #000,
         1px 1px 0 #000;
+
 
     border: 1px solid rgba(0,0,0,0.5);
     border-bottom: 2px solid rgba(0,0,0,0.5);
@@ -372,6 +376,10 @@ body{
     -webkit-backface-visibility: hidden;
 
 }
+
+/*.menu-button img{*/
+    /*height:50px;*/
+/*}*/
 .menu{
     /*margin-top: 9px;*/
     /*z-index: 200;*/
