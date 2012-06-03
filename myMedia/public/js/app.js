@@ -7,12 +7,19 @@
 define([
 	'mylib/log',
     'lib/jquery/jqueryModule',
-    'mylib/widgets/musicItemsGridWidget'
+    'mylib/widgets/musicItemsGridWidget',
+    'mylib/widgets/MenuWidget'
 ],
-function(log, $, musicItemsGridWidget){
+function(log, $, musicItemsGridWidget, MenuWidget){
 
     function app(){
-
+        (function($) {
+            $.fn.fastClick = function(handler) {
+                return $(this).each(function() {
+                    new FastButton($(this)[0], handler);
+                });
+            };
+        }(jQuery));
     }//end app
 
     app.prototype.initialize = function(){
@@ -22,6 +29,8 @@ function(log, $, musicItemsGridWidget){
             log('document is ready.');
 
             var musicItemsGrid = new musicItemsGridWidget({musicItems:viewModel.musicItems});
+
+            var menuWidget = new MenuWidget();
         });
     };//end initialize
 

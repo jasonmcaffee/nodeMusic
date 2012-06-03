@@ -10,8 +10,8 @@
     <!--<link rel="stylesheet" href="css/app-phone.css">-->
     <!--<link rel="stylesheet" href="css/app-large-phone.css">-->
 
-    <!--[if gte IE 9]>
-    <link rel="stylesheet" type="text/css" href="css/ie.css" />
+    <!--[if IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie9.css" />
     <![endif]-->
 
     <!-- initial view should be zoomed correctly on mobile -->
@@ -26,24 +26,37 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Load the script "js/main.js" as our entry point, along with requirejs -->
+    <!--<script type="text/javascript" src="js/lib/fastButton.js"></script>-->
     <script data-main="js/main" src="js/lib/require/require.js"></script>
 
 
 </head>
 <body>
 
+
 <div class="main-containing-column">
 
-    <div id="bg">
-        <img src="http://www.lzsu.com/uploads/Green-Fields-Cloudy-Weather-Desktop-Wallpaper.jpg" alt="">
-    </div>
+
 
     <!-- header -->
     <div class="header floating-header">
-       <div id="musicControls">
-           <a href="javascript:void 0;" class="stop-button">Stop</a>
-           <input type="text" name="search"/>
-       </div>
+
+
+
+        <!--<div id="menuContainer" class="menu-container">-->
+        <a id="menuButton" href="javascript:void 0;" class="menu-button">controls</a>
+        <div id="menu" class="menu">
+
+            <a id="playButton" href="javascript:void:0" class="button blue-box">play</a>
+            <a id="stopButton" href="javascript:void:0" class="button red-box">stop</a>
+            <a href="javascript:void:0" class="button">Hello</a>
+            <a href="javascript:void:0" class="button">Hello</a>
+        </div>
+
+
+        <!--</div>-->
+
+        
     </div>
 
 
@@ -51,7 +64,9 @@
         loading..
     </div>
 
-
+    <div id="bg">
+        <img src="http://www.lzsu.com/uploads/Green-Fields-Cloudy-Weather-Desktop-Wallpaper.jpg" alt="">
+    </div>
 </div>
 
 

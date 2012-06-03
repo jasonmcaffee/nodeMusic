@@ -3,7 +3,7 @@ define([
     'lib/jquery/jqueryModule',
     'lib/underscore/underscoreModule',
     'mylib/models/MusicPlayer'
-], function(log, $, _, MusicPlayer){
+], function(log, $, _, musicPlayer){
 
     /**
      * displays table/grid for song name, artist, album, etc.
@@ -49,7 +49,7 @@ define([
         this.registerScrollHandler();//we will append items to the table as the user scrolls. for performance
         this.registerSongClickHandler();
 
-        this.musicPlayer = new MusicPlayer();
+        this.musicPlayer = musicPlayer;
 
     }
 
