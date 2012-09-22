@@ -61,7 +61,8 @@ body{
 }
 
 .floating-header{
-    height: 60px;
+    height: 70px;
+    padding: 5px;
     left: 0;
     position: fixed;
     top: 0;
@@ -69,7 +70,7 @@ body{
     z-index: 100;
 
     margin-bottom: 10px;
-    padding-top: 15px;
+    /*padding-top: 15px;*/
     -moz-box-sizing:    border-box;
     -webkit-box-sizing: border-box;
     box-sizing:        border-box;
@@ -94,14 +95,16 @@ body{
     /* W3C Markup, IE10 Release Preview */
     /*background-image: radial-gradient(circle farthest-corner at left top, #4F4F4F 0%, #000000 100%);*/
 
-    background: rgb(76,76,76); /* Old browsers */
-    background: -moz-linear-gradient(left,  rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 26%, rgba(71,71,71,1) 52%, rgba(44,44,44,1) 69%, rgba(17,17,17,1) 89%, rgba(19,19,19,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(76,76,76,1)), color-stop(12%,rgba(89,89,89,1)), color-stop(26%,rgba(102,102,102,1)), color-stop(52%,rgba(71,71,71,1)), color-stop(69%,rgba(44,44,44,1)), color-stop(89%,rgba(17,17,17,1)), color-stop(100%,rgba(19,19,19,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(left,  rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 26%,rgba(71,71,71,1) 52%,rgba(44,44,44,1) 69%,rgba(17,17,17,1) 89%,rgba(19,19,19,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(left,  rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 26%,rgba(71,71,71,1) 52%,rgba(44,44,44,1) 69%,rgba(17,17,17,1) 89%,rgba(19,19,19,1) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(left,  rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 26%,rgba(71,71,71,1) 52%,rgba(44,44,44,1) 69%,rgba(17,17,17,1) 89%,rgba(19,19,19,1) 100%); /* IE10+ */
-    background: linear-gradient(left,  rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 26%,rgba(71,71,71,1) 52%,rgba(44,44,44,1) 69%,rgba(17,17,17,1) 89%,rgba(19,19,19,1) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=1 ); /* IE6-9 */
+    background: rgb(48,48,48); /* Old browsers */
+    background: -moz-linear-gradient(left,  rgba(48,48,48,1) 0%, rgba(51,51,51,1) 48%, rgba(14,14,14,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(48,48,48,1)), color-stop(48%,rgba(51,51,51,1)), color-stop(100%,rgba(14,14,14,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  rgba(48,48,48,1) 0%,rgba(51,51,51,1) 48%,rgba(14,14,14,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  rgba(48,48,48,1) 0%,rgba(51,51,51,1) 48%,rgba(14,14,14,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  rgba(48,48,48,1) 0%,rgba(51,51,51,1) 48%,rgba(14,14,14,1) 100%); /* IE10+ */
+    background: linear-gradient(left,  rgba(48,48,48,1) 0%,rgba(51,51,51,1) 48%,rgba(14,14,14,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#303030', endColorstr='#0e0e0e',GradientType=1 ); /* IE6-9 */
+
+
 
 
 
@@ -380,6 +383,11 @@ body{
 /*.menu-button img{*/
     /*height:50px;*/
 /*}*/
+.nav-button{
+    height:100%;
+    /*width:50%;*/
+    /*margin-bottom: 10px;*/
+}
 .menu{
     /*margin-top: 9px;*/
     /*z-index: 200;*/
@@ -389,11 +397,11 @@ body{
     padding: 3%;
     /*margin-top: -240px;  don't do this as it causes the bg to shutter on click*/
 
-    transform: translate(0px,-250px);
-    -ms-transform: translate(0px,-250px);
-    -webkit-transform: translate(0px,-250px);
-    -o-transform: translate(0px,-250px);
-    -moz-transform: translate(0px,-250px);
+    transform: translate(0px,-275px);
+    -ms-transform: translate(0px,-275px);
+    -webkit-transform: translate(0px,-275px);
+    -o-transform: translate(0px,-275px);
+    -moz-transform: translate(0px,-275px);
 
     /*margin-left: 50%;*/
     /*margin-right: 50%;*/

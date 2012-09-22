@@ -19,7 +19,7 @@
 
     <!-- attempt to fix background-position:fixed not working on android and ios -->
     <!--<meta name="viewport" content="width=device-width, height=3000px, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">-->
-    <meta name="viewport" content="width=device-width, user-scalable=0">
+    <meta name="viewport" content="width=device-width, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 
     <!-- apple ios specific styling. fullscreen and translucent status bar. -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -44,13 +44,17 @@
 
 
         <!--<div id="menuContainer" class="menu-container">-->
-        <a id="menuButton" href="javascript:void 0;" class="menu-button">menu</a>
+        <!--<a id="menuButton" href="javascript:void 0;" class="menu-button">menu</a>-->
+
+        <img id="menuButton" src="images/nav-button.png" class="nav-button">
         <div id="menu" class="menu">
 
-            <a id="playButton" href="javascript:void:0" class="button blue-box">play</a>
-            <a id="stopButton" href="javascript:void:0" class="button red-box">stop</a>
-            <a href="javascript:void:0" class="button">Hello</a>
-            <a href="javascript:void:0" class="button">Hello</a>
+            <div id="soundControls" class="sound-controls">
+                <a id="playButton" href="javascript:0" class="button blue-box">play</a>
+                <!--<a id="stopButton" href="javascript:0" class="button red-box">stop</a>-->
+                <!--<a href="javascript:0" class="button">Hello</a>-->
+                <!--<a href="javascript:0" class="button">Hello</a>-->
+            </div>
         </div>
 
 
