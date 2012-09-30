@@ -2,37 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="245f59ec-341c-45a5-94a7-3b5e96a58ce5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/core/plugins/handlebars/eachProperty.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/lib/features/artists/controllers/artistsController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/lib/features/artists/models/ArtistsModel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/lib/features/artists/views/ArtistsView.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/lib/features/artists/widgets/ArtistGridWidget.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/templates/features/artists/artistPageTemplate.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/templates/features/artists/widgets/artistGridWidgetTemplate.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/templates/features/artists/widgets/artistRowsTemplate.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/js/compiled-templates/homePageTemplate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/js/compiled-templates/widgets/songGridWidgetTemplate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/js/compiled-templates/widgets/songRowTemplate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/js/compiled-templates/widgets/songRowsTemplate.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/compiled-templates/features/artists/artistPageTemplate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/compiled-templates/features/artists/widgets/artistGridWidgetTemplate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/compiled-templates/features/artists/widgets/artistRowsTemplate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/compiled-templates/features/songs/homePageTemplate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/compiled-templates/features/songs/widgets/songGridWidgetTemplate.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/compiled-templates/features/songs/widgets/songRowsTemplate.js" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/../myMedia/public/js/mylib/models/musicPlayer.js" afterPath="$PROJECT_DIR$/../myMedia/public/js/mylib/models/MusicPlayer.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/js/lib/controllers/HomeController.js" afterPath="$PROJECT_DIR$/src/js/lib/features/songs/controllers/SongsController.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/js/lib/models/SongsModel.js" afterPath="$PROJECT_DIR$/src/js/lib/features/songs/models/SongsModel.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/js/lib/views/HomeView.js" afterPath="$PROJECT_DIR$/src/js/lib/features/songs/views/HomeView.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/js/lib/widgets/songGridWidget.js" afterPath="$PROJECT_DIR$/src/js/lib/features/songs/widgets/SongGridWidget.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/templates/homePageTemplate.html" afterPath="$PROJECT_DIR$/src/templates/features/songs/homePageTemplate.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/templates/widgets/songGridWidgetTemplate.html" afterPath="$PROJECT_DIR$/src/templates/features/songs/widgets/songGridWidgetTemplate.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/templates/widgets/songRowsTemplate.html" afterPath="$PROJECT_DIR$/src/templates/features/songs/widgets/songRowsTemplate.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../myMedia/public/css/app.css" afterPath="$PROJECT_DIR$/../myMedia/public/css/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../myMedia/public/js/mylib/log.js" afterPath="$PROJECT_DIR$/../myMedia/public/js/mylib/log.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../myMedia/public/js/mylib/widgets/MenuWidget.js" afterPath="$PROJECT_DIR$/../myMedia/public/js/mylib/widgets/MenuWidget.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../myMedia/views/main.html" afterPath="$PROJECT_DIR$/../myMedia/views/main.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nodeMusic.iws" afterPath="$PROJECT_DIR$/../nodeMusic.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/app-built.js" afterPath="$PROJECT_DIR$/dist/js/app-built.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node-server/lib/musicItemsViewModel.js" afterPath="$PROJECT_DIR$/node-server/lib/musicItemsViewModel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node-server/server.js" afterPath="$PROJECT_DIR$/node-server/server.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeMusic3.iws" afterPath="$PROJECT_DIR$/nodeMusic3.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/app.js" afterPath="$PROJECT_DIR$/src/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/core.js" afterPath="$PROJECT_DIR$/src/js/core/core.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nodeProxyServer/nodeProxyServer.js" afterPath="$PROJECT_DIR$/../nodeProxyServer/nodeProxyServer.js" />
     </list>
     <ignored path="nodeMusic3.iws" />
@@ -100,10 +82,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="artistRowsTemplate.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="artistRowsTemplate.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/features/artists/widgets/artistRowsTemplate.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="181" selection-start="130" selection-end="130" vertical-scroll-proportion="0.05498282">
+            <state line="2" column="38" selection-start="105" selection-end="105" vertical-scroll-proportion="-1.28">
               <folding />
             </state>
           </provider>
@@ -127,10 +109,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArtistGridWidget.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ArtistGridWidget.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/lib/features/artists/widgets/ArtistGridWidget.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="180" selection-start="1196" selection-end="1196" vertical-scroll-proportion="0.0">
+            <state line="32" column="180" selection-start="1196" selection-end="1196" vertical-scroll-proportion="0.43061396">
               <folding />
             </state>
           </provider>
@@ -1358,7 +1340,11 @@
       <created>1349026029047</created>
       <updated>1349026029047</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="artists now displaying . each_property helper for handlebars added.">
+      <created>1349037036824</created>
+      <updated>1349037036824</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1422,7 +1408,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="gzip working for dynamic views, static js, css, etc." />
+    <option name="LAST_COMMIT_MESSAGE" value="artists now displaying . each_property helper for handlebars added." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1440,6 +1426,7 @@
     <MESSAGE value="click handler for song" />
     <MESSAGE value="express upgraded to 3.0. Sound is playing." />
     <MESSAGE value="gzip working for dynamic views, static js, css, etc." />
+    <MESSAGE value="artists now displaying . each_property helper for handlebars added." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1483,13 +1470,6 @@
     <entry file="file://$PROJECT_DIR$/src/js/lib/features/artists/models/ArtistsModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="108" selection-start="1036" selection-end="1036" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/features/artists/widgets/ArtistGridWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="180" selection-start="1196" selection-end="1196" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1554,7 +1534,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/features/artists/widgets/artistRowsTemplate.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="181" selection-start="130" selection-end="130" vertical-scroll-proportion="0.05498282">
+        <state line="2" column="38" selection-start="105" selection-end="105" vertical-scroll-proportion="-1.28">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib/features/artists/widgets/ArtistGridWidget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="180" selection-start="1196" selection-end="1196" vertical-scroll-proportion="0.43061396">
           <folding />
         </state>
       </provider>
