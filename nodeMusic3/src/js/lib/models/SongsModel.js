@@ -10,8 +10,8 @@ define([
 
         create: function(opts){
             var options = {
-                setSize : 100 //songs will contain 100 items at a time
-
+                setSize : 25, //songs will contain 100 items at a time
+                initialSetSize : 100 //so we can display a bunch
             };
             _.extend(options, opts);
 
@@ -23,7 +23,7 @@ define([
             return {
                 //represents a limited set of allSongs, so that we don't render everything at once.
                 //will be updated when nextSet() is called
-                songs : SongsModel.allSongs.slice(index, options.setSize + index),
+                songs : SongsModel.allSongs.slice(index, options.initialSetSize + index),
                 //mutates songs so that it represents the next page of songs
                 nextSet : function(){
                     index += options.setSize;

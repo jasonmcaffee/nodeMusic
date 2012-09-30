@@ -1,5 +1,40 @@
+
 .home-page{
   //background-color: blue;
   //height: 100%;
   min-height: 100%;
+
+  #songsGrid {
+    #songs{ //ul
+      //sizing
+      //padding:5px;
+
+
+      li{
+
+        width:100%;
+        dl{
+          width:100%;
+          dt{
+            //@extend .list-item-white;
+            display:inline-block;
+          }
+          dt:nth-child(1){   //artist
+            //@extend .list-item-grey;
+            width:30%;
+          }
+          dt:nth-child(2){ //song
+            width:30%;
+            //@extend .list-item-grey;
+          }
+          dt:nth-child(3){  //album
+            //@extend .list-item-grey;
+          }
+        }
+      }
+
+
+    }
+  }
+
 }

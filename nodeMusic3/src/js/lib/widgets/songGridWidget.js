@@ -26,14 +26,22 @@ define([
             //listen for scroll events so we can render songs as the user scrolls
             $window.scroll(this.scrollHandler.bind(this));
 
+            this.$el.on('tap', function(){console.log('tapped');});
         },
         events:{
+            'click #songs > li': function(e){
+                log('click occurred.');
+                var $target = $(e.currentTarget);
+                var songId = $target.attr('data-songId');
+                log('songId = ' + songId);
+            }
 
         },
         render: function(){ //don't call until the dom is ready
             log('SongGridWidget.render called.');
             this.$el.html(songGridWidgetTemplate(this.songsModel));
             this.$songs = this.$songs || this.$el.find('#songs');
+
             return this;
         },
         renderNextSetOfSongs : function(){
@@ -43,7 +51,6 @@ define([
 
             this.$songs.append(songRowsTemplate(this.songsModel));  //<-- about 16ms
             //this.$songs[0].innerHTML += songRowsTemplate(this.songsModel); <-- horrible performance
-            //this.$songs[0].appendChild(songRowsTemplate(this.songsModel));
         },
         //render songs as the user scrolls
         scrollHandler: function(){
@@ -54,7 +61,7 @@ define([
             var documentHeight = $document.height();
 
             var start = scrollTop;
-            var stop = documentHeight/1.5;
+            var stop = documentHeight/1.7;
             //log('scrollHandler called: top:'+ scrollTop + ' docHeight:' + documentHeight + ' windowHeight:' + windowHeight + ' start:' + start + ' stop:' + stop);
 
             //only when the user is scrolling down

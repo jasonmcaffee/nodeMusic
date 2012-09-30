@@ -1,8 +1,7 @@
 define([
     'core/util/log',
-    'lib/views/HomeView',
-    'jquery'
-], function(log, HomeView, $){
+    'lib/views/HomeView'
+], function(log, HomeView){
 
     function HomeController(){
         log('HomeController constructor called.');

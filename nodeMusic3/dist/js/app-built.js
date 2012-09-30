@@ -12319,11 +12319,11 @@ templates['songRowsTemplate'] = template(function (Handlebars,depth0,helpers,par
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n<li>\n    <dl data-songId=\"";
-  stack1 = depth0.songId;
+  buffer += "\n<li data-songId=\"";
+  stack1 = depth0.id;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
-  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.songId", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\">\n        <dt>";
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.id", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\">\n    <dl>\n        <dt>";
   stack1 = depth0.artist;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.artist", { hash: {} }); }
@@ -12363,8 +12363,8 @@ define('lib/models/SongsModel',[
 
         create: function(opts){
             var options = {
-                setSize : 100 //songs will contain 100 items at a time
-
+                setSize : 25, //songs will contain 100 items at a time
+                initialSetSize : 100 //so we can display a bunch
             };
             _.extend(options, opts);
 
@@ -12376,7 +12376,7 @@ define('lib/models/SongsModel',[
             return {
                 //represents a limited set of allSongs, so that we don't render everything at once.
                 //will be updated when nextSet() is called
-                songs : SongsModel.allSongs.slice(index, options.setSize + index),
+                songs : SongsModel.allSongs.slice(index, options.initialSetSize + index),
                 //mutates songs so that it represents the next page of songs
                 nextSet : function(){
                     index += options.setSize;
@@ -12420,14 +12420,22 @@ define('lib/widgets/SongGridWidget',[
             //listen for scroll events so we can render songs as the user scrolls
             $window.scroll(this.scrollHandler.bind(this));
 
+            this.$el.on('tap', function(){console.log('tapped');});
         },
         events:{
+            'click #songs > li': function(e){
+                log('click occurred.');
+                var $target = $(e.currentTarget);
+                var songId = $target.attr('data-songId');
+                log('songId = ' + songId);
+            }
 
         },
         render: function(){ //don't call until the dom is ready
             log('SongGridWidget.render called.');
             this.$el.html(songGridWidgetTemplate(this.songsModel));
             this.$songs = this.$songs || this.$el.find('#songs');
+
             return this;
         },
         renderNextSetOfSongs : function(){
@@ -12437,7 +12445,6 @@ define('lib/widgets/SongGridWidget',[
 
             this.$songs.append(songRowsTemplate(this.songsModel));  //<-- about 16ms
             //this.$songs[0].innerHTML += songRowsTemplate(this.songsModel); <-- horrible performance
-            //this.$songs[0].appendChild(songRowsTemplate(this.songsModel));
         },
         //render songs as the user scrolls
         scrollHandler: function(){
@@ -12448,7 +12455,7 @@ define('lib/widgets/SongGridWidget',[
             var documentHeight = $document.height();
 
             var start = scrollTop;
-            var stop = documentHeight/1.5;
+            var stop = documentHeight/1.7;
             //log('scrollHandler called: top:'+ scrollTop + ' docHeight:' + documentHeight + ' windowHeight:' + windowHeight + ' start:' + start + ' stop:' + stop);
 
             //only when the user is scrolling down
@@ -12521,9 +12528,8 @@ define('lib/views/HomeView',[
 });
 define('lib/controllers/HomeController',[
     'core/util/log',
-    'lib/views/HomeView',
-    'jquery'
-], function(log, HomeView, $){
+    'lib/views/HomeView'
+], function(log, HomeView){
 
     function HomeController(){
         log('HomeController constructor called.');
@@ -12691,6 +12697,14 @@ define('lib/widgets/NavigationBar',[
 //
 //
 //});
+//require.config({
+//    map:{
+//        '*' : {
+//            'jquery' : 'zepto'
+//        }
+//    }
+//});
+
 define('app',[
     'core/util/log',
     'core/core',

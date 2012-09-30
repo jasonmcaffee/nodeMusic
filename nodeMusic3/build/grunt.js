@@ -101,7 +101,7 @@ module.exports = function(grunt) {
             name:'app',
             paths: {
                 'jquery': 'lib-third-party/jquery',
-                'zepto' : 'lib-third-party/zepto',
+                //'zepto' : 'lib-third-party/zepto',
                 'underscore' : 'lib-third-party/underscore',
                 'backbone' : 'lib-third-party/backbone',
                 'requireLib' : 'lib-third-party/require',  //allow app-built to be bundled with requirejs
@@ -112,11 +112,6 @@ module.exports = function(grunt) {
             include:[
               'requireLib'
             ],
-//            map:{
-//                '*' : {
-//                    'jquery' : 'zepto'
-//                }
-//            },
             //config for wrapping non-amd compliant code
             shim:{
                 handlebars:{
@@ -129,7 +124,7 @@ module.exports = function(grunt) {
                     deps: ['underscore', 'jquery'],
                     exports: 'Backbone'
                 },
-                'zepto':{
+                'jquery':{
                     exports: 'Zepto'
                 }
             }

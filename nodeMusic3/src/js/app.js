@@ -1,3 +1,11 @@
+//require.config({
+//    map:{
+//        '*' : {
+//            'jquery' : 'zepto'
+//        }
+//    }
+//});
+
 define([
     'core/util/log',
     'core/core',

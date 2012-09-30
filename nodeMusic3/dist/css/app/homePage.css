@@ -1,2 +1,12 @@
 .home-page {
   min-height: 100%; }
+  .home-page #songsGrid #songs li {
+    width: 100%; }
+    .home-page #songsGrid #songs li dl {
+      width: 100%; }
+      .home-page #songsGrid #songs li dl dt {
+        display: inline-block; }
+      .home-page #songsGrid #songs li dl dt:nth-child(1) {
+        width: 30%; }
+      .home-page #songsGrid #songs li dl dt:nth-child(2) {
+        width: 30%; }
