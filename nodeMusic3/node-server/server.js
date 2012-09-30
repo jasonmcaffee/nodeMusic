@@ -31,7 +31,7 @@ app.configure(function(){
     app.use(gzippo.staticGzip(config.publicStaticFiles));
 
     //gzips the server side template views
-    app.use(connect.compress());//gzip functionality
+    app.use(gzippo.compress());//gzip functionality
 
     //show stacktraces to the public
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
