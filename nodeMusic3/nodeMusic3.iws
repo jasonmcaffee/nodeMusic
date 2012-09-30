@@ -2,13 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="245f59ec-341c-45a5-94a7-3b5e96a58ce5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nodeMusic3.iws" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/css-preprocess/app/buttonsDemo.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/css-preprocess/app/demosPage.scss" afterPath="" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/../myMedia/public/js/mylib/models/musicPlayer.js" afterPath="$PROJECT_DIR$/../myMedia/public/js/mylib/models/MusicPlayer.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/css-preprocess/app/navigation-bar.scss" afterPath="$PROJECT_DIR$/src/js/lib-third-party/zepto.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/js/lib/widgets/songGridWidget.js" afterPath="$PROJECT_DIR$/src/js/lib/widgets/SongGridWidget.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../myMedia/public/css/app.css" afterPath="$PROJECT_DIR$/../myMedia/public/css/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../myMedia/public/js/mylib/log.js" afterPath="$PROJECT_DIR$/../myMedia/public/js/mylib/log.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../myMedia/public/js/mylib/widgets/MenuWidget.js" afterPath="$PROJECT_DIR$/../myMedia/public/js/mylib/widgets/MenuWidget.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../myMedia/views/main.html" afterPath="$PROJECT_DIR$/../myMedia/views/main.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nodeMusic.iws" afterPath="$PROJECT_DIR$/../nodeMusic.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/grunt.js" afterPath="$PROJECT_DIR$/build/grunt.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app.css" afterPath="$PROJECT_DIR$/dist/css/app.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app/homePage.css" afterPath="$PROJECT_DIR$/dist/css/app/homePage.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app/strapkit.css" afterPath="$PROJECT_DIR$/dist/css/app/strapkit.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/app-built.js" afterPath="$PROJECT_DIR$/dist/js/app-built.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeMusic3.iws" afterPath="$PROJECT_DIR$/nodeMusic3.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/homePage.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/homePage.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/compiled-templates/widgets/songRowsTemplate.js" afterPath="$PROJECT_DIR$/src/js/compiled-templates/widgets/songRowsTemplate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib-third-party/jquery.js" afterPath="$PROJECT_DIR$/src/js/lib-third-party/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/controllers/HomeController.js" afterPath="$PROJECT_DIR$/src/js/lib/controllers/HomeController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/views/HomeView.js" afterPath="$PROJECT_DIR$/src/js/lib/views/HomeView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/widgets/songRowsTemplate.html" afterPath="$PROJECT_DIR$/src/templates/widgets/songRowsTemplate.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nodeProxyServer/nodeProxyServer.js" afterPath="$PROJECT_DIR$/../nodeProxyServer/nodeProxyServer.js" />
     </list>
     <ignored path="nodeMusic3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,73 +85,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node-server/views/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="72" selection-start="2485" selection-end="2485" vertical-scroll-proportion="-35.84">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="homePageTemplate.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/templates/homePageTemplate.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="7" selection-start="80" selection-end="80" vertical-scroll-proportion="-2.56">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResponsiveDemoModel.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/lib/models/ResponsiveDemoModel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="79" selection-start="735" selection-end="735" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SongGridWidget.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SongGridWidget.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/lib/widgets/SongGridWidget.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="42" selection-start="1902" selection-end="1902" vertical-scroll-proportion="0.46173254">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="songGridWidgetTemplate.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/templates/widgets/songGridWidgetTemplate.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="64" selection-start="88" selection-end="88" vertical-scroll-proportion="-2.56">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SongsModel.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/lib/models/SongsModel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="56" selection-start="872" selection-end="872" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="songRowsTemplate.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/templates/widgets/songRowsTemplate.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="9" selection-start="155" selection-end="155" vertical-scroll-proportion="-5.12">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lists.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/lists.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="12" column="33" selection-start="383" selection-end="383" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -141,7 +97,140 @@
       <file leaf-file-name="HomeView.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/lib/views/HomeView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="82" selection-start="686" selection-end="686" vertical-scroll-proportion="0.0">
+            <state line="3" column="23" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app-built.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dist/js/app-built.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="28" selection-start="6850" selection-end="6850" vertical-scroll-proportion="1305.8462">
+              <folding>
+                <marker date="1348970821000" expanded="true" signature="414478:414568" placeholder="/*...*/" />
+                <marker date="1348970821000" expanded="true" signature="92870:100290" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="105265:105366" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="244797:245260" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="285870:285959" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="312200:319809" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="375879:375986" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="376167:376346" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="376641:377321" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="376733:376770" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="377037:377041" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="377392:378128" placeholder="{&quot;type&quot;: 'GET'...}" />
+                <marker date="1348970821000" expanded="true" signature="377796:377921" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="377946:378061" placeholder="{&quot;script&quot;: 'text/javascript, application/javascript'...}" />
+                <marker date="1348970821000" expanded="true" signature="378204:378245" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="378383:378455" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="378526:378611" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="378702:381404" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="379055:379065" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="379362:379535" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="379789:380434" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="379842:380393" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="380060:380307" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="380030:380127" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="380313:380396" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="380723:380744" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="380893:381152" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="381627:381646" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="381755:381764" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="381881:382160" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="382236:382446" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="382283:382415" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="382642:382887" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="382976:384405" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="383039:383683" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="383279:383482" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="383413:383449" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="383791:383853" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="384028:384304" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="384057:384202" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="384435:388389" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="384517:384618" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="384680:384727" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="384818:385007" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="384894:384988" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="385121:385358" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="385550:388110" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="385755:386223" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="386254:386455" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="386485:387689" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="386818:386946" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="387100:387332" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="387359:387629" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="387429:387565" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="387721:388044" placeholder="{...}" />
+                <marker date="1348970821000" expanded="true" signature="388370:388387" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="grunt.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build/grunt.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="102" column="49" selection-start="3775" selection-end="3775" vertical-scroll-proportion="0.2018503">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="require.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/require.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="10" selection-start="0" selection-end="12865" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strapkit.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="2" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MusicPlayer.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="90" column="59" selection-start="2686" selection-end="2686" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="zepto.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/zepto.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="4" selection-start="1302" selection-end="1302" vertical-scroll-proportion="-13.038462">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="songRowsTemplate.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/widgets/songRowsTemplate.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="27" selection-start="169" selection-end="169" vertical-scroll-proportion="-3.84">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="12" selection-start="389" selection-end="389" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -160,22 +249,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/js/lib/controllers/HomeController.js" />
-        <option value="$PROJECT_DIR$/src/js/lib-third-party/require.js" />
-        <option value="$PROJECT_DIR$/build/grunt.js" />
-        <option value="$PROJECT_DIR$/src/js/app.js" />
-        <option value="$PROJECT_DIR$/node-server/lib/musicItemRepository.js" />
-        <option value="$PROJECT_DIR$/node-server/lib/musicItemsViewModel.js" />
-        <option value="$PROJECT_DIR$/node-server/server.js" />
-        <option value="$PROJECT_DIR$/src/js/lib/widgets/songGridWidget.js" />
-        <option value="$PROJECT_DIR$/src/templates/widgets/songRowTemplate.html" />
         <option value="$PROJECT_DIR$/node-server/views/index.html" />
         <option value="$PROJECT_DIR$/src/templates/homePageTemplate.html" />
-        <option value="$PROJECT_DIR$/src/js/lib/views/HomeView.js" />
-        <option value="$PROJECT_DIR$/src/templates/widgets/songRowsTemplate.html" />
         <option value="$PROJECT_DIR$/src/templates/widgets/songGridWidgetTemplate.html" />
         <option value="$PROJECT_DIR$/src/js/lib/models/SongsModel.js" />
+        <option value="$PROJECT_DIR$/src/js/lib/controllers/HomeController.js" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app.scss" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/homePage.scss" />
+        <option value="$PROJECT_DIR$/src/js/lib-third-party/jquery.js" />
+        <option value="$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js" />
+        <option value="$PROJECT_DIR$/src/templates/widgets/songRowsTemplate.html" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss" />
+        <option value="$PROJECT_DIR$/src/js/lib-third-party/zepto.js" />
+        <option value="$PROJECT_DIR$/src/js/lib/views/HomeView.js" />
         <option value="$PROJECT_DIR$/src/js/lib/widgets/SongGridWidget.js" />
+        <option value="$PROJECT_DIR$/src/js/lib-third-party/require.js" />
+        <option value="$PROJECT_DIR$/build/grunt.js" />
       </list>
     </option>
   </component>
@@ -243,7 +332,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="node-server" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -257,7 +350,103 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="node-server" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="widgets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib-third-party" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="widgets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -275,11 +464,207 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="node-server" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css-preprocess" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css-preprocess" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css-preprocess" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css-preprocess" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tasks" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -390,7 +775,11 @@
       <created>1348955536315</created>
       <updated>1348955536315</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="nodeMusic v3 initial">
+      <created>1348955658338</created>
+      <updated>1348955658338</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -473,114 +862,175 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node-server/lib/musicItemRepository.js">
+    <entry file="file://$PROJECT_DIR$/src/js/lib/controllers/HomeController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="177" column="0" selection-start="5486" selection-end="5486" vertical-scroll-proportion="0.0">
+        <state line="16" column="0" selection-start="370" selection-end="370" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node-server/lib/musicItemsViewModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="686" selection-end="686" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node-server/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="44" selection-start="3020" selection-end="3020" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/models/ResponsiveDemoModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="79" selection-start="735" selection-end="735" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/lists.scss">
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/responsiveDemo.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/demos/responsiveDemoPageTemplate.html">
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/navigationBar.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/demos/demosHomePageTemplate.html">
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/util/position-fixes.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="3" column="9" selection-start="144" selection-end="144" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/compiled-templates/widgets/songGridWidgetTemplate.js">
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/homePage.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="2" column="4" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/compiled-templates/widgets/songRowTemplate.js">
+    <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="118" selection-start="1240" selection-end="1240" vertical-scroll-proportion="0.0">
+        <state line="5971" column="21" selection-start="232695" selection-end="232695" vertical-scroll-proportion="-17.346153">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node-server/views/index.html">
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="72" selection-start="2485" selection-end="2485" vertical-scroll-proportion="-35.84">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/homePageTemplate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="7" selection-start="80" selection-end="80" vertical-scroll-proportion="-2.56">
+        <state line="12" column="12" selection-start="389" selection-end="389" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/widgets/songRowsTemplate.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="9" selection-start="155" selection-end="155" vertical-scroll-proportion="-5.12">
+        <state line="6" column="27" selection-start="169" selection-end="169" vertical-scroll-proportion="-3.84">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/widgets/songGridWidgetTemplate.html">
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="64" selection-start="88" selection-end="88" vertical-scroll-proportion="-2.56">
+        <state line="21" column="2" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="59" selection-start="2686" selection-end="2686" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/zepto.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="4" selection-start="1302" selection-end="1302" vertical-scroll-proportion="-13.038462">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/lib/views/HomeView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="82" selection-start="686" selection-end="686" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/models/SongsModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="56" selection-start="872" selection-end="872" vertical-scroll-proportion="0.0">
+        <state line="3" column="23" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/lib/widgets/SongGridWidget.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="42" selection-start="1902" selection-end="1902" vertical-scroll-proportion="0.46173254">
+        <state line="12" column="33" selection-start="383" selection-end="383" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/require.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="10" selection-start="0" selection-end="12865" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/js/app-built.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="28" selection-start="6850" selection-end="6850" vertical-scroll-proportion="1305.8462">
+          <folding>
+            <marker date="1348970821000" expanded="true" signature="414478:414568" placeholder="/*...*/" />
+            <marker date="1348970821000" expanded="true" signature="92870:100290" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="105265:105366" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="244797:245260" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="285870:285959" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="312200:319809" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="375879:375986" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="376167:376346" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="376641:377321" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="376733:376770" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="377037:377041" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="377392:378128" placeholder="{&quot;type&quot;: 'GET'...}" />
+            <marker date="1348970821000" expanded="true" signature="377796:377921" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="377946:378061" placeholder="{&quot;script&quot;: 'text/javascript, application/javascript'...}" />
+            <marker date="1348970821000" expanded="true" signature="378204:378245" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="378383:378455" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="378526:378611" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="378702:381404" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="379055:379065" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="379362:379535" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="379789:380434" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="379842:380393" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="380060:380307" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="380030:380127" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="380313:380396" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="380723:380744" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="380893:381152" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="381627:381646" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="381755:381764" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="381881:382160" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="382236:382446" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="382283:382415" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="382642:382887" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="382976:384405" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="383039:383683" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="383279:383482" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="383413:383449" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="383791:383853" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="384028:384304" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="384057:384202" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="384435:388389" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="384517:384618" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="384680:384727" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="384818:385007" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="384894:384988" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="385121:385358" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="385550:388110" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="385755:386223" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="386254:386455" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="386485:387689" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="386818:386946" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="387100:387332" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="387359:387629" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="387429:387565" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="387721:388044" placeholder="{...}" />
+            <marker date="1348970821000" expanded="true" signature="388370:388387" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/grunt.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="102" column="49" selection-start="3775" selection-end="3775" vertical-scroll-proportion="0.2018503">
           <folding />
         </state>
       </provider>

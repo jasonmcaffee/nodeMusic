@@ -19,6 +19,7 @@ define([
             log('HomeView.render called.');
 
             this.$el.html(homePageTemplateFunction());
+
             _.each(this.options.widgets, function(widgetMap){
                 this.$el.find(widgetMap.selector).append(widgetMap.widget.render().el);
             }, this);

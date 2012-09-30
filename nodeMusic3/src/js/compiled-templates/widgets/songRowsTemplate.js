@@ -8,7 +8,11 @@ templates['songRowsTemplate'] = template(function (Handlebars,depth0,helpers,par
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n<li>\n    <dl>\n        <dt>";
+  buffer += "\n<li>\n    <dl data-songId=\"";
+  stack1 = depth0.songId;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.songId", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\">\n        <dt>";
   stack1 = depth0.artist;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.artist", { hash: {} }); }

@@ -37,24 +37,29 @@ define([
             return this;
         },
         renderNextSetOfSongs : function(){
-            log('renderNextSetOfSongs called.');
+            //log('renderNextSetOfSongs called.');
             //move songs to represent the next list of items (paging)
             this.songsModel.nextSet();
 
-            this.$songs.append(songRowsTemplate(this.songsModel));
+            this.$songs.append(songRowsTemplate(this.songsModel));  //<-- about 16ms
+            //this.$songs[0].innerHTML += songRowsTemplate(this.songsModel); <-- horrible performance
+            //this.$songs[0].appendChild(songRowsTemplate(this.songsModel));
         },
         //render songs as the user scrolls
         scrollHandler: function(){
-            log('scrollHandler called');
+            //log('scrollHandler called');
 
             var scrollTop = $body.scrollTop();
             var windowHeight = $window.height();
             var documentHeight = $document.height();
-            var start = documentHeight/scrollTop;
-            var stop = documentHeight /500;
-            log('scrollHandler called: top:'+ scrollTop + ' docHeight:' + documentHeight + ' windowHeight:' + windowHeight + ' start:' + start + ' stop:' + stop);
+
+            var start = scrollTop;
+            var stop = documentHeight/1.5;
+            //log('scrollHandler called: top:'+ scrollTop + ' docHeight:' + documentHeight + ' windowHeight:' + windowHeight + ' start:' + start + ' stop:' + stop);
+
+            //only when the user is scrolling down
             this.scrollDirection(function(){
-                log('user is scrolling down');
+                //log('user is scrolling down');
                 if(start > stop){
                     this.renderNextSetOfSongs();
                 }
