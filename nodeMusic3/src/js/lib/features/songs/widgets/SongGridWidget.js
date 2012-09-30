@@ -2,9 +2,9 @@ define([
     'core/util/log',
     'backbone',
     'jquery',
-    'compiled-templates/widgets/songGridWidgetTemplate',
-    'compiled-templates/widgets/songRowsTemplate',
-    'lib/models/SongsModel',
+    'compiled-templates/features/songs/widgets/songGridWidgetTemplate',
+    'compiled-templates/features/songs/widgets/songRowsTemplate',
+    'lib/features/songs/models/SongsModel',
     'lib/models/MusicPlayer'
 ], function(log, Backbone, $, songGridWidgetTemplate, songRowsTemplate, SongsModel, musicPlayer){
 

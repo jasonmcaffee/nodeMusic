@@ -60,7 +60,11 @@ musicItemRepository.init(config.musicRootFilePath);
 
 musicItemRepository.getMusicItems(function(musicItems){
     console.log('getMusicItems callback');
-    viewModel = musicItemsViewModelFactory.createViewModel(musicItems);
+    //viewModel = musicItemsViewModelFactory.createViewModel(musicItems);
+    viewModel = musicItemsViewModelFactory.createArtistViewModel(musicItems);
+    console.log('testing : ' + viewModel.viewModel.artists['air'].albums['2006 - late night tales'].songs.length);
+    var air = JSON.stringify(viewModel.viewModel.artists['air']);
+    console.log(air);
 });
 
 //server response functions =====================================================================================================

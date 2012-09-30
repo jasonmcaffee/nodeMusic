@@ -330,16 +330,68 @@ define('core/plugins/handlebars/eachWithIndex',[
 
 });
 
+define('core/plugins/handlebars/eachProperty',[
+    'core/util/log',
+    'handlebars'
+], function(log, Handlebars){
+    log('eachWithIndex core plugin module loaded.');
+
+    /**
+     * adds ability to use {{#each_with_index items}}
+     * @type {Object}
+     */
+    var plugin = {
+
+        /**
+         * in order for the plugin to register the handlebars helper, you must call init.
+         * (don't assume how and when this is executed so we get greater flexibility).
+         */
+        init : function(){
+            log('eachWithIndex plugin init called.');
+            //https://gist.github.com/1048968
+            Handlebars.registerHelper("each_property", function(objectLiteral, fn) {
+                var buffer = "";
+                var index = 0;
+                for(var prop in objectLiteral){
+                     var item = objectLiteral[prop];
+                    item.propertyName = prop;
+                    item.index = index++;
+                    buffer += fn(item);
+
+                }
+//                for (var i = 0, j = array.length; i < j; i++) {
+//                    var item = array[i];
+//
+//                    // stick an index property onto the item, starting with 1, may make configurable later
+//                    item.index = i;
+//
+//                    // show the inside of the block
+//                    buffer += fn(item);
+//                }
+
+                // return the finished buffer
+                return buffer;
+
+            });
+        }
+    };
+
+    return plugin;
+
+});
+
 define('core/core',[
     'core/util/log',
-    'core/plugins/handlebars/eachWithIndex'
-], function(log, eachWithIndexPlugin){
+    'core/plugins/handlebars/eachWithIndex',
+    'core/plugins/handlebars/eachProperty'
+], function(log, eachWithIndexPlugin, eachPropertyPlugin){
     log('core module loaded');
 
     var core = {
         initPlugins : function(){
             log('core.initPlugins called');
             eachWithIndexPlugin.init();
+            eachPropertyPlugin.init();
         }
     };
 
@@ -12280,7 +12332,7 @@ define('core/core',[
 
     return Backbone;
 }));
-define('compiled-templates/homePageTemplate',["handlebars", "core/util/log"], function(Handlebars, log){ 
+define('compiled-templates/features/songs/homePageTemplate',["handlebars", "core/util/log"], function(Handlebars, log){ 
 log("homePageTemplate precompiled template function module loaded."); 
 var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {}; 
 templates['homePageTemplate'] = template(function (Handlebars,depth0,helpers,partials,data) {
@@ -12288,11 +12340,11 @@ templates['homePageTemplate'] = template(function (Handlebars,depth0,helpers,par
   var foundHelper, self=this;
 
 
-  return "<div class=\"home-page\">\n\n   <div>Home asdfg</div>\n   <div id=\"songsGridWidget\">\n\n   </div>\n</div>";}); 
+  return "<div class=\"home-page\">\n\n   <div>Songs</div>\n   <div id=\"songsGridWidget\">\n\n   </div>\n</div>";}); 
 Handlebars.registerPartial("homePageTemplate", templates["homePageTemplate"]); 
 return templates["homePageTemplate"]; 
 });
-define('compiled-templates/widgets/songGridWidgetTemplate',["handlebars", "core/util/log"], function(Handlebars, log){ 
+define('compiled-templates/features/songs/widgets/songGridWidgetTemplate',["handlebars", "core/util/log"], function(Handlebars, log){ 
 log("songGridWidgetTemplate precompiled template function module loaded."); 
 var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {}; 
 templates['songGridWidgetTemplate'] = template(function (Handlebars,depth0,helpers,partials,data) {
@@ -12309,7 +12361,7 @@ templates['songGridWidgetTemplate'] = template(function (Handlebars,depth0,helpe
 Handlebars.registerPartial("songGridWidgetTemplate", templates["songGridWidgetTemplate"]); 
 return templates["songGridWidgetTemplate"]; 
 });
-define('compiled-templates/widgets/songRowsTemplate',["handlebars", "core/util/log"], function(Handlebars, log){ 
+define('compiled-templates/features/songs/widgets/songRowsTemplate',["handlebars", "core/util/log"], function(Handlebars, log){ 
 log("songRowsTemplate precompiled template function module loaded."); 
 var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {}; 
 templates['songRowsTemplate'] = template(function (Handlebars,depth0,helpers,partials,data) {
@@ -12351,7 +12403,7 @@ function program1(depth0,data) {
 Handlebars.registerPartial("songRowsTemplate", templates["songRowsTemplate"]); 
 return templates["songRowsTemplate"]; 
 });
-define('lib/models/SongsModel',[
+define('lib/features/songs/models/SongsModel',[
     'core/util/log',
     'underscore'
 ], function(log, _){
@@ -12359,7 +12411,7 @@ define('lib/models/SongsModel',[
 
     //since this is supplied via a global viewModel as part of the page, just grab it's value.
     var SongsModel = {
-        allSongs: viewModel.musicItems,
+        allSongs: viewModel.musicItems || [], //todo: download if asked for. won't be available on first page load
 
         create: function(opts){
             var options = {
@@ -12507,13 +12559,13 @@ define('lib/models/MusicPlayer',[
 
     return new MusicPlayer();
 });
-define('lib/widgets/SongGridWidget',[
+define('lib/features/songs/widgets/SongGridWidget',[
     'core/util/log',
     'backbone',
     'jquery',
-    'compiled-templates/widgets/songGridWidgetTemplate',
-    'compiled-templates/widgets/songRowsTemplate',
-    'lib/models/SongsModel',
+    'compiled-templates/features/songs/widgets/songGridWidgetTemplate',
+    'compiled-templates/features/songs/widgets/songRowsTemplate',
+    'lib/features/songs/models/SongsModel',
     'lib/models/MusicPlayer'
 ], function(log, Backbone, $, songGridWidgetTemplate, songRowsTemplate, SongsModel, musicPlayer){
 
@@ -12611,13 +12663,13 @@ define('lib/widgets/SongGridWidget',[
 
     return SongGridWidget;
 });
-define('lib/views/HomeView',[
+define('lib/features/songs/views/HomeView',[
     'core/util/log',
     'backbone',
     'underscore',
     'jquery',
-    'compiled-templates/homePageTemplate',
-    'lib/widgets/SongGridWidget'
+    'compiled-templates/features/songs/homePageTemplate',
+    'lib/features/songs/widgets/SongGridWidget'
 ], function(log, Backbone, _, $, homePageTemplateFunction, SongGridWidget){
 
     var HomeView = Backbone.View.extend({
@@ -12643,24 +12695,24 @@ define('lib/views/HomeView',[
 
     return HomeView;
 });
-define('lib/controllers/HomeController',[
+define('lib/features/songs/controllers/SongsController',[
     'core/util/log',
-    'lib/views/HomeView'
+    'lib/features/songs/views/HomeView'
 ], function(log, HomeView){
 
-    function HomeController(){
-        log('HomeController constructor called.');
+    function SongsController(){
+        log('SongsController constructor called.');
         this.homeView = new HomeView();
     }
 
-    HomeController.prototype.showHomePage = function(){
-        log('HomeController.showHomePage');
+    SongsController.prototype.showHomePage = function(){
+        log('SongsController.showHomePage');
         this.homeView.render();
     };
 
 
 
-    return HomeController;
+    return SongsController;
 });
 /* Modernizr 2.5.3 (Custom Build) | MIT & BSD
  * Build: http://modernizr.com/download/#-touch-teststyles-prefixes
@@ -12814,6 +12866,212 @@ define('lib/widgets/NavigationBar',[
 //
 //
 //});
+define('compiled-templates/features/artists/artistPageTemplate',["handlebars", "core/util/log"], function(Handlebars, log){ 
+log("artistPageTemplate precompiled template function module loaded."); 
+var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {}; 
+templates['artistPageTemplate'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  helpers = helpers || Handlebars.helpers;
+  var foundHelper, self=this;
+
+
+  return "<div class=\"artist-page\">\n\n    <div>Artists</div>\n    <div id=\"artistsGridWidget\">\n\n    </div>\n\n</div>";}); 
+Handlebars.registerPartial("artistPageTemplate", templates["artistPageTemplate"]); 
+return templates["artistPageTemplate"]; 
+});
+define('compiled-templates/features/artists/widgets/artistGridWidgetTemplate',["handlebars", "core/util/log"], function(Handlebars, log){ 
+log("artistGridWidgetTemplate precompiled template function module loaded."); 
+var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {}; 
+templates['artistGridWidgetTemplate'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  helpers = helpers || Handlebars.helpers; partials = partials || Handlebars.partials;
+  var buffer = "", stack1, foundHelper, self=this;
+
+
+  buffer += "<div id=\"artistsGrid\">\n    <ul id=\"artists\">\n        ";
+  stack1 = depth0;
+  stack1 = self.invokePartial(partials.artistRowsTemplate, 'artistRowsTemplate', stack1, helpers, partials);;
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n    </ul>\n</div>";
+  return buffer;}); 
+Handlebars.registerPartial("artistGridWidgetTemplate", templates["artistGridWidgetTemplate"]); 
+return templates["artistGridWidgetTemplate"]; 
+});
+define('compiled-templates/features/artists/widgets/artistRowsTemplate',["handlebars", "core/util/log"], function(Handlebars, log){ 
+log("artistRowsTemplate precompiled template function module loaded."); 
+var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {}; 
+templates['artistRowsTemplate'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  helpers = helpers || Handlebars.helpers;
+  var stack1, stack2, foundHelper, tmp1, self=this, functionType="function", helperMissing=helpers.helperMissing, undef=void 0, escapeExpression=this.escapeExpression, blockHelperMissing=helpers.blockHelperMissing;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n<li data-artistsIndex=\"";
+  stack1 = depth0.index;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.index", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\">\n    hello artist ";
+  stack1 = depth0.propertyName;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.propertyName", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\n</li>\n";
+  return buffer;}
+
+  foundHelper = helpers.artists;
+  stack1 = foundHelper || depth0.artists;
+  foundHelper = helpers.each_property;
+  stack2 = foundHelper || depth0.each_property;
+  tmp1 = self.program(1, program1, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  if(foundHelper && typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, tmp1); }
+  else { stack1 = blockHelperMissing.call(depth0, stack2, stack1, tmp1); }
+  if(stack1 || stack1 === 0) { return stack1; }
+  else { return ''; }}); 
+Handlebars.registerPartial("artistRowsTemplate", templates["artistRowsTemplate"]); 
+return templates["artistRowsTemplate"]; 
+});
+define('lib/features/artists/models/ArtistsModel',[
+    'core/util/log',
+    'underscore'
+], function(log, _){
+    log('ArtistsModel module loaded.');
+
+    //since this is supplied via a global viewModel as part of the page, just grab it's value.
+    var ArtistsModel = {
+        allArtists: viewModel.artists,
+
+        create: function(opts){
+            var options = {
+                setSize : 25, //songs will contain 100 items at a time
+                initialSetSize : 100 //so we can display a bunch
+            };
+            _.extend(options, opts);
+
+
+            //where we will start the page
+            var index = 0;
+            var setIndex = 0;
+
+            return {
+                //represents a limited set of allSongs, so that we don't render everything at once.
+                //will be updated when nextSet() is called
+                artists : ArtistsModel.allArtists,//ArtistsModel.allArtists.slice(index, options.initialSetSize + index),
+                //mutates songs so that it represents the next page of songs
+                nextSet : function(){
+                    return null;
+//                    index += options.setSize;
+//                    //todo: check array length?
+//                    this.artists = ArtistsModel.allArtists.slice(index, options.setSize + index);
+                }
+            }
+
+        }
+
+
+    };
+
+    return ArtistsModel;
+});
+define('lib/features/artists/widgets/ArtistGridWidget',[
+    'core/util/log',
+    'backbone',
+    'jquery',
+    'compiled-templates/features/artists/widgets/artistGridWidgetTemplate',
+    'compiled-templates/features/artists/widgets/artistRowsTemplate',
+    'lib/features/artists/models/ArtistsModel',
+    'lib/models/MusicPlayer'
+], function(log, Backbone, $, artistGridWidgetTemplate, artistRowsTemplate, ArtistsModel, musicPlayer){
+
+    //static
+    var $window = $(window);
+    var $body = $("body");
+    var $document = $(document);
+
+    /**
+     * Responsible for rendering out a table of songs.
+     * Handles scrolling so that we only render a subset of total songs, to help improve performance.
+     * @type {*}
+     */
+    var ArtistsGridWidget = Backbone.View.extend({
+        //el:'#pages',
+        initialize : function(){
+            log('ArtistsGridWidget.initialize called.' + this.el);
+            this.artistsModel = ArtistsModel.create();
+
+            //listen for scroll events so we can render songs as the user scrolls
+            //$window.scroll(this.scrollHandler.bind(this));
+
+            this.$el.on('tap', function(){console.log('tapped');});
+        },
+        events:{
+            'click #songs > li': function(e){
+                log('click occurred.');
+                var $target = $(e.currentTarget);
+                var songId = $target.attr('data-songId');
+                log('songId = ' + songId);
+                musicPlayer.playSong(songId);
+            }
+
+        },
+        render: function(){ //don't call until the dom is ready
+            log('ArtistsGridWidget.render called.');
+            this.$el.html(artistGridWidgetTemplate(this.artistsModel));
+            this.$artists = this.$artists || this.$el.find('#artists');
+
+            return this;
+        }
+
+    });
+
+    return ArtistsGridWidget;
+});
+define('lib/features/artists/views/ArtistsView',[
+    'core/util/log',
+    'backbone',
+    'underscore',
+    'jquery',
+    'compiled-templates/features/artists/artistPageTemplate',
+    'lib/features/artists/widgets/ArtistGridWidget'
+], function(log, Backbone, _, $, homePageTemplateFunction, ArtistGridWidget){
+
+    var ArtistsView = Backbone.View.extend({
+        el:'#pages',
+        initialize : function(){
+            log('ArtistsView.initialize called.' + this.el);
+            this.options.widgets = [
+                {selector:'#artistsGridWidget', widget:new ArtistGridWidget()}
+            ];
+        },
+        render: function(){ //don't call until the dom is ready
+            log('ArtistsView.render called.');
+
+            this.$el.html(homePageTemplateFunction());
+
+            _.each(this.options.widgets, function(widgetMap){
+                this.$el.find(widgetMap.selector).append(widgetMap.widget.render().el);
+            }, this);
+
+            return this;
+        }
+    });
+
+    return ArtistsView;
+});
+define('lib/features/artists/controllers/artistsController',[
+'core/util/log',
+    'lib/features/artists/views/ArtistsView'
+], function(log, ArtistsView){
+    log('artistsController module loaded');
+
+    return {
+        showArtists : function(){
+            var view = new ArtistsView();
+            view.render();
+        }
+    };
+
+});
 //require.config({
 //    map:{
 //        '*' : {
@@ -12827,9 +13085,10 @@ define('app',[
     'core/core',
     'jquery',
     'backbone',
-    'lib/controllers/HomeController',
-    'lib/widgets/NavigationBar'
-], function(log, core, $, Backbone, HomeController, NavigationBar){
+    'lib/features/songs/controllers/SongsController',
+    'lib/widgets/NavigationBar',
+    'lib/features/artists/controllers/artistsController'
+], function(log, core, $, Backbone, HomeController, NavigationBar, artistsController){
 
     function App(){
         log('app constructor called.');
@@ -12842,7 +13101,7 @@ define('app',[
         $(function(){
             log('app : document ready. creating controllers and establishing routes.');
             //create controllers
-            self.homeController = new HomeController();
+            self.songsController = new HomeController();
 
             //setup routes
             self.setupRoutes();
@@ -12873,11 +13132,16 @@ define('app',[
                 "demos/responsiveDemo" : "responsiveDemo",
                 "demos/responsiveFlexBoxDemo" : "responsiveFlexBoxDemo",
                 "home" : "home",
+                "artists" : "artists",
                 "demos/home" : "demosHome"
             },
             home: function(){
               log('router: home called');
-                self.homeController.showHomePage();
+                self.songsController.showHomePage();
+            },
+            artists: function(){
+                log('router: artists called');
+                artistsController.showArtists();
             }
         });
 

@@ -3,8 +3,8 @@ define([
     'backbone',
     'underscore',
     'jquery',
-    'compiled-templates/homePageTemplate',
-    'lib/widgets/SongGridWidget'
+    'compiled-templates/features/songs/homePageTemplate',
+    'lib/features/songs/widgets/SongGridWidget'
 ], function(log, Backbone, _, $, homePageTemplateFunction, SongGridWidget){
 
     var HomeView = Backbone.View.extend({

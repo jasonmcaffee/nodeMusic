@@ -11,9 +11,10 @@ define([
     'core/core',
     'jquery',
     'backbone',
-    'lib/controllers/HomeController',
-    'lib/widgets/NavigationBar'
-], function(log, core, $, Backbone, HomeController, NavigationBar){
+    'lib/features/songs/controllers/SongsController',
+    'lib/widgets/NavigationBar',
+    'lib/features/artists/controllers/artistsController'
+], function(log, core, $, Backbone, HomeController, NavigationBar, artistsController){
 
     function App(){
         log('app constructor called.');
@@ -26,7 +27,7 @@ define([
         $(function(){
             log('app : document ready. creating controllers and establishing routes.');
             //create controllers
-            self.homeController = new HomeController();
+            self.songsController = new HomeController();
 
             //setup routes
             self.setupRoutes();
@@ -57,11 +58,16 @@ define([
                 "demos/responsiveDemo" : "responsiveDemo",
                 "demos/responsiveFlexBoxDemo" : "responsiveFlexBoxDemo",
                 "home" : "home",
+                "artists" : "artists",
                 "demos/home" : "demosHome"
             },
             home: function(){
               log('router: home called');
-                self.homeController.showHomePage();
+                self.songsController.showHomePage();
+            },
+            artists: function(){
+                log('router: artists called');
+                artistsController.showArtists();
             }
         });
 

@@ -2,11 +2,11 @@ define([
     'core/util/log',
     'underscore'
 ], function(log, _){
-    log('SongsModel module loaded.');
+    log('ArtistsModel module loaded.');
 
     //since this is supplied via a global viewModel as part of the page, just grab it's value.
-    var SongsModel = {
-        allSongs: viewModel.musicItems,
+    var ArtistsModel = {
+        allArtists: viewModel.artists,
 
         create: function(opts){
             var options = {
@@ -23,12 +23,13 @@ define([
             return {
                 //represents a limited set of allSongs, so that we don't render everything at once.
                 //will be updated when nextSet() is called
-                songs : SongsModel.allSongs.slice(index, options.initialSetSize + index),
+                artists : ArtistsModel.allArtists,//ArtistsModel.allArtists.slice(index, options.initialSetSize + index),
                 //mutates songs so that it represents the next page of songs
                 nextSet : function(){
-                    index += options.setSize;
-                    //todo: check array length?
-                    this.songs = SongsModel.allSongs.slice(index, options.setSize + index);
+                    return null;
+//                    index += options.setSize;
+//                    //todo: check array length?
+//                    this.artists = ArtistsModel.allArtists.slice(index, options.setSize + index);
                 }
             }
 
@@ -37,5 +38,5 @@ define([
 
     };
 
-    return SongsModel;
+    return ArtistsModel;
 });
