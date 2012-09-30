@@ -4,8 +4,9 @@ define([
     'jquery',
     'compiled-templates/widgets/songGridWidgetTemplate',
     'compiled-templates/widgets/songRowsTemplate',
-    'lib/models/SongsModel'
-], function(log, Backbone, $, songGridWidgetTemplate, songRowsTemplate, SongsModel){
+    'lib/models/SongsModel',
+    'lib/models/MusicPlayer'
+], function(log, Backbone, $, songGridWidgetTemplate, songRowsTemplate, SongsModel, musicPlayer){
 
     //static
     var $window = $(window);
@@ -34,6 +35,7 @@ define([
                 var $target = $(e.currentTarget);
                 var songId = $target.attr('data-songId');
                 log('songId = ' + songId);
+                musicPlayer.playSong(songId);
             }
 
         },

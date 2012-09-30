@@ -8,7 +8,7 @@ var musicItemRepository = require('./lib/musicItemRepository.js').musicItemRepos
 var musicItemsViewModelFactory = require('./lib/musicItemsViewModel').musicItemsViewModelFactory;
 
 //create the app server
-var app = express.createServer();
+var app = express();//express.createServer();
 
 
 //configuration ===============================================================================================================
@@ -50,8 +50,8 @@ ejs.open = 'µ';//eliminate conflicts with clientside templating by using our ow
 ejs.close = 'µ';
 app.set('view engine', 'ejs');//we are using ejs for server side templating
 app.set('view options', { layout: false }); //i don't need layouts right now
-app.register('.html', require('ejs'));//all .html files served up will be considered ejs templates.
-
+//app.register('.html', require('ejs'));//all .html files served up will be considered ejs templates.
+app.engine('html', require('ejs').renderFile);
 
 
 //app startup
@@ -95,10 +95,13 @@ app.get('/getSong', function(req, res){
                 if (err) throw err;
                 console.log('sending chunk with size :' + data.length);
 
-                res.writeHead(200, {
-                    'Content-Length': data.length,
-                    'Content-Type': 'audio/mpeg'
-                });
+//                res.writeHead(200, {
+//                    'Content-Length': data.length,
+//                    'Content-Type': 'audio/mpeg'
+//                });
+
+                res.set('Content-Type', 'audio/mpeg');
+                res.set('Content-Length', data.length);
 
                 res.write(data, 'binary');
 

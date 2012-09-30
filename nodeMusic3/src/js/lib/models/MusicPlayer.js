@@ -1,5 +1,5 @@
 define([
-    'mylib/log'
+    'core/util/log'
 ], function(log){
 
     /**
