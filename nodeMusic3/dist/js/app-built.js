@@ -12702,11 +12702,12 @@ define('lib/features/songs/controllers/SongsController',[
 
     function SongsController(){
         log('SongsController constructor called.');
-        this.homeView = new HomeView();
+
     }
 
     SongsController.prototype.showHomePage = function(){
         log('SongsController.showHomePage');
+        this.homeView = new HomeView();
         this.homeView.render();
     };
 
@@ -12905,11 +12906,11 @@ templates['artistRowsTemplate'] = template(function (Handlebars,depth0,helpers,p
 function program1(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n<li data-artistsIndex=\"";
-  stack1 = depth0.index;
+  buffer += "\n<li data-artistName=\"";
+  stack1 = depth0.propertyName;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
-  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.index", { hash: {} }); }
-  buffer += escapeExpression(stack1) + "\">\n    hello artist ";
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.propertyName", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\">\n    > ";
   stack1 = depth0.propertyName;
   if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
   else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.propertyName", { hash: {} }); }
@@ -12973,6 +12974,80 @@ define('lib/features/artists/models/ArtistsModel',[
 
     return ArtistsModel;
 });
+define('compiled-templates/features/artists/widgets/albumRowsTemplate',["handlebars", "core/util/log"], function(Handlebars, log){ 
+log("albumRowsTemplate precompiled template function module loaded."); 
+var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {}; 
+templates['albumRowsTemplate'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  helpers = helpers || Handlebars.helpers;
+  var buffer = "", stack1, stack2, foundHelper, tmp1, self=this, functionType="function", helperMissing=helpers.helperMissing, undef=void 0, escapeExpression=this.escapeExpression, blockHelperMissing=helpers.blockHelperMissing;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n        <dt data-albumName=\"";
+  stack1 = depth0.propertyName;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.propertyName", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\">";
+  stack1 = depth0.propertyName;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.propertyName", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "</dt>\n    ";
+  return buffer;}
+
+  buffer += "<dl>\n    <dt>Albums</dt>\n    ";
+  foundHelper = helpers.albums;
+  stack1 = foundHelper || depth0.albums;
+  foundHelper = helpers.each_property;
+  stack2 = foundHelper || depth0.each_property;
+  tmp1 = self.program(1, program1, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  if(foundHelper && typeof stack2 === functionType) { stack1 = stack2.call(depth0, stack1, tmp1); }
+  else { stack1 = blockHelperMissing.call(depth0, stack2, stack1, tmp1); }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n\n</dl>";
+  return buffer;}); 
+Handlebars.registerPartial("albumRowsTemplate", templates["albumRowsTemplate"]); 
+return templates["albumRowsTemplate"]; 
+});
+define('compiled-templates/features/artists/widgets/songsTemplate',["handlebars", "core/util/log"], function(Handlebars, log){ 
+log("songsTemplate precompiled template function module loaded."); 
+var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {}; 
+templates['songsTemplate'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  helpers = helpers || Handlebars.helpers;
+  var buffer = "", stack1, stack2, foundHelper, tmp1, self=this, functionType="function", helperMissing=helpers.helperMissing, undef=void 0, escapeExpression=this.escapeExpression;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n    <li data-songId=\"";
+  stack1 = depth0.id;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.id", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "\">";
+  stack1 = depth0.songName;
+  if(typeof stack1 === functionType) { stack1 = stack1.call(depth0, { hash: {} }); }
+  else if(stack1=== undef) { stack1 = helperMissing.call(depth0, "this.songName", { hash: {} }); }
+  buffer += escapeExpression(stack1) + "</li>\n    ";
+  return buffer;}
+
+  buffer += "<ol>\n    ";
+  foundHelper = helpers.songs;
+  stack1 = foundHelper || depth0.songs;
+  stack2 = helpers.each;
+  tmp1 = self.program(1, program1, data);
+  tmp1.hash = {};
+  tmp1.fn = tmp1;
+  tmp1.inverse = self.noop;
+  stack1 = stack2.call(depth0, stack1, tmp1);
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n</ol>";
+  return buffer;}); 
+Handlebars.registerPartial("songsTemplate", templates["songsTemplate"]); 
+return templates["songsTemplate"]; 
+});
 define('lib/features/artists/widgets/ArtistGridWidget',[
     'core/util/log',
     'backbone',
@@ -12980,8 +13055,10 @@ define('lib/features/artists/widgets/ArtistGridWidget',[
     'compiled-templates/features/artists/widgets/artistGridWidgetTemplate',
     'compiled-templates/features/artists/widgets/artistRowsTemplate',
     'lib/features/artists/models/ArtistsModel',
+    'compiled-templates/features/artists/widgets/albumRowsTemplate',
+    'compiled-templates/features/artists/widgets/songsTemplate',
     'lib/models/MusicPlayer'
-], function(log, Backbone, $, artistGridWidgetTemplate, artistRowsTemplate, ArtistsModel, musicPlayer){
+], function(log, Backbone, $, artistGridWidgetTemplate, artistRowsTemplate, ArtistsModel, albumRowsTemplate, songsTemplate, musicPlayer){
 
     //static
     var $window = $(window);
@@ -12999,18 +13076,63 @@ define('lib/features/artists/widgets/ArtistGridWidget',[
             log('ArtistsGridWidget.initialize called.' + this.el);
             this.artistsModel = ArtistsModel.create();
 
-            //listen for scroll events so we can render songs as the user scrolls
-            //$window.scroll(this.scrollHandler.bind(this));
-
             this.$el.on('tap', function(){console.log('tapped');});
         },
         events:{
-            'click #songs > li': function(e){
-                log('click occurred.');
+            'click #artists > li': function(e){
+                log('click for artist occurred.');
                 var $target = $(e.currentTarget);
+
+                var isHtmlLoaded = $target.attr('data-html-loaded');
+                if(!isHtmlLoaded){
+                    var artistName = $target.attr('data-artistName');
+
+                    var artist = this.artistsModel.artists[artistName];
+                    var albumsHtml = albumRowsTemplate(artist);
+                    $target.append(albumsHtml);
+                    $target.attr('data-html-loaded', 'true');
+                }else{
+                    $target.find('dl').toggle();
+                }
+
+
+            },
+            'click #artists > li > dl > dt' : function(e){
+                log('click for album occurred');
+                var $target = $(e.currentTarget);
+
+                var isHtmlLoaded = $target.attr('data-songs-html-loaded');
+                if(!isHtmlLoaded){
+                    log('songs are not shown so generating html');
+                    var artistName = $target.parent().parent().attr('data-artistName');
+                    var albumName = $target.attr('data-albumName');
+
+                    var artist = this.artistsModel.artists[artistName];
+                    var album = artist.albums[albumName];
+
+                    var songsHtml = songsTemplate(album);
+                    $target.append(songsHtml);
+
+                    $target.attr('data-songs-html-loaded', 'true');
+                }else{
+                    log('songs html loaded so toggling visibility');
+                    $target.find('ol').toggle();
+                }
+
+                //don't bubble up to li handler
+                e.preventDefault();
+                return false;
+            },
+            'click #artists > li > dl > dt > ol > li' : function(e){
+                log('click for song occurred');
+                var $target = $(e.currentTarget);
+
                 var songId = $target.attr('data-songId');
-                log('songId = ' + songId);
                 musicPlayer.playSong(songId);
+
+                //don't bubble up
+                e.preventDefault();
+                return false;
             }
 
         },

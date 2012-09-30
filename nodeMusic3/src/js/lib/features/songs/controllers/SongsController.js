@@ -5,11 +5,12 @@ define([
 
     function SongsController(){
         log('SongsController constructor called.');
-        this.homeView = new HomeView();
+
     }
 
     SongsController.prototype.showHomePage = function(){
         log('SongsController.showHomePage');
+        this.homeView = new HomeView();
         this.homeView.render();
     };
 
