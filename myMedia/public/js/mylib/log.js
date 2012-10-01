@@ -4,7 +4,7 @@
 define(function(){
 
     function log(object){
-        return;
+        //return;
         try{
         if(console && console.log){
             console.log(object);

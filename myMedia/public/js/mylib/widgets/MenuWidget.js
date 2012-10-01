@@ -10,7 +10,9 @@ define([
             menuId : 'menu', //so we can create a jquery object
             playButtonId : 'playButton',
             stopButtonId : 'stopButton',
-            menuButtonId : 'menuButton'
+            menuButtonId : 'menuButton',
+            songDurationId : 'songDuration',
+            progressBarId : 'progressBar'
             //menuContainerId : 'menuContainer'
         };
 
@@ -20,6 +22,9 @@ define([
         this.$menu = $('#'+this.options.menuId);
         this.$menuButton = $('#'+this.options.menuButtonId);
         this.$playButton = this.$menu.find('#'+this.options.playButtonId);
+        this.$songDuration = this.$menu.find('#'+this.options.songDurationId);
+        this.$progressBar = this.$menu.find('#'+this.options.progressBarId);
+
         //this.$menuContainer = $('#'+this.options.menuContainerId);
         this.menuIsVisible = false;
 
@@ -34,10 +39,6 @@ define([
      */
     MenuWidget.prototype.registerMenuButtonClickHandler = function(){
         var self = this;//callbacks
-
-//        this.$menuButton.fastClick(function(e){
-//            self.$menu.toggle();
-//        });
 
          this.$menuButton.on('click', function(){
             log('menuButton has been clicked.');
@@ -75,6 +76,11 @@ define([
             self.$playButton.text('play')
                 .removeClass('red-box')
                 .addClass('blue-box');
+        });
+
+        musicPlayer.onMetadata(function(song){
+            log('musicPlayer fired metadata event.');
+            self.$songDuration.html(song.getDuration());
         });
 
     };

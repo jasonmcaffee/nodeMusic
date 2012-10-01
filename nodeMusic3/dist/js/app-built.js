@@ -13235,7 +13235,7 @@ define('app',[
             log('current route is : ' + Backbone.history.fragment);
             if(Backbone.history.fragment == ""){
                 //load the home page
-                self.router.navigate('home', {trigger:true});
+                self.router.navigate('artists', {trigger:true});
             }
         });
 
