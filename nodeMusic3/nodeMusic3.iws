@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="245f59ec-341c-45a5-94a7-3b5e96a58ce5" name="Default" comment="drilldown from artist &gt; albums &gt; songs working. can play song.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/css-preprocess/app/features/artists/_artistPage.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/../myMedia/public/js/mylib/models/musicPlayer.js" afterPath="$PROJECT_DIR$/../myMedia/public/js/mylib/models/MusicPlayer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../myMedia/public/css/app.css" afterPath="$PROJECT_DIR$/../myMedia/public/css/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../myMedia/public/js/mylib/log.js" afterPath="$PROJECT_DIR$/../myMedia/public/js/mylib/log.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../myMedia/public/js/mylib/widgets/MenuWidget.js" afterPath="$PROJECT_DIR$/../myMedia/public/js/mylib/widgets/MenuWidget.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../myMedia/views/main.html" afterPath="$PROJECT_DIR$/../myMedia/views/main.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nodeMusic.iws" afterPath="$PROJECT_DIR$/../nodeMusic.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app.css" afterPath="$PROJECT_DIR$/dist/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/app-built.js" afterPath="$PROJECT_DIR$/dist/js/app-built.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeMusic3.iws" afterPath="$PROJECT_DIR$/nodeMusic3.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/compiled-templates/features/artists/widgets/artistRowsTemplate.js" afterPath="$PROJECT_DIR$/src/js/compiled-templates/features/artists/widgets/artistRowsTemplate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/features/artists/widgets/albumRowsTemplate.html" afterPath="$PROJECT_DIR$/src/templates/features/artists/widgets/albumRowsTemplate.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/features/artists/widgets/artistRowsTemplate.html" afterPath="$PROJECT_DIR$/src/templates/features/artists/widgets/artistRowsTemplate.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/app.js" afterPath="$PROJECT_DIR$/src/js/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../nodeProxyServer/nodeProxyServer.js" afterPath="$PROJECT_DIR$/../nodeProxyServer/nodeProxyServer.js" />
     </list>
     <ignored path="nodeMusic3.iws" />
@@ -75,15 +68,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ArtistGridWidget.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/lib/features/artists/widgets/ArtistGridWidget.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="153" selection-start="1683" selection-end="1683" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="_artistPage.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/features/artists/_artistPage.scss">
           <provider selected="true" editor-type-id="text-editor">
@@ -93,11 +77,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="artistGridWidget.scss" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="artistGridWidget.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="29" selection-start="539" selection-end="539" vertical-scroll-proportion="0.4037006">
+            <state line="30" column="29" selection-start="539" selection-end="539" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="45" selection-start="1277" selection-end="1277" vertical-scroll-proportion="0.55172414">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -180,7 +175,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/templates/features/artists/widgets/artistGridWidgetTemplate.html" />
         <option value="$PROJECT_DIR$/node-server/server.js" />
         <option value="$PROJECT_DIR$/src/js/lib/features/songs/models/SongsModel.js" />
         <option value="$PROJECT_DIR$/src/js/lib/features/artists/models/ArtistsModel.js" />
@@ -196,6 +190,7 @@
         <option value="$PROJECT_DIR$/src/templates/features/artists/widgets/albumRowsTemplate.html" />
         <option value="$PROJECT_DIR$/src/templates/features/artists/widgets/artistRowsTemplate.html" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss" />
+        <option value="$PROJECT_DIR$/src/js/app.js" />
       </list>
     </option>
   </component>
@@ -1398,7 +1393,11 @@
       <created>1349043279293</created>
       <updated>1349043279293</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="basic stylings for artist">
+      <created>1349053663702</created>
+      <updated>1349053663702</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1462,7 +1461,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="drilldown from artist &gt; albums &gt; songs working. can play song." />
+    <option name="LAST_COMMIT_MESSAGE" value="basic stylings for artist" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1482,18 +1481,12 @@
     <MESSAGE value="gzip working for dynamic views, static js, css, etc." />
     <MESSAGE value="artists now displaying . each_property helper for handlebars added." />
     <MESSAGE value="drilldown from artist &gt; albums &gt; songs working. can play song." />
+    <MESSAGE value="basic stylings for artist" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/js/compiled-templates/features/artists/widgets/artistRowsTemplate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="380" selection-end="380" vertical-scroll-proportion="0.06728343">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/features/songs/widgets/songGridWidgetTemplate.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1596,8 +1589,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="29" selection-start="539" selection-end="539" vertical-scroll-proportion="0.4037006">
+        <state line="30" column="29" selection-start="539" selection-end="539" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="45" selection-start="1277" selection-end="1277" vertical-scroll-proportion="0.55172414">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
