@@ -1,0 +1,47 @@
+@import "src/css-preprocess/core/media-queries";
+@import "src/css-preprocess/core/colors";
+#artistsGrid{ //div
+  ul{
+    >li{ //artist's name
+      @extend .grey-subtle-gradient;
+
+      >dl{
+        @extend .light-grey-gradient;
+
+        >dt{ //album name
+          >ol{
+            @extend .white-transparent-gradient;
+            >li{ //song name
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include mq(small){
+  #artistsGrid{ //div
+    ul{
+
+
+      >li{ //artist's name
+        font-size:150%;
+        padding: 2% 1% 2% 1%;
+        >dl{
+          >dt{ //album name
+
+            >ol{
+              >li{ //song name
+                font-size:100%;
+              }
+            }
+
+          }
+        }
+
+      }
+    }
+  }
+}
