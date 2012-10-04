@@ -23,16 +23,18 @@ define([
      * @param songId
      */
     MusicPlayer.prototype.playSong = function(songId){
-        log('playing song');
+        log('playing song with id: ' + songId);
         //stop the current song
         this.stopSong();
 
         //create an audio tag with src = '/getSong?songId='+songId
         this.currentSong = new Audio('/getSong?songId='+songId);
         this.currentSong.play();
+        this.currentSongId = parseInt(songId);
 
         //events
         this.handleLoadedMetadata();
+        this.currentSong.addEventListener('ended', this.handleSongEnd.bind(this));
 
         this.isSongCurrentlyPlaying = true;
         this.notifyPlayListeners();
@@ -54,6 +56,17 @@ define([
             self.notifyMetadataListeners(self);
         }, false);
 
+    };
+
+    MusicPlayer.prototype.handleSongEnd = function(){
+        log('song has ended. playing next song');
+        this.notifyStopListeners();
+        this.playSong(++this.currentSongId);
+    };
+
+    MusicPlayer.prototype.playNextSong = function(){
+        log('play next song called');
+        this.handleSongEnd();
     };
 
     //returns in hours:minutes string

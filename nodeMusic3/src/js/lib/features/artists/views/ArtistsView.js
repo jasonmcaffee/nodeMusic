@@ -1,30 +1,21 @@
 define([
-    'core/util/log',
-    'backbone',
+    'core/core',
     'underscore',
     'jquery',
     'compiled-templates/features/artists/artistPageTemplate',
-    'lib/features/artists/widgets/ArtistGridWidget'
-], function(log, Backbone, _, $, homePageTemplateFunction, ArtistGridWidget){
+    'lib/features/artists/widgets/ArtistGridWidget',
+    'lib/widgets/HeaderWidget'
+], function(core, _, $, pageTemplate, ArtistGridWidget, HeaderWidget){
 
-    var ArtistsView = Backbone.View.extend({
+    var ArtistsView = core.mvc.View.extend({
+        template: pageTemplate,
         el:'#pages',
         initialize : function(){
-            log('ArtistsView.initialize called.' + this.el);
+            core.log('ArtistsView.initialize called.' + this.el);
             this.options.widgets = [
-                {selector:'#artistsGridWidget', widget:new ArtistGridWidget()}
+                {selector:'#artistsGridWidget', widget:new ArtistGridWidget()},
+                {selector:'#headerWidget', widget:new HeaderWidget()}
             ];
-        },
-        render: function(){ //don't call until the dom is ready
-            log('ArtistsView.render called.');
-
-            this.$el.html(homePageTemplateFunction());
-
-            _.each(this.options.widgets, function(widgetMap){
-                this.$el.find(widgetMap.selector).append(widgetMap.widget.render().el);
-            }, this);
-
-            return this;
         }
     });
 

@@ -7,9 +7,34 @@ html, body{
 
   font-family: Helvetica, Arial, sans-serif;
 
-  -webkit-overflow-scrolling: touch;
+ // -webkit-overflow-scrolling: touch;
 }
 
+.background{
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: -1;
+  img{
+    //background: url(http://www.lzsu.com/uploads/Green-Fields-Cloudy-Weather-Desktop-Wallpaper.jpg) no-repeat center center fixed;
+    //-webkit-background-size: cover;
+    //-moz-background-size: cover;
+    //-o-background-size: cover;
+    //background-size: cover;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%;
+    //z-index: -22;
+  }
+}
 .pages{
   margin-top:50px;
   //height:100%;
@@ -18,8 +43,8 @@ html, body{
 /*!!needed to allow menu to be placed below navbar*/
   z-index:2;
 
-  -webkit-overflow-scrolling: touch;
-  -webkit-backface-visibility: hidden;
+  //-webkit-overflow-scrolling: touch;
+ // -webkit-backface-visibility: hidden;
   //-webkit-perspective: 1000;
 
 /*color*/
