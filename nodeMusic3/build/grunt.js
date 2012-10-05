@@ -125,7 +125,7 @@ module.exports = function(grunt) {
                     exports: 'Backbone'
                 },
                 'jquery':{
-                    exports: 'Zepto'
+                    exports: '$'
                 }
             }
         };

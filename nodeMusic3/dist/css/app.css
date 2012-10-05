@@ -528,6 +528,12 @@ dl {
   background: linear-gradient(to bottom, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#edeef0', endColorstr='#f7f7f8',GradientType=0 ); }
 
+#artistsGrid .artist-selected {
+  background-color: green; }
+#artistsGrid .album-selected {
+  background-color: blue; }
+#artistsGrid .song-selected {
+  background-color: red; }
 #artistsGrid ul > li {
   color: #E7DDD6; }
   #artistsGrid ul > li > dl > dt {

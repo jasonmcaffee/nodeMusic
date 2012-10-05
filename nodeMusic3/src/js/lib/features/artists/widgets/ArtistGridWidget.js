@@ -1,6 +1,6 @@
 define([
     'core/util/log',
-    'backbone',
+    'core/core',
     'jquery',
     'compiled-templates/features/artists/widgets/artistGridWidgetTemplate',
     'compiled-templates/features/artists/widgets/artistRowsTemplate',
@@ -8,7 +8,7 @@ define([
     'compiled-templates/features/artists/widgets/albumRowsTemplate',
     'compiled-templates/features/artists/widgets/songsTemplate',
     'lib/models/MusicPlayer'
-], function(log, Backbone, $, artistGridWidgetTemplate, artistRowsTemplate, ArtistsModel, albumRowsTemplate, songsTemplate, musicPlayer){
+], function(log, core, $, artistGridWidgetTemplate, artistRowsTemplate, ArtistsModel, albumRowsTemplate, songsTemplate, musicPlayer){
 
     //static
     var $window = $(window);
@@ -20,7 +20,7 @@ define([
      * Handles scrolling so that we only render a subset of total songs, to help improve performance.
      * @type {*}
      */
-    var ArtistsGridWidget = Backbone.View.extend({
+    var ArtistsGridWidget = core.mvc.View.extend({
         //el:'#pages',
         initialize : function(){
             log('ArtistsGridWidget.initialize called.' + this.el);
@@ -29,24 +29,37 @@ define([
             this.$el.on('tap', function(){console.log('tapped');});
         },
         events:{
+            //artist click
             'click #artists > li': function(e){
                 log('click for artist occurred.');
                 var $target = $(e.currentTarget);
 
                 var isHtmlLoaded = $target.attr('data-html-loaded');
                 if(!isHtmlLoaded){
+                    //determine the selected artist name
                     var artistName = $target.attr('data-artistName');
 
+                    //find model representation of the artist
                     var artist = this.artistsModel.artists[artistName];
+                    //generate html for the first time
                     var albumsHtml = albumRowsTemplate(artist);
-                    $target.append(albumsHtml);
-                    $target.attr('data-html-loaded', 'true');
+
+                    //append html
+                    $target
+                        .attr('data-html-loaded', 'true')
+                        .toggleClass('artist-selected')
+                        .append(albumsHtml);
                 }else{
-                    $target.find('dl').toggle();
+                    $target
+                        .toggleClass('artist-selected')
+                        .find('dl')
+                        .toggle();
                 }
 
 
             },
+
+            //album click
             'click #artists > li > dl > dt' : function(e){
                 log('click for album occurred');
                 var $target = $(e.currentTarget);
@@ -61,18 +74,25 @@ define([
                     var album = artist.albums[albumName];
 
                     var songsHtml = songsTemplate(album);
-                    $target.append(songsHtml);
 
-                    $target.attr('data-songs-html-loaded', 'true');
+                    $target
+                        .attr('data-songs-html-loaded', 'true')
+                        .toggleClass('album-selected')
+                        .append(songsHtml);
                 }else{
                     log('songs html loaded so toggling visibility');
-                    $target.find('ol').toggle();
+                    $target
+                        .toggleClass('album-selected')
+                        .find('ol')
+                        .toggle();
                 }
 
                 //don't bubble up to li handler
                 e.preventDefault();
                 return false;
             },
+
+            //song click
             'click #artists > li > dl > dt > ol > li' : function(e){
                 log('click for song occurred');
                 var $target = $(e.currentTarget);

@@ -1,6 +1,20 @@
 @import "src/css-preprocess/core/media-queries";
 @import "src/css-preprocess/core/colors";
 #artistsGrid{ //div
+
+  //when the user clicks an artist, album, or song, these classes will be applied.
+  .artist-selected{
+    background-color: green;
+  }
+
+  .album-selected{
+    background-color: blue;
+  }
+
+  .song-selected{
+    background-color: red;
+  }
+
   ul{
     >li{ //artist's name
       @extend .transparent-black;
@@ -28,6 +42,7 @@
 
 @include mq(medium-and-below){
   #artistsGrid{ //div
+
     ul{
 
 
