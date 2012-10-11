@@ -14,6 +14,7 @@ define([
         this.onPlayListeners = [];
         this.onStopListeners = [];
         this.onMetadataListeners = [];
+        this.onProgressListeners = [];
         this.isSongCurrentlyPlaying = false;
     }
 
@@ -35,7 +36,7 @@ define([
         //events
         this.handleLoadedMetadata();
         this.currentSong.addEventListener('ended', this.handleSongEnd.bind(this));
-
+        this.currentSong.addEventListener('progress', this.notifyProgressListeners.bind(this));
         this.isSongCurrentlyPlaying = true;
         this.notifyPlayListeners();
     };
@@ -45,6 +46,10 @@ define([
         this.currentSong.pause();
         this.isSongCurrentlyPlaying = false;
         this.notifyStopListeners();
+    };
+
+    MusicPlayer.prototype.unPauseSong = function(){
+        this.currentSong.play();
     };
 
 
@@ -67,6 +72,14 @@ define([
     MusicPlayer.prototype.playNextSong = function(){
         log('play next song called');
         this.handleSongEnd();
+    };
+
+    MusicPlayer.prototype.playPreviousSong = function(){
+        log('play previous song called');
+        log('song has ended. playing next song');
+        this.notifyStopListeners();
+        this.playSong(--this.currentSongId);
+
     };
 
     //returns in hours:minutes string
@@ -97,6 +110,10 @@ define([
         this.onMetadataListeners.push(callback);
     };
 
+    MusicPlayer.prototype.onProgress = function(callback){
+        this.onProgressListeners.push(callback);
+    };
+
     MusicPlayer.prototype.notifyPlayListeners = function(){
         for(var i=0; i < this.onPlayListeners.length; ++i){
             var listener = this.onPlayListeners[i];
@@ -118,6 +135,18 @@ define([
     MusicPlayer.prototype.notifyStopListeners = function(){
         for(var i=0; i < this.onStopListeners.length; ++i){
             var listener = this.onStopListeners[i];
+            if(typeof listener === 'function'){
+                listener(); //todo, pass song info
+            }
+        }
+    };
+
+    MusicPlayer.prototype.notifyProgressListeners = function(){
+        this.notifyListeners(this.onProgressListeners);
+    };
+    MusicPlayer.prototype.notifyListeners = function(listeners){
+        for(var i=0; i < listeners.length; ++i){
+            var listener = listeners[i];
             if(typeof listener === 'function'){
                 listener(); //todo, pass song info
             }

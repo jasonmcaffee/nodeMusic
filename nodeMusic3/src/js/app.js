@@ -33,7 +33,7 @@ define([
             self.setupRoutes();
 
             //create global widgets
-            self.navigationBar = new NavigationBar();
+            //self.navigationBar = new NavigationBar();
 
             //if there is no relative route, send them to the home page.
             log('current route is : ' + Backbone.history.fragment);

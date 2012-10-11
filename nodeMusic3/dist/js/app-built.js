@@ -12493,6 +12493,7 @@ define('lib/models/MusicPlayer',[
         this.onPlayListeners = [];
         this.onStopListeners = [];
         this.onMetadataListeners = [];
+        this.onProgressListeners = [];
         this.isSongCurrentlyPlaying = false;
     }
 
@@ -12514,7 +12515,7 @@ define('lib/models/MusicPlayer',[
         //events
         this.handleLoadedMetadata();
         this.currentSong.addEventListener('ended', this.handleSongEnd.bind(this));
-
+        this.currentSong.addEventListener('progress', this.notifyProgressListeners.bind(this));
         this.isSongCurrentlyPlaying = true;
         this.notifyPlayListeners();
     };
@@ -12524,6 +12525,10 @@ define('lib/models/MusicPlayer',[
         this.currentSong.pause();
         this.isSongCurrentlyPlaying = false;
         this.notifyStopListeners();
+    };
+
+    MusicPlayer.prototype.unPauseSong = function(){
+        this.currentSong.play();
     };
 
 
@@ -12546,6 +12551,14 @@ define('lib/models/MusicPlayer',[
     MusicPlayer.prototype.playNextSong = function(){
         log('play next song called');
         this.handleSongEnd();
+    };
+
+    MusicPlayer.prototype.playPreviousSong = function(){
+        log('play previous song called');
+        log('song has ended. playing next song');
+        this.notifyStopListeners();
+        this.playSong(--this.currentSongId);
+
     };
 
     //returns in hours:minutes string
@@ -12576,6 +12589,10 @@ define('lib/models/MusicPlayer',[
         this.onMetadataListeners.push(callback);
     };
 
+    MusicPlayer.prototype.onProgress = function(callback){
+        this.onProgressListeners.push(callback);
+    };
+
     MusicPlayer.prototype.notifyPlayListeners = function(){
         for(var i=0; i < this.onPlayListeners.length; ++i){
             var listener = this.onPlayListeners[i];
@@ -12597,6 +12614,18 @@ define('lib/models/MusicPlayer',[
     MusicPlayer.prototype.notifyStopListeners = function(){
         for(var i=0; i < this.onStopListeners.length; ++i){
             var listener = this.onStopListeners[i];
+            if(typeof listener === 'function'){
+                listener(); //todo, pass song info
+            }
+        }
+    };
+
+    MusicPlayer.prototype.notifyProgressListeners = function(){
+        this.notifyListeners(this.onProgressListeners);
+    };
+    MusicPlayer.prototype.notifyListeners = function(listeners){
+        for(var i=0; i < listeners.length; ++i){
+            var listener = listeners[i];
             if(typeof listener === 'function'){
                 listener(); //todo, pass song info
             }
@@ -13181,24 +13210,49 @@ templates['songControlsTemplate'] = template(function (Handlebars,depth0,helpers
   var foundHelper, self=this;
 
 
-  return "<div>\n    <div id=\"startSong\">Start</div>\n    <div id=\"stopSong\">Stop</div>\n</div>";}); 
+  return "<ul>\n    <li id=\"startButton\">Start</li>\n    <li id=\"stopButton\">Stop</li>\n    <li id=\"pauseButton\">Pause</li>\n    <li id=\"nextButton\">Next</li>\n    <li id=\"previousButton\">Previous</li>\n    <li id=\"progressBar\"></li>\n</ul>";}); 
 Handlebars.registerPartial("songControlsTemplate", templates["songControlsTemplate"]); 
 return templates["songControlsTemplate"]; 
 });
 define('lib/widgets/SongControls',[
     'core/core',
-    'compiled-templates/widgets/songControlsTemplate'
-], function(core, songControlsTemplate){
+    'compiled-templates/widgets/songControlsTemplate',
+    'lib/models/MusicPlayer',
+    'jquery'
+], function(core, songControlsTemplate, musicPlayer, $){
     var view = core.mvc.View.extend({
         template: songControlsTemplate,
         initialize : function(){
             core.log('SongControls widget initialized');
+            musicPlayer.onProgress(this.songProgress.bind());
         },
         events:{
+            'click #stopButton' : function(e){
+                core.log('stop button clicked');
+                musicPlayer.stopSong();
+            },
+            'click #startButton' : function(e){
+                core.log('start button clicked');
+                musicPlayer.unPauseSong();
 
+            },
+            'click #pauseButton' : function(e){
+                core.log('pause button clicked');
+                musicPlayer.stopSong();
+
+            },
+            'click #nextButton' : function(e){
+                core.log('next button clicked');
+                musicPlayer.playNextSong();
+
+            },
+            'click #previousButton' : function(e){
+                core.log('previous button clicked');
+                musicPlayer.playPreviousSong();
+            }
         },
-        render : function(){
-            return this;
+        songProgress : function(){
+            $('#progressBar').append('.');
         }
     });
 
@@ -13212,7 +13266,7 @@ templates['headerTemplate'] = template(function (Handlebars,depth0,helpers,parti
   var foundHelper, self=this;
 
 
-  return "<div id=\"navbar\">\n    <div id=\"menuCollapsed\">\n        <img id=\"menuButton\" alt=\"menu button\" src=\"images/menu-button.png\">\n    </div>\n</div>\n<div id=\"menuExpanded\">\n    <ul>\n        <li><a href=\"#home\">Home</a></li>\n        <li><a href=\"#demos/home\">Demos</a></li>\n        <li><a href=\"#home\">Docs</a></li>\n    </ul>\n</div>";}); 
+  return "<div id=\"navbar\">\n    <div id=\"menuCollapsed\">\n        <img id=\"menuButton\" alt=\"menu button\" src=\"images/menu-button.png\">\n    </div>\n</div>\n<div id=\"menuExpanded\">\n    <div id=\"songControlsWidget\"></div>\n</div>";}); 
 Handlebars.registerPartial("headerTemplate", templates["headerTemplate"]); 
 return templates["headerTemplate"]; 
 });
@@ -13228,6 +13282,12 @@ define('lib/widgets/HeaderWidget',[
             this.options.widgets = [
                 {selector:'#songControlsWidget', widget:new SongControlsWidget()}
             ];
+        },
+        events:{
+            'click #menuButton' : function(e){
+                core.log('menuButton clicked');
+                this.$el.find('#menuExpanded').toggle();
+            }
         }
     });
 
@@ -13305,7 +13365,7 @@ define('app',[
             self.setupRoutes();
 
             //create global widgets
-            self.navigationBar = new NavigationBar();
+            //self.navigationBar = new NavigationBar();
 
             //if there is no relative route, send them to the home page.
             log('current route is : ' + Backbone.history.fragment);

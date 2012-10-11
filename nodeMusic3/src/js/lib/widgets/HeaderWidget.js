@@ -10,6 +10,12 @@ define([
             this.options.widgets = [
                 {selector:'#songControlsWidget', widget:new SongControlsWidget()}
             ];
+        },
+        events:{
+            'click #menuButton' : function(e){
+                core.log('menuButton clicked');
+                this.$el.find('#menuExpanded').toggle();
+            }
         }
     });
 
