@@ -6,7 +6,7 @@ templates['artistPageTemplate'] = template(function (Handlebars,depth0,helpers,p
   var foundHelper, self=this;
 
 
-  return "<div class=\"artist-page\">\n    <div id=\"headerWidget\"></div>\n\n    <div>Artists</div>\n\n    <div id=\"artistsGridWidget\">\n    </div>\n\n</div>";}); 
+  return "<div class=\"artist-page\">\n    <div id=\"headerWidget\"></div>\n\n    <div id=\"artistsGridWidget\">\n    </div>\n\n</div>";}); 
 Handlebars.registerPartial("artistPageTemplate", templates["artistPageTemplate"]); 
 return templates["artistPageTemplate"]; 
 });

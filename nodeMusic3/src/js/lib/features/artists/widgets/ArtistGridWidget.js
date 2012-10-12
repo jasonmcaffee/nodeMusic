@@ -22,6 +22,7 @@ define([
      */
     var ArtistsGridWidget = core.mvc.View.extend({
         //el:'#pages',
+        '$lastSong' : null,//keep track so we can unhighlight
         initialize : function(){
             log('ArtistsGridWidget.initialize called.' + this.el);
             this.artistsModel = ArtistsModel.create();
@@ -95,11 +96,16 @@ define([
             //song click
             'click #artists > li > dl > dt > ol > li' : function(e){
                 log('click for song occurred');
-                var $target = $(e.currentTarget);
+                if(this.$lastSong){
+                    this.$lastSong.removeClass('song-selected');
+                }
+                var $target = $(e.currentTarget)
+                    .addClass('song-selected');
 
                 var songId = $target.attr('data-songId');
                 musicPlayer.playSong(songId);
 
+                this.$lastSong = $target;
                 //don't bubble up
                 e.preventDefault();
                 return false;

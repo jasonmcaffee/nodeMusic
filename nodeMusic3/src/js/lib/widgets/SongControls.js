@@ -8,22 +8,15 @@ define([
         template: songControlsTemplate,
         initialize : function(){
             core.log('SongControls widget initialized');
-            musicPlayer.onProgress(this.songProgress.bind());
         },
         events:{
-            'click #stopButton' : function(e){
-                core.log('stop button clicked');
-                musicPlayer.stopSong();
-            },
-            'click #startButton' : function(e){
+            'click #startPauseButton' : function(e){
                 core.log('start button clicked');
-                musicPlayer.unPauseSong();
-
-            },
-            'click #pauseButton' : function(e){
-                core.log('pause button clicked');
-                musicPlayer.stopSong();
-
+                if(musicPlayer.isSongCurrentlyPlaying){
+                    musicPlayer.stopSong();
+                } else{
+                    musicPlayer.unPauseSong();
+                }
             },
             'click #nextButton' : function(e){
                 core.log('next button clicked');
@@ -34,9 +27,6 @@ define([
                 core.log('previous button clicked');
                 musicPlayer.playPreviousSong();
             }
-        },
-        songProgress : function(){
-            $('#progressBar').append('.');
         }
     });
 

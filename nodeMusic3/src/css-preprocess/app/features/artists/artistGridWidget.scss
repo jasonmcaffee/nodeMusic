@@ -4,15 +4,15 @@
 
   //when the user clicks an artist, album, or song, these classes will be applied.
   .artist-selected{
-    background-color: green;
+    @include transparent-black-3;
   }
 
   .album-selected{
-    background-color: blue;
+    @extend .transparent-white;
   }
 
   .song-selected{
-    background-color: red;
+    @include transparent-blue(!important);
   }
 
   ul{
@@ -20,18 +20,23 @@
       @extend .transparent-black;
       color: #E7DDD6;
       >dl{
-        @extend .light-grey-gradient;
-
+        //@extend .light-grey-gradient;
+        @extend .white-transparent;
         >dt{ //album name
           color:black;
           padding-left: 2%;
           padding-top: 2%;
           padding-bottom: 2%;
 
-          >ol{
-            @extend .white-transparent-gradient;
-            >li{ //song name
+          >ol{ //song list
 
+            >li{ //song name
+              &:nth-child(even){
+                @extend .transparent-grey;
+              }
+              &:nth-child(odd){
+                @extend .transparent-white;
+              }
             }
           }
         }
@@ -49,12 +54,13 @@
       >li{ //artist's name
         font-size:150%;
         padding: 2% 1% 2% 1%;
-        >dl{
+        >dl{  //albums
           >dt{ //album name
 
-            >ol{
+            >ol{  //songs
               >li{ //song name
                 font-size:100%;
+                padding:1%;
               }
             }
 

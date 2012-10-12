@@ -12499,8 +12499,7 @@ define('lib/models/MusicPlayer',[
 
 
     /**
-     * Controls
-     * @param songId
+     * Controls    ==============================================================================================
      */
     MusicPlayer.prototype.playSong = function(songId){
         log('playing song with id: ' + songId);
@@ -12516,22 +12515,49 @@ define('lib/models/MusicPlayer',[
         this.handleLoadedMetadata();
         this.currentSong.addEventListener('ended', this.handleSongEnd.bind(this));
         this.currentSong.addEventListener('progress', this.notifyProgressListeners.bind(this));
+        this.currentSong.addEventListener('canPlayThrough', function(){
+               log('canPlayThrough');
+               this.currentSong.currentTime += 3;
+        }.bind(this));
+
         this.isSongCurrentlyPlaying = true;
         this.notifyPlayListeners();
     };
 
+    //stop means pause for now
     MusicPlayer.prototype.stopSong = function(){
         if(!this.currentSong){return false;}
         this.currentSong.pause();
+        //this.currentSong.currentTime = 0;   //doesn't work due to accept-range lacking on server
         this.isSongCurrentlyPlaying = false;
         this.notifyStopListeners();
     };
 
     MusicPlayer.prototype.unPauseSong = function(){
-        this.currentSong.play();
+        if(!this.currentSong){
+            this.playSong(1);
+        }else{
+            this.currentSong.play();
+        }
+
     };
 
+    MusicPlayer.prototype.playNextSong = function(){
+        log('play next song called');
+        this.handleSongEnd();
+    };
 
+    MusicPlayer.prototype.playPreviousSong = function(){
+        log('play previous song called');
+        log('song has ended. playing next song');
+        this.notifyStopListeners();
+        this.playSong(--this.currentSongId);
+
+    };
+
+    /**
+     * Event handlers    ==============================================================================================
+     */
     //when duration, etc become available
     MusicPlayer.prototype.handleLoadedMetadata = function(){
         var self = this;
@@ -12548,18 +12574,7 @@ define('lib/models/MusicPlayer',[
         this.playSong(++this.currentSongId);
     };
 
-    MusicPlayer.prototype.playNextSong = function(){
-        log('play next song called');
-        this.handleSongEnd();
-    };
 
-    MusicPlayer.prototype.playPreviousSong = function(){
-        log('play previous song called');
-        log('song has ended. playing next song');
-        this.notifyStopListeners();
-        this.playSong(--this.currentSongId);
-
-    };
 
     //returns in hours:minutes string
     MusicPlayer.prototype.getDuration = function(){
@@ -12620,7 +12635,7 @@ define('lib/models/MusicPlayer',[
         }
     };
 
-    MusicPlayer.prototype.notifyProgressListeners = function(){
+    MusicPlayer.prototype.notifyProgressListeners = function(data){
         this.notifyListeners(this.onProgressListeners);
     };
     MusicPlayer.prototype.notifyListeners = function(listeners){
@@ -12909,7 +12924,7 @@ templates['artistPageTemplate'] = template(function (Handlebars,depth0,helpers,p
   var foundHelper, self=this;
 
 
-  return "<div class=\"artist-page\">\n    <div id=\"headerWidget\"></div>\n\n    <div>Artists</div>\n\n    <div id=\"artistsGridWidget\">\n    </div>\n\n</div>";}); 
+  return "<div class=\"artist-page\">\n    <div id=\"headerWidget\"></div>\n\n    <div id=\"artistsGridWidget\">\n    </div>\n\n</div>";}); 
 Handlebars.registerPartial("artistPageTemplate", templates["artistPageTemplate"]); 
 return templates["artistPageTemplate"]; 
 });
@@ -13106,6 +13121,7 @@ define('lib/features/artists/widgets/ArtistGridWidget',[
      */
     var ArtistsGridWidget = core.mvc.View.extend({
         //el:'#pages',
+        '$lastSong' : null,//keep track so we can unhighlight
         initialize : function(){
             log('ArtistsGridWidget.initialize called.' + this.el);
             this.artistsModel = ArtistsModel.create();
@@ -13179,11 +13195,16 @@ define('lib/features/artists/widgets/ArtistGridWidget',[
             //song click
             'click #artists > li > dl > dt > ol > li' : function(e){
                 log('click for song occurred');
-                var $target = $(e.currentTarget);
+                if(this.$lastSong){
+                    this.$lastSong.removeClass('song-selected');
+                }
+                var $target = $(e.currentTarget)
+                    .addClass('song-selected');
 
                 var songId = $target.attr('data-songId');
                 musicPlayer.playSong(songId);
 
+                this.$lastSong = $target;
                 //don't bubble up
                 e.preventDefault();
                 return false;
@@ -13210,7 +13231,7 @@ templates['songControlsTemplate'] = template(function (Handlebars,depth0,helpers
   var foundHelper, self=this;
 
 
-  return "<ul>\n    <li id=\"startButton\">Start</li>\n    <li id=\"stopButton\">Stop</li>\n    <li id=\"pauseButton\">Pause</li>\n    <li id=\"nextButton\">Next</li>\n    <li id=\"previousButton\">Previous</li>\n    <li id=\"progressBar\"></li>\n</ul>";}); 
+  return "<ul>\n    <li id=\"previousButton\">Previous</li>\n    <li id=\"startPauseButton\">Start</li>\n    <li id=\"nextButton\">Next</li>\n</ul>";}); 
 Handlebars.registerPartial("songControlsTemplate", templates["songControlsTemplate"]); 
 return templates["songControlsTemplate"]; 
 });
@@ -13224,22 +13245,15 @@ define('lib/widgets/SongControls',[
         template: songControlsTemplate,
         initialize : function(){
             core.log('SongControls widget initialized');
-            musicPlayer.onProgress(this.songProgress.bind());
         },
         events:{
-            'click #stopButton' : function(e){
-                core.log('stop button clicked');
-                musicPlayer.stopSong();
-            },
-            'click #startButton' : function(e){
+            'click #startPauseButton' : function(e){
                 core.log('start button clicked');
-                musicPlayer.unPauseSong();
-
-            },
-            'click #pauseButton' : function(e){
-                core.log('pause button clicked');
-                musicPlayer.stopSong();
-
+                if(musicPlayer.isSongCurrentlyPlaying){
+                    musicPlayer.stopSong();
+                } else{
+                    musicPlayer.unPauseSong();
+                }
             },
             'click #nextButton' : function(e){
                 core.log('next button clicked');
@@ -13250,9 +13264,6 @@ define('lib/widgets/SongControls',[
                 core.log('previous button clicked');
                 musicPlayer.playPreviousSong();
             }
-        },
-        songProgress : function(){
-            $('#progressBar').append('.');
         }
     });
 

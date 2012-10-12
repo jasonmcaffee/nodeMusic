@@ -20,8 +20,7 @@ define([
 
 
     /**
-     * Controls
-     * @param songId
+     * Controls    ==============================================================================================
      */
     MusicPlayer.prototype.playSong = function(songId){
         log('playing song with id: ' + songId);
@@ -37,22 +36,49 @@ define([
         this.handleLoadedMetadata();
         this.currentSong.addEventListener('ended', this.handleSongEnd.bind(this));
         this.currentSong.addEventListener('progress', this.notifyProgressListeners.bind(this));
+        this.currentSong.addEventListener('canPlayThrough', function(){
+               log('canPlayThrough');
+               this.currentSong.currentTime += 3;
+        }.bind(this));
+
         this.isSongCurrentlyPlaying = true;
         this.notifyPlayListeners();
     };
 
+    //stop means pause for now
     MusicPlayer.prototype.stopSong = function(){
         if(!this.currentSong){return false;}
         this.currentSong.pause();
+        //this.currentSong.currentTime = 0;   //doesn't work due to accept-range lacking on server
         this.isSongCurrentlyPlaying = false;
         this.notifyStopListeners();
     };
 
     MusicPlayer.prototype.unPauseSong = function(){
-        this.currentSong.play();
+        if(!this.currentSong){
+            this.playSong(1);
+        }else{
+            this.currentSong.play();
+        }
+
     };
 
+    MusicPlayer.prototype.playNextSong = function(){
+        log('play next song called');
+        this.handleSongEnd();
+    };
 
+    MusicPlayer.prototype.playPreviousSong = function(){
+        log('play previous song called');
+        log('song has ended. playing next song');
+        this.notifyStopListeners();
+        this.playSong(--this.currentSongId);
+
+    };
+
+    /**
+     * Event handlers    ==============================================================================================
+     */
     //when duration, etc become available
     MusicPlayer.prototype.handleLoadedMetadata = function(){
         var self = this;
@@ -69,18 +95,7 @@ define([
         this.playSong(++this.currentSongId);
     };
 
-    MusicPlayer.prototype.playNextSong = function(){
-        log('play next song called');
-        this.handleSongEnd();
-    };
 
-    MusicPlayer.prototype.playPreviousSong = function(){
-        log('play previous song called');
-        log('song has ended. playing next song');
-        this.notifyStopListeners();
-        this.playSong(--this.currentSongId);
-
-    };
 
     //returns in hours:minutes string
     MusicPlayer.prototype.getDuration = function(){
@@ -141,7 +156,7 @@ define([
         }
     };
 
-    MusicPlayer.prototype.notifyProgressListeners = function(){
+    MusicPlayer.prototype.notifyProgressListeners = function(data){
         this.notifyListeners(this.onProgressListeners);
     };
     MusicPlayer.prototype.notifyListeners = function(listeners){
