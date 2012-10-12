@@ -2,7 +2,8 @@ html, body {
   width: 100%;
   padding: 0;
   margin: 0;
-  font-family: Helvetica, Arial, sans-serif; }
+  font-family: Helvetica, Arial, sans-serif;
+  /*activate the GPU for compositing each page */ }
 
 .background {
   position: fixed;
@@ -25,5 +26,4 @@ html, body {
   margin-top: 50px;
   width: 100%;
   /*!needed to allow menu to be placed below navbar*/
-  z-index: 2;
-  /*color*/ }
+  z-index: 2; }

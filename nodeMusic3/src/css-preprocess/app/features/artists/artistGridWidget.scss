@@ -2,6 +2,7 @@
 @import "src/css-preprocess/core/colors";
 #artistsGrid{ //div
 
+  //-webkit-backface-visibility:hidden;
   //when the user clicks an artist, album, or song, these classes will be applied.
   .artist-selected{
     @include transparent-black-3;
@@ -12,12 +13,12 @@
   }
 
   .song-selected{
-    @include transparent-blue(!important);
+    @include transparent-blue(!important);   //nth-child is wonky in some browsers.
   }
 
   ul{
     >li{ //artist's name
-      @extend .transparent-black;
+      @extend .transparent-white;
       color: #E7DDD6;
       >dl{
         //@extend .light-grey-gradient;

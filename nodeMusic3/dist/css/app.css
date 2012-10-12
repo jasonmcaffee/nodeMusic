@@ -1,4 +1,4 @@
-.transparent-black, #artistsGrid ul > li {
+.transparent-black {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.18)), color-stop(50%, rgba(109, 109, 109, 0.18)), color-stop(100%, rgba(5, 5, 5, 0.18)));
   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
@@ -16,7 +16,7 @@
   background: linear-gradient(to bottom, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#db282828', endColorstr='#cf3f3f3f',GradientType=0 ); }
 
-.transparent-white, #artistsGrid .album-selected, #artistsGrid ul > li > dl > dt > ol > li:nth-child(odd) {
+.transparent-white, #artistsGrid .album-selected, #artistsGrid ul > li, #artistsGrid ul > li > dl > dt > ol > li:nth-child(odd) {
   background: -moz-linear-gradient(top, rgba(249, 253, 255, 0.2) 0%, rgba(249, 253, 255, 0.2) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(249, 253, 255, 0.2)), color-stop(100%, rgba(249, 253, 255, 0.2)));
   background: -webkit-linear-gradient(top, rgba(249, 253, 255, 0.2) 0%, rgba(249, 253, 255, 0.2) 100%);
@@ -296,7 +296,7 @@
 /**
 *  box-align: center;
 */
-.transparent-black, #artistsGrid ul > li {
+.transparent-black {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.18)), color-stop(50%, rgba(109, 109, 109, 0.18)), color-stop(100%, rgba(5, 5, 5, 0.18)));
   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
@@ -314,7 +314,7 @@
   background: linear-gradient(to bottom, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#db282828', endColorstr='#cf3f3f3f',GradientType=0 ); }
 
-.transparent-white, #artistsGrid .album-selected, #artistsGrid ul > li > dl > dt > ol > li:nth-child(odd) {
+.transparent-white, #artistsGrid .album-selected, #artistsGrid ul > li, #artistsGrid ul > li > dl > dt > ol > li:nth-child(odd) {
   background: -moz-linear-gradient(top, rgba(249, 253, 255, 0.2) 0%, rgba(249, 253, 255, 0.2) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(249, 253, 255, 0.2)), color-stop(100%, rgba(249, 253, 255, 0.2)));
   background: -webkit-linear-gradient(top, rgba(249, 253, 255, 0.2) 0%, rgba(249, 253, 255, 0.2) 100%);
@@ -543,7 +543,7 @@ dl {
       .home-page #songsGrid #songs li dl dt:nth-child(2) {
         width: 30%; }
 
-.transparent-black, #artistsGrid ul > li {
+.transparent-black {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.18)), color-stop(50%, rgba(109, 109, 109, 0.18)), color-stop(100%, rgba(5, 5, 5, 0.18)));
   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
@@ -561,7 +561,7 @@ dl {
   background: linear-gradient(to bottom, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#db282828', endColorstr='#cf3f3f3f',GradientType=0 ); }
 
-.transparent-white, #artistsGrid .album-selected, #artistsGrid ul > li > dl > dt > ol > li:nth-child(odd) {
+.transparent-white, #artistsGrid .album-selected, #artistsGrid ul > li, #artistsGrid ul > li > dl > dt > ol > li:nth-child(odd) {
   background: -moz-linear-gradient(top, rgba(249, 253, 255, 0.2) 0%, rgba(249, 253, 255, 0.2) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(249, 253, 255, 0.2)), color-stop(100%, rgba(249, 253, 255, 0.2)));
   background: -webkit-linear-gradient(top, rgba(249, 253, 255, 0.2) 0%, rgba(249, 253, 255, 0.2) 100%);
@@ -699,7 +699,7 @@ dl {
     #artistsGrid ul > li > dl > dt > ol > li {
       font-size: 100%;
       padding: 1%; } }
-.transparent-black, #artistsGrid ul > li {
+.transparent-black {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.18)), color-stop(50%, rgba(109, 109, 109, 0.18)), color-stop(100%, rgba(5, 5, 5, 0.18)));
   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
@@ -717,7 +717,7 @@ dl {
   background: linear-gradient(to bottom, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#db282828', endColorstr='#cf3f3f3f',GradientType=0 ); }
 
-.transparent-white, #artistsGrid .album-selected, #artistsGrid ul > li > dl > dt > ol > li:nth-child(odd) {
+.transparent-white, #artistsGrid .album-selected, #artistsGrid ul > li, #artistsGrid ul > li > dl > dt > ol > li:nth-child(odd) {
   background: -moz-linear-gradient(top, rgba(249, 253, 255, 0.2) 0%, rgba(249, 253, 255, 0.2) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(249, 253, 255, 0.2)), color-stop(100%, rgba(249, 253, 255, 0.2)));
   background: -webkit-linear-gradient(top, rgba(249, 253, 255, 0.2) 0%, rgba(249, 253, 255, 0.2) 100%);
@@ -1046,7 +1046,7 @@ dl {
 
   #menuCollapsed #menuButton {
     height: 100%; } }
-.transparent-black, #artistsGrid ul > li {
+.transparent-black {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.18)), color-stop(50%, rgba(109, 109, 109, 0.18)), color-stop(100%, rgba(5, 5, 5, 0.18)));
   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
@@ -1064,7 +1064,7 @@ dl {
   background: linear-gradient(to bottom, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#db282828', endColorstr='#cf3f3f3f',GradientType=0 ); }
 
-.transparent-white, #artistsGrid .album-selected, #artistsGrid ul > li > dl > dt > ol > li:nth-child(odd) {
+.transparent-white, #artistsGrid .album-selected, #artistsGrid ul > li, #artistsGrid ul > li > dl > dt > ol > li:nth-child(odd) {
   background: -moz-linear-gradient(top, rgba(249, 253, 255, 0.2) 0%, rgba(249, 253, 255, 0.2) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(249, 253, 255, 0.2)), color-stop(100%, rgba(249, 253, 255, 0.2)));
   background: -webkit-linear-gradient(top, rgba(249, 253, 255, 0.2) 0%, rgba(249, 253, 255, 0.2) 100%);
@@ -1255,7 +1255,7 @@ dl {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px; }
 
-.transparent-black, #artistsGrid ul > li {
+.transparent-black {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.18)), color-stop(50%, rgba(109, 109, 109, 0.18)), color-stop(100%, rgba(5, 5, 5, 0.18)));
   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
@@ -1273,7 +1273,7 @@ dl {
   background: linear-gradient(to bottom, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#db282828', endColorstr='#cf3f3f3f',GradientType=0 ); }
 
-.transparent-white, #artistsGrid .album-selected, #artistsGrid ul > li > dl > dt > ol > li:nth-child(odd) {
+.transparent-white, #artistsGrid .album-selected, #artistsGrid ul > li, #artistsGrid ul > li > dl > dt > ol > li:nth-child(odd) {
   background: -moz-linear-gradient(top, rgba(249, 253, 255, 0.2) 0%, rgba(249, 253, 255, 0.2) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(249, 253, 255, 0.2)), color-stop(100%, rgba(249, 253, 255, 0.2)));
   background: -webkit-linear-gradient(top, rgba(249, 253, 255, 0.2) 0%, rgba(249, 253, 255, 0.2) 100%);
@@ -1631,7 +1631,7 @@ If performance or maintenance becomes a problem, simply change the selector.
       #responsive-page #masterDetailListsGrid #detailList li dl dt:nth-child(3) {
         text-align: right;
         width: 30%; } }
-.transparent-black, #artistsGrid ul > li {
+.transparent-black {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.18)), color-stop(50%, rgba(109, 109, 109, 0.18)), color-stop(100%, rgba(5, 5, 5, 0.18)));
   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
@@ -1649,7 +1649,7 @@ If performance or maintenance becomes a problem, simply change the selector.
   background: linear-gradient(to bottom, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#db282828', endColorstr='#cf3f3f3f',GradientType=0 ); }
 
-.transparent-white, #artistsGrid .album-selected, #artistsGrid ul > li > dl > dt > ol > li:nth-child(odd) {
+.transparent-white, #artistsGrid .album-selected, #artistsGrid ul > li, #artistsGrid ul > li > dl > dt > ol > li:nth-child(odd) {
   background: -moz-linear-gradient(top, rgba(249, 253, 255, 0.2) 0%, rgba(249, 253, 255, 0.2) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(249, 253, 255, 0.2)), color-stop(100%, rgba(249, 253, 255, 0.2)));
   background: -webkit-linear-gradient(top, rgba(249, 253, 255, 0.2) 0%, rgba(249, 253, 255, 0.2) 100%);
@@ -1840,7 +1840,7 @@ If performance or maintenance becomes a problem, simply change the selector.
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px; }
 
-.transparent-black, #artistsGrid ul > li {
+.transparent-black {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.18)), color-stop(50%, rgba(109, 109, 109, 0.18)), color-stop(100%, rgba(5, 5, 5, 0.18)));
   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
@@ -1858,7 +1858,7 @@ If performance or maintenance becomes a problem, simply change the selector.
   background: linear-gradient(to bottom, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#db282828', endColorstr='#cf3f3f3f',GradientType=0 ); }
 
-.transparent-white, #artistsGrid .album-selected, #artistsGrid ul > li > dl > dt > ol > li:nth-child(odd) {
+.transparent-white, #artistsGrid .album-selected, #artistsGrid ul > li, #artistsGrid ul > li > dl > dt > ol > li:nth-child(odd) {
   background: -moz-linear-gradient(top, rgba(249, 253, 255, 0.2) 0%, rgba(249, 253, 255, 0.2) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(249, 253, 255, 0.2)), color-stop(100%, rgba(249, 253, 255, 0.2)));
   background: -webkit-linear-gradient(top, rgba(249, 253, 255, 0.2) 0%, rgba(249, 253, 255, 0.2) 100%);
@@ -2215,7 +2215,8 @@ html, body {
   width: 100%;
   padding: 0;
   margin: 0;
-  font-family: Helvetica, Arial, sans-serif; }
+  font-family: Helvetica, Arial, sans-serif;
+  /*activate the GPU for compositing each page */ }
 
 .background {
   position: fixed;
@@ -2238,5 +2239,4 @@ html, body {
   margin-top: 50px;
   width: 100%;
   /*!needed to allow menu to be placed below navbar*/
-  z-index: 2;
-  /*color*/ }
+  z-index: 2; }
