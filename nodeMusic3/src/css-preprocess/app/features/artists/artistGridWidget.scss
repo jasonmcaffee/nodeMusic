@@ -1,15 +1,9 @@
 @import "src/css-preprocess/core/media-queries";
 @import "src/css-preprocess/core/colors";
+@import "src/css-preprocess/util/speed";
 
-.speed{
-  ////definite improvement!!
-  transform: translate(0px,0px);
-  -ms-transform: translate(0px,0px); /* IE 9 */
-  -webkit-transform: translate(0px,0px); /* Safari and Chrome */
-  -o-transform: translate(0px,0px); /* Opera */
-  -moz-transform: translate(0px,0px); /* Firefox */
-}
 #artistsGrid{ //div
+
 
   //when the user clicks an artist, album, or song, these classes will be applied.
   .artist-selected{

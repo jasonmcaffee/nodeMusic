@@ -8,9 +8,7 @@ html, body{
 
   font-family: Helvetica, Arial, sans-serif;
 
-/*activate the GPU for compositing each page */
-  //-webkit-backface-visibility: hidden;
-
+  height:100%;
 }
 
 //body{
@@ -74,6 +72,9 @@ html, body{
   width:100%;
 /*!!needed to allow menu to be placed below navbar*/
   z-index:2;
-  //-webkit-overflow-scrolling : touch;
+
+  //improves scrolling performance, but header is all messed up. not so great on android.  better for chrome.
+  //overflow: scroll;
   //-webkit-overflow-scrolling: touch;
+  //height:100%;
 }

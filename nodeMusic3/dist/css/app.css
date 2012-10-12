@@ -530,6 +530,17 @@ dl {
 .fix-inline-block-spacing {
   margin-left: -4px; }
 
+.speed, #artistsGrid .artist-selected, #artistsGrid .album-selected, #artistsGrid ul, #artistsGrid ul > li {
+  transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  /* IE 9 */
+  -webkit-transform: translate(0px, 0px);
+  /* Safari and Chrome */
+  -o-transform: translate(0px, 0px);
+  /* Opera */
+  -moz-transform: translate(0px, 0px);
+  /* Firefox */ }
+
 .home-page {
   min-height: 100%; }
   .home-page #songsGrid #songs li {
@@ -2227,7 +2238,7 @@ html, body {
   padding: 0;
   margin: 0;
   font-family: Helvetica, Arial, sans-serif;
-  /*activate the GPU for compositing each page */ }
+  height: 100%; }
 
 .background {
   position: fixed;
