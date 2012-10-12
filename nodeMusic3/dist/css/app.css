@@ -721,6 +721,13 @@ dl {
     #artistsGrid ul > li > dl > dt > ol > li {
       font-size: 100%;
       padding: 1%; } }
+.artist-page {
+  height: 100%; }
+  .artist-page #artistsGridWidget {
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    height: 100%; }
+
 .transparent-black {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.18)), color-stop(50%, rgba(109, 109, 109, 0.18)), color-stop(100%, rgba(5, 5, 5, 0.18)));
@@ -2261,4 +2268,5 @@ html, body {
   margin-top: 50px;
   width: 100%;
   /*!needed to allow menu to be placed below navbar*/
-  z-index: 2; }
+  z-index: 2;
+  height: 100%; }

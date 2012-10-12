@@ -1,5 +1,12 @@
 @import "src/css-preprocess/app/features/artists/artistGridWidget";
 .artist-page{
+    height:100%;
 
+  #artistsGridWidget{
+    //works well on ios and android. chrome paints are a little slow.
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    height:100%;
+  }
 }
 
