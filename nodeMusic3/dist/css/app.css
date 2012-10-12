@@ -668,6 +668,17 @@ dl {
   background: linear-gradient(to bottom, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#edeef0', endColorstr='#f7f7f8',GradientType=0 ); }
 
+.speed, #artistsGrid .artist-selected, #artistsGrid .album-selected, #artistsGrid ul, #artistsGrid ul > li {
+  transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  /* IE 9 */
+  -webkit-transform: translate(0px, 0px);
+  /* Safari and Chrome */
+  -o-transform: translate(0px, 0px);
+  /* Opera */
+  -moz-transform: translate(0px, 0px);
+  /* Firefox */ }
+
 #artistsGrid .artist-selected {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.71) 0%, rgba(0, 0, 0, 0.71) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.71)), color-stop(100%, rgba(0, 0, 0, 0.71)));

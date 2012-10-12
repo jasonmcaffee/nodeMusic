@@ -2,6 +2,7 @@ html, body{
   //height:100%;
   //min-height: 100%;
   width: 100%;
+  //height:100%;
   padding:0;
   margin:0;
 
@@ -9,7 +10,41 @@ html, body{
 
 /*activate the GPU for compositing each page */
   //-webkit-backface-visibility: hidden;
+
 }
+
+//body{
+//  //background-attachment: fixed;
+//  background: url(../images/background-ocean.png) no-repeat fixed center top #173F5D;
+//  //-webkit-background-size: cover;
+//  background-size: 100% 100%;
+//  //background-origin: content-box;
+//
+//}
+//body-stretches-on-ios-bad{
+//  background: url(../images/background-ocean.png) no-repeat top center fixed;
+//  -webkit-background-size: cover;
+//  -moz-background-size: cover;
+//  -o-background-size: cover;
+//  background-size: cover;
+//}
+//
+////stretched on ios. no scroll on android.
+//body-2{
+//  background: black url(../images/background-ocean.png) no-repeat top center fixed;
+//  -webkit-background-size: auto;
+//  -moz-background-size: cover;
+//  -o-background-size: cover;
+//  background-size: cover;
+//}
+
+
+//
+//*{
+//  -webkit-backface-visibility: hidden;
+//}
+
+
 
 .background{
   position: fixed;
@@ -18,8 +53,9 @@ html, body{
   width: 200%;
   height: 200%;
   z-index: -1;
-  img{
 
+
+  img{
     position: absolute;
     top: 0;
     left: 0;
@@ -38,5 +74,6 @@ html, body{
   width:100%;
 /*!!needed to allow menu to be placed below navbar*/
   z-index:2;
-
+  //-webkit-overflow-scrolling : touch;
+  //-webkit-overflow-scrolling: touch;
 }

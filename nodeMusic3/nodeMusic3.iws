@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="245f59ec-341c-45a5-94a7-3b5e96a58ce5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/background-ocean.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/images/background-ocean.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app.css" afterPath="$PROJECT_DIR$/dist/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app/strapkit.css" afterPath="$PROJECT_DIR$/dist/css/app/strapkit.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node-server/views/index.html" afterPath="$PROJECT_DIR$/node-server/views/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeMusic3.iws" afterPath="$PROJECT_DIR$/nodeMusic3.iws" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss" />
@@ -121,19 +117,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="artistGridWidget.scss" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="artistGridWidget.scss" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="111" selection-end="111" vertical-scroll-proportion="0.0">
+            <state line="24" column="19" selection-start="685" selection-end="685" vertical-scroll-proportion="0.26913372">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strapkit.scss" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="strapkit.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="12" selection-start="651" selection-end="651" vertical-scroll-proportion="0.5248108">
+            <state line="21" column="201" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -142,7 +138,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node-server/views/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="67" selection-start="1469" selection-end="1469" vertical-scroll-proportion="-19.2">
+            <state line="31" column="73" selection-start="1524" selection-end="1524" vertical-scroll-proportion="-19.84">
               <folding />
             </state>
           </provider>
@@ -184,8 +180,8 @@
         <option value="$PROJECT_DIR$/src/js/lib/features/artists/widgets/ArtistGridWidget.js" />
         <option value="$PROJECT_DIR$/src/css-preprocess/core/colors.scss" />
         <option value="$PROJECT_DIR$/node-server/views/index.html" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss" />
       </list>
     </option>
   </component>
@@ -1099,7 +1095,11 @@
       <created>1350027865247</created>
       <updated>1350027865247</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="before background change optimization">
+      <created>1350056668393</created>
+      <updated>1350056668393</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1163,7 +1163,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="added better styling. made progress on song controls.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="before background change optimization" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1189,6 +1189,7 @@
     <MESSAGE value="added colors for selected artist, ablum" />
     <MESSAGE value="song controls - in progress&#10;" />
     <MESSAGE value="added better styling. made progress on song controls.&#10;" />
+    <MESSAGE value="before background change optimization" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1257,13 +1258,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/features/artists/widgets/ArtistGridWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="241" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/media-queries.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1278,13 +1272,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node-server/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="67" selection-start="1469" selection-end="1469" vertical-scroll-proportion="-19.2">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/colors.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="120" column="65" selection-start="10886" selection-end="10886" vertical-scroll-proportion="-8.0">
@@ -1292,16 +1279,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss">
+    <entry file="file://$PROJECT_DIR$/node-server/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="111" selection-end="111" vertical-scroll-proportion="0.0">
+        <state line="31" column="73" selection-start="1524" selection-end="1524" vertical-scroll-proportion="-19.84">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="12" selection-start="651" selection-end="651" vertical-scroll-proportion="0.5248108">
+        <state line="21" column="201" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib/features/artists/widgets/ArtistGridWidget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="241" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="19" selection-start="685" selection-end="685" vertical-scroll-proportion="0.26913372">
           <folding />
         </state>
       </provider>

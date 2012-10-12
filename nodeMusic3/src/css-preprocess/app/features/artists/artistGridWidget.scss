@@ -1,26 +1,43 @@
 @import "src/css-preprocess/core/media-queries";
 @import "src/css-preprocess/core/colors";
+
+.speed{
+  ////definite improvement!!
+  transform: translate(0px,0px);
+  -ms-transform: translate(0px,0px); /* IE 9 */
+  -webkit-transform: translate(0px,0px); /* Safari and Chrome */
+  -o-transform: translate(0px,0px); /* Opera */
+  -moz-transform: translate(0px,0px); /* Firefox */
+}
 #artistsGrid{ //div
 
-  //-webkit-backface-visibility:hidden;
   //when the user clicks an artist, album, or song, these classes will be applied.
   .artist-selected{
     @include transparent-black-3;
+    //background-color: black;    <-- no improvement
+
+    @extend .speed;
+
   }
 
   .album-selected{
     @extend .transparent-white;
+    @extend .speed;
+
   }
 
   .song-selected{
     @include transparent-blue(!important);   //nth-child is wonky in some browsers.
   }
 
-  ul{
+  ul{ //artists
+
+    @extend .speed;
     >li{ //artist's name
+      @extend .speed;
       @extend .transparent-white;
       color: #E7DDD6;
-      >dl{
+      >dl{  //albums
         //@extend .light-grey-gradient;
         @extend .white-transparent;
         >dt{ //album name
