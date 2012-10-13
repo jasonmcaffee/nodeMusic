@@ -8,6 +8,8 @@ define([
         template: songControlsTemplate,
         initialize : function(){
             core.log('SongControls widget initialized');
+
+            musicPlayer.onTimeUpdate(this.updateProgressBar.bind(this));
         },
         events:{
             'click #startPauseButton' : function(e){
@@ -27,6 +29,11 @@ define([
                 core.log('previous button clicked');
                 musicPlayer.playPreviousSong();
             }
+        },
+        updateProgressBar: function(data){
+            //core.log('onTimeUpdate');
+            this.$el.find('#progressBarInner')
+                .css('width', data.progressPercent+'%');
         }
     });
 

@@ -3,13 +3,17 @@
 @import "src/css-preprocess/util/speed";
 
 #artistsGrid{ //div
-
+  @extend .speed;
   //when the user clicks an artist, album, or song, these classes will be applied.
   .artist-selected{
-    @include transparent-black-3;
+
     //background-color: black;    <-- no improvement
 
     @extend .speed;
+
+    &:nth-child(n){
+      @include transparent-black-3;
+    }
 
   }
 
@@ -28,7 +32,11 @@
     @extend .speed;
     >li{ //artist's name
       @extend .speed;
-      @extend .transparent-white;
+
+      &:nth-child(even){
+        @extend .white-transparent-2;
+        @extend .speed;
+      }
       color: #E7DDD6;
       >dl{  //albums
         //@extend .light-grey-gradient;

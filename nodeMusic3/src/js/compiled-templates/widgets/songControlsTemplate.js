@@ -6,7 +6,7 @@ templates['songControlsTemplate'] = template(function (Handlebars,depth0,helpers
   var foundHelper, self=this;
 
 
-  return "<ul>\n    <li id=\"previousButton\">Previous</li>\n    <li id=\"startPauseButton\">Start</li>\n    <li id=\"nextButton\">Next</li>\n</ul>";}); 
+  return "<div class=\"song-controls\">\n    <div id=\"previousButton\">Previous</div>\n    <div id=\"startPauseButton\">Start</div>\n    <div id=\"nextButton\">Next</div>\n    <div id=\"progressBar\">\n        <div id=\"progressBarInner\">&nbsp;</div>\n    </div>\n</div>";}); 
 Handlebars.registerPartial("songControlsTemplate", templates["songControlsTemplate"]); 
 return templates["songControlsTemplate"]; 
 });

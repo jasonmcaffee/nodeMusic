@@ -10,7 +10,7 @@ define([
             this.$el.html(this.template());
 
             _.each(this.options.widgets, function(widgetMap){
-                this.$el.find(widgetMap.selector).append(widgetMap.widget.render().el);
+                this.$el.find(widgetMap.selector).append(widgetMap.widget.render().el);  //can't use el.innerHTML cause you'll lose events.
             }, this);
 
             return this;

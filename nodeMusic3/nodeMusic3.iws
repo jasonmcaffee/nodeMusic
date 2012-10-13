@@ -2,12 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="245f59ec-341c-45a5-94a7-3b5e96a58ce5" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/css-preprocess/app/widgets/_songControls.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app.css" afterPath="$PROJECT_DIR$/dist/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app/strapkit.css" afterPath="$PROJECT_DIR$/dist/css/app/strapkit.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app/navigationBar.css" afterPath="$PROJECT_DIR$/dist/css/app/navigationBar.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app/responsiveDemo.css" afterPath="$PROJECT_DIR$/dist/css/app/responsiveDemo.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app/responsiveFlexBoxDemo.css" afterPath="$PROJECT_DIR$/dist/css/app/responsiveFlexBoxDemo.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/core/colors.css" afterPath="$PROJECT_DIR$/dist/css/core/colors.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/core/lists.css" afterPath="$PROJECT_DIR$/dist/css/core/lists.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/core/reset.css" afterPath="$PROJECT_DIR$/dist/css/core/reset.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/app-built.js" afterPath="$PROJECT_DIR$/dist/js/app-built.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node-server/views/index.html" afterPath="$PROJECT_DIR$/node-server/views/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeMusic3.iws" afterPath="$PROJECT_DIR$/nodeMusic3.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/features/artists/_artistPage.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/features/artists/_artistPage.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/navigationBar.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/navigationBar.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/core/colors.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/core/colors.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/core/reset.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/core/reset.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/compiled-templates/widgets/headerTemplate.js" afterPath="$PROJECT_DIR$/src/js/compiled-templates/widgets/headerTemplate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/compiled-templates/widgets/songControlsTemplate.js" afterPath="$PROJECT_DIR$/src/js/compiled-templates/widgets/songControlsTemplate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/mvc/View.js" afterPath="$PROJECT_DIR$/src/js/core/mvc/View.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js" afterPath="$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/widgets/SongControls.js" afterPath="$PROJECT_DIR$/src/js/lib/widgets/SongControls.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/widgets/headerTemplate.html" afterPath="$PROJECT_DIR$/src/templates/widgets/headerTemplate.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/widgets/songControlsTemplate.html" afterPath="$PROJECT_DIR$/src/templates/widgets/songControlsTemplate.html" />
     </list>
     <ignored path="nodeMusic3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,10 +83,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ArtistGridWidget.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/lib/features/artists/widgets/ArtistGridWidget.js">
+      <file leaf-file-name="songControlsTemplate.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/widgets/songControlsTemplate.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="241" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.0">
+            <state line="5" column="41" selection-start="219" selection-end="219" vertical-scroll-proportion="-3.2">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_songControls.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/widgets/_songControls.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="24" selection-start="611" selection-end="611" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -77,7 +104,16 @@
       <file leaf-file-name="colors.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/colors.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="65" selection-start="10886" selection-end="10886" vertical-scroll-proportion="0.0">
+            <state line="204" column="0" selection-start="18334" selection-end="18334" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="headerTemplate.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/widgets/headerTemplate.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="37" selection-start="306" selection-end="306" vertical-scroll-proportion="-6.4">
               <folding />
             </state>
           </provider>
@@ -86,93 +122,34 @@
       <file leaf-file-name="navigationBar.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/navigationBar.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="89" selection-start="1855" selection-end="1855" vertical-scroll-proportion="0.0">
+            <state line="139" column="20" selection-start="3366" selection-end="3366" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="artistGridWidget.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss">
+      <file leaf-file-name="SongControls.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/js/lib/widgets/SongControls.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0">
+            <state line="33" column="14" selection-start="1148" selection-end="1148" vertical-scroll-proportion="0.44407064">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist/css/app.css">
+      <file leaf-file-name="MusicPlayer.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="20" selection-start="835" selection-end="835" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1350081570000" expanded="true" signature="113815:115036" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="115309:115357" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="115357:115375" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="115444:115501" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="115793:115824" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="116953:117170" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="117172:117661" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="117663:117732" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="117734:117761" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="117762:118331" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="155393:156611" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="156884:156932" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="156932:156950" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="157019:157052" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="157368:157405" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="157445:158324" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="158528:158745" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="158747:159236" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="159238:159307" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="159309:159336" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="162124:162138" placeholder="/*...*/" />
-                <marker date="1350081570000" expanded="true" signature="162517:162520" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_speed.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css-preprocess/util/_speed.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="52" selection-start="284" selection-end="284" vertical-scroll-proportion="0.0">
+            <state line="164" column="34" selection-start="5315" selection-end="5315" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app.scss">
+      <file leaf-file-name="reset.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/reset.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="376" selection-end="416" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strapkit.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="1" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_artistPage.scss" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/features/artists/_artistPage.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="40" selection-start="245" selection-end="245" vertical-scroll-proportion="0.094196804">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node-server/views/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="8" selection-start="1619" selection-end="1731" vertical-scroll-proportion="-23.04">
+            <state line="5" column="44" selection-start="230" selection-end="230" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -191,28 +168,28 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/templates/widgets/songControlsTemplate.html" />
-        <option value="$PROJECT_DIR$/src/js/lib/widgets/SongControls.js" />
-        <option value="$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js" />
-        <option value="$PROJECT_DIR$/dist/js/app-built.js" />
+        <option value="$PROJECT_DIR$/dist/css/app.css" />
+        <option value="$PROJECT_DIR$/node-server/views/index.html" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/util/_speed.scss" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss" />
+        <option value="$PROJECT_DIR$/src/js/lib/widgets/HeaderWidget.js" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app.scss" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/features/artists/_artistPage.scss" />
+        <option value="$PROJECT_DIR$/src/js/core/mvc/View.js" />
+        <option value="$PROJECT_DIR$/src/templates/widgets/headerTemplate.html" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app/navigationBar.scss" />
         <option value="$PROJECT_DIR$/src/css-preprocess/core/reset.scss" />
-        <option value="$PROJECT_DIR$/src/templates/features/artists/artistPageTemplate.html" />
-        <option value="$PROJECT_DIR$/src/js/lib/features/artists/widgets/ArtistGridWidget.js" />
         <option value="$PROJECT_DIR$/src/css-preprocess/core/colors.scss" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/util/speed.scss" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/app.scss" />
-        <option value="$PROJECT_DIR$/dist/css/app.css" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss" />
-        <option value="$PROJECT_DIR$/node-server/views/index.html" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/app/features/artists/_artistPage.scss" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/widgets/_songControls.scss" />
+        <option value="$PROJECT_DIR$/src/templates/widgets/songControlsTemplate.html" />
+        <option value="$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js" />
+        <option value="$PROJECT_DIR$/src/js/lib/widgets/SongControls.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="115" />
-    <option name="y" value="259" />
+    <option name="x" value="127" />
+    <option name="y" value="82" />
     <option name="width" value="2209" />
     <option name="height" value="1337" />
   </component>
@@ -685,6 +662,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="mvc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -770,6 +773,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css-preprocess" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="widgets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1146,11 +1175,15 @@
       <created>1350079320300</created>
       <updated>1350079320300</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="overflow scrolling works great on ios. a bit laggy paints on android, especially chrome. doesnt work on android 2.3">
+      <created>1350089020046</created>
+      <updated>1350089020046</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="115" y="259" width="2209" height="1337" extended-state="0" />
+    <frame x="127" y="82" width="2209" height="1337" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1210,7 +1243,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="overflow scrolling works great on ios. a bit laggy paints on android, especially chrome." />
+    <option name="LAST_COMMIT_MESSAGE" value="overflow scrolling works great on ios. a bit laggy paints on android, especially chrome. doesnt work on android 2.3" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1240,122 +1273,133 @@
     <MESSAGE value="major speed enhancements with rendering selected artists, scrolling, etc." />
     <MESSAGE value="scrolling good for ios. not using overflow scrolling yet due to position fixed messed up on header." />
     <MESSAGE value="overflow scrolling works great on ios. a bit laggy paints on android, especially chrome." />
+    <MESSAGE value="overflow scrolling works great on ios. a bit laggy paints on android, especially chrome. doesnt work on android 2.3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/templates/widgets/songControlsTemplate.html">
+    <entry file="file://$PROJECT_DIR$/src/js/lib/widgets/HeaderWidget.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="4" selection-start="4" selection-end="4" vertical-scroll-proportion="0.0" />
+        <state line="8" column="91" selection-start="271" selection-end="271" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/reset.scss">
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/util/_speed.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="12" selection-start="290" selection-end="290" vertical-scroll-proportion="0.0" />
+        <state line="7" column="192" selection-start="284" selection-end="284" vertical-scroll-proportion="0.094196804">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/features/artists/artistPageTemplate.html">
+    <entry file="file://$PROJECT_DIR$/dist/css/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="33" selection-start="59" selection-end="59" vertical-scroll-proportion="-0.64" />
+        <state line="1" column="18" selection-start="39" selection-end="39" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1350140663000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+            <marker date="1350140663000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+            <marker date="1350140663000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+            <marker date="1350140663000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+            <marker date="1350140663000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+            <marker date="1350140663000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+            <marker date="1350140663000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+            <marker date="1350140663000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+            <marker date="1350140663000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+            <marker date="1350140663000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+            <marker date="1350140663000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+            <marker date="1350140663000" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/features/artists/widgets/artistGridWidgetTemplate.html">
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="22" column="54" selection-start="797" selection-end="797" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/widgets/SongControls.js">
+    <entry file="file://$PROJECT_DIR$/src/js/core/mvc/View.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="57" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0" />
+        <state line="12" column="139" selection-start="496" selection-end="496" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/media-queries.scss">
+    <entry file="file://$PROJECT_DIR$/src/templates/widgets/headerTemplate.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/features/artists/widgets/ArtistGridWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="241" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/colors.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="65" selection-start="10886" selection-end="10886" vertical-scroll-proportion="0.0">
+        <state line="10" column="37" selection-start="306" selection-end="306" vertical-scroll-proportion="-6.4">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/navigationBar.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="89" selection-start="1855" selection-end="1855" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/css/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="20" selection-start="835" selection-end="835" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1350081570000" expanded="true" signature="113815:115036" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="115309:115357" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="115357:115375" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="115444:115501" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="115793:115824" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="116953:117170" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="117172:117661" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="117663:117732" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="117734:117761" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="117762:118331" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="155393:156611" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="156884:156932" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="156932:156950" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="157019:157052" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="157368:157405" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="157445:158324" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="158528:158745" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="158747:159236" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="159238:159307" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="159309:159336" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="162124:162138" placeholder="/*...*/" />
-            <marker date="1350081570000" expanded="true" signature="162517:162520" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/util/_speed.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="52" selection-start="284" selection-end="284" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="376" selection-end="416" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node-server/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="8" selection-start="1619" selection-end="1731" vertical-scroll-proportion="-23.04">
+        <state line="139" column="20" selection-start="3366" selection-end="3366" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss">
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/reset.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="1" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
+        <state line="5" column="44" selection-start="230" selection-end="230" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/core/util/log.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="153" selection-end="153" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="90" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/features/artists/_artistPage.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="40" selection-start="245" selection-end="245" vertical-scroll-proportion="0.094196804">
+        <state line="4" column="2" selection-start="100" selection-end="100" vertical-scroll-proportion="0.053826746">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/colors.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="204" column="0" selection-start="18334" selection-end="18334" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/widgets/songControlsTemplate.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="41" selection-start="219" selection-end="219" vertical-scroll-proportion="-3.2">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/widgets/_songControls.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="24" selection-start="611" selection-end="611" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="164" column="34" selection-start="5315" selection-end="5315" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib/widgets/SongControls.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="14" selection-start="1148" selection-end="1148" vertical-scroll-proportion="0.44407064">
           <folding />
         </state>
       </provider>

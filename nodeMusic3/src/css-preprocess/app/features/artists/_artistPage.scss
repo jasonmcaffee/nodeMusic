@@ -2,6 +2,7 @@
 .artist-page{
     height:100%;
 
+
   #artistsGridWidget{
     //works well on ios and android 4. chrome paints are a little slow.
     //terrible on android 2.3
@@ -13,8 +14,4 @@
   }
 }
 
-//fixes extra scrollbar on desktop
-::-webkit-scrollbar {
-  width: 0px;
-}
 

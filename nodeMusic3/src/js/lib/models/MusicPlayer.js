@@ -15,6 +15,7 @@ define([
         this.onStopListeners = [];
         this.onMetadataListeners = [];
         this.onProgressListeners = [];
+        this.onTimeUpdateListeners = [];
         this.isSongCurrentlyPlaying = false;
     }
 
@@ -36,10 +37,11 @@ define([
         this.handleLoadedMetadata();
         this.currentSong.addEventListener('ended', this.handleSongEnd.bind(this));
         this.currentSong.addEventListener('progress', this.notifyProgressListeners.bind(this));
-        this.currentSong.addEventListener('canPlayThrough', function(){
-               log('canPlayThrough');
-               this.currentSong.currentTime += 3;
-        }.bind(this));
+        this.currentSong.addEventListener('timeupdate', this.notifyTimeUpdateListeners.bind(this));
+//        this.currentSong.addEventListener('canPlayThrough', function(){
+//               log('canPlayThrough');
+//               this.currentSong.currentTime += 3;
+//        }.bind(this));
 
         this.isSongCurrentlyPlaying = true;
         this.notifyPlayListeners();
@@ -129,6 +131,10 @@ define([
         this.onProgressListeners.push(callback);
     };
 
+    MusicPlayer.prototype.onTimeUpdate = function(callback){
+        this.onTimeUpdateListeners.push(callback);
+    };
+
     MusicPlayer.prototype.notifyPlayListeners = function(){
         for(var i=0; i < this.onPlayListeners.length; ++i){
             var listener = this.onPlayListeners[i];
@@ -152,6 +158,29 @@ define([
             var listener = this.onStopListeners[i];
             if(typeof listener === 'function'){
                 listener(); //todo, pass song info
+            }
+        }
+    };
+
+    //will only fire once a second
+    MusicPlayer.prototype.notifyTimeUpdateListeners = function(){
+        //log(''+this.currentSong.currentTime);
+        if(this.currentSong.lastTime){
+            if(this.currentSong.currentTime - 1 < this.currentSong.lastTime){
+                //log('not notifying because a second hasnt passed');
+                return;
+            }
+        }
+        this.currentSong.lastTime = this.currentSong.currentTime;
+        var data = {
+            currentTime : this.currentSong.currentTime,
+            progressPercent: Math.floor((100 / this.currentSong.duration) * this.currentSong.currentTime)
+        };
+
+        for(var i=0; i < this.onTimeUpdateListeners.length; ++i){
+            var listener = this.onTimeUpdateListeners[i];
+            if(typeof listener === 'function'){
+                listener(data);
             }
         }
     };

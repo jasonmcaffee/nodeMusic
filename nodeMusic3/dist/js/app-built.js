@@ -12327,7 +12327,7 @@ define('core/mvc/View',[
             this.$el.html(this.template());
 
             _.each(this.options.widgets, function(widgetMap){
-                this.$el.find(widgetMap.selector).append(widgetMap.widget.render().el);
+                this.$el.find(widgetMap.selector).append(widgetMap.widget.render().el);  //can't use el.innerHTML cause you'll lose events.
             }, this);
 
             return this;
@@ -12494,6 +12494,7 @@ define('lib/models/MusicPlayer',[
         this.onStopListeners = [];
         this.onMetadataListeners = [];
         this.onProgressListeners = [];
+        this.onTimeUpdateListeners = [];
         this.isSongCurrentlyPlaying = false;
     }
 
@@ -12515,10 +12516,11 @@ define('lib/models/MusicPlayer',[
         this.handleLoadedMetadata();
         this.currentSong.addEventListener('ended', this.handleSongEnd.bind(this));
         this.currentSong.addEventListener('progress', this.notifyProgressListeners.bind(this));
-        this.currentSong.addEventListener('canPlayThrough', function(){
-               log('canPlayThrough');
-               this.currentSong.currentTime += 3;
-        }.bind(this));
+        this.currentSong.addEventListener('timeupdate', this.notifyTimeUpdateListeners.bind(this));
+//        this.currentSong.addEventListener('canPlayThrough', function(){
+//               log('canPlayThrough');
+//               this.currentSong.currentTime += 3;
+//        }.bind(this));
 
         this.isSongCurrentlyPlaying = true;
         this.notifyPlayListeners();
@@ -12608,6 +12610,10 @@ define('lib/models/MusicPlayer',[
         this.onProgressListeners.push(callback);
     };
 
+    MusicPlayer.prototype.onTimeUpdate = function(callback){
+        this.onTimeUpdateListeners.push(callback);
+    };
+
     MusicPlayer.prototype.notifyPlayListeners = function(){
         for(var i=0; i < this.onPlayListeners.length; ++i){
             var listener = this.onPlayListeners[i];
@@ -12631,6 +12637,29 @@ define('lib/models/MusicPlayer',[
             var listener = this.onStopListeners[i];
             if(typeof listener === 'function'){
                 listener(); //todo, pass song info
+            }
+        }
+    };
+
+    //will only fire once a second
+    MusicPlayer.prototype.notifyTimeUpdateListeners = function(){
+        //log(''+this.currentSong.currentTime);
+        if(this.currentSong.lastTime){
+            if(this.currentSong.currentTime - 1 < this.currentSong.lastTime){
+                //log('not notifying because a second hasnt passed');
+                return;
+            }
+        }
+        this.currentSong.lastTime = this.currentSong.currentTime;
+        var data = {
+            currentTime : this.currentSong.currentTime,
+            progressPercent: Math.floor((100 / this.currentSong.duration) * this.currentSong.currentTime)
+        };
+
+        for(var i=0; i < this.onTimeUpdateListeners.length; ++i){
+            var listener = this.onTimeUpdateListeners[i];
+            if(typeof listener === 'function'){
+                listener(data);
             }
         }
     };
@@ -13231,7 +13260,7 @@ templates['songControlsTemplate'] = template(function (Handlebars,depth0,helpers
   var foundHelper, self=this;
 
 
-  return "<ul>\n    <li id=\"previousButton\">Previous</li>\n    <li id=\"startPauseButton\">Start</li>\n    <li id=\"nextButton\">Next</li>\n</ul>";}); 
+  return "<div class=\"song-controls\">\n    <div id=\"previousButton\">Previous</div>\n    <div id=\"startPauseButton\">Start</div>\n    <div id=\"nextButton\">Next</div>\n    <div id=\"progressBar\">\n        <div id=\"progressBarInner\">&nbsp;</div>\n    </div>\n</div>";}); 
 Handlebars.registerPartial("songControlsTemplate", templates["songControlsTemplate"]); 
 return templates["songControlsTemplate"]; 
 });
@@ -13245,6 +13274,8 @@ define('lib/widgets/SongControls',[
         template: songControlsTemplate,
         initialize : function(){
             core.log('SongControls widget initialized');
+
+            musicPlayer.onTimeUpdate(this.updateProgressBar.bind(this));
         },
         events:{
             'click #startPauseButton' : function(e){
@@ -13264,6 +13295,11 @@ define('lib/widgets/SongControls',[
                 core.log('previous button clicked');
                 musicPlayer.playPreviousSong();
             }
+        },
+        updateProgressBar: function(data){
+            //core.log('onTimeUpdate');
+            this.$el.find('#progressBarInner')
+                .css('width', data.progressPercent+'%');
         }
     });
 
@@ -13277,7 +13313,7 @@ templates['headerTemplate'] = template(function (Handlebars,depth0,helpers,parti
   var foundHelper, self=this;
 
 
-  return "<div id=\"navbar\">\n    <div id=\"menuCollapsed\">\n        <img id=\"menuButton\" alt=\"menu button\" src=\"images/menu-button.png\">\n    </div>\n</div>\n<div id=\"menuExpanded\">\n    <div id=\"songControlsWidget\"></div>\n</div>";}); 
+  return "<div id=\"navbar\">\n    <div id=\"menuCollapsed\">\n        <img id=\"menuButton\" alt=\"menu button\" src=\"images/menu-button.png\">\n        <div id=\"songControlsWidget\"></div>\n    </div>\n\n</div>\n<div id=\"menuExpanded\">\n    <ul>\n        <li><a href=\"/#artists\">Artists</a></li>\n        <li><a href=\"/#artists\">Songs</a></li>\n    </ul>\n</div>";}); 
 Handlebars.registerPartial("headerTemplate", templates["headerTemplate"]); 
 return templates["headerTemplate"]; 
 });
