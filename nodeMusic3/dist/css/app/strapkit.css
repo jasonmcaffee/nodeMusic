@@ -5,6 +5,10 @@ html, body {
   font-family: Helvetica, Arial, sans-serif;
   height: 100%; }
 
+body {
+  background: url(../images/background-ocean.png) no-repeat fixed center top #173f5d;
+  background-size: 100% 100%; }
+
 .background {
   position: fixed;
   top: -50%;

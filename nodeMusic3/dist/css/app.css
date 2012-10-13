@@ -728,6 +728,9 @@ dl {
     -webkit-overflow-scrolling: touch;
     height: 100%; }
 
+::-webkit-scrollbar {
+  width: 0px; }
+
 .transparent-black {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.18)), color-stop(50%, rgba(109, 109, 109, 0.18)), color-stop(100%, rgba(5, 5, 5, 0.18)));
@@ -2246,6 +2249,10 @@ html, body {
   margin: 0;
   font-family: Helvetica, Arial, sans-serif;
   height: 100%; }
+
+body {
+  background: url(../images/background-ocean.png) no-repeat fixed center top #173f5d;
+  background-size: 100% 100%; }
 
 .background {
   position: fixed;

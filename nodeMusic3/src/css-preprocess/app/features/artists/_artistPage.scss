@@ -3,10 +3,18 @@
     height:100%;
 
   #artistsGridWidget{
-    //works well on ios and android. chrome paints are a little slow.
+    //works well on ios and android 4. chrome paints are a little slow.
+    //terrible on android 2.3
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
     height:100%;
+
+
   }
+}
+
+//fixes extra scrollbar on desktop
+::-webkit-scrollbar {
+  width: 0px;
 }
 
