@@ -257,7 +257,7 @@
 *   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
 *   http://yuilibrary.com/yui/docs/cssgrids/
 */
-.inline-block-grid, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl {
+.inline-block-grid, #navbar #menuCollapsed, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl, .song-controls {
   letter-spacing: -0.31em;
   /* webkit: collapse white-space between units */
   *letter-spacing: normal;
@@ -265,7 +265,7 @@
   word-spacing: -0.43em;
   /* IE < 8 && gecko: collapse white-space between units */ }
 
-.inline-block-grid-cell, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt {
+.inline-block-grid-cell, #navbar #menuCollapsed #menuButtonContainer, #navbar #menuCollapsed #songControlsWidget, #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -1017,6 +1017,85 @@ dl {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px; }
 
+/*
+*   The inline block grid provides the ability to use display:inline-block, without the negative side effects that occur
+*   when applying to a ul, dl, etc. (Typically there is spacing that occurs between lis when displayed side by side)
+*   after trying each possibility proposed in the below article, we have found that the YUI Grid System is the best.
+*
+*   Each direct child element of the grid should have the .inline-block-grid-item class applied.
+*
+*   All you have to do to control positioning is adjust the widths of the inline-block-grid-cells.
+*   The display:block will trigger when items are pushed over more than 100%.
+*   e.g. if you have 3 cells in your grid, and you set cell 1 width to 50%, and cell 2's width to 50%, cell 3 will get
+*   pushed down to a new row.
+*
+*   Limits:
+*   - rearranging of cells is restricted to stacking on top of each other. (e.g. you can't move cell 5 to be on top of cell 1)
+*   - media queries are intentionally left out so you can compose your own using the mq mixin
+*
+*   Sources:
+*   http://css-tricks.com/fighting-the-space-between-inline-block-elements/
+*   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
+*   http://yuilibrary.com/yui/docs/cssgrids/
+*/
+.inline-block-grid, #navbar #menuCollapsed, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl, .song-controls {
+  letter-spacing: -0.31em;
+  /* webkit: collapse white-space between units */
+  *letter-spacing: normal;
+  /* reset IE < 8 */
+  word-spacing: -0.43em;
+  /* IE < 8 && gecko: collapse white-space between units */ }
+
+.inline-block-grid-cell, #navbar #menuCollapsed #menuButtonContainer, #navbar #menuCollapsed #songControlsWidget, #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8: fake inline-block */
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top; }
+
+/*
+* Flex box is a powerful grid type which allows you to dynamically rearrange cells in the grid, in any order you choose, using css alone.
+* e.g. if you have 3 cells in your grid, you could use a media-query for small devices, and have the order rearranged so
+* that cell 3 was stacked on top of cell 1, and cell 1 stacked on cell 2.
+*
+* Equal column heights - all flexbox elements inherit a default value of box-align: stretch. This means they will all stretch to fill their container.
+*
+* Limits:
+* - ie9 and Opera not supported. may need polyfill if possible. todo: research polyfill...
+*
+* Sources:
+* - http://caniuse.com/#search=flexbox
+* - http://www.html5rocks.com/en/tutorials/flexbox/quick/
+* - http://www.w3.org/TR/css3-flexbox/
+* - http://blog.isotoma.com/2010/08/css3-flexbox/
+* - http://coding.smashingmagazine.com/2011/09/19/css3-flexible-box-layout-explained/
+*/
+.flex-box-grid, #responsive-page-flex-box #masterDetailListsGrid2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li dl {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box; }
+
+/**
+* Simply put, it tells the browser how to resize an element when the element is too big or small for its parent.
+* box-flex mixin for vendor prefixes.
+* @param - $flex - what you want to set for box-flex: $flex;
+*/
+/**
+* The box-orient property defines how boxes align within their parent. The default state is horizontal or, more specifically,
+* inline-axis, which is horizontal and left-to-right in most Western cultures. Likewise, vertical is the same as block-axis.
+* This will make sense if you think about how the browser lays out inline and block elements.
+* You can change the box-orient value to vertical to make boxes stack on top of each other.
+* @param - $orientation - horizontal, vertical
+*/
+/**
+* box-pack mixin for vendor prefixes.
+* @param - $pack - center
+*/
+/**
+*  box-align: center;
+*/
 #navbar {
   position: fixed;
   height: 50px;
@@ -1040,15 +1119,14 @@ dl {
   -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.52);
   -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.52);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.52); }
-
-#menuCollapsed {
-  display: none; }
-
-#menuExpanded {
-  top: 0;
-  left: 0;
-  z-index: 6;
-  position: fixed; }
+  #navbar #menuCollapsed {
+    display: none;
+    height: 100%; }
+  #navbar #menuExpanded {
+    top: 0;
+    left: 0;
+    z-index: 6;
+    position: fixed; }
 
 #menuExpanded ul {
   height: 100%;
@@ -1086,18 +1164,23 @@ dl {
 /* tablet portrait and below //@media (max-width:989px){ */
 @media only screen and (max-width: 989px) {
   #menuCollapsed {
-    display: block;
-    height: 100%; }
-    #menuCollapsed #menuButton {
-      display: inline-block;
-      position: relative;
-      height: 100%; }
+    display: block !important; }
+    #menuCollapsed #menuButtonContainer {
+      width: 10%;
+      min-width: 50px;
+      heigth: 100%; }
+      #menuCollapsed #menuButtonContainer #menuButton {
+        height: 100%; }
     #menuCollapsed #songControlsWidget {
-      display: inline-block;
       position: relative;
-      width: 50%;
+      width: 75%;
       text-align: right;
-      height: 100%; }
+      height: 100%;
+      vertical-align: top; }
+    #menuCollapsed #grabber {
+      background-color: blue;
+      height: 100%;
+      width: 10%; }
 
   .menu-expanded-shown {
     display: block !important;
@@ -1652,7 +1735,7 @@ dl {
 *   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
 *   http://yuilibrary.com/yui/docs/cssgrids/
 */
-.inline-block-grid, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl {
+.inline-block-grid, #navbar #menuCollapsed, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl, .song-controls {
   letter-spacing: -0.31em;
   /* webkit: collapse white-space between units */
   *letter-spacing: normal;
@@ -1660,7 +1743,7 @@ dl {
   word-spacing: -0.43em;
   /* IE < 8 && gecko: collapse white-space between units */ }
 
-.inline-block-grid-cell, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt {
+.inline-block-grid-cell, #navbar #menuCollapsed #menuButtonContainer, #navbar #menuCollapsed #songControlsWidget, #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -2275,7 +2358,7 @@ If performance or maintenance becomes a problem, simply change the selector.
 *   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
 *   http://yuilibrary.com/yui/docs/cssgrids/
 */
-.inline-block-grid, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl {
+.inline-block-grid, #navbar #menuCollapsed, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl, .song-controls {
   letter-spacing: -0.31em;
   /* webkit: collapse white-space between units */
   *letter-spacing: normal;
@@ -2283,7 +2366,7 @@ If performance or maintenance becomes a problem, simply change the selector.
   word-spacing: -0.43em;
   /* IE < 8 && gecko: collapse white-space between units */ }
 
-.inline-block-grid-cell, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt {
+.inline-block-grid-cell, #navbar #menuCollapsed #menuButtonContainer, #navbar #menuCollapsed #songControlsWidget, #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -2582,20 +2665,104 @@ body {
   background: linear-gradient(to bottom, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); }
 
+/*
+*   The inline block grid provides the ability to use display:inline-block, without the negative side effects that occur
+*   when applying to a ul, dl, etc. (Typically there is spacing that occurs between lis when displayed side by side)
+*   after trying each possibility proposed in the below article, we have found that the YUI Grid System is the best.
+*
+*   Each direct child element of the grid should have the .inline-block-grid-item class applied.
+*
+*   All you have to do to control positioning is adjust the widths of the inline-block-grid-cells.
+*   The display:block will trigger when items are pushed over more than 100%.
+*   e.g. if you have 3 cells in your grid, and you set cell 1 width to 50%, and cell 2's width to 50%, cell 3 will get
+*   pushed down to a new row.
+*
+*   Limits:
+*   - rearranging of cells is restricted to stacking on top of each other. (e.g. you can't move cell 5 to be on top of cell 1)
+*   - media queries are intentionally left out so you can compose your own using the mq mixin
+*
+*   Sources:
+*   http://css-tricks.com/fighting-the-space-between-inline-block-elements/
+*   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
+*   http://yuilibrary.com/yui/docs/cssgrids/
+*/
+.inline-block-grid, #navbar #menuCollapsed, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl, .song-controls {
+  letter-spacing: -0.31em;
+  /* webkit: collapse white-space between units */
+  *letter-spacing: normal;
+  /* reset IE < 8 */
+  word-spacing: -0.43em;
+  /* IE < 8 && gecko: collapse white-space between units */ }
+
+.inline-block-grid-cell, #navbar #menuCollapsed #menuButtonContainer, #navbar #menuCollapsed #songControlsWidget, #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  /* IE < 8: fake inline-block */
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top; }
+
+/*
+* Flex box is a powerful grid type which allows you to dynamically rearrange cells in the grid, in any order you choose, using css alone.
+* e.g. if you have 3 cells in your grid, you could use a media-query for small devices, and have the order rearranged so
+* that cell 3 was stacked on top of cell 1, and cell 1 stacked on cell 2.
+*
+* Equal column heights - all flexbox elements inherit a default value of box-align: stretch. This means they will all stretch to fill their container.
+*
+* Limits:
+* - ie9 and Opera not supported. may need polyfill if possible. todo: research polyfill...
+*
+* Sources:
+* - http://caniuse.com/#search=flexbox
+* - http://www.html5rocks.com/en/tutorials/flexbox/quick/
+* - http://www.w3.org/TR/css3-flexbox/
+* - http://blog.isotoma.com/2010/08/css3-flexbox/
+* - http://coding.smashingmagazine.com/2011/09/19/css3-flexible-box-layout-explained/
+*/
+.flex-box-grid, #responsive-page-flex-box #masterDetailListsGrid2, #responsive-page-flex-box #masterDetailListsGrid2 #detailList2 li dl {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box; }
+
+/**
+* Simply put, it tells the browser how to resize an element when the element is too big or small for its parent.
+* box-flex mixin for vendor prefixes.
+* @param - $flex - what you want to set for box-flex: $flex;
+*/
+/**
+* The box-orient property defines how boxes align within their parent. The default state is horizontal or, more specifically,
+* inline-axis, which is horizontal and left-to-right in most Western cultures. Likewise, vertical is the same as block-axis.
+* This will make sense if you think about how the browser lays out inline and block elements.
+* You can change the box-orient value to vertical to make boxes stack on top of each other.
+* @param - $orientation - horizontal, vertical
+*/
+/**
+* box-pack mixin for vendor prefixes.
+* @param - $pack - center
+*/
+/**
+*  box-align: center;
+*/
 .song-controls {
   width: 100%;
   height: 100%; }
   .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton {
     background-color: #008000;
     display: inline-block;
-    padding: 3%; }
+    padding: 3%;
+    height: 90%; }
   .song-controls #previousButton {
-    width: 20%; }
+    width: 33.33%; }
   .song-controls #startPauseButton {
-    width: 20%; }
+    width: 33.33%; }
   .song-controls #nextButton {
-    width: 20%; }
+    width: 33.33%; }
   .song-controls #progressBar {
-    width: 35%;
+    width: 100%;
     background-color: black;
-    display: inline-block; }
+    display: inline-block;
+    height: 10%;
+    vertical-align: top; }
+    .song-controls #progressBar #progressBarInner {
+      height: 100%; }

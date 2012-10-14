@@ -5,6 +5,7 @@ define([
     'jquery'
 ], function(core, songControlsTemplate, musicPlayer, $){
     var view = core.mvc.View.extend({
+        className:'song-controls',
         template: songControlsTemplate,
         initialize : function(){
             core.log('SongControls widget initialized');

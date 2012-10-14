@@ -61,6 +61,7 @@ define([
             this.playSong(1);
         }else{
             this.currentSong.play();
+            this.isSongCurrentlyPlaying = true;
         }
 
     };

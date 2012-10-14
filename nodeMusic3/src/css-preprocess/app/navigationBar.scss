@@ -2,6 +2,7 @@
 @import "src/css-preprocess/core/media-queries";
 @import "src/css-preprocess/core/colors";
 @import "src/css-preprocess/core/rounded-corners";
+@import "src/css-preprocess/core/grids";
 
 //dont use visibility:hidden on menuExpanded. on android 4 there is an issue: menu won't completely dissapear on click. fragment at bottom still remains visible.
 #navbar{
@@ -33,22 +34,40 @@
   box-shadow: 0 4px 8px rgba(0,0,0,.52);
 
   @extend .transparent-black-2;
+
+  #menuCollapsed{
+    display: none;
+    @extend .inline-block-grid;
+    height:100%;
+
+    #menuButtonContainer{
+      @extend .inline-block-grid-cell;
+
+      #menuButton{
+
+      }
+    }
+
+    #songControlsWidget{
+      @extend .inline-block-grid-cell;
+    }
+
+    #grabber{
+      @extend .inline-block-grid-cell;
+    }
+  }
+
+  #menuExpanded{
+    //margin-top:-50px;
+    top:0;
+    left:0;
+    z-index: 6;
+    position:fixed; //this breaks android 2.3 transform on this element.
+
+  }
 }
 
-#menuCollapsed{
-  display: none;
 
-  //visibility: hidden;
-}
-
-#menuExpanded{
-  //margin-top:-50px;
-  top:0;
-  left:0;
-  z-index: 6;
-  position:fixed; //this breaks android 2.3 transform on this element.
-
-}
 
 //menu container - general (there are 2 uls in nav bar currently)
 #menuExpanded ul{
@@ -121,27 +140,44 @@
 
 @include mq(medium-and-below) {
     #menuCollapsed{
-        display: block;
-        //visibility: visible;
-        //float:right;
-        height:100%;
 
-      #menuButton{
-        display: inline-block;
-        position:relative;
-        height:100%;
+      display: block !important;
+
+      #menuButtonContainer{
+        //@extend .inline-block-grid-cell;
+        //display: inline-block;
+        width:10%;
+        min-width: 50px; //keep the song controls from overlapping.
+        //position:relative;
+        heigth: 100%;
+
+        #menuButton{
+          //position:relative;
+          height:100%;
+        }
       }
+
       #songControlsWidget{
-        display: inline-block;
+        //@extend .inline-block-grid-cell;
+        //display: inline-block;
         position:relative;
-        width: 50%;
+        width: 75%;
         //vertical-align: middle;
         text-align: right;
         height:100%;
-
+        vertical-align: top;
       }
-        //vertical-align: top;
+
+      #grabber{
+       // @extend .inline-block-grid-cell;
+        //display:inline-block;
+        background-color: blue;
+        height:100%;
+        width:10%;
+      }
     }
+
+
     .menu-expanded-shown{
       display: block !important; //must override #menu... id selector as it has priority
       margin-left:-5px;//fix android 2.3

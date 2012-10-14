@@ -12540,6 +12540,7 @@ define('lib/models/MusicPlayer',[
             this.playSong(1);
         }else{
             this.currentSong.play();
+            this.isSongCurrentlyPlaying = true;
         }
 
     };
@@ -13260,7 +13261,7 @@ templates['songControlsTemplate'] = template(function (Handlebars,depth0,helpers
   var foundHelper, self=this;
 
 
-  return "<div class=\"song-controls\">\n    <div id=\"previousButton\">Previous</div>\n    <div id=\"startPauseButton\">Start</div>\n    <div id=\"nextButton\">Next</div>\n    <div id=\"progressBar\">\n        <div id=\"progressBarInner\">&nbsp;</div>\n    </div>\n</div>";}); 
+  return "\n    <div id=\"previousButton\">Previous</div>\n    <div id=\"startPauseButton\">Start</div>\n    <div id=\"nextButton\">Next</div>\n    <div id=\"progressBar\">\n        <div id=\"progressBarInner\">&nbsp;</div>\n    </div>";}); 
 Handlebars.registerPartial("songControlsTemplate", templates["songControlsTemplate"]); 
 return templates["songControlsTemplate"]; 
 });
@@ -13271,6 +13272,7 @@ define('lib/widgets/SongControls',[
     'jquery'
 ], function(core, songControlsTemplate, musicPlayer, $){
     var view = core.mvc.View.extend({
+        className:'song-controls',
         template: songControlsTemplate,
         initialize : function(){
             core.log('SongControls widget initialized');
@@ -13313,7 +13315,7 @@ templates['headerTemplate'] = template(function (Handlebars,depth0,helpers,parti
   var foundHelper, self=this;
 
 
-  return "<div id=\"navbar\">\n    <div id=\"menuCollapsed\">\n        <img id=\"menuButton\" alt=\"menu button\" src=\"images/menu-button.png\">\n        <div id=\"songControlsWidget\"></div>\n    </div>\n\n</div>\n<div id=\"menuExpanded\">\n    <ul>\n        <li><a href=\"/#artists\">Artists</a></li>\n        <li><a href=\"/#artists\">Songs</a></li>\n    </ul>\n</div>";}); 
+  return "<div id=\"navbar\">\n    <div id=\"menuCollapsed\">\n        <div id=\"menuButtonContainer\">\n            <img id=\"menuButton\" alt=\"menu button\" src=\"images/menu-button.png\">\n        </div>\n        <div id=\"songControlsWidget\"></div>\n\n        <div id=\"grabber\">:::</div>\n    </div>\n</div>\n\n<div id=\"menuExpanded\">\n    <ul>\n        <li><a href=\"/#artists\">Artists</a></li>\n        <li><a href=\"/#artists\">Songs</a></li>\n    </ul>\n</div>";}); 
 Handlebars.registerPartial("headerTemplate", templates["headerTemplate"]); 
 return templates["headerTemplate"]; 
 });
