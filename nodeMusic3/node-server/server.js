@@ -7,6 +7,10 @@ var fs = require('fs');
 var musicItemRepository = require('./lib/musicItemRepository.js').musicItemRepository;//fetching files
 var musicItemsViewModelFactory = require('./lib/musicItemsViewModel').musicItemsViewModelFactory;
 
+var wurfl = require('wurfl');
+wurfl.loadSync();
+
+
 //create the app server
 var app = express();//express.createServer();
 
@@ -62,15 +66,19 @@ musicItemRepository.getMusicItems(function(musicItems){
     console.log('getMusicItems callback');
     //viewModel = musicItemsViewModelFactory.createViewModel(musicItems);
     viewModel = musicItemsViewModelFactory.createArtistViewModel(musicItems);
-    console.log('testing : ' + viewModel.viewModel.artists['air'].albums['2006 - late night tales'].songs.length);
-    var air = JSON.stringify(viewModel.viewModel.artists['air']);
-    console.log(air);
+    //console.log('testing : ' + viewModel.viewModel.artists['air'].albums['2006 - late night tales'].songs.length);
+    //var air = JSON.stringify(viewModel.viewModel.artists['air']);
+    //console.log(air);
 });
 
 //server response functions =====================================================================================================
 app.get('/', function(req,res){
-    //var userAgent = 'Mozilla/4.0 (compatible; MSIE 4.01; Windows CE; O2 Xda 2s;PPC;240x320; PPC; 240x320)';// req.headers['user-agent'];
-    //var deviceInfo = wurfl.get(userAgent);
+
+    var userAgent = req.headers['user-agent'];
+    console.log('user agent: ' + userAgent);
+    var deviceInfo = wurfl.get(userAgent);
+    //console.log(deviceInfo.product_info.model_name);
+    console.log(JSON.stringify(deviceInfo));
     console.log('node music 3 home');
 
     res.render(config.viewsDirectory + 'index.html', viewModel);

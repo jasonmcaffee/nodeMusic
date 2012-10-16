@@ -15,6 +15,10 @@ define([
             'click #menuButton' : function(e){
                 core.log('menuButton clicked');
                 this.$el.find('#menuExpanded').toggle();
+            },
+            'tap #grabber' : function(e){
+                core.log('grabber clicked');
+                this.$el.find('#navbar').toggleClass('navbar-expanded');
             }
         }
     });

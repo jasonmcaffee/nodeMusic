@@ -126,6 +126,9 @@ module.exports = function(grunt) {
                 },
                 'jquery':{
                     exports: '$'
+                },
+                'modernizer':{
+                    exports: 'Modernizr'
                 }
             }
         };

@@ -4,13 +4,18 @@
 
 
   #artistsGridWidget{
-    //works well on ios and android 4. chrome paints are a little slow.
-    //terrible on android 2.3
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
     height:100%;
+  }
+}
 
-
+.overflowscrolling {
+  .artist-page{
+    #artistsGridWidget{
+      //works well on ios and android 4. chrome paints are a little slow.
+      //terrible on android 2.3
+      overflow: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
   }
 }
 

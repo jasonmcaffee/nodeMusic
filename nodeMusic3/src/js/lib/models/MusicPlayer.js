@@ -17,6 +17,7 @@ define([
         this.onProgressListeners = [];
         this.onTimeUpdateListeners = [];
         this.isSongCurrentlyPlaying = false;
+        this.currentSongId = 0;
     }
 
 
@@ -73,8 +74,11 @@ define([
 
     MusicPlayer.prototype.playPreviousSong = function(){
         log('play previous song called');
-        log('song has ended. playing next song');
+
         this.notifyStopListeners();
+
+        if(this.currentSongId < 1){return;}
+
         this.playSong(--this.currentSongId);
 
     };

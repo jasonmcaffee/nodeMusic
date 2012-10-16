@@ -20,7 +20,7 @@ define([
         log('app constructor called.');
 
         //load plugins, etc
-        core.initPlugins();
+        core.init();
 
         var self = this;
         //make everything easier to manage by waiting until dom ready to create controllers

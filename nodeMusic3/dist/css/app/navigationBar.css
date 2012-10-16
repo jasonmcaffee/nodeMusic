@@ -305,13 +305,34 @@
 /**
 *  box-align: center;
 */
+.speed, .navbar-expanded {
+  transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  /* IE 9 */
+  -webkit-transform: translate(0px, 0px);
+  /* Safari and Chrome */
+  -o-transform: translate(0px, 0px);
+  /* Opera */
+  -moz-transform: translate(0px, 0px);
+  /* Firefox */ }
+
+.navbar-expanded {
+  top: 0px !important; }
+
 #navbar {
   position: fixed;
-  height: 50px;
+  height: 150px;
   z-index: 5;
-  top: 0;
+  top: -100px;
   left: 0;
   width: 100%;
+  transition: all .2s;
+  -moz-transition: all .2s;
+  /* Firefox 4 */
+  -webkit-transition: all .2s;
+  /* Safari and Chrome */
+  -o-transition: all .2s;
+  /* Opera */
   border: none 5px #000000;
   -moz-border-radius-topleft: 0px;
   -moz-border-radius-topright: 0px;
@@ -328,9 +349,12 @@
   -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.52);
   -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.52);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.52); }
+  #navbar #expandedNavBar {
+    height: 100px; }
   #navbar #menuCollapsed {
     display: none;
-    height: 100%; }
+    height: 50px;
+    vertical-align: bottom; }
   #navbar #menuExpanded {
     top: 0;
     left: 0;
@@ -382,14 +406,14 @@
         height: 100%; }
     #menuCollapsed #songControlsWidget {
       position: relative;
-      width: 75%;
+      width: 65%;
       text-align: right;
       height: 100%;
       vertical-align: top; }
     #menuCollapsed #grabber {
       background-color: blue;
       height: 100%;
-      width: 10%; }
+      width: 20%; }
 
   .menu-expanded-shown {
     display: block !important;

@@ -3,15 +3,32 @@
 @import "src/css-preprocess/core/colors";
 @import "src/css-preprocess/core/rounded-corners";
 @import "src/css-preprocess/core/grids";
+@import "src/css-preprocess/util/speed";
 
 //dont use visibility:hidden on menuExpanded. on android 4 there is an issue: menu won't completely dissapear on click. fragment at bottom still remains visible.
+.navbar-expanded{
+  //height:200px !important;
+  top:0px !important;
+  @extend .speed;
+  //has weird effects (scrolling items gone on ios)
+  //-webkit-transform: translateY(100px);
+  //-moz-transform: translateY(100px);
+  //-ms-transform: translateY(100px);
+  //transform: translateY(100px);
+}
 #navbar{
   position:fixed;
-  height: 50px;
+  height: 150px;
   z-index: 5;
-  top:0; //needed for android 2.3
+  top:-100px; //needed for android 2.3
   left:0; //needed for android 2.3
   width:100%;
+
+  //@extend .speed;
+  transition: all .2s;
+  -moz-transition: all .2s; /* Firefox 4 */
+  -webkit-transition: all .2s; /* Safari and Chrome */
+  -o-transition: all .2s; /* Opera */
 
   //border
   border:none 5px #000000;
@@ -35,11 +52,15 @@
 
   @extend .transparent-black-2;
 
+  #expandedNavBar{
+    height:100px;
+  }
+
   #menuCollapsed{
     display: none;
     @extend .inline-block-grid;
-    height:100%;
-
+    height:50px;
+    vertical-align:bottom;
     #menuButtonContainer{
       @extend .inline-block-grid-cell;
 
@@ -161,7 +182,7 @@
         //@extend .inline-block-grid-cell;
         //display: inline-block;
         position:relative;
-        width: 75%;
+        width: 65%;
         //vertical-align: middle;
         text-align: right;
         height:100%;
@@ -173,7 +194,7 @@
         //display:inline-block;
         background-color: blue;
         height:100%;
-        width:10%;
+        width:20%;
       }
     }
 

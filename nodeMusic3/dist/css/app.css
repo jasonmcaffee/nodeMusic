@@ -572,7 +572,7 @@ dl {
 .fix-inline-block-spacing {
   margin-left: -4px; }
 
-.speed, #artistsGrid, #artistsGrid .artist-selected, #artistsGrid .album-selected, #artistsGrid ul, #artistsGrid ul > li, #artistsGrid ul > li:nth-child(even) {
+.speed, #artistsGrid, #artistsGrid .artist-selected, #artistsGrid .album-selected, #artistsGrid ul, #artistsGrid ul > li, #artistsGrid ul > li:nth-child(even), .navbar-expanded {
   transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
   /* IE 9 */
@@ -740,7 +740,7 @@ dl {
   background: linear-gradient(to bottom, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); }
 
-.speed, #artistsGrid, #artistsGrid .artist-selected, #artistsGrid .album-selected, #artistsGrid ul, #artistsGrid ul > li, #artistsGrid ul > li:nth-child(even) {
+.speed, #artistsGrid, #artistsGrid .artist-selected, #artistsGrid .album-selected, #artistsGrid ul, #artistsGrid ul > li, #artistsGrid ul > li:nth-child(even), .navbar-expanded {
   transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
   /* IE 9 */
@@ -785,9 +785,11 @@ dl {
 .artist-page {
   height: 100%; }
   .artist-page #artistsGridWidget {
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
     height: 100%; }
+
+.overflowscrolling .artist-page #artistsGridWidget {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch; }
 
 .transparent-black {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
@@ -1096,13 +1098,34 @@ dl {
 /**
 *  box-align: center;
 */
+.speed, #artistsGrid, #artistsGrid .artist-selected, #artistsGrid .album-selected, #artistsGrid ul, #artistsGrid ul > li, #artistsGrid ul > li:nth-child(even), .navbar-expanded {
+  transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  /* IE 9 */
+  -webkit-transform: translate(0px, 0px);
+  /* Safari and Chrome */
+  -o-transform: translate(0px, 0px);
+  /* Opera */
+  -moz-transform: translate(0px, 0px);
+  /* Firefox */ }
+
+.navbar-expanded {
+  top: 0px !important; }
+
 #navbar {
   position: fixed;
-  height: 50px;
+  height: 150px;
   z-index: 5;
-  top: 0;
+  top: -100px;
   left: 0;
   width: 100%;
+  transition: all .2s;
+  -moz-transition: all .2s;
+  /* Firefox 4 */
+  -webkit-transition: all .2s;
+  /* Safari and Chrome */
+  -o-transition: all .2s;
+  /* Opera */
   border: none 5px #000000;
   -moz-border-radius-topleft: 0px;
   -moz-border-radius-topright: 0px;
@@ -1119,9 +1142,12 @@ dl {
   -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.52);
   -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.52);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.52); }
+  #navbar #expandedNavBar {
+    height: 100px; }
   #navbar #menuCollapsed {
     display: none;
-    height: 100%; }
+    height: 50px;
+    vertical-align: bottom; }
   #navbar #menuExpanded {
     top: 0;
     left: 0;
@@ -1173,14 +1199,14 @@ dl {
         height: 100%; }
     #menuCollapsed #songControlsWidget {
       position: relative;
-      width: 75%;
+      width: 65%;
       text-align: right;
       height: 100%;
       vertical-align: top; }
     #menuCollapsed #grabber {
       background-color: blue;
       height: 100%;
-      width: 10%; }
+      width: 20%; }
 
   .menu-expanded-shown {
     display: block !important;
