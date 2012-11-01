@@ -13615,7 +13615,7 @@ templates['songControlsTemplate'] = template(function (Handlebars,depth0,helpers
   var foundHelper, self=this;
 
 
-  return "\n    <div id=\"previousButtonContainer\">\n        <img id=\"previousButton\" alt=\"previous button\" src=\"images/previous-button.png\">\n    </div>\n    <div id=\"playPauseButtonContainer\">\n        <img id=\"playButton\" alt=\"play button\" src=\"images/play-button.png\">\n        <img id=\"pauseButton\" alt=\"pause button\" src=\"images/pause-button.png\">\n    </div>\n    <div id=\"nextButtonContainer\">\n        <img id=\"nextButton\" alt=\"next button\" src=\"images/next-button.png\">\n    </div>\n    <div id=\"progressBar\">\n        <div id=\"progressBarInner\">&nbsp;</div>\n    </div>";}); 
+  return "\n    <div id=\"previousButtonContainer\">\n        <img id=\"previousButton\" alt=\"previous button\" src=\"images/previous-button.png\">\n    </div>\n    <div id=\"playPauseButtonContainer\">\n        <!--<img id=\"playButton\" alt=\"play button\" src=\"images/play-button.png\">-->\n        <!--<img id=\"pauseButton\" alt=\"pause button\" src=\"images/pause-button.png\">-->\n\n    </div>\n    <div id=\"nextButtonContainer\">\n        <img id=\"nextButton\" alt=\"next button\" src=\"images/next-button.png\">\n    </div>\n    <div id=\"progressBar\">\n        <div id=\"progressBarInner\">&nbsp;</div>\n    </div>";}); 
 Handlebars.registerPartial("songControlsTemplate", templates["songControlsTemplate"]); 
 return templates["songControlsTemplate"]; 
 });
@@ -13634,8 +13634,9 @@ define('lib/widgets/SongControls',[
             musicPlayer.onTimeUpdate(this.updateProgressBar.bind(this));
         },
         events:{
-            'click #startPauseButton' : function(e){
+            'click #playPauseButtonContainer' : function(e){
                 core.log('start button clicked');
+                $(e.currentTarget).toggleClass('hide-play-show-pause');
                 if(musicPlayer.isSongCurrentlyPlaying){
                     musicPlayer.stopSong();
                 } else{
@@ -13703,7 +13704,8 @@ define('lib/widgets/HeaderWidget',[
                 core.log('menuButton clicked');
                 this.$el.find('#menuExpanded').toggle();
             },
-            'click #grabber' : function(e){
+            //tap is significantly faster on android 2.2 and 2.3. not so much faster on android 4.
+            'tap #grabber' : function(e){
                 core.log('grabber clicked');
                 this.$el.find('#navbar').toggleClass('navbar-expanded');
             }

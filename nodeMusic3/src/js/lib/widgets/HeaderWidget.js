@@ -28,7 +28,8 @@ define([
                 core.log('menuButton clicked');
                 this.$el.find('#menuExpanded').toggle();
             },
-            'click #grabber' : function(e){
+            //tap is significantly faster on android 2.2 and 2.3. not so much faster on android 4.
+            'tap #grabber' : function(e){
                 core.log('grabber clicked');
                 this.$el.find('#navbar').toggleClass('navbar-expanded');
             }

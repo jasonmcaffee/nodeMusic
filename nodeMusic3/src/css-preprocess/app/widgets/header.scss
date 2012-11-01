@@ -14,8 +14,6 @@
   #navbar{
     //positioning
     position:relative;
-    //android 2.2 hates this. have to perform some other action for this to display.
-    //try position absolute
     top:-100px; //hide the navbarExpanded so it can expand down
 
     //sizing
@@ -30,6 +28,7 @@
     //color
     @extend .transparent-black-2;
 
+    //@extend .speed;  //no improvement
     //more items for searching, current item playing, etc.
     #expandedNavBar{
       width:100%;
@@ -182,10 +181,11 @@
 
 //when navbar is expanded or collapsed, this transition will be used.
 .navbar-transition{
-  //transition: all .2s;
-  //-moz-transition: all .2s; /* Firefox 4 */
-  //-webkit-transition: all .2s; /* Safari and Chrome */
-  //-o-transition: all .2s; /* Opera */
+  transition: all .2s;
+  -moz-transition: all .2s; /* Firefox 4 */
+  -webkit-transition: all .2s; /* Safari and Chrome */
+  -o-transition: all .2s; /* Opera */
+  //@extend .speed; //no improvement
 }
 
 //rounded corners on bottom of navbar

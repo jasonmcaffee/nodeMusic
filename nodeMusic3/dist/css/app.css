@@ -1187,6 +1187,15 @@ dl {
   #header .menu-expanded-shown {
     display: block !important; }
 
+.navbar-transition, #header #navbar {
+  transition: all .2s;
+  -moz-transition: all .2s;
+  /* Firefox 4 */
+  -webkit-transition: all .2s;
+  /* Safari and Chrome */
+  -o-transition: all .2s;
+  /* Opera */ }
+
 .bottom-border-radius-5, #header #navbar {
   border: none 5px #000000;
   -moz-border-radius-topleft: 0px;
@@ -2725,12 +2734,13 @@ html, body {
     .song-controls #previousButtonContainer #previousButton {
       height: 100%; }
   .song-controls #playPauseButtonContainer {
-    width: 33.33%; }
-    .song-controls #playPauseButtonContainer #playButton {
-      height: 100%; }
-    .song-controls #playPauseButtonContainer #pauseButton {
-      display: none;
-      height: 100%; }
+    width: 33.33%;
+    background-image: url("../images/play-button.png");
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .song-controls .hide-play-show-pause {
+    background-image: url("../images/pause-button.png") !important; }
   .song-controls #nextButtonContainer {
     width: 33.33%; }
     .song-controls #nextButtonContainer #nextButton {

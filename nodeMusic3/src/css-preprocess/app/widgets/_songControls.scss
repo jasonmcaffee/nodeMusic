@@ -29,15 +29,22 @@
   #playPauseButtonContainer{
     @extend .button;
     width:33.33%;
-    #playButton{
-      height:100%;
-    }
-    #pauseButton{
-      display:none;
-      height:100%;
-    }
+    //#playButton{
+    //  height:100%;
+    //}
+    //#pauseButton{
+    //  display:none;
+    //  height:100%;
+    //}
+    background-image: url('../images/play-button.png');
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
+  .hide-play-show-pause{
+    background-image: url('../images/pause-button.png') !important;
+  }
   #nextButtonContainer{
     @extend .button;
     width:33.33%;

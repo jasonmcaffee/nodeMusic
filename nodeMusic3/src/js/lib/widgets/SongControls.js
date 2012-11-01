@@ -13,8 +13,9 @@ define([
             musicPlayer.onTimeUpdate(this.updateProgressBar.bind(this));
         },
         events:{
-            'click #startPauseButton' : function(e){
+            'click #playPauseButtonContainer' : function(e){
                 core.log('start button clicked');
+                $(e.currentTarget).toggleClass('hide-play-show-pause');
                 if(musicPlayer.isSongCurrentlyPlaying){
                     musicPlayer.stopSong();
                 } else{
