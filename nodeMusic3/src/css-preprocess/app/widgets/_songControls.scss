@@ -10,26 +10,40 @@
 
   .button{
     //line-height: 13px;
-    background-color: #008000;
+    //background-color: #008000;
     display: inline-block;
-    padding: 3%;
+    text-align: center;
+    //padding: 3%;
     height: 90%;
     @extend .inline-block-grid-cell;
   }
 
-  #previousButton{
+  #previousButtonContainer{
     @extend .button;
     width:33.33%;
+    #previousButton{
+      height:100%;
+    }
   }
 
-  #startPauseButton{
+  #playPauseButtonContainer{
     @extend .button;
     width:33.33%;
+    #playButton{
+      height:100%;
+    }
+    #pauseButton{
+      display:none;
+      height:100%;
+    }
   }
 
-  #nextButton{
+  #nextButtonContainer{
     @extend .button;
     width:33.33%;
+    #nextButton{
+      height:100%;
+    }
   }
 
   #progressBar{

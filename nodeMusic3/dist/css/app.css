@@ -265,7 +265,7 @@
   word-spacing: -0.43em;
   /* IE < 8 && gecko: collapse white-space between units */ }
 
-.inline-block-grid-cell, #header #navbar #menuCollapsed #menuButtonContainer, #header #navbar #menuCollapsed #songControlsWidget, #header #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
+.inline-block-grid-cell, #header #navbar #menuCollapsed #menuButtonContainer, #header #navbar #menuCollapsed #songControlsWidget, #header #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButtonContainer, .song-controls #playPauseButtonContainer, .song-controls #nextButtonContainer, .song-controls #progressBar {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -1040,7 +1040,7 @@ dl {
   word-spacing: -0.43em;
   /* IE < 8 && gecko: collapse white-space between units */ }
 
-.inline-block-grid-cell, #header #navbar #menuCollapsed #menuButtonContainer, #header #navbar #menuCollapsed #songControlsWidget, #header #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
+.inline-block-grid-cell, #header #navbar #menuCollapsed #menuButtonContainer, #header #navbar #menuCollapsed #songControlsWidget, #header #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButtonContainer, .song-controls #playPauseButtonContainer, .song-controls #nextButtonContainer, .song-controls #progressBar {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -1105,9 +1105,10 @@ dl {
   width: 100%;
   z-index: 5; }
   #header #navbar {
+    position: relative;
+    top: -100px;
     height: 150px;
-    width: 100%;
-    position: relative; }
+    width: 100%; }
     #header #navbar #expandedNavBar {
       width: 100%; }
       #header #navbar #expandedNavBar #search {
@@ -1139,6 +1140,14 @@ dl {
         text-align: right;
         height: 100%;
         vertical-align: top; }
+      #header #navbar #menuCollapsed #grabber {
+        text-align: right;
+        position: relative;
+        width: 20%; }
+        #header #navbar #menuCollapsed #grabber #grabberButton {
+          height: 100%; }
+  #header .navbar-expanded {
+    top: 0px !important; }
   #header #menuExpanded {
     display: none;
     top: 0;
@@ -1177,15 +1186,6 @@ dl {
           padding-left: 20px; }
   #header .menu-expanded-shown {
     display: block !important; }
-
-.navbar-transition, #header #navbar {
-  transition: all .2s;
-  -moz-transition: all .2s;
-  /* Firefox 4 */
-  -webkit-transition: all .2s;
-  /* Safari and Chrome */
-  -o-transition: all .2s;
-  /* Opera */ }
 
 .bottom-border-radius-5, #header #navbar {
   border: none 5px #000000;
@@ -1735,7 +1735,7 @@ dl {
   word-spacing: -0.43em;
   /* IE < 8 && gecko: collapse white-space between units */ }
 
-.inline-block-grid-cell, #header #navbar #menuCollapsed #menuButtonContainer, #header #navbar #menuCollapsed #songControlsWidget, #header #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
+.inline-block-grid-cell, #header #navbar #menuCollapsed #menuButtonContainer, #header #navbar #menuCollapsed #songControlsWidget, #header #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButtonContainer, .song-controls #playPauseButtonContainer, .song-controls #nextButtonContainer, .song-controls #progressBar {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -2358,7 +2358,7 @@ If performance or maintenance becomes a problem, simply change the selector.
   word-spacing: -0.43em;
   /* IE < 8 && gecko: collapse white-space between units */ }
 
-.inline-block-grid-cell, #header #navbar #menuCollapsed #menuButtonContainer, #header #navbar #menuCollapsed #songControlsWidget, #header #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
+.inline-block-grid-cell, #header #navbar #menuCollapsed #menuButtonContainer, #header #navbar #menuCollapsed #songControlsWidget, #header #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButtonContainer, .song-controls #playPauseButtonContainer, .song-controls #nextButtonContainer, .song-controls #progressBar {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -2663,7 +2663,7 @@ html, body {
   word-spacing: -0.43em;
   /* IE < 8 && gecko: collapse white-space between units */ }
 
-.inline-block-grid-cell, #header #navbar #menuCollapsed #menuButtonContainer, #header #navbar #menuCollapsed #songControlsWidget, #header #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
+.inline-block-grid-cell, #header #navbar #menuCollapsed #menuButtonContainer, #header #navbar #menuCollapsed #songControlsWidget, #header #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButtonContainer, .song-controls #playPauseButtonContainer, .song-controls #nextButtonContainer, .song-controls #progressBar {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -2716,17 +2716,25 @@ html, body {
 .song-controls {
   width: 100%;
   height: 100%; }
-  .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton {
-    background-color: #008000;
+  .song-controls .button, .song-controls #previousButtonContainer, .song-controls #playPauseButtonContainer, .song-controls #nextButtonContainer {
     display: inline-block;
-    padding: 3%;
+    text-align: center;
     height: 90%; }
-  .song-controls #previousButton {
+  .song-controls #previousButtonContainer {
     width: 33.33%; }
-  .song-controls #startPauseButton {
+    .song-controls #previousButtonContainer #previousButton {
+      height: 100%; }
+  .song-controls #playPauseButtonContainer {
     width: 33.33%; }
-  .song-controls #nextButton {
+    .song-controls #playPauseButtonContainer #playButton {
+      height: 100%; }
+    .song-controls #playPauseButtonContainer #pauseButton {
+      display: none;
+      height: 100%; }
+  .song-controls #nextButtonContainer {
     width: 33.33%; }
+    .song-controls #nextButtonContainer #nextButton {
+      height: 100%; }
   .song-controls #progressBar {
     width: 100%;
     background-color: black;

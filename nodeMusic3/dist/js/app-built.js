@@ -13615,7 +13615,7 @@ templates['songControlsTemplate'] = template(function (Handlebars,depth0,helpers
   var foundHelper, self=this;
 
 
-  return "\n    <div id=\"previousButton\">Previous</div>\n    <div id=\"startPauseButton\">Start</div>\n    <div id=\"nextButton\">Next</div>\n    <div id=\"progressBar\">\n        <div id=\"progressBarInner\">&nbsp;</div>\n    </div>";}); 
+  return "\n    <div id=\"previousButtonContainer\">\n        <img id=\"previousButton\" alt=\"previous button\" src=\"images/previous-button.png\">\n    </div>\n    <div id=\"playPauseButtonContainer\">\n        <img id=\"playButton\" alt=\"play button\" src=\"images/play-button.png\">\n        <img id=\"pauseButton\" alt=\"pause button\" src=\"images/pause-button.png\">\n    </div>\n    <div id=\"nextButtonContainer\">\n        <img id=\"nextButton\" alt=\"next button\" src=\"images/next-button.png\">\n    </div>\n    <div id=\"progressBar\">\n        <div id=\"progressBarInner\">&nbsp;</div>\n    </div>";}); 
 Handlebars.registerPartial("songControlsTemplate", templates["songControlsTemplate"]); 
 return templates["songControlsTemplate"]; 
 });
@@ -13669,7 +13669,7 @@ templates['headerTemplate'] = template(function (Handlebars,depth0,helpers,parti
   var foundHelper, self=this;
 
 
-  return "<div id=\"navbar\">\n\n    <div id=\"expandedNavBar\">\n        <label for=\"search\">search:</label>\n        <input id=\"search\" type=\"text\">\n\n        <div id=\"songInfo\">\n            <div id=\"currentArtist\">current artist</div>\n            <div id=\"currentSong\">current song</div>\n        </div>\n    </div>\n    <div id=\"menuCollapsed\">\n        <div id=\"menuButtonContainer\">\n            <img id=\"menuButton\" alt=\"menu button\" src=\"images/menu-button.png\">\n        </div>\n        <div id=\"songControlsWidget\"></div>\n\n        <div id=\"grabber\">:::</div>\n    </div>\n</div>\n\n<div id=\"menuExpanded\">\n    <ul>\n        <li><a href=\"/#artists\">Artists</a></li>\n        <li><a href=\"/#artists\">Songs</a></li>\n    </ul>\n</div>";}); 
+  return "<div id=\"navbar\">\n\n    <div id=\"expandedNavBar\">\n        <!--<label for=\"search\">search:</label>-->\n        <!--<input id=\"search\" type=\"text\">-->\n\n        <div id=\"songInfo\">\n            <div id=\"currentArtist\">current artist</div>\n            <div id=\"currentSong\">current song</div>\n        </div>\n    </div>\n    <div id=\"menuCollapsed\">\n        <div id=\"menuButtonContainer\">\n            <img id=\"menuButton\" alt=\"menu button\" src=\"images/menu-button.png\">\n        </div>\n        <div id=\"songControlsWidget\"></div>\n\n        <div id=\"grabber\">\n            <img id=\"grabberButton\" alt=\"grabber\" src=\"images/grabber.png\">\n        </div>\n    </div>\n</div>\n\n<div id=\"menuExpanded\">\n    <ul>\n        <li><a href=\"/#artists\">Artists</a></li>\n        <li><a href=\"/#artists\">Songs</a></li>\n    </ul>\n</div>";}); 
 Handlebars.registerPartial("headerTemplate", templates["headerTemplate"]); 
 return templates["headerTemplate"]; 
 });
@@ -13703,7 +13703,7 @@ define('lib/widgets/HeaderWidget',[
                 core.log('menuButton clicked');
                 this.$el.find('#menuExpanded').toggle();
             },
-            'tap #grabber' : function(e){
+            'click #grabber' : function(e){
                 core.log('grabber clicked');
                 this.$el.find('#navbar').toggleClass('navbar-expanded');
             }

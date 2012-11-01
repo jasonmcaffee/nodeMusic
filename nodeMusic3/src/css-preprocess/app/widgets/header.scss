@@ -12,12 +12,15 @@
   z-index: 5;
   //contains song controls, search, progress bar etc. some things are hidden until expanded
   #navbar{
+    //positioning
+    position:relative;
+    //android 2.2 hates this. have to perform some other action for this to display.
+    //try position absolute
+    top:-100px; //hide the navbarExpanded so it can expand down
+
     //sizing
     height: 150px;
     width:100%;
-    //positioning
-    position:relative;
-
     //transition
     @extend .navbar-transition;
     //border radius
@@ -30,6 +33,10 @@
     //more items for searching, current item playing, etc.
     #expandedNavBar{
       width:100%;
+
+      //bugs:
+      //android 4.0 - if has focus, when you scroll, the text input scrolls
+      //android 2.2 & 2.3 - when focus occurs, scrolls page up to the top. when focus is lost (eg other item clicked) scrolls again to the top.
       #search{ //text input
         width:100%;
         height:30px;
@@ -86,13 +93,19 @@
       //navbar expanded toggle
       #grabber{
         @extend .inline-block-grid-cell;
+        text-align:right;
+        position: relative;
+        width:20%;
+        #grabberButton{
+          height:100%;
+        }
       }
     }
   }
 
   //gets added to #navbar when user toggles expanded visibility.
   .navbar-expanded{
-
+    top:0px !important;
   }
 
   //contains menu items for navigation
@@ -169,10 +182,10 @@
 
 //when navbar is expanded or collapsed, this transition will be used.
 .navbar-transition{
-  transition: all .2s;
-  -moz-transition: all .2s; /* Firefox 4 */
-  -webkit-transition: all .2s; /* Safari and Chrome */
-  -o-transition: all .2s; /* Opera */
+  //transition: all .2s;
+  //-moz-transition: all .2s; /* Firefox 4 */
+  //-webkit-transition: all .2s; /* Safari and Chrome */
+  //-o-transition: all .2s; /* Opera */
 }
 
 //rounded corners on bottom of navbar
