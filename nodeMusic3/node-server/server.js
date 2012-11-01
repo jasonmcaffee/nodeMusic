@@ -7,8 +7,9 @@ var fs = require('fs');
 var musicItemRepository = require('./lib/musicItemRepository.js').musicItemRepository;//fetching files
 var musicItemsViewModelFactory = require('./lib/musicItemsViewModel').musicItemsViewModelFactory;
 
-var wurfl = require('wurfl');
-wurfl.loadSync();
+//working, but not all that useful
+//var wurfl = require('wurfl');
+//wurfl.loadSync();
 
 
 //create the app server
@@ -76,10 +77,9 @@ app.get('/', function(req,res){
 
     var userAgent = req.headers['user-agent'];
     console.log('user agent: ' + userAgent);
-    var deviceInfo = wurfl.get(userAgent);
-    //console.log(deviceInfo.product_info.model_name);
-    console.log(JSON.stringify(deviceInfo));
-    console.log('node music 3 home');
+    ////working, but not all that useful
+    //var deviceInfo = wurfl.get(userAgent);
+    //console.log(JSON.stringify(deviceInfo));
 
     res.render(config.viewsDirectory + 'index.html', viewModel);
 });

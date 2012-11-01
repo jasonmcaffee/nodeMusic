@@ -5,10 +5,6 @@ html, body {
   font-family: Helvetica, Arial, sans-serif;
   height: 100%; }
 
-body {
-  background: url(../images/background-ocean.png) no-repeat fixed center top #173f5d;
-  background-size: 100% 100%; }
-
 .background {
   position: fixed;
   top: -50%;
@@ -30,5 +26,4 @@ body {
   margin-top: 50px;
   width: 100%;
   /*!needed to allow menu to be placed below navbar*/
-  z-index: 2;
-  height: 100%; }
+  z-index: 2; }

@@ -2,34 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="245f59ec-341c-45a5-94a7-3b5e96a58ce5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/core/device/deviceInfo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/core/touch/customEvents.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/node_modules/wurfl/wurfl.xml" afterPath="$PROJECT_DIR$/node_modules/wurfl/wurfl.xml.old" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/wurfl/node_modules/node-expat/.lock-wscript" afterPath="$PROJECT_DIR$/node_modules/wurfl/node_modules/node-expat/.lock-wscript" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/wurfl/node_modules/node-expat/build/.conf_check_0/testbuild/.wafpickle-7" afterPath="$PROJECT_DIR$/node_modules/wurfl/node_modules/node-expat/build/.conf_check_0/testbuild/.wafpickle-7" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/wurfl/node_modules/node-expat/build/.conf_check_0/testbuild/Release/test_1.o" afterPath="$PROJECT_DIR$/node_modules/wurfl/node_modules/node-expat/build/.conf_check_0/testbuild/Release/test_1.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/wurfl/node_modules/node-expat/build/.conf_check_0/testbuild/Release/testprog" afterPath="$PROJECT_DIR$/node_modules/wurfl/node_modules/node-expat/build/.conf_check_0/testbuild/Release/testprog" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/wurfl/node_modules/node-expat/build/.wafpickle-7" afterPath="$PROJECT_DIR$/node_modules/wurfl/node_modules/node-expat/build/.wafpickle-7" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/wurfl/node_modules/node-expat/build/Release/node-expat.node" afterPath="$PROJECT_DIR$/node_modules/wurfl/node_modules/node-expat/build/Release/node-expat.node" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/wurfl/node_modules/node-expat/build/Release/node-expat_1.o" afterPath="$PROJECT_DIR$/node_modules/wurfl/node_modules/node-expat/build/Release/node-expat_1.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/grunt.js" afterPath="$PROJECT_DIR$/build/grunt.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/js/core/device/DeviceInfo.js" afterPath="$PROJECT_DIR$/src/js/core/device/deviceInfo.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app.css" afterPath="$PROJECT_DIR$/dist/css/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app/navigationBar.css" afterPath="$PROJECT_DIR$/dist/css/app/navigationBar.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app/strapkit.css" afterPath="$PROJECT_DIR$/dist/css/app/strapkit.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/app-built.js" afterPath="$PROJECT_DIR$/dist/js/app-built.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node-server/lib/musicItemsViewModel.js" afterPath="$PROJECT_DIR$/node-server/lib/musicItemsViewModel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node-server/server.js" afterPath="$PROJECT_DIR$/node-server/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node-server/views/index.html" afterPath="$PROJECT_DIR$/node-server/views/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeMusic3.iws" afterPath="$PROJECT_DIR$/nodeMusic3.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/wurfl/node_modules/node-expat/build/config.log" afterPath="$PROJECT_DIR$/node_modules/wurfl/node_modules/node-expat/build/config.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/wurfl/package.json" afterPath="$PROJECT_DIR$/node_modules/wurfl/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/features/artists/_artistPage.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/features/artists/_artistPage.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/navigationBar.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/navigationBar.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/app.js" afterPath="$PROJECT_DIR$/src/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/compiled-templates/widgets/headerTemplate.js" afterPath="$PROJECT_DIR$/src/js/compiled-templates/widgets/headerTemplate.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/core.js" afterPath="$PROJECT_DIR$/src/js/core/core.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib-third-party/modernizer.js" afterPath="$PROJECT_DIR$/src/js/lib-third-party/modernizer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js" afterPath="$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/widgets/HeaderWidget.js" afterPath="$PROJECT_DIR$/src/js/lib/widgets/HeaderWidget.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/widgets/headerTemplate.html" afterPath="$PROJECT_DIR$/src/templates/widgets/headerTemplate.html" />
     </list>
     <ignored path="nodeMusic3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,24 +71,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="navigationBar.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/navigationBar.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="184" column="16" selection-start="4401" selection-end="4401" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="grunt-css.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build/tasks/grunt-css.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="27" selection-start="818" selection-end="818" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="customEvents.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/core/touch/customEvents.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -114,10 +80,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zepto.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/zepto.js">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node-server/views/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="843" column="77" selection-start="34325" selection-end="34325" vertical-scroll-proportion="-14.269231">
+            <state line="29" column="63" selection-start="1460" selection-end="1460" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -126,7 +92,7 @@
       <file leaf-file-name="deviceInfo.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/core/device/deviceInfo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="9" selection-start="1682" selection-end="1682" vertical-scroll-proportion="0.0">
+            <state line="158" column="135" selection-start="5763" selection-end="5763" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -135,28 +101,53 @@
       <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/core/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="231" selection-start="378" selection-end="378" vertical-scroll-proportion="0.0">
+            <state line="19" column="55" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_artistPage.scss" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_artistPage.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/features/artists/_artistPage.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="6" selection-start="344" selection-end="344" vertical-scroll-proportion="0.21530698">
+            <state line="12" column="43" selection-start="276" selection-end="276" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="modernizer.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/modernizer.js">
+      <file leaf-file-name="artistGridWidget.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="6449" selection-start="6598" selection-end="6598" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state line="51" column="72" selection-start="1092" selection-end="1092" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="headerTemplate.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/widgets/headerTemplate.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strapkit.scss" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="53" column="82" selection-start="1115" selection-end="1115" vertical-scroll-proportion="0.5828427">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArtistsView.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/lib/features/artists/views/ArtistsView.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="16" selection-start="606" selection-end="606" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -165,15 +156,6 @@
         <entry file="file://$PROJECT_DIR$/build/grunt.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="130" column="39" selection-start="4875" selection-end="4875" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SongsModel.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/lib/features/songs/models/SongsModel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="51" selection-start="712" selection-end="712" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -192,27 +174,28 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/node-server/views/index.html" />
-        <option value="$PROJECT_DIR$/src/templates/widgets/headerTemplate.html" />
-        <option value="$PROJECT_DIR$/src/js/app.js" />
         <option value="$PROJECT_DIR$/src/js/core/touch/customEvents.js" />
         <option value="$PROJECT_DIR$/src/js/lib/widgets/HeaderWidget.js" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/app/navigationBar.scss" />
         <option value="$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js" />
         <option value="$PROJECT_DIR$/node-server/lib/musicItemsViewModel.js" />
-        <option value="$PROJECT_DIR$/node-server/server.js" />
         <option value="$PROJECT_DIR$/src/js/core/util/detect.js" />
         <option value="$PROJECT_DIR$/src/js/core/device/DeviceInfo.js" />
-        <option value="$PROJECT_DIR$/src/js/core/device/deviceInfo.js" />
         <option value="$PROJECT_DIR$/src/js/lib-third-party/modernizer.js" />
         <option value="$PROJECT_DIR$/build/grunt.js" />
+        <option value="$PROJECT_DIR$/node-server/server.js" />
+        <option value="$PROJECT_DIR$/node-server/views/index.html" />
         <option value="$PROJECT_DIR$/src/js/core/core.js" />
+        <option value="$PROJECT_DIR$/src/js/core/device/deviceInfo.js" />
+        <option value="$PROJECT_DIR$/src/js/lib/features/artists/views/ArtistsView.js" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/navigationBar.scss" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app/features/artists/_artistPage.scss" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="258" />
+    <option name="x" value="95" />
+    <option name="y" value="79" />
     <option name="width" value="2209" />
     <option name="height" value="1337" />
   </component>
@@ -242,16 +225,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -762,6 +735,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="features" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="artists" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1153,6 +1160,16 @@
       <pane id="PackagesPane">
         <subPane />
       </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1360,11 +1377,15 @@
       <created>1350173120710</created>
       <updated>1350173120710</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="overflow:scroll modernizr fix added for devices which don't support it.">
+      <created>1350351188128</created>
+      <updated>1350351188128</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="258" width="2209" height="1337" extended-state="0" />
+    <frame x="95" y="79" width="2209" height="1337" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1424,7 +1445,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="better alignment of nav bar buttons. starting grabber." />
+    <option name="LAST_COMMIT_MESSAGE" value="overflow:scroll modernizr fix added for devices which don't support it." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1457,62 +1478,40 @@
     <MESSAGE value="overflow scrolling works great on ios. a bit laggy paints on android, especially chrome. doesnt work on android 2.3" />
     <MESSAGE value="progress bar for music functioning." />
     <MESSAGE value="better alignment of nav bar buttons. starting grabber." />
+    <MESSAGE value="overflow:scroll modernizr fix added for devices which don't support it." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/widgets/_songControls.scss">
+    <entry file="file://$PROJECT_DIR$/build/tasks/grunt-css.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="41" selection-start="664" selection-end="664" vertical-scroll-proportion="0.0" />
+        <state line="24" column="27" selection-start="818" selection-end="818" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/features/songs/widgets/songGridWidgetTemplate.html">
+    <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/zepto.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="843" column="77" selection-start="34325" selection-end="34325" vertical-scroll-proportion="-14.269231" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/features/songs/widgets/songRowsTemplate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="33" selection-start="155" selection-end="155" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/features/songs/models/SongsModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="51" selection-start="712" selection-end="712" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/wurfl/lib/wurfl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="85" selection-start="592" selection-end="592" vertical-scroll-proportion="0.21530698">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/wurfl/lib/parser.js">
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/widgets/header.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node-server/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="28" selection-start="3246" selection-end="3246" vertical-scroll-proportion="0.1118587">
-          <folding />
-        </state>
+        <state line="109" column="76" selection-start="4566" selection-end="4566" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/modernizer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="6449" selection-start="6598" selection-end="6598" vertical-scroll-proportion="0.013605442" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/navigationBar.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="184" column="16" selection-start="4401" selection-end="4401" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/tasks/grunt-css.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="27" selection-start="818" selection-end="818" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="21" column="4" selection-start="758" selection-end="758" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/core/touch/customEvents.js">
@@ -1520,46 +1519,55 @@
         <state line="46" column="77" selection-start="1660" selection-end="1660" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/zepto.js">
+    <entry file="file://$PROJECT_DIR$/node-server/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="843" column="77" selection-start="34325" selection-end="34325" vertical-scroll-proportion="-14.269231">
+        <state line="29" column="63" selection-start="1460" selection-end="1460" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/core/device/deviceInfo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="9" selection-start="1682" selection-end="1682" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/grunt.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="39" selection-start="4875" selection-end="4875" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="158" column="135" selection-start="5763" selection-end="5763" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/core/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="231" selection-start="378" selection-end="378" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="19" column="55" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/modernizer.js">
+    <entry file="file://$PROJECT_DIR$/src/templates/widgets/headerTemplate.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="6449" selection-start="6598" selection-end="6598" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib/features/artists/views/ArtistsView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="16" selection-start="606" selection-end="606" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/grunt.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="130" column="39" selection-start="4875" selection-end="4875" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/features/artists/_artistPage.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="6" selection-start="344" selection-end="344" vertical-scroll-proportion="0.21530698">
+        <state line="12" column="43" selection-start="276" selection-end="276" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="72" selection-start="1092" selection-end="1092" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="82" selection-start="1115" selection-end="1115" vertical-scroll-proportion="0.5828427">
           <folding />
         </state>
       </provider>

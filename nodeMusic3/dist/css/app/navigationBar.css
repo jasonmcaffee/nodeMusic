@@ -305,7 +305,7 @@
 /**
 *  box-align: center;
 */
-.speed, .navbar-expanded {
+.speed {
   transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
   /* IE 9 */
@@ -319,12 +319,18 @@
 .navbar-expanded {
   top: 0px !important; }
 
-#navbar {
+.iphone #navbar, .ipad #navbar {
+  top: -100px;
+  position: fixed; }
+
+.android #navbar {
   position: fixed;
+  top: -100px;
+  left: 0; }
+
+#navbar {
   height: 150px;
   z-index: 5;
-  top: -100px;
-  left: 0;
   width: 100%;
   transition: all .2s;
   -moz-transition: all .2s;

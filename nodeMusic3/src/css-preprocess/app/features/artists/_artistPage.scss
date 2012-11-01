@@ -2,9 +2,16 @@
 .artist-page{
     height:100%;
 
-
+  #headerWidget{
+    height:20%;
+  }
   #artistsGridWidget{
-    height:100%;
+    height:80%;
+    #artistsGrid{
+      height:100%;
+      overflow: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
   }
 }
 
@@ -13,8 +20,8 @@
     #artistsGridWidget{
       //works well on ios and android 4. chrome paints are a little slow.
       //terrible on android 2.3
-      overflow: scroll;
-      -webkit-overflow-scrolling: touch;
+      //overflow: scroll;
+      //-webkit-overflow-scrolling: touch;
     }
   }
 }

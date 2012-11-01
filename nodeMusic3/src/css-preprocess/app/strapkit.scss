@@ -13,8 +13,8 @@ html, body{
 
 body{
   //background-attachment: fixed;
-  background: url(../images/background-ocean.png) no-repeat fixed center top #173F5D;     //works terribly on android 2.3
-  background-size: 100% 100%;
+  //background: url(../images/background-ocean.png) no-repeat fixed center top #173F5D;     //works terribly on android 2.3
+  //background-size: 100% 100%;
   //background-origin: content-box;
 
 }
@@ -75,5 +75,5 @@ body{
   //improves scrolling performance, but header is all messed up. not so great on android.  better for chrome.
   //overflow: scroll;
   //-webkit-overflow-scrolling: touch;
-  height:100%; //<-- !!needed for overflow touch to work in artistsGridWidget
+  //height:100%; //<-- !!needed for overflow touch to work in artistsGridWidget
 }

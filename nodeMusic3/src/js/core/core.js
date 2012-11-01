@@ -15,6 +15,9 @@ define([
         init:function(){
             this.initPlugins();
             customEvents.init();
+
+            log('device os: {0}  version: {1}', deviceInfo.os.name, deviceInfo.os.version);
+            deviceInfo.addBrowserInfoCssClassToHtml();
         },
         initPlugins : function(){
             log('core.initPlugins called');
@@ -29,6 +32,6 @@ define([
         deviceInfo : deviceInfo
     };
 
-    log('device os: {0}  version: {1}', deviceInfo.os.name, deviceInfo.os.version);
+
     return core;
 });
