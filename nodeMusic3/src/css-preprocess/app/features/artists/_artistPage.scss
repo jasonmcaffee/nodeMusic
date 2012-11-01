@@ -15,7 +15,7 @@
   }
   #artistsGridWidget{
     //height:80%;
-    padding-top:150px;
+    padding-top:150px;  //push down the artist grid so all items are visible (header is position fixed)
     #artistsGrid{
       //margin-top:50px;
       height:100%;

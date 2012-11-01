@@ -12805,10 +12805,17 @@ define('lib/models/MusicPlayer',[
     /**
      * Controls    ==============================================================================================
      */
-    MusicPlayer.prototype.playSong = function(songId){
+    /**
+     *
+     * @param songId  - id used to fetch binary song from server
+     * @param songInfo - info about the song, including ablum, artist, song name. needed since musicPlayer is only aware of ids, and can't get info about song.
+     */
+    MusicPlayer.prototype.playSong = function(songId, songInfo){
         log('playing song with id: ' + songId);
         //stop the current song
         this.stopSong();
+
+        this.currentSongInfo = songInfo;
 
         //create an audio tag with src = '/getSong?songId='+songId
         this.currentSong = new Audio('/getSong?songId='+songId);
@@ -13341,6 +13348,37 @@ define('lib/features/artists/models/ArtistsModel',[
 //                    index += options.setSize;
 //                    //todo: check array length?
 //                    this.artists = ArtistsModel.allArtists.slice(index, options.setSize + index);
+                },
+                /**
+                 * Searches through all artists and
+                 * creates an object representing below structure based on songId:
+                 * {
+                 *    artistName: 'artist',
+                 *    albumName: 'album',
+                 *    songName: 'song'
+                 * }
+                 * useful for when the song is clicked and we need to find the data.
+                 * @param songId
+                 */
+                findArtistInfoBySongId : function(songId){
+                    songId = parseInt(songId);
+                    for(var artistName in this.artists){    //todo: make more efficient? maybe with binary sort?
+                        var artist = this.artists[artistName];
+                        for(var albumName in artist.albums){
+                            var album = artist.albums[albumName];
+                            for(var i = 0; i < album.songs.length; ++i){
+                                var song = album.songs[i];
+                                //log('song name: {0}, id:{1}', song.songName, song.id);
+                                if(song.id === songId){   //break out of the loop with the current info.
+                                    return {
+                                        artistName : artistName,
+                                        albumName : albumName,
+                                        songName : song.songName
+                                    };
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
@@ -13456,7 +13494,21 @@ define('lib/features/artists/widgets/ArtistGridWidget',[
             this.artistsModel = ArtistsModel.create();
 
             //this.$el.on('tap', function(){console.log('tapped');});
+            //iterate over each artist and add an event, binding the data.
+           // this.registerClickHandlers();
         },
+        //i don't like the way backbone events work in this use case.
+//        registerClickHandlers:function(){
+//            this.$el.on('click', '[data-songId="1"]', function(e){
+//                core.log('click for songId1');
+//            });
+//
+//            //artists
+//            this.$el.on('click', '#artists > li', function(e){
+//                core.log('artist click');
+//            });
+//
+//        },
         events:{
             //artist click
             'click #artists > li': function(e){
@@ -13531,7 +13583,10 @@ define('lib/features/artists/widgets/ArtistGridWidget',[
                     .addClass('song-selected');
 
                 var songId = $target.attr('data-songId');
-                musicPlayer.playSong(songId);
+                //give music player info about the current song
+                var songInfo = this.artistsModel.findArtistInfoBySongId(songId);
+
+                musicPlayer.playSong(songId, songInfo);
 
                 this.$lastSong = $target;
                 //don't bubble up
@@ -13614,15 +13669,16 @@ templates['headerTemplate'] = template(function (Handlebars,depth0,helpers,parti
   var foundHelper, self=this;
 
 
-  return "<div id=\"navbar\">\n\n    <div id=\"expandedNavBar\">\n        <input id=\"search\" type=\"text\">\n    </div>\n    <div id=\"menuCollapsed\">\n        <div id=\"menuButtonContainer\">\n            <img id=\"menuButton\" alt=\"menu button\" src=\"images/menu-button.png\">\n        </div>\n        <div id=\"songControlsWidget\"></div>\n\n        <div id=\"grabber\">:::</div>\n    </div>\n</div>\n\n<div id=\"menuExpanded\">\n    <ul>\n        <li><a href=\"/#artists\">Artists</a></li>\n        <li><a href=\"/#artists\">Songs</a></li>\n    </ul>\n</div>";}); 
+  return "<div id=\"navbar\">\n\n    <div id=\"expandedNavBar\">\n        <label for=\"search\">search:</label>\n        <input id=\"search\" type=\"text\">\n\n        <div id=\"songInfo\">\n            <div id=\"currentArtist\">current artist</div>\n            <div id=\"currentSong\">current song</div>\n        </div>\n    </div>\n    <div id=\"menuCollapsed\">\n        <div id=\"menuButtonContainer\">\n            <img id=\"menuButton\" alt=\"menu button\" src=\"images/menu-button.png\">\n        </div>\n        <div id=\"songControlsWidget\"></div>\n\n        <div id=\"grabber\">:::</div>\n    </div>\n</div>\n\n<div id=\"menuExpanded\">\n    <ul>\n        <li><a href=\"/#artists\">Artists</a></li>\n        <li><a href=\"/#artists\">Songs</a></li>\n    </ul>\n</div>";}); 
 Handlebars.registerPartial("headerTemplate", templates["headerTemplate"]); 
 return templates["headerTemplate"]; 
 });
 define('lib/widgets/HeaderWidget',[
     'core/core',
     'lib/widgets/SongControls',
-    'compiled-templates/widgets/headerTemplate'
-],function(core, SongControlsWidget, headerTemplate){
+    'compiled-templates/widgets/headerTemplate',
+    'lib/models/MusicPlayer'
+],function(core, SongControlsWidget, headerTemplate, musicPlayer){
 
     var HeaderWidget = core.mvc.View.extend({
         id:'header',
@@ -13631,6 +13687,16 @@ define('lib/widgets/HeaderWidget',[
             this.options.widgets = [
                 {selector:'#songControlsWidget', widget:new SongControlsWidget()}
             ];
+
+            //listen for song changed so we can display currentArtist currentSong
+            musicPlayer.onMetadata(this.handleNewSongBeingPlayed.bind(this));
+
+        },
+        handleNewSongBeingPlayed: function(metadata){
+            core.log('HeaderWidget.handleNewSongBeingPlayed called.');
+            this.$el.find('#currentArtist').html(musicPlayer.currentSongInfo.artistName);
+            this.$el.find('#currentSong').html(musicPlayer.currentSongInfo.songName);
+
         },
         events:{
             'click #menuButton' : function(e){

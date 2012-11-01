@@ -6,7 +6,7 @@ templates['headerTemplate'] = template(function (Handlebars,depth0,helpers,parti
   var foundHelper, self=this;
 
 
-  return "<div id=\"navbar\">\n\n    <div id=\"expandedNavBar\">\n        <input id=\"search\" type=\"text\">\n    </div>\n    <div id=\"menuCollapsed\">\n        <div id=\"menuButtonContainer\">\n            <img id=\"menuButton\" alt=\"menu button\" src=\"images/menu-button.png\">\n        </div>\n        <div id=\"songControlsWidget\"></div>\n\n        <div id=\"grabber\">:::</div>\n    </div>\n</div>\n\n<div id=\"menuExpanded\">\n    <ul>\n        <li><a href=\"/#artists\">Artists</a></li>\n        <li><a href=\"/#artists\">Songs</a></li>\n    </ul>\n</div>";}); 
+  return "<div id=\"navbar\">\n\n    <div id=\"expandedNavBar\">\n        <label for=\"search\">search:</label>\n        <input id=\"search\" type=\"text\">\n\n        <div id=\"songInfo\">\n            <div id=\"currentArtist\">current artist</div>\n            <div id=\"currentSong\">current song</div>\n        </div>\n    </div>\n    <div id=\"menuCollapsed\">\n        <div id=\"menuButtonContainer\">\n            <img id=\"menuButton\" alt=\"menu button\" src=\"images/menu-button.png\">\n        </div>\n        <div id=\"songControlsWidget\"></div>\n\n        <div id=\"grabber\">:::</div>\n    </div>\n</div>\n\n<div id=\"menuExpanded\">\n    <ul>\n        <li><a href=\"/#artists\">Artists</a></li>\n        <li><a href=\"/#artists\">Songs</a></li>\n    </ul>\n</div>";}); 
 Handlebars.registerPartial("headerTemplate", templates["headerTemplate"]); 
 return templates["headerTemplate"]; 
 });

@@ -24,10 +24,17 @@ define([
     /**
      * Controls    ==============================================================================================
      */
-    MusicPlayer.prototype.playSong = function(songId){
+    /**
+     *
+     * @param songId  - id used to fetch binary song from server
+     * @param songInfo - info about the song, including ablum, artist, song name. needed since musicPlayer is only aware of ids, and can't get info about song.
+     */
+    MusicPlayer.prototype.playSong = function(songId, songInfo){
         log('playing song with id: ' + songId);
         //stop the current song
         this.stopSong();
+
+        this.currentSongInfo = songInfo;
 
         //create an audio tag with src = '/getSong?songId='+songId
         this.currentSong = new Audio('/getSong?songId='+songId);

@@ -1,8 +1,9 @@
 define([
     'core/core',
     'lib/widgets/SongControls',
-    'compiled-templates/widgets/headerTemplate'
-],function(core, SongControlsWidget, headerTemplate){
+    'compiled-templates/widgets/headerTemplate',
+    'lib/models/MusicPlayer'
+],function(core, SongControlsWidget, headerTemplate, musicPlayer){
 
     var HeaderWidget = core.mvc.View.extend({
         id:'header',
@@ -11,6 +12,16 @@ define([
             this.options.widgets = [
                 {selector:'#songControlsWidget', widget:new SongControlsWidget()}
             ];
+
+            //listen for song changed so we can display currentArtist currentSong
+            musicPlayer.onMetadata(this.handleNewSongBeingPlayed.bind(this));
+
+        },
+        handleNewSongBeingPlayed: function(metadata){
+            core.log('HeaderWidget.handleNewSongBeingPlayed called.');
+            this.$el.find('#currentArtist').html(musicPlayer.currentSongInfo.artistName);
+            this.$el.find('#currentSong').html(musicPlayer.currentSongInfo.songName);
+
         },
         events:{
             'click #menuButton' : function(e){

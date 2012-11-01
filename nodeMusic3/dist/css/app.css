@@ -467,7 +467,6 @@
   box-sizing: border-box;
   /* Opera/IE 8+  */
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-user-select: none;
   -webkit-user-drag: none; }
 
 ul {
@@ -1107,10 +1106,27 @@ dl {
   z-index: 5; }
   #header #navbar {
     height: 150px;
-    width: 100%; }
+    width: 100%;
+    position: relative; }
+    #header #navbar #expandedNavBar {
+      width: 100%; }
+      #header #navbar #expandedNavBar #search {
+        width: 100%;
+        height: 30px; }
+      #header #navbar #expandedNavBar #songInfo {
+        width: 100%; }
+        #header #navbar #expandedNavBar #songInfo #currentArtist {
+          width: 100%;
+          text-align: center;
+          font-size: 140%; }
+        #header #navbar #expandedNavBar #songInfo #currentSong {
+          width: 100%;
+          text-align: center; }
     #header #navbar #menuCollapsed {
+      position: absolute;
+      bottom: 0;
       height: 50px;
-      vertical-align: bottom; }
+      width: 100%; }
       #header #navbar #menuCollapsed #menuButtonContainer {
         width: 10%;
         min-width: 50px;
@@ -1160,8 +1176,7 @@ dl {
           padding-right: 20px;
           padding-left: 20px; }
   #header .menu-expanded-shown {
-    display: block !important;
-    margin-left: -5px; }
+    display: block !important; }
 
 .navbar-transition, #header #navbar {
   transition: all .2s;
