@@ -6,11 +6,11 @@ templates['artistGridWidgetTemplate'] = template(function (Handlebars,depth0,hel
   var buffer = "", stack1, foundHelper, self=this;
 
 
-  buffer += "<div id=\"artistsGrid\">\n    <ul id=\"artists\">\n        ";
+  buffer += "<ul id=\"artists\">\n";
   stack1 = depth0;
   stack1 = self.invokePartial(partials.artistRowsTemplate, 'artistRowsTemplate', stack1, helpers, partials);;
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n    </ul>\n</div>";
+  buffer += "\n</ul>";
   return buffer;}); 
 Handlebars.registerPartial("artistGridWidgetTemplate", templates["artistGridWidgetTemplate"]); 
 return templates["artistGridWidgetTemplate"]; 

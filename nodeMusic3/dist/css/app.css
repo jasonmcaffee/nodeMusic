@@ -7,7 +7,7 @@
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2e000000', endColorstr='#2e050505',GradientType=0 ); }
 
-.transparent-black-2, #navbar {
+.transparent-black-2, #header #navbar {
   background: -moz-linear-gradient(top, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(40, 40, 40, 0.86)), color-stop(7%, rgba(51, 51, 51, 0.86)), color-stop(12%, rgba(51, 51, 51, 0.86)), color-stop(86%, rgba(61, 61, 61, 0.82)), color-stop(100%, rgba(63, 63, 63, 0.81)));
   background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
@@ -121,7 +121,7 @@
   background: radial-gradient(ellipse at center, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#eaeaea',GradientType=1 ); }
 
-.white-menu-item, #menuExpanded ul li {
+.white-menu-item {
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjEwMCUiIHgyPSI1MCUiIHkyPSIwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNlZGVlZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
   background: #edeef0;
   background: -moz-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
@@ -257,7 +257,7 @@
 *   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
 *   http://yuilibrary.com/yui/docs/cssgrids/
 */
-.inline-block-grid, #navbar #menuCollapsed, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl, .song-controls {
+.inline-block-grid, #header #navbar #menuCollapsed, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl, .song-controls {
   letter-spacing: -0.31em;
   /* webkit: collapse white-space between units */
   *letter-spacing: normal;
@@ -265,7 +265,7 @@
   word-spacing: -0.43em;
   /* IE < 8 && gecko: collapse white-space between units */ }
 
-.inline-block-grid-cell, #navbar #menuCollapsed #menuButtonContainer, #navbar #menuCollapsed #songControlsWidget, #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
+.inline-block-grid-cell, #header #navbar #menuCollapsed #menuButtonContainer, #header #navbar #menuCollapsed #songControlsWidget, #header #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -324,7 +324,7 @@
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2e000000', endColorstr='#2e050505',GradientType=0 ); }
 
-.transparent-black-2, #navbar {
+.transparent-black-2, #header #navbar {
   background: -moz-linear-gradient(top, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(40, 40, 40, 0.86)), color-stop(7%, rgba(51, 51, 51, 0.86)), color-stop(12%, rgba(51, 51, 51, 0.86)), color-stop(86%, rgba(61, 61, 61, 0.82)), color-stop(100%, rgba(63, 63, 63, 0.81)));
   background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
@@ -438,7 +438,7 @@
   background: radial-gradient(ellipse at center, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#eaeaea',GradientType=1 ); }
 
-.white-menu-item, #menuExpanded ul li {
+.white-menu-item {
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjEwMCUiIHgyPSI1MCUiIHkyPSIwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNlZGVlZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
   background: #edeef0;
   background: -moz-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
@@ -466,7 +466,9 @@
   /* Firefox, other Gecko */
   box-sizing: border-box;
   /* Opera/IE 8+  */
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-user-select: none;
+  -webkit-user-drag: none; }
 
 ul {
   list-style: none;
@@ -572,7 +574,7 @@ dl {
 .fix-inline-block-spacing {
   margin-left: -4px; }
 
-.speed, #artistsGrid, #artistsGrid .artist-selected, #artistsGrid .album-selected, #artistsGrid ul, #artistsGrid ul > li, #artistsGrid ul > li:nth-child(even) {
+.speed {
   transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
   /* IE 9 */
@@ -605,7 +607,7 @@ dl {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2e000000', endColorstr='#2e050505',GradientType=0 ); }
 
-.transparent-black-2, #navbar {
+.transparent-black-2, #header #navbar {
   background: -moz-linear-gradient(top, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(40, 40, 40, 0.86)), color-stop(7%, rgba(51, 51, 51, 0.86)), color-stop(12%, rgba(51, 51, 51, 0.86)), color-stop(86%, rgba(61, 61, 61, 0.82)), color-stop(100%, rgba(63, 63, 63, 0.81)));
   background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
@@ -719,7 +721,7 @@ dl {
   background: radial-gradient(ellipse at center, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#eaeaea',GradientType=1 ); }
 
-.white-menu-item, #menuExpanded ul li {
+.white-menu-item {
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjEwMCUiIHgyPSI1MCUiIHkyPSIwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNlZGVlZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
   background: #edeef0;
   background: -moz-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
@@ -740,7 +742,7 @@ dl {
   background: linear-gradient(to bottom, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); }
 
-.speed, #artistsGrid, #artistsGrid .artist-selected, #artistsGrid .album-selected, #artistsGrid ul, #artistsGrid ul > li, #artistsGrid ul > li:nth-child(even) {
+.speed {
   transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
   /* IE 9 */
@@ -782,17 +784,6 @@ dl {
     #artistsGrid ul > li > dl > dt > ol > li {
       font-size: 100%;
       padding: 1%; } }
-.artist-page {
-  height: 100%; }
-  .artist-page #headerWidget {
-    height: 20%; }
-  .artist-page #artistsGridWidget {
-    height: 80%; }
-    .artist-page #artistsGridWidget #artistsGrid {
-      height: 100%;
-      overflow: scroll;
-      -webkit-overflow-scrolling: touch; }
-
 .transparent-black {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.18)), color-stop(50%, rgba(109, 109, 109, 0.18)), color-stop(100%, rgba(5, 5, 5, 0.18)));
@@ -802,7 +793,7 @@ dl {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2e000000', endColorstr='#2e050505',GradientType=0 ); }
 
-.transparent-black-2, #navbar {
+.transparent-black-2, #header #navbar {
   background: -moz-linear-gradient(top, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(40, 40, 40, 0.86)), color-stop(7%, rgba(51, 51, 51, 0.86)), color-stop(12%, rgba(51, 51, 51, 0.86)), color-stop(86%, rgba(61, 61, 61, 0.82)), color-stop(100%, rgba(63, 63, 63, 0.81)));
   background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
@@ -916,7 +907,7 @@ dl {
   background: radial-gradient(ellipse at center, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#eaeaea',GradientType=1 ); }
 
-.white-menu-item, #menuExpanded ul li {
+.white-menu-item {
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjEwMCUiIHgyPSI1MCUiIHkyPSIwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNlZGVlZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
   background: #edeef0;
   background: -moz-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
@@ -1042,7 +1033,7 @@ dl {
 *   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
 *   http://yuilibrary.com/yui/docs/cssgrids/
 */
-.inline-block-grid, #navbar #menuCollapsed, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl, .song-controls {
+.inline-block-grid, #header #navbar #menuCollapsed, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl, .song-controls {
   letter-spacing: -0.31em;
   /* webkit: collapse white-space between units */
   *letter-spacing: normal;
@@ -1050,7 +1041,7 @@ dl {
   word-spacing: -0.43em;
   /* IE < 8 && gecko: collapse white-space between units */ }
 
-.inline-block-grid-cell, #navbar #menuCollapsed #menuButtonContainer, #navbar #menuCollapsed #songControlsWidget, #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
+.inline-block-grid-cell, #header #navbar #menuCollapsed #menuButtonContainer, #header #navbar #menuCollapsed #songControlsWidget, #header #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -1100,7 +1091,7 @@ dl {
 /**
 *  box-align: center;
 */
-.speed, #artistsGrid, #artistsGrid .artist-selected, #artistsGrid .album-selected, #artistsGrid ul, #artistsGrid ul > li, #artistsGrid ul > li:nth-child(even) {
+.speed {
   transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
   /* IE 9 */
@@ -1111,29 +1102,77 @@ dl {
   -moz-transform: translate(0px, 0px);
   /* Firefox */ }
 
-.navbar-expanded {
-  top: 0px !important; }
-
-.iphone #navbar, .ipad #navbar {
-  top: -100px;
-  position: fixed; }
-
-.android #navbar {
-  position: fixed;
-  top: -100px;
-  left: 0; }
-
-#navbar {
-  height: 150px;
-  z-index: 5;
+#header {
   width: 100%;
+  z-index: 5; }
+  #header #navbar {
+    height: 150px;
+    width: 100%; }
+    #header #navbar #menuCollapsed {
+      height: 50px;
+      vertical-align: bottom; }
+      #header #navbar #menuCollapsed #menuButtonContainer {
+        width: 10%;
+        min-width: 50px;
+        heigth: 100%; }
+        #header #navbar #menuCollapsed #menuButtonContainer #menuButton {
+          height: 100%; }
+      #header #navbar #menuCollapsed #songControlsWidget {
+        position: relative;
+        width: 65%;
+        text-align: right;
+        height: 100%;
+        vertical-align: top; }
+  #header #menuExpanded {
+    display: none;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    position: fixed;
+    margin-top: 20px;
+    z-index: 3;
+    width: 50%;
+    padding: 5px 5px 5px 5px;
+    background: -moz-linear-gradient(top, rgba(40, 40, 40, 0.75) 0%, rgba(51, 51, 51, 0.75) 48%, rgba(0, 0, 0, 0.75) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(40, 40, 40, 0.75)), color-stop(48%, rgba(51, 51, 51, 0.75)), color-stop(100%, rgba(0, 0, 0, 0.75)));
+    background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.75) 0%, rgba(51, 51, 51, 0.75) 48%, rgba(0, 0, 0, 0.75) 100%);
+    background: -o-linear-gradient(top, rgba(40, 40, 40, 0.75) 0%, rgba(51, 51, 51, 0.75) 48%, rgba(0, 0, 0, 0.75) 100%);
+    background: -ms-linear-gradient(top, rgba(40, 40, 40, 0.75) 0%, rgba(51, 51, 51, 0.75) 48%, rgba(0, 0, 0, 0.75) 100%);
+    background: linear-gradient(to bottom, rgba(40, 40, 40, 0.75) 0%, rgba(51, 51, 51, 0.75) 48%, rgba(0, 0, 0, 0.75) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bf282828', endColorstr='#bf000000',GradientType=0 ); }
+    #header #menuExpanded ul {
+      height: 100%;
+      list-style: none;
+      padding: 0;
+      margin-top: 7px;
+      margin-left: 5px; }
+      #header #menuExpanded ul li {
+        display: inline-block;
+        margin-left: 0px;
+        margin-right: -3px;
+        padding: 0px 3px 0px 3px; }
+        #header #menuExpanded ul li a {
+          text-decoration: none;
+          text-shadow: 0 1px 5.7px 0 rgba(0, 0, 0, 0.58);
+          font-weight: bold;
+          font-size: 30px;
+          color: #507daf;
+          padding-right: 20px;
+          padding-left: 20px; }
+  #header .menu-expanded-shown {
+    display: block !important;
+    margin-left: -5px; }
+
+.navbar-transition, #header #navbar {
   transition: all .2s;
   -moz-transition: all .2s;
   /* Firefox 4 */
   -webkit-transition: all .2s;
   /* Safari and Chrome */
   -o-transition: all .2s;
-  /* Opera */
+  /* Opera */ }
+
+.bottom-border-radius-5, #header #navbar {
   border: none 5px #000000;
   -moz-border-radius-topleft: 0px;
   -moz-border-radius-topright: 0px;
@@ -1146,39 +1185,9 @@ dl {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.52);
-  -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.52);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.52); }
-  #navbar #expandedNavBar {
-    height: 100px; }
-  #navbar #menuCollapsed {
-    display: none;
-    height: 50px;
-    vertical-align: bottom; }
-  #navbar #menuExpanded {
-    top: 0;
-    left: 0;
-    z-index: 6;
-    position: fixed; }
+  border-bottom-right-radius: 5px; }
 
-#menuExpanded ul {
-  height: 100%;
-  list-style: none;
-  padding: 0;
-  margin-top: 7px;
-  margin-left: 5px; }
-
-#menuExpanded ul li {
-  display: inline-block;
-  margin-left: 0px;
-  margin-right: -3px;
-  padding: 0px 3px 0px 3px;
-  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 0 1px rgba(49, 49, 49, 0.2), inset 0 0 3px rgba(255, 255, 255, 0.63);
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 0 1px rgba(49, 49, 49, 0.2), inset 0 0 3px rgba(255, 255, 255, 0.63);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 0 1px rgba(49, 49, 49, 0.2), inset 0 0 3px rgba(255, 255, 255, 0.63); }
-
-#menuExpanded ul li:first-child {
+.top-border-radius-7, #header #menuExpanded ul li:first-child {
   -moz-border-radius-topleft: 7px;
   -webkit-border-top-left-radius: 7px;
   border-top-left-radius: 7px;
@@ -1186,99 +1195,33 @@ dl {
   -webkit-border-bottom-left-radius: 7px;
   border-bottom-left-radius: 7px; }
 
-#menuExpanded ul li a {
-  text-decoration: none;
-  text-shadow: 0 1px 5.7px 0 rgba(0, 0, 0, 0.58);
-  font-weight: bold;
-  font-size: 30px;
-  color: #507daf;
-  padding-right: 20px;
-  padding-left: 20px; }
+.shadow-a, #header #navbar {
+  -moz-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.52);
+  -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.52);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.52); }
 
-/* tablet portrait and below //@media (max-width:989px){ */
-@media only screen and (max-width: 989px) {
-  #menuCollapsed {
-    display: block !important; }
-    #menuCollapsed #menuButtonContainer {
-      width: 10%;
-      min-width: 50px;
-      heigth: 100%; }
-      #menuCollapsed #menuButtonContainer #menuButton {
-        height: 100%; }
-    #menuCollapsed #songControlsWidget {
-      position: relative;
-      width: 65%;
-      text-align: right;
-      height: 100%;
-      vertical-align: top; }
-    #menuCollapsed #grabber {
-      background-color: blue;
-      height: 100%;
-      width: 20%; }
+.shadow-b, #header #menuExpanded ul li {
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 0 1px rgba(49, 49, 49, 0.2), inset 0 0 3px rgba(255, 255, 255, 0.63);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 0 1px rgba(49, 49, 49, 0.2), inset 0 0 3px rgba(255, 255, 255, 0.63);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 0 1px rgba(49, 49, 49, 0.2), inset 0 0 3px rgba(255, 255, 255, 0.63); }
 
-  .menu-expanded-shown {
-    display: block !important;
-    margin-left: -5px; }
+.shadow-c, #header #menuExpanded {
+  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.99), inset 0 0 18px rgba(27, 27, 27, 0.15);
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.99), inset 0 0 18px rgba(27, 27, 27, 0.15);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.99), inset 0 0 18px rgba(27, 27, 27, 0.15); }
 
-  #menuExpanded {
-    display: none;
-    margin-top: 20px;
-    z-index: 3;
-    width: 50%;
-    padding: 5px 5px 5px 5px;
-    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.99), inset 0 0 18px rgba(27, 27, 27, 0.15);
-    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.99), inset 0 0 18px rgba(27, 27, 27, 0.15);
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.99), inset 0 0 18px rgba(27, 27, 27, 0.15);
-    background: -moz-linear-gradient(top, rgba(40, 40, 40, 0.75) 0%, rgba(51, 51, 51, 0.75) 48%, rgba(0, 0, 0, 0.75) 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(40, 40, 40, 0.75)), color-stop(48%, rgba(51, 51, 51, 0.75)), color-stop(100%, rgba(0, 0, 0, 0.75)));
-    background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.75) 0%, rgba(51, 51, 51, 0.75) 48%, rgba(0, 0, 0, 0.75) 100%);
-    background: -o-linear-gradient(top, rgba(40, 40, 40, 0.75) 0%, rgba(51, 51, 51, 0.75) 48%, rgba(0, 0, 0, 0.75) 100%);
-    background: -ms-linear-gradient(top, rgba(40, 40, 40, 0.75) 0%, rgba(51, 51, 51, 0.75) 48%, rgba(0, 0, 0, 0.75) 100%);
-    background: linear-gradient(to bottom, rgba(40, 40, 40, 0.75) 0%, rgba(51, 51, 51, 0.75) 48%, rgba(0, 0, 0, 0.75) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bf282828', endColorstr='#bf000000',GradientType=0 ); }
+.artist-page {
+  height: 100%; }
+  .artist-page #headerWidget {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; }
+  .artist-page #artistsGridWidget {
+    padding-top: 150px; }
+    .artist-page #artistsGridWidget #artistsGrid {
+      height: 100%; }
 
-  #menuExpanded ul {
-    height: 100%;
-    margin-top: 30px; }
-
-  #menuExpanded ul li {
-    display: block;
-    margin-right: 0px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    -moz-box-shadow: inset 0 0 2px #0f0f0f;
-    -webkit-box-shadow: inset 0 0 2px #0f0f0f;
-    box-shadow: inset 0 0 2px #0f0f0f; }
-
-  #menuExpanded ul li:first-child {
-    border: none 0px #000000;
-    -moz-border-radius-topleft: 7px;
-    -moz-border-radius-topright: 7px;
-    -moz-border-radius-bottomleft: 0px;
-    -moz-border-radius-bottomright: 0px;
-    -webkit-border-top-left-radius: 7px;
-    -webkit-border-top-right-radius: 7px;
-    -webkit-border-bottom-left-radius: 0px;
-    -webkit-border-bottom-right-radius: 0px;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px; }
-
-  #menuExpanded ul li:last-child {
-    border: none 0px #000000;
-    -moz-border-radius-topleft: 0px;
-    -moz-border-radius-topright: 0px;
-    -moz-border-radius-bottomleft: 7px;
-    -moz-border-radius-bottomright: 7px;
-    -webkit-border-top-left-radius: 0px;
-    -webkit-border-top-right-radius: 0px;
-    -webkit-border-bottom-left-radius: 7px;
-    -webkit-border-bottom-right-radius: 7px;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px; } }
 .transparent-black {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.18)), color-stop(50%, rgba(109, 109, 109, 0.18)), color-stop(100%, rgba(5, 5, 5, 0.18)));
@@ -1288,7 +1231,7 @@ dl {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2e000000', endColorstr='#2e050505',GradientType=0 ); }
 
-.transparent-black-2, #navbar {
+.transparent-black-2, #header #navbar {
   background: -moz-linear-gradient(top, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(40, 40, 40, 0.86)), color-stop(7%, rgba(51, 51, 51, 0.86)), color-stop(12%, rgba(51, 51, 51, 0.86)), color-stop(86%, rgba(61, 61, 61, 0.82)), color-stop(100%, rgba(63, 63, 63, 0.81)));
   background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
@@ -1402,7 +1345,7 @@ dl {
   background: radial-gradient(ellipse at center, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#eaeaea',GradientType=1 ); }
 
-.white-menu-item, #menuExpanded ul li {
+.white-menu-item {
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjEwMCUiIHgyPSI1MCUiIHkyPSIwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNlZGVlZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
   background: #edeef0;
   background: -moz-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
@@ -1516,7 +1459,7 @@ dl {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2e000000', endColorstr='#2e050505',GradientType=0 ); }
 
-.transparent-black-2, #navbar {
+.transparent-black-2, #header #navbar {
   background: -moz-linear-gradient(top, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(40, 40, 40, 0.86)), color-stop(7%, rgba(51, 51, 51, 0.86)), color-stop(12%, rgba(51, 51, 51, 0.86)), color-stop(86%, rgba(61, 61, 61, 0.82)), color-stop(100%, rgba(63, 63, 63, 0.81)));
   background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
@@ -1630,7 +1573,7 @@ dl {
   background: radial-gradient(ellipse at center, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#eaeaea',GradientType=1 ); }
 
-.white-menu-item, #menuExpanded ul li {
+.white-menu-item {
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjEwMCUiIHgyPSI1MCUiIHkyPSIwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNlZGVlZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
   background: #edeef0;
   background: -moz-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
@@ -1769,7 +1712,7 @@ dl {
 *   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
 *   http://yuilibrary.com/yui/docs/cssgrids/
 */
-.inline-block-grid, #navbar #menuCollapsed, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl, .song-controls {
+.inline-block-grid, #header #navbar #menuCollapsed, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl, .song-controls {
   letter-spacing: -0.31em;
   /* webkit: collapse white-space between units */
   *letter-spacing: normal;
@@ -1777,7 +1720,7 @@ dl {
   word-spacing: -0.43em;
   /* IE < 8 && gecko: collapse white-space between units */ }
 
-.inline-block-grid-cell, #navbar #menuCollapsed #menuButtonContainer, #navbar #menuCollapsed #songControlsWidget, #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
+.inline-block-grid-cell, #header #navbar #menuCollapsed #menuButtonContainer, #header #navbar #menuCollapsed #songControlsWidget, #header #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -1911,7 +1854,7 @@ If performance or maintenance becomes a problem, simply change the selector.
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2e000000', endColorstr='#2e050505',GradientType=0 ); }
 
-.transparent-black-2, #navbar {
+.transparent-black-2, #header #navbar {
   background: -moz-linear-gradient(top, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(40, 40, 40, 0.86)), color-stop(7%, rgba(51, 51, 51, 0.86)), color-stop(12%, rgba(51, 51, 51, 0.86)), color-stop(86%, rgba(61, 61, 61, 0.82)), color-stop(100%, rgba(63, 63, 63, 0.81)));
   background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
@@ -2025,7 +1968,7 @@ If performance or maintenance becomes a problem, simply change the selector.
   background: radial-gradient(ellipse at center, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#eaeaea',GradientType=1 ); }
 
-.white-menu-item, #menuExpanded ul li {
+.white-menu-item {
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjEwMCUiIHgyPSI1MCUiIHkyPSIwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNlZGVlZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
   background: #edeef0;
   background: -moz-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
@@ -2139,7 +2082,7 @@ If performance or maintenance becomes a problem, simply change the selector.
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2e000000', endColorstr='#2e050505',GradientType=0 ); }
 
-.transparent-black-2, #navbar {
+.transparent-black-2, #header #navbar {
   background: -moz-linear-gradient(top, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(40, 40, 40, 0.86)), color-stop(7%, rgba(51, 51, 51, 0.86)), color-stop(12%, rgba(51, 51, 51, 0.86)), color-stop(86%, rgba(61, 61, 61, 0.82)), color-stop(100%, rgba(63, 63, 63, 0.81)));
   background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
@@ -2253,7 +2196,7 @@ If performance or maintenance becomes a problem, simply change the selector.
   background: radial-gradient(ellipse at center, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#eaeaea',GradientType=1 ); }
 
-.white-menu-item, #menuExpanded ul li {
+.white-menu-item {
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjEwMCUiIHgyPSI1MCUiIHkyPSIwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNlZGVlZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
   background: #edeef0;
   background: -moz-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
@@ -2392,7 +2335,7 @@ If performance or maintenance becomes a problem, simply change the selector.
 *   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
 *   http://yuilibrary.com/yui/docs/cssgrids/
 */
-.inline-block-grid, #navbar #menuCollapsed, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl, .song-controls {
+.inline-block-grid, #header #navbar #menuCollapsed, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl, .song-controls {
   letter-spacing: -0.31em;
   /* webkit: collapse white-space between units */
   *letter-spacing: normal;
@@ -2400,7 +2343,7 @@ If performance or maintenance becomes a problem, simply change the selector.
   word-spacing: -0.43em;
   /* IE < 8 && gecko: collapse white-space between units */ }
 
-.inline-block-grid-cell, #navbar #menuCollapsed #menuButtonContainer, #navbar #menuCollapsed #songControlsWidget, #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
+.inline-block-grid-cell, #header #navbar #menuCollapsed #menuButtonContainer, #header #navbar #menuCollapsed #songControlsWidget, #header #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
   display: inline-block;
   zoom: 1;
   *display: inline;
@@ -2527,25 +2470,7 @@ html, body {
   font-family: Helvetica, Arial, sans-serif;
   height: 100%; }
 
-.background {
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  z-index: -1; }
-  .background img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    min-width: 50%;
-    min-height: 50%; }
-
 .pages {
-  margin-top: 50px;
   width: 100%;
   /*!needed to allow menu to be placed below navbar*/
   z-index: 2; }
@@ -2559,7 +2484,7 @@ html, body {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2e000000', endColorstr='#2e050505',GradientType=0 ); }
 
-.transparent-black-2, #navbar {
+.transparent-black-2, #header #navbar {
   background: -moz-linear-gradient(top, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(40, 40, 40, 0.86)), color-stop(7%, rgba(51, 51, 51, 0.86)), color-stop(12%, rgba(51, 51, 51, 0.86)), color-stop(86%, rgba(61, 61, 61, 0.82)), color-stop(100%, rgba(63, 63, 63, 0.81)));
   background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.86) 0%, rgba(51, 51, 51, 0.86) 7%, rgba(51, 51, 51, 0.86) 12%, rgba(61, 61, 61, 0.82) 86%, rgba(63, 63, 63, 0.81) 100%);
@@ -2673,7 +2598,7 @@ html, body {
   background: radial-gradient(ellipse at center, #f4f4f4 0%, #f2f2f2 54%, #eaeaea 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f4f4f4', endColorstr='#eaeaea',GradientType=1 ); }
 
-.white-menu-item, #menuExpanded ul li {
+.white-menu-item {
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGxpbmVhckdyYWRpZW50IGlkPSJoYXQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwJSIgeTE9IjEwMCUiIHgyPSI1MCUiIHkyPSIwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNlZGVlZjAiIHN0b3Atb3BhY2l0eT0iMSIvPgo8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2Y5ZjlmOSIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2hhdDApIiAvPgo8L3N2Zz4=);
   background: #edeef0;
   background: -moz-linear-gradient(top, #edeef0 0%, #f9f9f9 50.12%, #f7f7f8 100%);
@@ -2715,7 +2640,7 @@ html, body {
 *   http://yui.yahooapis.com/3.5.0/build/cssgrids/grids.css
 *   http://yuilibrary.com/yui/docs/cssgrids/
 */
-.inline-block-grid, #navbar #menuCollapsed, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl, .song-controls {
+.inline-block-grid, #header #navbar #menuCollapsed, #accountDetailLinks, #responsive-page #masterDetailListsGrid, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList li dl, .song-controls {
   letter-spacing: -0.31em;
   /* webkit: collapse white-space between units */
   *letter-spacing: normal;
@@ -2723,7 +2648,7 @@ html, body {
   word-spacing: -0.43em;
   /* IE < 8 && gecko: collapse white-space between units */ }
 
-.inline-block-grid-cell, #navbar #menuCollapsed #menuButtonContainer, #navbar #menuCollapsed #songControlsWidget, #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
+.inline-block-grid-cell, #header #navbar #menuCollapsed #menuButtonContainer, #header #navbar #menuCollapsed #songControlsWidget, #header #navbar #menuCollapsed #grabber, .master-item-text, #accountDetailLinks, #accountDetailLinks li, #responsive-page #masterDetailListsGrid #masterList, #responsive-page #masterDetailListsGrid #detailList, #responsive-page #masterDetailListsGrid #detailList li dl dt, .song-controls .button, .song-controls #previousButton, .song-controls #startPauseButton, .song-controls #nextButton, .song-controls #progressBar {
   display: inline-block;
   zoom: 1;
   *display: inline;

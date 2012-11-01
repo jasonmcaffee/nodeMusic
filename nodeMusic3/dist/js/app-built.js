@@ -13264,11 +13264,11 @@ templates['artistGridWidgetTemplate'] = template(function (Handlebars,depth0,hel
   var buffer = "", stack1, foundHelper, self=this;
 
 
-  buffer += "<div id=\"artistsGrid\">\n    <ul id=\"artists\">\n        ";
+  buffer += "<ul id=\"artists\">\n";
   stack1 = depth0;
   stack1 = self.invokePartial(partials.artistRowsTemplate, 'artistRowsTemplate', stack1, helpers, partials);;
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n    </ul>\n</div>";
+  buffer += "\n</ul>";
   return buffer;}); 
 Handlebars.registerPartial("artistGridWidgetTemplate", templates["artistGridWidgetTemplate"]); 
 return templates["artistGridWidgetTemplate"]; 
@@ -13449,12 +13449,13 @@ define('lib/features/artists/widgets/ArtistGridWidget',[
      */
     var ArtistsGridWidget = core.mvc.View.extend({
         //el:'#pages',
+        id:'artistsGrid',
         '$lastSong' : null,//keep track so we can unhighlight
         initialize : function(){
             log('ArtistsGridWidget.initialize called.' + this.el);
             this.artistsModel = ArtistsModel.create();
 
-            this.$el.on('tap', function(){console.log('tapped');});
+            //this.$el.on('tap', function(){console.log('tapped');});
         },
         events:{
             //artist click
@@ -13624,6 +13625,7 @@ define('lib/widgets/HeaderWidget',[
 ],function(core, SongControlsWidget, headerTemplate){
 
     var HeaderWidget = core.mvc.View.extend({
+        id:'header',
         template: headerTemplate,
         initialize:function(){
             this.options.widgets = [

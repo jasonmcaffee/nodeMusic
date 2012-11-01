@@ -4,6 +4,8 @@
   box-sizing: border-box;         /* Opera/IE 8+  */
 
   -webkit-tap-highlight-color:rgba(0,0,0,0);
+  -webkit-user-select: none;//don't allow accidental selects
+  -webkit-user-drag: none;
 }
 
 ul{

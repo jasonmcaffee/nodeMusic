@@ -1,16 +1,26 @@
 @import "src/css-preprocess/app/features/artists/artistGridWidget";
+@import "src/css-preprocess/app/widgets/header";
 .artist-page{
     height:100%;
 
   #headerWidget{
-    height:20%;
+    position:fixed;
+    top:0;  //fixes android 2.3 margin.
+    left:0; //fixes android 2.3 margin.
+    width:100%;
+    //height:20%;
+    #header{
+
+    }
   }
   #artistsGridWidget{
-    height:80%;
+    //height:80%;
+    padding-top:150px;
     #artistsGrid{
+      //margin-top:50px;
       height:100%;
-      overflow: scroll;
-      -webkit-overflow-scrolling: touch;
+      //overflow: scroll;
+      //-webkit-overflow-scrolling: touch;
     }
   }
 }

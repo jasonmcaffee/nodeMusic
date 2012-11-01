@@ -22,12 +22,13 @@ define([
      */
     var ArtistsGridWidget = core.mvc.View.extend({
         //el:'#pages',
+        id:'artistsGrid',
         '$lastSong' : null,//keep track so we can unhighlight
         initialize : function(){
             log('ArtistsGridWidget.initialize called.' + this.el);
             this.artistsModel = ArtistsModel.create();
 
-            this.$el.on('tap', function(){console.log('tapped');});
+            //this.$el.on('tap', function(){console.log('tapped');});
         },
         events:{
             //artist click

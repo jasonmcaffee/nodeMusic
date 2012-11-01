@@ -5,6 +5,7 @@ define([
 ],function(core, SongControlsWidget, headerTemplate){
 
     var HeaderWidget = core.mvc.View.extend({
+        id:'header',
         template: headerTemplate,
         initialize:function(){
             this.options.widgets = [
