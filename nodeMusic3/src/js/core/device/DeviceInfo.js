@@ -174,6 +174,17 @@ define([
     var deviceInfo = {
        os: detect(navigator.userAgent),
        addBrowserInfoCssClassToHtml : function(){
+
+            var androidVersions = {
+                '2.2.3' : {
+                    lessThan : '4.0.6, 4.0.1, 3.0, 3.0.2',
+                    greaterThan : '2.0, 2.1, 2.0.3, 2.1.2'
+                }
+            };
+
+           //split the string into parts, then compare each part from left to right.
+           //var versionParts = this.os.version.split('.');
+
             $(function(){
                 log('add css class for os :{0} version:{1}', this.os.name, this.os.version);
                 //todo: also add < and > for version targeting (e.g. css for android 3 and above)
@@ -183,6 +194,7 @@ define([
             }.bind(this));
        }
     };
+
 
     return deviceInfo;
 

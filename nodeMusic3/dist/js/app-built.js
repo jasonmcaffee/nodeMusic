@@ -12607,6 +12607,17 @@ define('core/device/deviceInfo',[
     var deviceInfo = {
        os: detect(navigator.userAgent),
        addBrowserInfoCssClassToHtml : function(){
+
+            var androidVersions = {
+                '2.2.3' : {
+                    lessThan : '4.0.6, 4.0.1, 3.0, 3.0.2',
+                    greaterThan : '2.0, 2.1, 2.0.3, 2.1.2'
+                }
+            };
+
+           //split the string into parts, then compare each part from left to right.
+           //var versionParts = this.os.version.split('.');
+
             $(function(){
                 log('add css class for os :{0} version:{1}', this.os.name, this.os.version);
                 //todo: also add < and > for version targeting (e.g. css for android 3 and above)
@@ -12616,6 +12627,7 @@ define('core/device/deviceInfo',[
             }.bind(this));
        }
     };
+
 
     return deviceInfo;
 
@@ -12779,9 +12791,84 @@ define('lib/features/songs/models/SongsModel',[
 
     return SongsModel;
 });
+define('lib/features/artists/models/artistsModel',[
+    'core/util/log',
+    'underscore'
+], function(log, _){
+    log('ArtistsModel module loaded.');
+
+    //since this is supplied via a global viewModel as part of the page, just grab it's value.
+    var ArtistsModel = {
+        allArtists: viewModel.artists,
+
+        create: function(opts){
+            var options = {
+                setSize : 25, //songs will contain 100 items at a time
+                initialSetSize : 100 //so we can display a bunch
+            };
+            _.extend(options, opts);
+
+
+            //where we will start the page
+            var index = 0;
+            var setIndex = 0;
+
+            return {
+                //represents a limited set of allSongs, so that we don't render everything at once.
+                //will be updated when nextSet() is called
+                artists : ArtistsModel.allArtists,//ArtistsModel.allArtists.slice(index, options.initialSetSize + index),
+                //mutates songs so that it represents the next page of songs
+                nextSet : function(){
+                    return null;
+//                    index += options.setSize;
+//                    //todo: check array length?
+//                    this.artists = ArtistsModel.allArtists.slice(index, options.setSize + index);
+                },
+                /**
+                 * Searches through all artists and
+                 * creates an object representing below structure based on songId:
+                 * {
+                 *    artistName: 'artist',
+                 *    albumName: 'album',
+                 *    songName: 'song'
+                 * }
+                 * useful for when the song is clicked and we need to find the data.
+                 * @param songId
+                 */
+                findArtistInfoBySongId : function(songId){
+                    songId = parseInt(songId);
+                    for(var artistName in this.artists){    //todo: make more efficient? maybe with binary sort?
+                        var artist = this.artists[artistName];
+                        for(var albumName in artist.albums){
+                            var album = artist.albums[albumName];
+                            for(var i = 0; i < album.songs.length; ++i){
+                                var song = album.songs[i];
+                                //log('song name: {0}, id:{1}', song.songName, song.id);
+                                if(song.id === songId){   //break out of the loop with the current info.
+                                    return {
+                                        artistName : artistName,
+                                        albumName : albumName,
+                                        songName : song.songName,
+                                        songId : songId
+                                    };
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+
+    };
+
+    return ArtistsModel.create();//singleton
+});
 define('lib/models/MusicPlayer',[
-    'core/util/log'
-], function(log){
+    'core/util/log',
+    'lib/features/artists/models/artistsModel'
+], function(log, artistsModel){
 
     /**
      * API for playing and manipulating songs/music.
@@ -12810,17 +12897,17 @@ define('lib/models/MusicPlayer',[
      * @param songId  - id used to fetch binary song from server
      * @param songInfo - info about the song, including ablum, artist, song name. needed since musicPlayer is only aware of ids, and can't get info about song.
      */
-    MusicPlayer.prototype.playSong = function(songId, songInfo){
+    MusicPlayer.prototype.playSong = function(songId){
         log('playing song with id: ' + songId);
         //stop the current song
         this.stopSong();
-
+        var songInfo = artistsModel.findArtistInfoBySongId(songId);
         this.currentSongInfo = songInfo;
 
         //create an audio tag with src = '/getSong?songId='+songId
         this.currentSong = new Audio('/getSong?songId='+songId);
         this.currentSong.play();
-        this.currentSongId = parseInt(songId);
+        this.currentSongId = parseInt(songId);//so we can ++ for next song, -- for previous song.
 
         //events
         this.handleLoadedMetadata();
@@ -12932,7 +13019,7 @@ define('lib/models/MusicPlayer',[
         for(var i=0; i < this.onPlayListeners.length; ++i){
             var listener = this.onPlayListeners[i];
             if(typeof listener === 'function'){
-                listener(); //todo, pass song info
+                listener(this.currentSongInfo);
             }
         }
     };
@@ -12950,7 +13037,7 @@ define('lib/models/MusicPlayer',[
         for(var i=0; i < this.onStopListeners.length; ++i){
             var listener = this.onStopListeners[i];
             if(typeof listener === 'function'){
-                listener(); //todo, pass song info
+                listener(this.currentSongInfo);
             }
         }
     };
@@ -13316,79 +13403,6 @@ function program1(depth0,data) {
 Handlebars.registerPartial("artistRowsTemplate", templates["artistRowsTemplate"]); 
 return templates["artistRowsTemplate"]; 
 });
-define('lib/features/artists/models/ArtistsModel',[
-    'core/util/log',
-    'underscore'
-], function(log, _){
-    log('ArtistsModel module loaded.');
-
-    //since this is supplied via a global viewModel as part of the page, just grab it's value.
-    var ArtistsModel = {
-        allArtists: viewModel.artists,
-
-        create: function(opts){
-            var options = {
-                setSize : 25, //songs will contain 100 items at a time
-                initialSetSize : 100 //so we can display a bunch
-            };
-            _.extend(options, opts);
-
-
-            //where we will start the page
-            var index = 0;
-            var setIndex = 0;
-
-            return {
-                //represents a limited set of allSongs, so that we don't render everything at once.
-                //will be updated when nextSet() is called
-                artists : ArtistsModel.allArtists,//ArtistsModel.allArtists.slice(index, options.initialSetSize + index),
-                //mutates songs so that it represents the next page of songs
-                nextSet : function(){
-                    return null;
-//                    index += options.setSize;
-//                    //todo: check array length?
-//                    this.artists = ArtistsModel.allArtists.slice(index, options.setSize + index);
-                },
-                /**
-                 * Searches through all artists and
-                 * creates an object representing below structure based on songId:
-                 * {
-                 *    artistName: 'artist',
-                 *    albumName: 'album',
-                 *    songName: 'song'
-                 * }
-                 * useful for when the song is clicked and we need to find the data.
-                 * @param songId
-                 */
-                findArtistInfoBySongId : function(songId){
-                    songId = parseInt(songId);
-                    for(var artistName in this.artists){    //todo: make more efficient? maybe with binary sort?
-                        var artist = this.artists[artistName];
-                        for(var albumName in artist.albums){
-                            var album = artist.albums[albumName];
-                            for(var i = 0; i < album.songs.length; ++i){
-                                var song = album.songs[i];
-                                //log('song name: {0}, id:{1}', song.songName, song.id);
-                                if(song.id === songId){   //break out of the loop with the current info.
-                                    return {
-                                        artistName : artistName,
-                                        albumName : albumName,
-                                        songName : song.songName
-                                    };
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-        }
-
-
-    };
-
-    return ArtistsModel;
-});
 define('compiled-templates/features/artists/widgets/albumRowsTemplate',["handlebars", "core/util/log"], function(Handlebars, log){ 
 log("albumRowsTemplate precompiled template function module loaded."); 
 var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {}; 
@@ -13469,11 +13483,11 @@ define('lib/features/artists/widgets/ArtistGridWidget',[
     'jquery',
     'compiled-templates/features/artists/widgets/artistGridWidgetTemplate',
     'compiled-templates/features/artists/widgets/artistRowsTemplate',
-    'lib/features/artists/models/ArtistsModel',
+    'lib/features/artists/models/artistsModel',
     'compiled-templates/features/artists/widgets/albumRowsTemplate',
     'compiled-templates/features/artists/widgets/songsTemplate',
     'lib/models/MusicPlayer'
-], function(log, core, $, artistGridWidgetTemplate, artistRowsTemplate, ArtistsModel, albumRowsTemplate, songsTemplate, musicPlayer){
+], function(log, core, $, artistGridWidgetTemplate, artistRowsTemplate, artistsModel, albumRowsTemplate, songsTemplate, musicPlayer){
 
     //static
     var $window = $(window);
@@ -13486,29 +13500,25 @@ define('lib/features/artists/widgets/ArtistGridWidget',[
      * @type {*}
      */
     var ArtistsGridWidget = core.mvc.View.extend({
-        //el:'#pages',
         id:'artistsGrid',
         '$lastSong' : null,//keep track so we can unhighlight
         initialize : function(){
             log('ArtistsGridWidget.initialize called.' + this.el);
-            this.artistsModel = ArtistsModel.create();
+            this.artistsModel = artistsModel;
 
-            //this.$el.on('tap', function(){console.log('tapped');});
-            //iterate over each artist and add an event, binding the data.
-           // this.registerClickHandlers();
+            //highlight the song that is currently being played
+            musicPlayer.onPlay(this.highlightSongBeingPlayed.bind(this));
+
         },
-        //i don't like the way backbone events work in this use case.
-//        registerClickHandlers:function(){
-//            this.$el.on('click', '[data-songId="1"]', function(e){
-//                core.log('click for songId1');
-//            });
-//
-//            //artists
-//            this.$el.on('click', '#artists > li', function(e){
-//                core.log('artist click');
-//            });
-//
-//        },
+        highlightSongBeingPlayed: function(songInfo){
+            log('highlightSongBeingPlayed called.');
+            if(this.$lastSong){
+                this.$lastSong.removeClass('song-selected');
+            }
+            this.$lastSong = $('li[data-songId="'+ songInfo.songId+'"]')
+                .addClass('song-selected');
+
+        },
         events:{
             //artist click
             'click #artists > li': function(e){
@@ -13576,20 +13586,10 @@ define('lib/features/artists/widgets/ArtistGridWidget',[
             //song click
             'click #artists > li > dl > dt > ol > li' : function(e){
                 log('click for song occurred');
-                if(this.$lastSong){
-                    this.$lastSong.removeClass('song-selected');
-                }
-                var $target = $(e.currentTarget)
-                    .addClass('song-selected');
-
+                var $target = $(e.currentTarget);
                 var songId = $target.attr('data-songId');
-                //give music player info about the current song
-                var songInfo = this.artistsModel.findArtistInfoBySongId(songId);
+                musicPlayer.playSong(songId);
 
-                musicPlayer.playSong(songId, songInfo);
-
-                this.$lastSong = $target;
-                //don't bubble up
                 e.preventDefault();
                 return false;
             }
@@ -13632,11 +13632,19 @@ define('lib/widgets/SongControls',[
             core.log('SongControls widget initialized');
 
             musicPlayer.onTimeUpdate(this.updateProgressBar.bind(this));
+
+            musicPlayer.onPlay(function(){
+                $('#playPauseButtonContainer').addClass('hide-play-show-pause');
+            });
+
+            musicPlayer.onStop(function(){
+                $('#playPauseButtonContainer').removeClass('hide-play-show-pause');
+            })
         },
         events:{
             'click #playPauseButtonContainer' : function(e){
                 core.log('start button clicked');
-                $(e.currentTarget).toggleClass('hide-play-show-pause');
+                //$(e.currentTarget).toggleClass('hide-play-show-pause');
                 if(musicPlayer.isSongCurrentlyPlaying){
                     musicPlayer.stopSong();
                 } else{
@@ -13692,11 +13700,15 @@ define('lib/widgets/HeaderWidget',[
             //listen for song changed so we can display currentArtist currentSong
             musicPlayer.onMetadata(this.handleNewSongBeingPlayed.bind(this));
 
+
         },
         handleNewSongBeingPlayed: function(metadata){
             core.log('HeaderWidget.handleNewSongBeingPlayed called.');
-            this.$el.find('#currentArtist').html(musicPlayer.currentSongInfo.artistName);
-            this.$el.find('#currentSong').html(musicPlayer.currentSongInfo.songName);
+            if(musicPlayer.currentSongInfo){ //todo:this is null when auto next song is played.
+                this.$el.find('#currentArtist').html(musicPlayer.currentSongInfo.artistName);
+                this.$el.find('#currentSong').html(musicPlayer.currentSongInfo.songName);
+            }
+
 
         },
         events:{
@@ -13705,7 +13717,8 @@ define('lib/widgets/HeaderWidget',[
                 this.$el.find('#menuExpanded').toggle();
             },
             //tap is significantly faster on android 2.2 and 2.3. not so much faster on android 4.
-            'tap #grabber' : function(e){
+            //zepto tap, however, bleeds through to underlying elements (eg the artist grid widget gets the click in android 2.2)
+            'click #grabber' : function(e){
                 core.log('grabber clicked');
                 this.$el.find('#navbar').toggleClass('navbar-expanded');
             }

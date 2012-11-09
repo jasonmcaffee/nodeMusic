@@ -55,7 +55,8 @@ define([
                                     return {
                                         artistName : artistName,
                                         albumName : albumName,
-                                        songName : song.songName
+                                        songName : song.songName,
+                                        songId : songId
                                     };
                                 }
                             }
@@ -69,5 +70,5 @@ define([
 
     };
 
-    return ArtistsModel;
+    return ArtistsModel.create();//singleton
 });

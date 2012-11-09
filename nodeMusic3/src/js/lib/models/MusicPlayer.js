@@ -1,6 +1,7 @@
 define([
-    'core/util/log'
-], function(log){
+    'core/util/log',
+    'lib/features/artists/models/artistsModel'
+], function(log, artistsModel){
 
     /**
      * API for playing and manipulating songs/music.
@@ -29,17 +30,17 @@ define([
      * @param songId  - id used to fetch binary song from server
      * @param songInfo - info about the song, including ablum, artist, song name. needed since musicPlayer is only aware of ids, and can't get info about song.
      */
-    MusicPlayer.prototype.playSong = function(songId, songInfo){
+    MusicPlayer.prototype.playSong = function(songId){
         log('playing song with id: ' + songId);
         //stop the current song
         this.stopSong();
-
+        var songInfo = artistsModel.findArtistInfoBySongId(songId);
         this.currentSongInfo = songInfo;
 
         //create an audio tag with src = '/getSong?songId='+songId
         this.currentSong = new Audio('/getSong?songId='+songId);
         this.currentSong.play();
-        this.currentSongId = parseInt(songId);
+        this.currentSongId = parseInt(songId);//so we can ++ for next song, -- for previous song.
 
         //events
         this.handleLoadedMetadata();
@@ -151,7 +152,7 @@ define([
         for(var i=0; i < this.onPlayListeners.length; ++i){
             var listener = this.onPlayListeners[i];
             if(typeof listener === 'function'){
-                listener(); //todo, pass song info
+                listener(this.currentSongInfo);
             }
         }
     };
@@ -169,7 +170,7 @@ define([
         for(var i=0; i < this.onStopListeners.length; ++i){
             var listener = this.onStopListeners[i];
             if(typeof listener === 'function'){
-                listener(); //todo, pass song info
+                listener(this.currentSongInfo);
             }
         }
     };

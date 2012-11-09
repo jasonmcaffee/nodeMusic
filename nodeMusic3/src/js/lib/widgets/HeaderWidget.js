@@ -16,11 +16,15 @@ define([
             //listen for song changed so we can display currentArtist currentSong
             musicPlayer.onMetadata(this.handleNewSongBeingPlayed.bind(this));
 
+
         },
         handleNewSongBeingPlayed: function(metadata){
             core.log('HeaderWidget.handleNewSongBeingPlayed called.');
-            this.$el.find('#currentArtist').html(musicPlayer.currentSongInfo.artistName);
-            this.$el.find('#currentSong').html(musicPlayer.currentSongInfo.songName);
+            if(musicPlayer.currentSongInfo){ //todo:this is null when auto next song is played.
+                this.$el.find('#currentArtist').html(musicPlayer.currentSongInfo.artistName);
+                this.$el.find('#currentSong').html(musicPlayer.currentSongInfo.songName);
+            }
+
 
         },
         events:{
@@ -29,7 +33,8 @@ define([
                 this.$el.find('#menuExpanded').toggle();
             },
             //tap is significantly faster on android 2.2 and 2.3. not so much faster on android 4.
-            'tap #grabber' : function(e){
+            //zepto tap, however, bleeds through to underlying elements (eg the artist grid widget gets the click in android 2.2)
+            'click #grabber' : function(e){
                 core.log('grabber clicked');
                 this.$el.find('#navbar').toggleClass('navbar-expanded');
             }

@@ -1242,7 +1242,7 @@ dl {
     left: 0;
     width: 100%; }
   .artist-page #artistsGridWidget {
-    padding-top: 150px; }
+    padding-top: 50px; }
     .artist-page #artistsGridWidget #artistsGrid {
       height: 100%; }
 
@@ -2493,6 +2493,23 @@ html, body {
   margin: 0;
   font-family: Helvetica, Arial, sans-serif;
   height: 100%; }
+
+.background {
+  position: fixed;
+  top: -55%;
+  left: -50%;
+  width: 200%;
+  height: 220%;
+  z-index: -1; }
+  .background img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%; }
 
 .pages {
   width: 100%;

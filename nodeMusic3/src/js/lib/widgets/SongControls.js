@@ -11,11 +11,19 @@ define([
             core.log('SongControls widget initialized');
 
             musicPlayer.onTimeUpdate(this.updateProgressBar.bind(this));
+
+            musicPlayer.onPlay(function(){
+                $('#playPauseButtonContainer').addClass('hide-play-show-pause');
+            });
+
+            musicPlayer.onStop(function(){
+                $('#playPauseButtonContainer').removeClass('hide-play-show-pause');
+            })
         },
         events:{
             'click #playPauseButtonContainer' : function(e){
                 core.log('start button clicked');
-                $(e.currentTarget).toggleClass('hide-play-show-pause');
+                //$(e.currentTarget).toggleClass('hide-play-show-pause');
                 if(musicPlayer.isSongCurrentlyPlaying){
                     musicPlayer.stopSong();
                 } else{

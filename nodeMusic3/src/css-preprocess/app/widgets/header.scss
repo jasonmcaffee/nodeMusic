@@ -13,7 +13,7 @@
   //contains song controls, search, progress bar etc. some things are hidden until expanded
   #navbar{
     //positioning
-    position:relative;
+    position:relative;//absolute;//relative; <-- relative makes it so you can't click the underlying artistgridwidget.
     top:-100px; //hide the navbarExpanded so it can expand down
 
     //sizing

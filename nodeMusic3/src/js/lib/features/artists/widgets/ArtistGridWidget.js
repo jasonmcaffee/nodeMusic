@@ -4,11 +4,11 @@ define([
     'jquery',
     'compiled-templates/features/artists/widgets/artistGridWidgetTemplate',
     'compiled-templates/features/artists/widgets/artistRowsTemplate',
-    'lib/features/artists/models/ArtistsModel',
+    'lib/features/artists/models/artistsModel',
     'compiled-templates/features/artists/widgets/albumRowsTemplate',
     'compiled-templates/features/artists/widgets/songsTemplate',
     'lib/models/MusicPlayer'
-], function(log, core, $, artistGridWidgetTemplate, artistRowsTemplate, ArtistsModel, albumRowsTemplate, songsTemplate, musicPlayer){
+], function(log, core, $, artistGridWidgetTemplate, artistRowsTemplate, artistsModel, albumRowsTemplate, songsTemplate, musicPlayer){
 
     //static
     var $window = $(window);
@@ -21,29 +21,25 @@ define([
      * @type {*}
      */
     var ArtistsGridWidget = core.mvc.View.extend({
-        //el:'#pages',
         id:'artistsGrid',
         '$lastSong' : null,//keep track so we can unhighlight
         initialize : function(){
             log('ArtistsGridWidget.initialize called.' + this.el);
-            this.artistsModel = ArtistsModel.create();
+            this.artistsModel = artistsModel;
 
-            //this.$el.on('tap', function(){console.log('tapped');});
-            //iterate over each artist and add an event, binding the data.
-           // this.registerClickHandlers();
+            //highlight the song that is currently being played
+            musicPlayer.onPlay(this.highlightSongBeingPlayed.bind(this));
+
         },
-        //i don't like the way backbone events work in this use case.
-//        registerClickHandlers:function(){
-//            this.$el.on('click', '[data-songId="1"]', function(e){
-//                core.log('click for songId1');
-//            });
-//
-//            //artists
-//            this.$el.on('click', '#artists > li', function(e){
-//                core.log('artist click');
-//            });
-//
-//        },
+        highlightSongBeingPlayed: function(songInfo){
+            log('highlightSongBeingPlayed called.');
+            if(this.$lastSong){
+                this.$lastSong.removeClass('song-selected');
+            }
+            this.$lastSong = $('li[data-songId="'+ songInfo.songId+'"]')
+                .addClass('song-selected');
+
+        },
         events:{
             //artist click
             'click #artists > li': function(e){
@@ -111,20 +107,10 @@ define([
             //song click
             'click #artists > li > dl > dt > ol > li' : function(e){
                 log('click for song occurred');
-                if(this.$lastSong){
-                    this.$lastSong.removeClass('song-selected');
-                }
-                var $target = $(e.currentTarget)
-                    .addClass('song-selected');
-
+                var $target = $(e.currentTarget);
                 var songId = $target.attr('data-songId');
-                //give music player info about the current song
-                var songInfo = this.artistsModel.findArtistInfoBySongId(songId);
+                musicPlayer.playSong(songId);
 
-                musicPlayer.playSong(songId, songInfo);
-
-                this.$lastSong = $target;
-                //don't bubble up
                 e.preventDefault();
                 return false;
             }
