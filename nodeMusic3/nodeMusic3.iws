@@ -2,20 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="245f59ec-341c-45a5-94a7-3b5e96a58ce5" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/js/core/device/DeviceInfo.js" afterPath="$PROJECT_DIR$/src/js/core/device/deviceInfo.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/js/lib/features/artists/models/ArtistsModel.js" afterPath="$PROJECT_DIR$/src/js/lib/features/artists/models/artistsModel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app.css" afterPath="$PROJECT_DIR$/dist/css/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app/strapkit.css" afterPath="$PROJECT_DIR$/dist/css/app/strapkit.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/app-built.js" afterPath="$PROJECT_DIR$/dist/js/app-built.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node-server/views/index.html" afterPath="$PROJECT_DIR$/node-server/views/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeMusic3.iws" afterPath="$PROJECT_DIR$/nodeMusic3.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/features/artists/_artistPage.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/features/artists/_artistPage.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/widgets/header.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/widgets/header.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/features/artists/widgets/ArtistGridWidget.js" afterPath="$PROJECT_DIR$/src/js/lib/features/artists/widgets/ArtistGridWidget.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js" afterPath="$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/widgets/HeaderWidget.js" afterPath="$PROJECT_DIR$/src/js/lib/widgets/HeaderWidget.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/widgets/SongControls.js" afterPath="$PROJECT_DIR$/src/js/lib/widgets/SongControls.js" />
     </list>
     <ignored path="nodeMusic3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,28 +66,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="strapkit.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="41" selection-start="1291" selection-end="1291" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="header.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/widgets/header.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="62" selection-start="133" selection-end="133" vertical-scroll-proportion="-1.2307693">
+            <state line="1" column="70" selection-start="91" selection-end="91" vertical-scroll-proportion="115.26923">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArtistGridWidget.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ArtistGridWidget.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/lib/features/artists/widgets/ArtistGridWidget.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="50" selection-start="896" selection-end="896" vertical-scroll-proportion="0.2960471">
+            <state line="32" column="81" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -127,15 +111,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="artistsController.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/lib/features/artists/controllers/artistsController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ArtistsView.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/lib/features/artists/views/ArtistsView.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -145,19 +120,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeaderWidget.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/lib/widgets/HeaderWidget.js">
+      <file leaf-file-name="deviceInfo.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/core/device/deviceInfo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="26" selection-start="133" selection-end="133" vertical-scroll-proportion="0.0">
+            <state line="244" column="26" selection-start="7545" selection-end="7545" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deviceInfo.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/core/device/deviceInfo.js">
+      <file leaf-file-name="strapkit.scss" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="88" selection-start="4419" selection-end="4419" vertical-scroll-proportion="0.0">
+            <state line="80" column="13" selection-start="1715" selection-end="1715" vertical-scroll-proportion="0.7981497">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node-server/views/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="14" selection-start="1711" selection-end="1711" vertical-scroll-proportion="-24.32">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/core/core.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="23" selection-start="603" selection-end="631" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -181,17 +174,17 @@
         <option value="$PROJECT_DIR$/src/templates/widgets/songControlsTemplate.html" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app/widgets/_songControls.scss" />
         <option value="$PROJECT_DIR$/src/css-preprocess/app/features/artists/_artistPage.scss" />
-        <option value="$PROJECT_DIR$/node-server/views/index.html" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss" />
-        <option value="$PROJECT_DIR$/src/css-preprocess/app/widgets/header.scss" />
         <option value="$PROJECT_DIR$/src/js/lib/widgets/SongControls.js" />
         <option value="$PROJECT_DIR$/src/js/lib/widgets/HeaderWidget.js" />
-        <option value="$PROJECT_DIR$/src/js/core/device/deviceInfo.js" />
         <option value="$PROJECT_DIR$/dist/js/app-built.js" />
         <option value="$PROJECT_DIR$/src/js/lib/features/artists/models/ArtistsModel.js" />
         <option value="$PROJECT_DIR$/src/js/lib/features/artists/models/artistsModel.js" />
         <option value="$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js" />
         <option value="$PROJECT_DIR$/src/js/lib/features/artists/widgets/ArtistGridWidget.js" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/widgets/header.scss" />
+        <option value="$PROJECT_DIR$/node-server/views/index.html" />
+        <option value="$PROJECT_DIR$/src/js/core/device/deviceInfo.js" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss" />
       </list>
     </option>
   </component>
@@ -1235,7 +1228,11 @@
       <created>1351809335522</created>
       <updated>1351809335522</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="ui accurately reflects what is being played and button stat. fixed play bugs.">
+      <created>1352422311049</created>
+      <updated>1352422311049</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1299,7 +1296,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="play pause button show hide." />
+    <option name="LAST_COMMIT_MESSAGE" value="ui accurately reflects what is being played and button stat. fixed play bugs." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1312,7 +1309,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="scrolling working decently" />
     <MESSAGE value="click handler for song" />
     <MESSAGE value="express upgraded to 3.0. Sound is playing." />
     <MESSAGE value="gzip working for dynamic views, static js, css, etc." />
@@ -1337,20 +1333,12 @@
     <MESSAGE value="added current artist and song info. working on android2.2+" />
     <MESSAGE value="position fixed working great! all devices! not optimized yet." />
     <MESSAGE value="play pause button show hide." />
+    <MESSAGE value="ui accurately reflects what is being played and button stat. fixed play bugs." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/zepto.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/widgets/songControlsTemplate.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="56" selection-start="236" selection-end="258" vertical-scroll-proportion="-3.2">
@@ -1365,13 +1353,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node-server/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="12" selection-start="1650" selection-end="1696" vertical-scroll-proportion="-23.68">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/features/artists/_artistPage.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="24" selection-start="861" selection-end="861" vertical-scroll-proportion="0.0">
@@ -1379,30 +1360,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="41" selection-start="1291" selection-end="1291" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/widgets/header.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="62" selection-start="133" selection-end="133" vertical-scroll-proportion="-1.2307693">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/lib/widgets/HeaderWidget.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="26" selection-start="133" selection-end="133" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/core/device/deviceInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="88" selection-start="4419" selection-end="4419" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1451,7 +1411,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/lib/features/artists/widgets/ArtistGridWidget.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="50" selection-start="896" selection-end="896" vertical-scroll-proportion="0.2960471">
+        <state line="32" column="81" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/core/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="23" selection-start="603" selection-end="631" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node-server/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="14" selection-start="1711" selection-end="1711" vertical-scroll-proportion="-24.32">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/widgets/header.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="70" selection-start="91" selection-end="91" vertical-scroll-proportion="115.26923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/core/device/deviceInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="244" column="26" selection-start="7545" selection-end="7545" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="13" selection-start="1715" selection-end="1715" vertical-scroll-proportion="0.7981497">
           <folding />
         </state>
       </provider>

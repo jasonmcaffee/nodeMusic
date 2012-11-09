@@ -14,10 +14,10 @@
   #navbar{
     //positioning
     position:relative;//absolute;//relative; <-- relative makes it so you can't click the underlying artistgridwidget.
-    top:-100px; //hide the navbarExpanded so it can expand down
+    //top:-100px; //hide the navbarExpanded so it can expand down
 
     //sizing
-    height: 150px;
+    height: 50px; //start out smaller so that albums can be clicked (height 150 causes 500 days of summer to be unclickable)
     width:100%;
     //transition
     @extend .navbar-transition;
@@ -32,7 +32,7 @@
     //more items for searching, current item playing, etc.
     #expandedNavBar{
       width:100%;
-
+      display:none;
       //bugs:
       //android 4.0 - if has focus, when you scroll, the text input scrolls
       //android 2.2 & 2.3 - when focus occurs, scrolls page up to the top. when focus is lost (eg other item clicked) scrolls again to the top.
@@ -105,6 +105,10 @@
   //gets added to #navbar when user toggles expanded visibility.
   .navbar-expanded{
     top:0px !important;
+    height:150px !important;
+    #expandedNavBar{
+      display:block !important;
+    }
   }
 
   //contains menu items for navigation

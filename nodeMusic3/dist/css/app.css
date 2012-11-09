@@ -1106,11 +1106,11 @@ dl {
   z-index: 5; }
   #header #navbar {
     position: relative;
-    top: -100px;
-    height: 150px;
+    height: 50px;
     width: 100%; }
     #header #navbar #expandedNavBar {
-      width: 100%; }
+      width: 100%;
+      display: none; }
       #header #navbar #expandedNavBar #search {
         width: 100%;
         height: 30px; }
@@ -1147,7 +1147,10 @@ dl {
         #header #navbar #menuCollapsed #grabber #grabberButton {
           height: 100%; }
   #header .navbar-expanded {
-    top: 0px !important; }
+    top: 0px !important;
+    height: 150px !important; }
+    #header .navbar-expanded #expandedNavBar {
+      display: block !important; }
   #header #menuExpanded {
     display: none;
     top: 0;
@@ -2515,6 +2518,11 @@ html, body {
   width: 100%;
   /*!needed to allow menu to be placed below navbar*/
   z-index: 2; }
+
+.android-4_0 .background, .android-gt-4_0 .background {
+  display: none; }
+  .android-4_0 .background img, .android-gt-4_0 .background img {
+    display: none; }
 
 .transparent-black {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);

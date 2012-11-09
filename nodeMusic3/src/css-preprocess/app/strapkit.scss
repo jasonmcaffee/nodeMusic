@@ -68,9 +68,6 @@ body{
   }
 }
 .pages{
-  //margin-top:50px;
-  //height:100%;
-  //min-height: 100%;
   width:100%;
 /*!!needed to allow menu to be placed below navbar*/
   z-index:2;
@@ -79,4 +76,15 @@ body{
   //overflow: scroll;
   //-webkit-overflow-scrolling: touch;
   //height:100%; //<-- !!needed for overflow touch to work in artistsGridWidget
+}
+
+.android-4_0, .android-gt-4_0{
+  .background{
+
+    display:none;
+    img{
+      display:none;
+    }
+  }
+
 }
