@@ -13035,7 +13035,8 @@ define('lib/models/MusicPlayer',[
 
         //events
         this.handleLoadedMetadata();
-        this.currentSong.addEventListener('ended', this.handleSongEnd.bind(this));
+        //this.currentSong.addEventListener('ended', this.handleSongEnd.bind(this));
+        this.currentSong.addEventListener('ended', this.playNextSong.bind(this));
         this.currentSong.addEventListener('progress', this.notifyProgressListeners.bind(this));
         this.currentSong.addEventListener('timeupdate', this.notifyTimeUpdateListeners.bind(this));
 
@@ -13147,6 +13148,7 @@ define('lib/models/MusicPlayer',[
 
     //
     MusicPlayer.prototype.notifyMetadataListeners = function(metadata){
+        log('notifyMetadataListeners');
         for(var i=0; i < this.onMetadataListeners.length; ++i){
             var listener = this.onMetadataListeners[i];
             if(typeof listener === 'function'){
@@ -13155,6 +13157,7 @@ define('lib/models/MusicPlayer',[
         }
     };
     MusicPlayer.prototype.notifyStopListeners = function(){
+        log('notifyStopListeners');
         for(var i=0; i < this.onStopListeners.length; ++i){
             var listener = this.onStopListeners[i];
             if(typeof listener === 'function'){
@@ -13165,28 +13168,36 @@ define('lib/models/MusicPlayer',[
 
     //will only fire once a second
     MusicPlayer.prototype.notifyTimeUpdateListeners = function(){
-        //log(''+this.currentSong.currentTime);
-        if(this.currentSong.lastTime){
-            if(this.currentSong.currentTime - 1 < this.currentSong.lastTime){
-                //log('not notifying because a second hasnt passed');
-                return;
+        //log('notifyTimeUpdateListeners');
+        try{
+            //log(''+this.currentSong.currentTime);
+            if(this.currentSong.lastTime){
+                if(this.currentSong.currentTime - 1 < this.currentSong.lastTime){
+                    //log('not notifying because a second hasnt passed');
+                    return;
+                }
             }
-        }
-        this.currentSong.lastTime = this.currentSong.currentTime;
-        var data = {
-            currentTime : this.currentSong.currentTime,
-            progressPercent: Math.floor((100 / this.currentSong.duration) * this.currentSong.currentTime)
-        };
+            this.currentSong.lastTime = this.currentSong.currentTime;
+            var data = {
+                currentTime : this.currentSong.currentTime,
+                progressPercent: Math.floor((100 / this.currentSong.duration) * this.currentSong.currentTime)
+            };
 
-        for(var i=0; i < this.onTimeUpdateListeners.length; ++i){
-            var listener = this.onTimeUpdateListeners[i];
-            if(typeof listener === 'function'){
-                listener(data);
+            for(var i=0; i < this.onTimeUpdateListeners.length; ++i){
+                log('notifying onTimeUpdateListeners');
+                var listener = this.onTimeUpdateListeners[i];
+                if(typeof listener === 'function'){
+                    listener(data);
+                }
             }
+        }catch(exception){
+            log('error notifying time updates: ' + exception);
         }
+
     };
 
     MusicPlayer.prototype.notifyProgressListeners = function(data){
+        log('notifyProgressListeners');
         this.notifyListeners(this.onProgressListeners);
     };
     MusicPlayer.prototype.notifyListeners = function(listeners){
@@ -13628,7 +13639,7 @@ define('lib/features/artists/widgets/ArtistGridWidget',[
             this.artistsModel = artistsModel;
 
             //highlight the song that is currently being played
-            musicPlayer.onPlay(this.highlightSongBeingPlayed.bind(this));
+            //musicPlayer.onPlay(this.highlightSongBeingPlayed.bind(this));
 
         },
         highlightSongBeingPlayed: function(songInfo){
@@ -13752,16 +13763,16 @@ define('lib/widgets/SongControls',[
         initialize : function(){
             core.log('SongControls widget initialized');
 
-            musicPlayer.onTimeUpdate(this.updateProgressBar.bind(this));
-
-            musicPlayer.onPlay(function(){
-                $('#playPauseButtonContainer').addClass('hide-play-show-pause');
-                //alert('onplay done');
-            });
-
-            musicPlayer.onStop(function(){
-                $('#playPauseButtonContainer').removeClass('hide-play-show-pause');
-            })
+//            musicPlayer.onTimeUpdate(this.updateProgressBar.bind(this));
+//
+//            musicPlayer.onPlay(function(){
+//                $('#playPauseButtonContainer').addClass('hide-play-show-pause');
+//                //alert('onplay done');
+//            });
+//
+//            musicPlayer.onStop(function(){
+//                $('#playPauseButtonContainer').removeClass('hide-play-show-pause');
+//            });
         },
         events:{
             'click #playPauseButtonContainer' : function(e){
@@ -13820,7 +13831,7 @@ define('lib/widgets/HeaderWidget',[
             ];
 
             //listen for song changed so we can display currentArtist currentSong
-            musicPlayer.onMetadata(this.handleNewSongBeingPlayed.bind(this));
+           // musicPlayer.onMetadata(this.handleNewSongBeingPlayed.bind(this));
 
 
         },

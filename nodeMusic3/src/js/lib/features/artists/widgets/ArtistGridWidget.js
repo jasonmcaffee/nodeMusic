@@ -28,7 +28,7 @@ define([
             this.artistsModel = artistsModel;
 
             //highlight the song that is currently being played
-            musicPlayer.onPlay(this.highlightSongBeingPlayed.bind(this));
+            //musicPlayer.onPlay(this.highlightSongBeingPlayed.bind(this));
 
         },
         highlightSongBeingPlayed: function(songInfo){

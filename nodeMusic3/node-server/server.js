@@ -88,7 +88,7 @@ app.get('/', function(req,res){
 app.get('/getSong', function(req, res){
     var songId = req.query['songId'];
     var self = this;
-
+    console.log('====================getSong with id: ' + songId);
     //musicItemRepository.init(nodeMusic.options.musicRootFilePath);
 
     musicItemRepository.getMusicItemById(songId, function(musicItem){
