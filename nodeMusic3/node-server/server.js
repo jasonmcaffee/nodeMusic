@@ -112,9 +112,18 @@ app.get('/getSong', function(req, res){
 //                    'Content-Type': 'audio/mpeg'
 //                });
 
+
                 res.set('Content-Type', 'audio/mpeg');
                 res.set('Content-Length', data.length);
-
+                //song duration on iphone is infinity
+                //http://stackoverflow.com/questions/9629223/audio-duration-returns-infinity-on-safari-when-mp3-is-served-from-php
+                res.set("Pragma: public");
+                res.set("Expires: 0");
+                res.set('Content-Disposition: inline; filename="' + musicItem.songName +  '"');
+                //res.set( 'Content-Range: bytes 0-'.$shortlen.'/'.$fsize);
+                res.set( 'Accept-Ranges: bytes');
+                res.set('X-Pad: avoid browser bug');
+                res.set('Cache-Control: no-cache');
                 res.write(data, 'binary');
 
                 res.end();

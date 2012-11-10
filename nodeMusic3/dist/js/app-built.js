@@ -13035,7 +13035,7 @@ define('lib/models/MusicPlayer',[
             this.handleLoadedMetadata();
             this.currentSong.addEventListener('ended', this.handleSongEnd.bind(this));
             //this.currentSong.addEventListener('ended', this.playNextSong.bind(this));
-            this.currentSong.addEventListener('progress', this.notifyProgressListeners.bind(this));
+            this.currentSong.addEventListener('progress', this.notifyProgressListeners.bind(this));//todo: not working on ios.
             this.currentSong.addEventListener('timeupdate', this.notifyTimeUpdateListeners.bind(this));
         }
 
@@ -13172,7 +13172,7 @@ define('lib/models/MusicPlayer',[
 
     //will only fire once a second
     MusicPlayer.prototype.notifyTimeUpdateListeners = function(){
-        //log('notifyTimeUpdateListeners');
+
         try{
             //log(''+this.currentSong.currentTime);
             if(this.currentSong.lastTime){
@@ -13181,10 +13181,11 @@ define('lib/models/MusicPlayer',[
                     return;
                 }
             }
+            alert('notifying time update ' + this.currentSong.duration + ' currentTime' + this.currentSong.currentTime);
             this.currentSong.lastTime = this.currentSong.currentTime;
             var data = {
                 currentTime : this.currentSong.currentTime,
-                progressPercent: Math.floor((100 / this.currentSong.duration) * this.currentSong.currentTime)
+                progressPercent: Math.floor((100 / this.currentSong.duration) * this.currentSong.currentTime)          //duration is infinity on iphone5. http://stackoverflow.com/questions/9629223/audio-duration-returns-infinity-on-safari-when-mp3-is-served-from-php
             };
 
             for(var i=0; i < this.onTimeUpdateListeners.length; ++i){
@@ -13195,7 +13196,7 @@ define('lib/models/MusicPlayer',[
                 }
             }
         }catch(exception){
-            log('error notifying time updates: ' + exception);
+            alert('error notifying time updates: ' + exception);
         }
 
     };
@@ -13799,7 +13800,7 @@ define('lib/widgets/SongControls',[
             }
         },
         updateProgressBar: function(data){
-            //core.log('onTimeUpdate');
+            //alert('onTimeUpdate ' + data.progressPercent);   this is 0 on iphone.
             this.$el.find('#progressBarInner')
                 .css('width', data.progressPercent+'%');
         }

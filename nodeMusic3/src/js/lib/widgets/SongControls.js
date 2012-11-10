@@ -42,7 +42,7 @@ define([
             }
         },
         updateProgressBar: function(data){
-            //core.log('onTimeUpdate');
+            //alert('onTimeUpdate ' + data.progressPercent);   this is 0 on iphone.
             this.$el.find('#progressBarInner')
                 .css('width', data.progressPercent+'%');
         }
