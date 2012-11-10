@@ -13024,22 +13024,26 @@ define('lib/models/MusicPlayer',[
         this.currentSongInfo = songInfo;
 
         //create an audio tag with src = '/getSong?songId='+songId
-        try{
-            this.currentSong = new Audio('/getSong?songId='+songId);
-            this.currentSong.play();
-        }catch(exception){
-            alert('error playing song: ' + exception);
+        if(!this.currentSong){
+            try{
+                this.currentSong = new Audio();
+            }catch(ex){
+                alert('error playing audio: ' + ex);
+                return;
+            }
+            //events
+            this.handleLoadedMetadata();
+            this.currentSong.addEventListener('ended', this.handleSongEnd.bind(this));
+            //this.currentSong.addEventListener('ended', this.playNextSong.bind(this));
+            this.currentSong.addEventListener('progress', this.notifyProgressListeners.bind(this));
+            this.currentSong.addEventListener('timeupdate', this.notifyTimeUpdateListeners.bind(this));
         }
 
+
+        this.currentSong.src = '/getSong?songId='+songId;
+        this.currentSong.play();
+
         this.currentSongId = parseInt(songId);//so we can ++ for next song, -- for previous song.
-
-        //events
-        this.handleLoadedMetadata();
-        //this.currentSong.addEventListener('ended', this.handleSongEnd.bind(this));
-        this.currentSong.addEventListener('ended', this.playNextSong.bind(this));
-        this.currentSong.addEventListener('progress', this.notifyProgressListeners.bind(this));
-        this.currentSong.addEventListener('timeupdate', this.notifyTimeUpdateListeners.bind(this));
-
 
         this.isSongCurrentlyPlaying = true;
         this.notifyPlayListeners();
@@ -13639,7 +13643,7 @@ define('lib/features/artists/widgets/ArtistGridWidget',[
             this.artistsModel = artistsModel;
 
             //highlight the song that is currently being played
-            //musicPlayer.onPlay(this.highlightSongBeingPlayed.bind(this));
+            musicPlayer.onPlay(this.highlightSongBeingPlayed.bind(this));
 
         },
         highlightSongBeingPlayed: function(songInfo){
@@ -13763,16 +13767,16 @@ define('lib/widgets/SongControls',[
         initialize : function(){
             core.log('SongControls widget initialized');
 
-//            musicPlayer.onTimeUpdate(this.updateProgressBar.bind(this));
-//
-//            musicPlayer.onPlay(function(){
-//                $('#playPauseButtonContainer').addClass('hide-play-show-pause');
-//                //alert('onplay done');
-//            });
-//
-//            musicPlayer.onStop(function(){
-//                $('#playPauseButtonContainer').removeClass('hide-play-show-pause');
-//            });
+            musicPlayer.onTimeUpdate(this.updateProgressBar.bind(this));
+
+            musicPlayer.onPlay(function(){
+                $('#playPauseButtonContainer').addClass('hide-play-show-pause');
+                //alert('onplay done');
+            });
+
+            musicPlayer.onStop(function(){
+                $('#playPauseButtonContainer').removeClass('hide-play-show-pause');
+            });
         },
         events:{
             'click #playPauseButtonContainer' : function(e){
@@ -13831,7 +13835,7 @@ define('lib/widgets/HeaderWidget',[
             ];
 
             //listen for song changed so we can display currentArtist currentSong
-           // musicPlayer.onMetadata(this.handleNewSongBeingPlayed.bind(this));
+            musicPlayer.onMetadata(this.handleNewSongBeingPlayed.bind(this));
 
 
         },

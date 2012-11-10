@@ -10,16 +10,16 @@ define([
         initialize : function(){
             core.log('SongControls widget initialized');
 
-//            musicPlayer.onTimeUpdate(this.updateProgressBar.bind(this));
-//
-//            musicPlayer.onPlay(function(){
-//                $('#playPauseButtonContainer').addClass('hide-play-show-pause');
-//                //alert('onplay done');
-//            });
-//
-//            musicPlayer.onStop(function(){
-//                $('#playPauseButtonContainer').removeClass('hide-play-show-pause');
-//            });
+            musicPlayer.onTimeUpdate(this.updateProgressBar.bind(this));
+
+            musicPlayer.onPlay(function(){
+                $('#playPauseButtonContainer').addClass('hide-play-show-pause');
+                //alert('onplay done');
+            });
+
+            musicPlayer.onStop(function(){
+                $('#playPauseButtonContainer').removeClass('hide-play-show-pause');
+            });
         },
         events:{
             'click #playPauseButtonContainer' : function(e){

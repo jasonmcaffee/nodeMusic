@@ -14,7 +14,7 @@ define([
             ];
 
             //listen for song changed so we can display currentArtist currentSong
-           // musicPlayer.onMetadata(this.handleNewSongBeingPlayed.bind(this));
+            musicPlayer.onMetadata(this.handleNewSongBeingPlayed.bind(this));
 
 
         },
