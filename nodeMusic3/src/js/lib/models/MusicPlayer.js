@@ -195,7 +195,7 @@ define([
                     return;
                 }
             }
-            alert('notifying time update ' + this.currentSong.duration + ' currentTime' + this.currentSong.currentTime);
+            log('notifying time update ' + this.currentSong.duration + ' currentTime' + this.currentSong.currentTime);
             this.currentSong.lastTime = this.currentSong.currentTime;
             var data = {
                 currentTime : this.currentSong.currentTime,

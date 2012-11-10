@@ -6,6 +6,7 @@ var gzippo = require('gzippo');
 var fs = require('fs');
 var musicItemRepository = require('./lib/musicItemRepository.js').musicItemRepository;//fetching files
 var musicItemsViewModelFactory = require('./lib/musicItemsViewModel').musicItemsViewModelFactory;
+var util = require('util');
 
 //working, but not all that useful
 //var wurfl = require('wurfl');
@@ -85,7 +86,53 @@ app.get('/', function(req,res){
 });
 
 
+
 app.get('/getSong', function(req, res){
+    var songId = req.query['songId'];
+    var self = this;
+    console.log('====================getSong with id: ' + songId);
+    //musicItemRepository.init(nodeMusic.options.musicRootFilePath);
+
+    musicItemRepository.getMusicItemById(songId, function(musicItem){
+        if(!musicItem) {//end things if we can't find the song
+            //musicItem = {id:-1, songName: 'not found', artist: 'not found'};
+            res.write('sorry, I couldnt find the id: ' + songId);
+            res.end();
+        }else{//we have found the song, so read it from disk and send it to them.
+            console.log('getMusicItemById callback. found item with id: ' + musicItem.id);
+
+            console.log('attempting to read file: ' + musicItem.fullPath);
+            res.set('Content-Type', 'audio/mp3');
+            res.set('Content-Length', musicItem.size);
+            //song duration on iphone is infinity
+            //http://stackoverflow.com/questions/9629223/audio-duration-returns-infinity-on-safari-when-mp3-is-served-from-php
+            var shortSize = musicItem.size -1;
+            console.log('shortSize is ' + shortSize);
+            res.set("Pragma", "public");
+            res.set("Expires", "0");
+            res.set('Content-Transfer-Encoding', 'binary');
+            res.set('Content-Disposition', 'inline; filename="' + musicItem.songName +  '"');
+            res.set( 'Content-Range', 'bytes 0-'+ shortSize +'/' + musicItem.size);
+            res.set( 'Accept-Ranges', 'bytes');
+            res.set('X-Pad', 'avoid browser bug');
+            //res.set('Cache-Control', 'no-cache');
+            res.set('ETag', songId);
+            //
+
+            var readStream = fs.createReadStream(musicItem.fullPath);
+            // We replaced all the event handlers with a simple call to util.pump()
+            util.pump(readStream, res);
+
+        }
+    }, function(errorMessage){
+        res.write('sorry, I couldnt find the id: ' + songId);
+        res.end();
+    });
+
+
+});
+
+app.get('/getSongOld', function(req, res){
     var songId = req.query['songId'];
     var self = this;
     console.log('====================getSong with id: ' + songId);
