@@ -12673,8 +12673,10 @@ define('core/device/deviceInfo',[
     }
 
     function generateCssClassNames(deviceInfo){
+
         function convertVersionToCssFriendlyName(version){
             if(version){
+                version = version + '';//make it a string.
                 version = version.replace('.', '_');
             }
             return version;
@@ -12952,6 +12954,7 @@ define('lib/features/artists/models/artistsModel',[
                  */
                 findArtistInfoBySongId : function(songId){
                     songId = parseInt(songId);
+                    //alert('finding song');
                     for(var artistName in this.artists){    //todo: make more efficient? maybe with binary sort?
                         var artist = this.artists[artistName];
                         for(var albumName in artist.albums){
@@ -12960,6 +12963,7 @@ define('lib/features/artists/models/artistsModel',[
                                 var song = album.songs[i];
                                 //log('song name: {0}, id:{1}', song.songName, song.id);
                                 if(song.id === songId){   //break out of the loop with the current info.
+                                    //alert('done finding song');
                                     return {
                                         artistName : artistName,
                                         albumName : albumName,
@@ -13020,8 +13024,13 @@ define('lib/models/MusicPlayer',[
         this.currentSongInfo = songInfo;
 
         //create an audio tag with src = '/getSong?songId='+songId
-        this.currentSong = new Audio('/getSong?songId='+songId);
-        this.currentSong.play();
+        try{
+            this.currentSong = new Audio('/getSong?songId='+songId);
+            this.currentSong.play();
+        }catch(exception){
+            alert('error playing song: ' + exception);
+        }
+
         this.currentSongId = parseInt(songId);//so we can ++ for next song, -- for previous song.
 
         //events
@@ -13029,10 +13038,7 @@ define('lib/models/MusicPlayer',[
         this.currentSong.addEventListener('ended', this.handleSongEnd.bind(this));
         this.currentSong.addEventListener('progress', this.notifyProgressListeners.bind(this));
         this.currentSong.addEventListener('timeupdate', this.notifyTimeUpdateListeners.bind(this));
-//        this.currentSong.addEventListener('canPlayThrough', function(){
-//               log('canPlayThrough');
-//               this.currentSong.currentTime += 3;
-//        }.bind(this));
+
 
         this.isSongCurrentlyPlaying = true;
         this.notifyPlayListeners();
@@ -13750,6 +13756,7 @@ define('lib/widgets/SongControls',[
 
             musicPlayer.onPlay(function(){
                 $('#playPauseButtonContainer').addClass('hide-play-show-pause');
+                //alert('onplay done');
             });
 
             musicPlayer.onStop(function(){
@@ -13819,6 +13826,7 @@ define('lib/widgets/HeaderWidget',[
         },
         handleNewSongBeingPlayed: function(metadata){
             core.log('HeaderWidget.handleNewSongBeingPlayed called.');
+
             if(musicPlayer.currentSongInfo){ //todo:this is null when auto next song is played.
                 this.$el.find('#currentArtist').html(musicPlayer.currentSongInfo.artistName);
                 this.$el.find('#currentSong').html(musicPlayer.currentSongInfo.songName);

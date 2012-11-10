@@ -14,6 +14,7 @@ define([
 
             musicPlayer.onPlay(function(){
                 $('#playPauseButtonContainer').addClass('hide-play-show-pause');
+                //alert('onplay done');
             });
 
             musicPlayer.onStop(function(){

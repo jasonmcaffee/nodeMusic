@@ -20,6 +20,7 @@ define([
         },
         handleNewSongBeingPlayed: function(metadata){
             core.log('HeaderWidget.handleNewSongBeingPlayed called.');
+
             if(musicPlayer.currentSongInfo){ //todo:this is null when auto next song is played.
                 this.$el.find('#currentArtist').html(musicPlayer.currentSongInfo.artistName);
                 this.$el.find('#currentSong').html(musicPlayer.currentSongInfo.songName);

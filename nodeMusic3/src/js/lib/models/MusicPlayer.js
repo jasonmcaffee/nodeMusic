@@ -38,8 +38,13 @@ define([
         this.currentSongInfo = songInfo;
 
         //create an audio tag with src = '/getSong?songId='+songId
-        this.currentSong = new Audio('/getSong?songId='+songId);
-        this.currentSong.play();
+        try{
+            this.currentSong = new Audio('/getSong?songId='+songId);
+            this.currentSong.play();
+        }catch(exception){
+            alert('error playing song: ' + exception);
+        }
+
         this.currentSongId = parseInt(songId);//so we can ++ for next song, -- for previous song.
 
         //events
@@ -47,10 +52,7 @@ define([
         this.currentSong.addEventListener('ended', this.handleSongEnd.bind(this));
         this.currentSong.addEventListener('progress', this.notifyProgressListeners.bind(this));
         this.currentSong.addEventListener('timeupdate', this.notifyTimeUpdateListeners.bind(this));
-//        this.currentSong.addEventListener('canPlayThrough', function(){
-//               log('canPlayThrough');
-//               this.currentSong.currentTime += 3;
-//        }.bind(this));
+
 
         this.isSongCurrentlyPlaying = true;
         this.notifyPlayListeners();

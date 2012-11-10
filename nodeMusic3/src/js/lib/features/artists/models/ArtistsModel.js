@@ -44,6 +44,7 @@ define([
                  */
                 findArtistInfoBySongId : function(songId){
                     songId = parseInt(songId);
+                    //alert('finding song');
                     for(var artistName in this.artists){    //todo: make more efficient? maybe with binary sort?
                         var artist = this.artists[artistName];
                         for(var albumName in artist.albums){
@@ -52,6 +53,7 @@ define([
                                 var song = album.songs[i];
                                 //log('song name: {0}, id:{1}', song.songName, song.id);
                                 if(song.id === songId){   //break out of the loop with the current info.
+                                    //alert('done finding song');
                                     return {
                                         artistName : artistName,
                                         albumName : albumName,
