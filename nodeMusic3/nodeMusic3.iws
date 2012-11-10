@@ -90,19 +90,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MusicPlayer.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MusicPlayer.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="229" column="83" selection-start="7916" selection-end="7916" vertical-scroll-proportion="0.0">
+            <state line="113" column="227" selection-start="3814" selection-end="3814" vertical-scroll-proportion="0.108843535">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node-server/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="14" selection-start="5089" selection-end="5089" vertical-scroll-proportion="0.46173254">
+            <state line="194" column="36" selection-start="8107" selection-end="8107" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -162,8 +162,8 @@
         <option value="$PROJECT_DIR$/src/js/lib/features/artists/widgets/ArtistGridWidget.js" />
         <option value="$PROJECT_DIR$/src/js/lib/widgets/HeaderWidget.js" />
         <option value="$PROJECT_DIR$/src/js/lib/widgets/SongControls.js" />
-        <option value="$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js" />
         <option value="$PROJECT_DIR$/node-server/server.js" />
+        <option value="$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js" />
       </list>
     </option>
   </component>
@@ -1217,7 +1217,11 @@
       <created>1352574822101</created>
       <updated>1352574822101</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="fixed audio duration for safari, but not ios6.">
+      <created>1352580501843</created>
+      <updated>1352580501843</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1281,7 +1285,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="added some headers for iphone infinity duration fix. not working." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed audio duration for safari, but not ios6." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1294,7 +1298,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="drilldown from artist &gt; albums &gt; songs working. can play song." />
     <MESSAGE value="basic stylings for artist" />
     <MESSAGE value="start out at artists page" />
     <MESSAGE value="replaced navigation bar with header widget" />
@@ -1319,6 +1322,7 @@
     <MESSAGE value="before massive rollback" />
     <MESSAGE value="fixed stupid audio bug. arg!" />
     <MESSAGE value="added some headers for iphone infinity duration fix. not working." />
+    <MESSAGE value="fixed audio duration for safari, but not ios6." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1408,16 +1412,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js">
+    <entry file="file://$PROJECT_DIR$/node-server/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="229" column="83" selection-start="7916" selection-end="7916" vertical-scroll-proportion="0.0">
+        <state line="194" column="36" selection-start="8107" selection-end="8107" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node-server/server.js">
+    <entry file="file://$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="14" selection-start="5089" selection-end="5089" vertical-scroll-proportion="0.46173254">
+        <state line="113" column="227" selection-start="3814" selection-end="3814" vertical-scroll-proportion="0.108843535">
           <folding />
         </state>
       </provider>

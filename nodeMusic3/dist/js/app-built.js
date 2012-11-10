@@ -13038,7 +13038,7 @@ define('lib/models/MusicPlayer',[
             this.currentSong.addEventListener('progress', this.notifyProgressListeners.bind(this));//todo: not working on ios.
             this.currentSong.addEventListener('timeupdate', this.notifyTimeUpdateListeners.bind(this));
         }
-
+        this.currentSong.lastTime = 0;//fix progress bar.
 
         this.currentSong.src = '/getSong?songId='+songId;
         this.currentSong.play();
@@ -13177,7 +13177,7 @@ define('lib/models/MusicPlayer',[
             //log(''+this.currentSong.currentTime);
             if(this.currentSong.lastTime){
                 if(this.currentSong.currentTime - 1 < this.currentSong.lastTime){
-                    //log('not notifying because a second hasnt passed');
+                    log('not notifying because a second hasnt passed');
                     return;
                 }
             }

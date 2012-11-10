@@ -161,6 +161,7 @@ app.get('/getSongOld', function(req, res){
 
 
                 res.set('Content-Type', 'audio/mpeg');
+                //res.set('Content-Type', 'application/octet-stream');  //<-- doesn't fix the issue.
                 res.set('Content-Length', data.length);
                 //song duration on iphone is infinity
                 //http://stackoverflow.com/questions/9629223/audio-duration-returns-infinity-on-safari-when-mp3-is-served-from-php
