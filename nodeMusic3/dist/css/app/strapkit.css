@@ -26,8 +26,3 @@ html, body {
   width: 100%;
   /*!needed to allow menu to be placed below navbar*/
   z-index: 2; }
-
-.android-4_0 .background, .android-gt-4_0 .background {
-  display: none; }
-  .android-4_0 .background img, .android-gt-4_0 .background img {
-    display: none; }

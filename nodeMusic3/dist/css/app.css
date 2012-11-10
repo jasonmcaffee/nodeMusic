@@ -1249,6 +1249,13 @@ dl {
     .artist-page #artistsGridWidget #artistsGrid {
       height: 100%; }
 
+.iphone-5_0 .artist-page #headerWidget, .iphone-gt-5_0 .artist-page #headerWidget, .android-gt-3_2_6 .artist-page #headerWidget {
+  z-index: 90; }
+.iphone-5_0 .artist-page #artistsGridWidget, .iphone-gt-5_0 .artist-page #artistsGridWidget, .android-gt-3_2_6 .artist-page #artistsGridWidget {
+  height: 2500px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch; }
+
 .transparent-black {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.18)), color-stop(50%, rgba(109, 109, 109, 0.18)), color-stop(100%, rgba(5, 5, 5, 0.18)));
@@ -2518,11 +2525,6 @@ html, body {
   width: 100%;
   /*!needed to allow menu to be placed below navbar*/
   z-index: 2; }
-
-.android-4_0 .background, .android-gt-4_0 .background {
-  display: none; }
-  .android-4_0 .background img, .android-gt-4_0 .background img {
-    display: none; }
 
 .transparent-black {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);

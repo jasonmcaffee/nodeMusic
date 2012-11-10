@@ -244,7 +244,7 @@ define([
         function convertVersionToCssFriendlyName(version){
             if(version){
                 version = version + '';//make it a string.
-                version = version.replace('.', '_');
+                version = version.replace(/\./g,'_');
             }
             return version;
         }

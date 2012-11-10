@@ -48,8 +48,7 @@ define([
             //events
             this.handleLoadedMetadata();
             this.currentSong.addEventListener('ended', this.handleSongEnd.bind(this));
-            //this.currentSong.addEventListener('ended', this.playNextSong.bind(this));
-            this.currentSong.addEventListener('progress', this.notifyProgressListeners.bind(this));//todo: not working on ios.
+            this.currentSong.addEventListener('progress', this.notifyProgressListeners.bind(this));
             this.currentSong.addEventListener('timeupdate', this.notifyTimeUpdateListeners.bind(this));
         }
         this.currentSong.lastTime = 0;//fix progress bar.
@@ -191,11 +190,11 @@ define([
             //log(''+this.currentSong.currentTime);
             if(this.currentSong.lastTime){
                 if(this.currentSong.currentTime - 1 < this.currentSong.lastTime){
-                    log('not notifying because a second hasnt passed');
+                    //log('not notifying because a second hasnt passed');
                     return;
                 }
             }
-            log('notifying time update ' + this.currentSong.duration + ' currentTime' + this.currentSong.currentTime);
+            //log('notifying time update ' + this.currentSong.duration + ' currentTime' + this.currentSong.currentTime);
             this.currentSong.lastTime = this.currentSong.currentTime;
             var data = {
                 currentTime : this.currentSong.currentTime,
@@ -203,7 +202,7 @@ define([
             };
 
             for(var i=0; i < this.onTimeUpdateListeners.length; ++i){
-                log('notifying onTimeUpdateListeners');
+                //log('notifying onTimeUpdateListeners');
                 var listener = this.onTimeUpdateListeners[i];
                 if(typeof listener === 'function'){
                     listener(data);

@@ -15,12 +15,14 @@ html, body{
 }
 
 body{
-  //background-attachment: fixed;
-  //background: url(../images/background-ocean.png) no-repeat fixed center top #173F5D;     //works terribly on android 2.3
-  //background-size: 100% 100%;
-  //background-origin: content-box;
 
 }
+//body
+//background-attachment: fixed;
+//background: url(../images/background-ocean.png) no-repeat fixed center top #173F5D;     //works terribly on android 2.3. stretched out iphone
+//background-size: 100% 100%;
+//background-origin: content-box;
+
 //body-stretches-on-ios-bad{
 //  background: url(../images/background-ocean.png) no-repeat top center fixed;
 //  -webkit-background-size: cover;
@@ -67,24 +69,28 @@ body{
     //z-index: -22;
   }
 }
+
 .pages{
   width:100%;
 /*!!needed to allow menu to be placed below navbar*/
   z-index:2;
 
-  //improves scrolling performance, but header is all messed up. not so great on android.  better for chrome.
-  //overflow: scroll;
-  //-webkit-overflow-scrolling: touch;
-  //height:100%; //<-- !!needed for overflow touch to work in artistsGridWidget
 }
 
-.android-4_0, .android-gt-4_0{
-  .background{
+.iphone-5_0, .iphone-gt-5_0{
+  .pages{
 
-    display:none;
-    img{
-      display:none;
-    }
   }
-
 }
+
+//.android-4_0, .android-gt-4_0{
+//  .background{
+//
+//    display:none;
+//    img{
+//      display:none;
+//    }
+//  }
+//
+//}
+

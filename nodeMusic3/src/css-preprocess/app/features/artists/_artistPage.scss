@@ -25,13 +25,26 @@
   }
 }
 
-.overflowscrolling {
+
+//get native like scrolling in ios
+.iphone-5_0, .iphone-gt-5_0, .android-gt-3_2_6{  //no good on android 2.3 and below.
   .artist-page{
+    #headerWidget{
+      //position:relative !important;
+      z-index:90;
+    }
+
     #artistsGridWidget{
-      //works well on ios and android 4. chrome paints are a little slow.
-      //terrible on android 2.3
-      //overflow: scroll;
-      //-webkit-overflow-scrolling: touch;
+      height:2500px;   //percentages% doesn't work with overflow.
+      //improves scrolling performance, but header is all messed up. not so great on android.  better for chrome.
+      overflow: scroll;
+      -webkit-overflow-scrolling: touch;
+      #artistGrid{
+
+
+      }
+
+      //height:100%; //<-- !!needed for overflow touch to work in artistsGridWidget
     }
   }
 }
