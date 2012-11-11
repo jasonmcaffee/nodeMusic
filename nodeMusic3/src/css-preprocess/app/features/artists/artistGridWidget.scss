@@ -1,14 +1,12 @@
 @import "src/css-preprocess/core/media-queries";
 @import "src/css-preprocess/core/colors";
 @import "src/css-preprocess/util/speed";
+@import "src/css-preprocess/core/animations";
 
 #artistsGrid{ //div
   //@extend .speed;
   //when the user clicks an artist, album, or song, these classes will be applied.
   .artist-selected{
-
-    //background-color: black;    <-- no improvement
-
     //@extend .speed;
 
     &:nth-child(n){
@@ -68,8 +66,6 @@
   #artistsGrid{ //div
 
     ul{
-
-
       >li{ //artist's name
         font-size:150%;
         padding: 2% 1% 2% 1%;

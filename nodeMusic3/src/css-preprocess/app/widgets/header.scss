@@ -4,6 +4,7 @@
 @import "src/css-preprocess/core/rounded-corners";
 @import "src/css-preprocess/core/grids";
 @import "src/css-preprocess/util/speed";
+@import "src/css-preprocess/core/animations";
 
 //scaffold
 #header{
@@ -27,6 +28,8 @@
     @extend .shadow-a;
     //color
     @extend .transparent-black-2;
+
+    //@include animation(navbarCollapse, 1s, forwards){}
 
     //@extend .speed;  //no improvement
     //more items for searching, current item playing, etc.
@@ -106,10 +109,17 @@
   .navbar-expanded{
     top:0px !important;
     height:150px !important;
+    //@include animation(navbarExpand, 1s, forwards){}
+    //-webkit-animation: navbarExpand 1s forwards !important;
+
     #expandedNavBar{
       display:block !important;
     }
   }
+
+  //.navbar-recollapse{
+  //  @include animation(navbarCollapse, 1s, forwards){}
+  //}
 
   //contains menu items for navigation
   #menuExpanded{
@@ -253,3 +263,21 @@
     0 1px 5px rgba(0,0,0,.99),
     inset 0 0 18px rgba(27,27,27,.15);
 }
+
+//@include keyframe(navbarExpand){
+//  from{
+//    height:50px;
+//  }
+//  to{
+//    height:150px;
+//  }
+//}
+//
+//@include keyframe(navbarCollapse){
+//  from{
+//    height:150px;
+//  }
+//  to{
+//    height:50px;
+//  }
+//}

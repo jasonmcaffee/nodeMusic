@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="245f59ec-341c-45a5-94a7-3b5e96a58ce5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js" />
+    <list default="true" id="245f59ec-341c-45a5-94a7-3b5e96a58ce5" name="Default" comment="keyframe support, but not using it as android 2.3 doesn't support keyframes.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/css-preprocess/core/_animations.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/css/app.css" afterPath="$PROJECT_DIR$/dist/css/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/js/app-built.js" afterPath="$PROJECT_DIR$/dist/js/app-built.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodeMusic3.iws" afterPath="$PROJECT_DIR$/nodeMusic3.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/core/core.js" afterPath="$PROJECT_DIR$/src/js/core/core.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib-third-party/FastButton.js" afterPath="$PROJECT_DIR$/src/js/lib-third-party/FastButton.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css-preprocess/app/widgets/header.scss" afterPath="$PROJECT_DIR$/src/css-preprocess/app/widgets/header.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/js/lib/widgets/HeaderWidget.js" afterPath="$PROJECT_DIR$/src/js/lib/widgets/HeaderWidget.js" />
     </list>
     <ignored path="nodeMusic3.iws" />
@@ -65,40 +67,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MusicPlayer.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="194" column="213" selection-start="6411" selection-end="6411" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SongControls.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/lib/widgets/SongControls.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="9" selection-start="1773" selection-end="1773" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="HeaderWidget.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/lib/widgets/HeaderWidget.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="41" selection-start="1081" selection-end="1081" vertical-scroll-proportion="0.0">
+            <state line="41" column="16" selection-start="1648" selection-end="1648" vertical-scroll-proportion="0.0">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="zepto.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/zepto.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -107,15 +80,6 @@
         <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="94" column="12" selection-start="3360" selection-end="3360" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeviceInfo.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/core/device/DeviceInfo.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="283" column="13" selection-start="9418" selection-end="9418" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -130,29 +94,74 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/core/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="12" selection-start="729" selection-end="729" vertical-scroll-proportion="0.2960471">
+            <state line="21" column="173" selection-start="728" selection-end="728" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_artistPage.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/features/artists/_artistPage.scss">
+      <file leaf-file-name="_animations.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_animations.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="227" selection-start="281" selection-end="281" vertical-scroll-proportion="0.0">
+            <state line="10" column="109" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="artistPageTemplate.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/templates/features/artists/artistPageTemplate.html">
+      <file leaf-file-name="grids.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/grids.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="188" selection-start="112" selection-end="112" vertical-scroll-proportion="-3.84">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="161" selection-start="232" selection-end="232" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="artistGridWidget.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="155" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.scss" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/widgets/header.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="25" selection-start="727" selection-end="727" vertical-scroll-proportion="0.27515048">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dist/css/app.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1144" column="84" selection-start="86430" selection-end="86430" vertical-scroll-proportion="208.65384">
+              <folding>
+                <marker date="1352651426000" expanded="true" signature="85213:85243" placeholder="{...}" />
+                <marker date="1352651426000" expanded="true" signature="88849:88862" placeholder="/*...*/" />
+                <marker date="1352651426000" expanded="true" signature="88900:88923" placeholder="/*...*/" />
+                <marker date="1352651426000" expanded="true" signature="88949:88960" placeholder="/*...*/" />
+                <marker date="1352651426000" expanded="true" signature="89496:89541" placeholder="/*...*/" />
+                <marker date="1352651426000" expanded="true" signature="89597:89620" placeholder="/*...*/" />
+                <marker date="1352651426000" expanded="true" signature="89633:89674" placeholder="/*...*/" />
+                <marker date="1352651426000" expanded="true" signature="90755:90774" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -170,10 +179,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/css-preprocess/app/widgets/header.scss" />
-        <option value="$PROJECT_DIR$/src/js/core/device/deviceInfo.js" />
-        <option value="$PROJECT_DIR$/src/js/lib/features/artists/models/artistsModel.js" />
-        <option value="$PROJECT_DIR$/src/js/lib/features/artists/widgets/ArtistGridWidget.js" />
         <option value="$PROJECT_DIR$/node-server/server.js" />
         <option value="$PROJECT_DIR$/node-server/views/index.html" />
         <option value="$PROJECT_DIR$/src/templates/features/artists/artistPageTemplate.html" />
@@ -183,15 +188,19 @@
         <option value="$PROJECT_DIR$/src/js/lib/models/MusicPlayer.js" />
         <option value="$PROJECT_DIR$/src/js/lib/widgets/SongControls.js" />
         <option value="$PROJECT_DIR$/src/js/lib-third-party/FastButton.js" />
-        <option value="$PROJECT_DIR$/src/js/lib/widgets/HeaderWidget.js" />
         <option value="$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js" />
         <option value="$PROJECT_DIR$/src/js/core/core.js" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app.scss" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/core/_animations.scss" />
+        <option value="$PROJECT_DIR$/src/js/lib/widgets/HeaderWidget.js" />
+        <option value="$PROJECT_DIR$/src/css-preprocess/app/widgets/header.scss" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="46" />
-    <option name="y" value="221" />
+    <option name="x" value="224" />
+    <option name="y" value="217" />
     <option name="width" value="2209" />
     <option name="height" value="1337" />
   </component>
@@ -997,6 +1006,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nodeMusic3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="build" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1307,11 +1334,15 @@
       <created>1352589982187</created>
       <updated>1352589982187</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Fast Buttons for everything! Freakin awesome. No side effects! No manual initialization for every element! Everything in the body is fast click!">
+      <created>1352599465738</created>
+      <updated>1352599465738</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="46" y="221" width="2209" height="1337" extended-state="0" />
+    <frame x="224" y="217" width="2209" height="1337" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1371,7 +1402,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="woot! scrolling optimized! for ios, working great on android. samsung galaxy tab address bar hiding fixed header is solved!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fast Buttons for everything! Freakin awesome. No side effects! No manual initialization for every element! Everything in the body is fast click!" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1384,7 +1415,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="replaced navigation bar with header widget" />
     <MESSAGE value="added colors for selected artist, ablum" />
     <MESSAGE value="song controls - in progress&#10;" />
     <MESSAGE value="added better styling. made progress on song controls.&#10;" />
@@ -1409,51 +1439,12 @@
     <MESSAGE value="fixed audio duration for safari, but not ios6." />
     <MESSAGE value="fixed new progress bar bug." />
     <MESSAGE value="woot! scrolling optimized! for ios, working great on android. samsung galaxy tab address bar hiding fixed header is solved!" />
+    <MESSAGE value="Fast Buttons for everything! Freakin awesome. No side effects! No manual initialization for every element! Everything in the body is fast click!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node-server/lib/musicItemRepository.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node-server/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="194" column="36" selection-start="8107" selection-end="8107" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/widgets/_songControls.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="62" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/widgets/header.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="70" selection-start="91" selection-end="91" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/strapkit.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="4" selection-start="1513" selection-end="1513" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node-server/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="12" selection-start="1650" selection-end="1696" vertical-scroll-proportion="-23.68">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/features/artists/artistPageTemplate.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="188" selection-start="112" selection-end="112" vertical-scroll-proportion="-3.84">
@@ -1505,13 +1496,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/lib/widgets/HeaderWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="41" selection-start="1081" selection-end="1081" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/lib-third-party/FastButton2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="94" column="12" selection-start="3360" selection-end="3360" vertical-scroll-proportion="0.0">
@@ -1521,7 +1505,65 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/core/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="12" selection-start="729" selection-end="729" vertical-scroll-proportion="0.2960471">
+        <state line="21" column="173" selection-start="728" selection-end="728" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/grids.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="161" selection-start="232" selection-end="232" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/css/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1144" column="84" selection-start="86430" selection-end="86430" vertical-scroll-proportion="208.65384">
+          <folding>
+            <marker date="1352651426000" expanded="true" signature="85213:85243" placeholder="{...}" />
+            <marker date="1352651426000" expanded="true" signature="88849:88862" placeholder="/*...*/" />
+            <marker date="1352651426000" expanded="true" signature="88900:88923" placeholder="/*...*/" />
+            <marker date="1352651426000" expanded="true" signature="88949:88960" placeholder="/*...*/" />
+            <marker date="1352651426000" expanded="true" signature="89496:89541" placeholder="/*...*/" />
+            <marker date="1352651426000" expanded="true" signature="89597:89620" placeholder="/*...*/" />
+            <marker date="1352651426000" expanded="true" signature="89633:89674" placeholder="/*...*/" />
+            <marker date="1352651426000" expanded="true" signature="90755:90774" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/lib/widgets/HeaderWidget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="16" selection-start="1648" selection-end="1648" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/core/_animations.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="109" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/features/artists/artistGridWidget.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="155" selection-start="490" selection-end="490" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css-preprocess/app/widgets/header.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="25" selection-start="727" selection-end="727" vertical-scroll-proportion="0.27515048">
           <folding />
         </state>
       </provider>

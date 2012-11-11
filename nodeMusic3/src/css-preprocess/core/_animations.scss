@@ -1,0 +1,37 @@
+
+@mixin keyframe($name){
+  @keyframes $name
+  {
+    @content
+  }
+
+  @-moz-keyframes $name /* Firefox */
+  {
+    @content
+  }
+
+  @-webkit-keyframes $name/* Safari and Chrome */
+  {
+    @content
+  }
+
+  @-o-keyframes $name /* Opera */
+  {
+    @content
+  }
+
+  @-ms-keyframes $name
+  {
+    @content
+  }
+}
+
+@mixin animation($duration, $animation, $fillmode){
+  animation: $animation $duration $fillmode;
+  -moz-animation: $animation $duration $fillmode; /* Firefox */
+  -webkit-animation: $animation $duration $fillmode; /* Safari and Chrome */
+  -o-animation: $animation $duration $fillmode; /* Opera */
+  -ms-animation: $animation $duration $fillmode;
+
+  //-webkit-animation-direction: alternate;
+}

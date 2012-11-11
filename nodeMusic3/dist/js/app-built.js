@@ -14164,6 +14164,7 @@ define('lib/widgets/HeaderWidget',[
     var HeaderWidget = core.mvc.View.extend({
         id:'header',
         template: headerTemplate,
+        navbarExpanded: false,
         initialize:function(){
             this.options.widgets = [
                 {selector:'#songControlsWidget', widget:new SongControlsWidget()}
@@ -14194,6 +14195,13 @@ define('lib/widgets/HeaderWidget',[
             'click #grabber' : function(e){
                 core.log('asfd grabber clicked');
                 this.$el.find('#navbar').toggleClass('navbar-expanded');
+//                if(this.navbarExpanded){
+//                   //if it's currently expanded, the user wants to collapse it.
+//                    this.$el.find('#navbar').addClass('navbar-recollapse').removeClass('navbar-expanded');
+//                }else{
+//                    this.$el.find('#navbar').addClass('navbar-expanded').removeClass('navbar-recollapse');
+//                }
+//                this.navbarExpanded = !this.navbarExpanded;
             }
         }//,
 //        render:function(){
