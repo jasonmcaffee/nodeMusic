@@ -8,19 +8,15 @@
     top:0;  //fixes android 2.3 margin.
     left:0; //fixes android 2.3 margin.
     width:100%;
-    //height:20%;
     #header{
 
     }
   }
   #artistsGridWidget{
-    //height:80%;
+    height:100%;
     padding-top:50px;  //push down the artist grid so all items are visible (header is position fixed)
     #artistsGrid{
-      //margin-top:50px;
       height:100%;
-      //overflow: scroll;
-      //-webkit-overflow-scrolling: touch;
     }
   }
 }
@@ -29,18 +25,18 @@
 //get native like scrolling in ios
 .iphone-5_0, .iphone-gt-5_0, .android-gt-3_2_6{  //no good on android 2.3 and below.
   .artist-page{
+
     #headerWidget{
       //position:relative !important;
       z-index:90;
     }
 
     #artistsGridWidget{
-      height:2500px;   //percentages% doesn't work with overflow.
-      //improves scrolling performance, but header is all messed up. not so great on android.  better for chrome.
-      overflow: scroll;
-      -webkit-overflow-scrolling: touch;
-      #artistGrid{
+       height:100%;
 
+      #artistsGrid{
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
 
       }
 

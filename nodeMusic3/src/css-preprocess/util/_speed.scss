@@ -1,8 +1,12 @@
 .speed{
-  ////definite improvement!!
+  ////definite improvement!!  on andorid 4.0
   transform: translate(0px,0px);
   -ms-transform: translate(0px,0px); /* IE 9 */
   -webkit-transform: translate(0px,0px); /* Safari and Chrome */
   -o-transform: translate(0px,0px); /* Opera */
   -moz-transform: translate(0px,0px); /* Firefox */
+
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility:    hidden;
+  -ms-backface-visibility:     hidden;
 }

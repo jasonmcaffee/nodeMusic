@@ -573,7 +573,7 @@ dl {
 .fix-inline-block-spacing {
   margin-left: -4px; }
 
-.speed {
+.speed, #header #navbar, #header #navbar #expandedNavBar, #header .navbar-expanded {
   transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
   /* IE 9 */
@@ -582,7 +582,10 @@ dl {
   -o-transform: translate(0px, 0px);
   /* Opera */
   -moz-transform: translate(0px, 0px);
-  /* Firefox */ }
+  /* Firefox */
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden; }
 
 .home-page {
   min-height: 100%; }
@@ -741,7 +744,7 @@ dl {
   background: linear-gradient(to bottom, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); }
 
-.speed {
+.speed, #header #navbar, #header #navbar #expandedNavBar, #header .navbar-expanded {
   transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
   /* IE 9 */
@@ -750,7 +753,10 @@ dl {
   -o-transform: translate(0px, 0px);
   /* Opera */
   -moz-transform: translate(0px, 0px);
-  /* Firefox */ }
+  /* Firefox */
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden; }
 
 #artistsGrid .artist-selected:nth-child(n) {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.71) 0%, rgba(0, 0, 0, 0.71) 100%);
@@ -1090,7 +1096,7 @@ dl {
 /**
 *  box-align: center;
 */
-.speed {
+.speed, #header #navbar, #header #navbar #expandedNavBar, #header .navbar-expanded {
   transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
   /* IE 9 */
@@ -1099,7 +1105,10 @@ dl {
   -o-transform: translate(0px, 0px);
   /* Opera */
   -moz-transform: translate(0px, 0px);
-  /* Firefox */ }
+  /* Firefox */
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden; }
 
 #header {
   width: 100%;
@@ -1191,12 +1200,12 @@ dl {
     display: block !important; }
 
 .navbar-transition, #header #navbar {
-  transition: all .2s;
-  -moz-transition: all .2s;
+  transition: all .3s;
+  -moz-transition: all .3s;
   /* Firefox 4 */
-  -webkit-transition: all .2s;
+  -webkit-transition: all .3s;
   /* Safari and Chrome */
-  -o-transition: all .2s;
+  -o-transition: all .3s;
   /* Opera */ }
 
 .bottom-border-radius-5, #header #navbar {
@@ -1245,6 +1254,7 @@ dl {
     left: 0;
     width: 100%; }
   .artist-page #artistsGridWidget {
+    height: 100%;
     padding-top: 50px; }
     .artist-page #artistsGridWidget #artistsGrid {
       height: 100%; }
@@ -1252,9 +1262,10 @@ dl {
 .iphone-5_0 .artist-page #headerWidget, .iphone-gt-5_0 .artist-page #headerWidget, .android-gt-3_2_6 .artist-page #headerWidget {
   z-index: 90; }
 .iphone-5_0 .artist-page #artistsGridWidget, .iphone-gt-5_0 .artist-page #artistsGridWidget, .android-gt-3_2_6 .artist-page #artistsGridWidget {
-  height: 2500px;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch; }
+  height: 100%; }
+  .iphone-5_0 .artist-page #artistsGridWidget #artistsGrid, .iphone-gt-5_0 .artist-page #artistsGridWidget #artistsGrid, .android-gt-3_2_6 .artist-page #artistsGridWidget #artistsGrid {
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch; }
 
 .transparent-black {
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.18) 0%, rgba(109, 109, 109, 0.18) 50%, rgba(5, 5, 5, 0.18) 100%);
@@ -2523,6 +2534,7 @@ html, body {
 
 .pages {
   width: 100%;
+  height: 100%;
   /*!needed to allow menu to be placed below navbar*/
   z-index: 2; }
 

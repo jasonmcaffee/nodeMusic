@@ -24,5 +24,6 @@ html, body {
 
 .pages {
   width: 100%;
+  height: 100%;
   /*!needed to allow menu to be placed below navbar*/
   z-index: 2; }

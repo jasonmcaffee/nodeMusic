@@ -28,14 +28,14 @@
     @extend .shadow-a;
     //color
     @extend .transparent-black-2;
-
+    @extend .speed;
     //@include animation(navbarCollapse, 1s, forwards){}
 
-    //@extend .speed;  //no improvement
     //more items for searching, current item playing, etc.
     #expandedNavBar{
       width:100%;
       display:none;
+      @extend .speed;
       //bugs:
       //android 4.0 - if has focus, when you scroll, the text input scrolls
       //android 2.2 & 2.3 - when focus occurs, scrolls page up to the top. when focus is lost (eg other item clicked) scrolls again to the top.
@@ -111,9 +111,10 @@
     height:150px !important;
     //@include animation(navbarExpand, 1s, forwards){}
     //-webkit-animation: navbarExpand 1s forwards !important;
-
+    @extend .speed;
     #expandedNavBar{
       display:block !important;
+      //@extend .speed;
     }
   }
 
@@ -195,10 +196,10 @@
 
 //when navbar is expanded or collapsed, this transition will be used.
 .navbar-transition{
-  transition: all .2s;
-  -moz-transition: all .2s; /* Firefox 4 */
-  -webkit-transition: all .2s; /* Safari and Chrome */
-  -o-transition: all .2s; /* Opera */
+  transition: all .3s;
+  -moz-transition: all .3s; /* Firefox 4 */
+  -webkit-transition: all .3s; /* Safari and Chrome */
+  -o-transition: all .3s; /* Opera */
   //@extend .speed; //no improvement
 }
 
