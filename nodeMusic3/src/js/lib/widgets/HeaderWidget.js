@@ -2,8 +2,9 @@ define([
     'core/core',
     'lib/widgets/SongControls',
     'compiled-templates/widgets/headerTemplate',
-    'lib/models/MusicPlayer'
-],function(core, SongControlsWidget, headerTemplate, musicPlayer){
+    'lib/models/MusicPlayer',
+    'jquery'
+],function(core, SongControlsWidget, headerTemplate, musicPlayer, $){
 
     var HeaderWidget = core.mvc.View.extend({
         id:'header',
@@ -36,10 +37,19 @@ define([
             //tap is significantly faster on android 2.2 and 2.3. not so much faster on android 4.
             //zepto tap, however, bleeds through to underlying elements (eg the artist grid widget gets the click in android 2.2)
             'click #grabber' : function(e){
-                core.log('grabber clicked');
+                core.log('asfd grabber clicked');
                 this.$el.find('#navbar').toggleClass('navbar-expanded');
             }
-        }
+        }//,
+//        render:function(){
+//            core.log('song control render override for fastbutton.');
+//            core.mvc.View.prototype.render.call(this);
+//            this.$el.find('#grabber').fastClick(function(){
+//                core.log('grabber clicked');
+//                this.$el.find('#navbar').toggleClass('navbar-expanded');
+//            }.bind(this));
+//            return this;
+//        }
     });
 
     return HeaderWidget;

@@ -6,8 +6,10 @@ define([
     'core/mvc/View',
     'core/touch/customEvents',
     'core/device/deviceInfo',
-    'modernizer'
-], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, customEvents, deviceInfo, modernizer){
+    'modernizer',
+    'lib-third-party/FastButton',
+    'lib-third-party/FastButton2'
+], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, customEvents, deviceInfo, modernizer, fastButton, fastButton2){
     log('core module loaded');
 
     var core = {
@@ -18,6 +20,9 @@ define([
 
             log('device os: {0}  version: {1}', deviceInfo.os.name, deviceInfo.os.version);
             deviceInfo.addBrowserInfoCssClassToHtml();
+
+            //every click on the page will be a fast click!
+            fastButton2.init('body');
         },
         initPlugins : function(){
             log('core.initPlugins called');
