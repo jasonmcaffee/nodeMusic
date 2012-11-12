@@ -5,6 +5,7 @@
 
   #headerWidget{
     position:fixed;
+    z-index:10;
     top:0;  //fixes android 2.3 margin.
     left:0; //fixes android 2.3 margin.
     width:100%;

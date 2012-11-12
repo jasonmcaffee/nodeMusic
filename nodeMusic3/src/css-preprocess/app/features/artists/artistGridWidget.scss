@@ -4,6 +4,7 @@
 @import "src/css-preprocess/core/animations";
 
 #artistsGrid{ //div
+  z-index:3;
   //@extend .speed;
   //when the user clicks an artist, album, or song, these classes will be applied.
   .artist-selected{
@@ -27,9 +28,9 @@
 
   ul{ //artists
 
-    //@extend .speed;
+    @extend .speed-filtered;      //improves paint time on ipad, but negative side effects on android 2.2
     >li{ //artist's name
-     // @extend .speed;
+      @extend .speed-filtered;  //improves paint time on ipad, but negative side effects on android 2.2
 
       &:nth-child(even){
         @extend .white-transparent-2;

@@ -8,8 +8,9 @@ define([
     'core/device/deviceInfo',
     'modernizer',
     'lib-third-party/FastButton',
-    'lib-third-party/FastButton2'
-], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, customEvents, deviceInfo, modernizer, fastButton, fastButton2){
+    'lib-third-party/FastButton2',
+    'core/ui/hideAddressBar'
+], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, customEvents, deviceInfo, modernizer, fastButton, fastButton2, hideAddressBar){
     log('core module loaded');
 
     var core = {
@@ -23,6 +24,8 @@ define([
 
             //every click on the page will be a fast click!
             fastButton2.init('body');
+
+            hideAddressBar();
         },
         initPlugins : function(){
             log('core.initPlugins called');

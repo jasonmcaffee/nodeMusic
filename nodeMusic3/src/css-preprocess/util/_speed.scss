@@ -6,7 +6,24 @@
   -o-transform: translate(0px,0px); /* Opera */
   -moz-transform: translate(0px,0px); /* Firefox */
 
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility:    hidden;
-  -ms-backface-visibility:     hidden;
+  //causes android 4 to slow down paint considerably
+  //-webkit-backface-visibility: hidden;
+  //-moz-backface-visibility:    hidden;
+  //-ms-backface-visibility:     hidden;
+}
+
+//causes longer paint on background image on load for ipad.
+//not using.
+.speed2{
+  //-webkit-transform: translateZ(0);
+}
+
+//boooo. fucks up everywhere
+//some browsers act buggy with speed enhancements.
+//eg android 2.3 and below messes up the z index when transform is applied.
+//this will only get applied on certain platforms.
+.android-2_3, .android-gt-2_3, .ipad, .iphone{
+  .speed-filtered{
+    @extend .speed;
+  }
 }

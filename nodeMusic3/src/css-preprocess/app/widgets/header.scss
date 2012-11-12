@@ -8,9 +8,9 @@
 
 //scaffold
 #header{
-  //position:fixed;
+  position:relative;
   width:100%;
-  z-index: 5;
+  //@extend .speed2;
   //contains song controls, search, progress bar etc. some things are hidden until expanded
   #navbar{
     //positioning
@@ -264,6 +264,7 @@
     0 1px 5px rgba(0,0,0,.99),
     inset 0 0 18px rgba(27,27,27,.15);
 }
+
 
 //@include keyframe(navbarExpand){
 //  from{

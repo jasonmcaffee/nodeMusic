@@ -13088,6 +13088,29 @@ define('lib-third-party/FastButton2',[
     };
    return fb;
 });
+define('core/ui/hideAddressBar',[
+    'core/util/log',
+    'jquery'
+], function(log, $){
+    log('hideAddressBar module loaded');
+
+    function hideAddressBar(){
+        log('hideAddressBar called');
+        $(function(){
+            $(window).on('load', function(){    //wait until everything is done loading.
+                window.setTimeout(function() {
+                   //since the heights are all percentage based, window.scrollTo won't do anything.
+                    //make the height 120%, scrollto, then revert height back to 100%
+                    //$('html').css('height', '150%');
+                    //window.scrollTo(0, 0);          //don't bother
+                    //$('html').css('height', '100%');
+                },0);
+            });
+        });
+    }
+
+    return hideAddressBar;
+});
 define('core/core',[
     'core/util/log',
     'backbone',
@@ -13098,8 +13121,9 @@ define('core/core',[
     'core/device/deviceInfo',
     'modernizer',
     'lib-third-party/FastButton',
-    'lib-third-party/FastButton2'
-], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, customEvents, deviceInfo, modernizer, fastButton, fastButton2){
+    'lib-third-party/FastButton2',
+    'core/ui/hideAddressBar'
+], function(log, Backbone, eachWithIndexPlugin, eachPropertyPlugin, View, customEvents, deviceInfo, modernizer, fastButton, fastButton2, hideAddressBar){
     log('core module loaded');
 
     var core = {
@@ -13113,6 +13137,8 @@ define('core/core',[
 
             //every click on the page will be a fast click!
             fastButton2.init('body');
+
+            hideAddressBar();
         },
         initPlugins : function(){
             log('core.initPlugins called');
