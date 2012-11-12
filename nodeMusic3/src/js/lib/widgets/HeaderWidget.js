@@ -9,7 +9,6 @@ define([
     var HeaderWidget = core.mvc.View.extend({
         id:'header',
         template: headerTemplate,
-        navbarExpanded: false,
         initialize:function(){
             this.options.widgets = [
                 {selector:'#songControlsWidget', widget:new SongControlsWidget()}
@@ -23,7 +22,7 @@ define([
         handleNewSongBeingPlayed: function(metadata){
             core.log('HeaderWidget.handleNewSongBeingPlayed called.');
 
-            if(musicPlayer.currentSongInfo){ //todo:this is null when auto next song is played.
+            if(musicPlayer.currentSongInfo){
                 this.$el.find('#currentArtist').html(musicPlayer.currentSongInfo.artistName);
                 this.$el.find('#currentSong').html(musicPlayer.currentSongInfo.songName);
             }
@@ -31,33 +30,20 @@ define([
 
         },
         events:{
-            'click #menuButton' : function(e){
+            //todo: fastbutton2 intermittently stops working when the menu is shown. using tap for now.
+            'tap #menuButton' : function(e){
                 core.log('menuButton clicked');
-                this.$el.find('#menuExpanded').toggle();
+                //this.$el.find('#menuExpanded').toggle();
+                $('#menuWidget').toggleClass('menu-widget-expanded');
             },
             //tap is significantly faster on android 2.2 and 2.3. not so much faster on android 4.
             //zepto tap, however, bleeds through to underlying elements (eg the artist grid widget gets the click in android 2.2)
-            'click #grabber' : function(e){
+            'tap #grabber' : function(e){
                 core.log('asfd grabber clicked');
                 this.$el.find('#navbar').toggleClass('navbar-expanded');
-//                if(this.navbarExpanded){
-//                   //if it's currently expanded, the user wants to collapse it.
-//                    this.$el.find('#navbar').addClass('navbar-recollapse').removeClass('navbar-expanded');
-//                }else{
-//                    this.$el.find('#navbar').addClass('navbar-expanded').removeClass('navbar-recollapse');
-//                }
-//                this.navbarExpanded = !this.navbarExpanded;
             }
-        }//,
-//        render:function(){
-//            core.log('song control render override for fastbutton.');
-//            core.mvc.View.prototype.render.call(this);
-//            this.$el.find('#grabber').fastClick(function(){
-//                core.log('grabber clicked');
-//                this.$el.find('#navbar').toggleClass('navbar-expanded');
-//            }.bind(this));
-//            return this;
-//        }
+        }
+
     });
 
     return HeaderWidget;

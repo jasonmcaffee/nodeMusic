@@ -27,3 +27,11 @@
     @extend .speed;
   }
 }
+
+//the artistgrid is jagged when painting expanded artist on ipad.
+//applying this to android 2.3 slows other animations down.(choppy)
+.ipad{
+  .speed-ipad{
+    @extend .speed;
+  }
+}

@@ -28,9 +28,9 @@
 
   ul{ //artists
 
-    @extend .speed-filtered;      //improves paint time on ipad, but negative side effects on android 2.2
+    @extend .speed-ipad;      //improves paint time on ipad, but negative side effects on android 2.2  & 2.3
     >li{ //artist's name
-      @extend .speed-filtered;  //improves paint time on ipad, but negative side effects on android 2.2
+      @extend .speed-ipad;  //improves paint time on ipad, but negative side effects on android 2.2    & 2.3
 
       &:nth-child(even){
         @extend .white-transparent-2;

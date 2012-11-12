@@ -1,0 +1,12 @@
+@import "src/css-preprocess/core/colors";
+#menu{
+  position:relative;
+  width:100%;
+  @extend .dark-transparent-black;
+  padding-left: 5%;
+  padding-top:1%;
+  li{
+    padding:5%;
+  }
+}
+

@@ -123,71 +123,7 @@
   //}
 
   //contains menu items for navigation
-  #menuExpanded{
-    display: none; //todo: only do this in android 2.3 as it negates transforms.
 
-    //positioning
-    top:0;
-    left:0;
-    z-index: 6;
-    position:fixed; //this breaks android 2.3 transform on this element.
-    margin-top:20px;
-    z-index:3;
-
-    //sizing
-    width:50%;
-    padding:5px 5px 5px 5px;
-
-    //shadow
-    @extend .shadow-c;
-
-    //color
-    @include black-transparent-gradient; //todo: this doesn't work with inheritance(extend). something to think about.
-
-    //children
-    //list of menu items
-    ul{
-      height:100%;
-      list-style:none;
-      padding:0;
-      margin-top:7px;
-      margin-left:5px;
-
-      li{
-        //positioning
-        display: inline-block;
-        margin-left: 0px;
-        margin-right: -3px; //ul makes us have this spacing that i can't get rid of without doing this
-        //padding
-        padding: 0px 3px 0px 3px;
-        //shadow
-        @extend .shadow-b;
-
-        a{
-          text-decoration: none;
-          text-shadow: 0 1px 5.7px 0 rgba(0,0,0,.58);
-          font-weight: bold;
-          font-size: 30px;
-          color: rgb(80,125,175);
-          padding-right: 20px;
-          padding-left:20px;
-        }
-      }
-
-      li:first-child{
-        @extend .top-border-radius-7;
-      }
-
-      li:last-child{
-
-      }
-    }
-  }
-  //menu is not visible by default for small devices.
-  .menu-expanded-shown{
-    display: block !important; //must override #menu... id selector as it has priority
-    //margin-left:-5px;//fix android 2.3
-  }
 
 }
 
@@ -202,6 +138,7 @@
   -o-transition: all .3s; /* Opera */
   //@extend .speed; //no improvement
 }
+
 
 //rounded corners on bottom of navbar
 .bottom-border-radius-5{
@@ -282,4 +219,71 @@
 //  to{
 //    height:50px;
 //  }
+//}
+
+//old menu
+//#menuExpanded{
+//  display: none; //todo: only do this in android 2.3 as it negates transforms.
+//
+//  //positioning
+//  top:0;
+//  left:0;
+//  z-index: 6;
+//  position:fixed; //this breaks android 2.3 transform on this element.
+//  margin-top:20px;
+//  z-index:3;
+//
+//  //sizing
+//  width:50%;
+//  padding:5px 5px 5px 5px;
+//
+//  //shadow
+//  @extend .shadow-c;
+//
+//  //color
+//  @include black-transparent-gradient; //todo: this doesn't work with inheritance(extend). something to think about.
+//
+//  //children
+//  //list of menu items
+//  ul{
+//    height:100%;
+//    list-style:none;
+//    padding:0;
+//    margin-top:7px;
+//    margin-left:5px;
+//
+//    li{
+//      //positioning
+//      display: inline-block;
+//      margin-left: 0px;
+//      margin-right: -3px; //ul makes us have this spacing that i can't get rid of without doing this
+//      //padding
+//      padding: 0px 3px 0px 3px;
+//      //shadow
+//      @extend .shadow-b;
+//
+//      a{
+//        text-decoration: none;
+//        text-shadow: 0 1px 5.7px 0 rgba(0,0,0,.58);
+//        font-weight: bold;
+//        font-size: 30px;
+//        color: rgb(80,125,175);
+//        padding-right: 20px;
+//        padding-left:20px;
+//      }
+//    }
+//
+//    li:first-child{
+//      @extend .top-border-radius-7;
+//    }
+//
+//    li:last-child{
+//
+//    }
+//  }
+//}
+////menu is not visible by default for small devices.
+//.menu-expanded-shown{
+//  display: block !important; //must override #menu... id selector as it has priority
+//  //margin-left:-5px;//fix android 2.3
 //}

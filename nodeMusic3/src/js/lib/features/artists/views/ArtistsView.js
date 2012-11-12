@@ -4,8 +4,9 @@ define([
     'jquery',
     'compiled-templates/features/artists/artistPageTemplate',
     'lib/features/artists/widgets/ArtistGridWidget',
-    'lib/widgets/HeaderWidget'
-], function(core, _, $, pageTemplate, ArtistGridWidget, HeaderWidget){
+    'lib/widgets/HeaderWidget',
+    'lib/widgets/Menu'
+], function(core, _, $, pageTemplate, ArtistGridWidget, HeaderWidget, MenuWidget){
 
     var ArtistsView = core.mvc.View.extend({
         template: pageTemplate,
@@ -14,7 +15,8 @@ define([
             core.log('ArtistsView.initialize called.' + this.el);
             this.options.widgets = [
                 {selector:'#artistsGridWidget', widget:new ArtistGridWidget()},
-                {selector:'#headerWidget', widget:new HeaderWidget()}
+                {selector:'#headerWidget', widget:new HeaderWidget()},
+                {selector:'#menuWidget', widget:new MenuWidget()}
             ];
         }
     });

@@ -13094,19 +13094,22 @@ define('core/ui/hideAddressBar',[
 ], function(log, $){
     log('hideAddressBar module loaded');
 
+    //http://mobile.tutsplus.com/tutorials/mobile-web-apps/remove-address-bar/
     function hideAddressBar(){
         log('hideAddressBar called');
-        $(function(){
-            $(window).on('load', function(){    //wait until everything is done loading.
-                window.setTimeout(function() {
-                   //since the heights are all percentage based, window.scrollTo won't do anything.
-                    //make the height 120%, scrollto, then revert height back to 100%
-                    //$('html').css('height', '150%');
-                    //window.scrollTo(0, 0);          //don't bother
-                    //$('html').css('height', '100%');
-                },0);
-            });
-        });
+//        $(function(){
+//            $(window).on('load', function(){    //wait until everything is done loading.
+//
+//                    if(document.height < window.outerHeight)
+//                    {
+//                        alert('adjust');
+//                        document.body.style.height = (window.outerHeight + 50) + 'px';
+//                    }
+//                    document.body.style.height = (window.outerHeight + 50) + 'px';
+//                    setTimeout( function(){ window.scrollTo(0, 1); }, 50 );
+//
+//            });
+//        });
     }
 
     return hideAddressBar;
@@ -13842,7 +13845,7 @@ templates['artistPageTemplate'] = template(function (Handlebars,depth0,helpers,p
   var foundHelper, self=this;
 
 
-  return "<div class=\"artist-page\">\n    <div id=\"headerWidget\"></div>\n\n    <div id=\"artistsGridWidget\">\n    </div>\n\n</div>";}); 
+  return "<div class=\"artist-page\">\n    <div id=\"headerWidget\"></div>\n\n    <div id=\"menuWidget\"></div>\n    <div id=\"artistsGridWidget\">\n    </div>\n\n</div>";}); 
 Handlebars.registerPartial("artistPageTemplate", templates["artistPageTemplate"]); 
 return templates["artistPageTemplate"]; 
 });
@@ -14175,7 +14178,7 @@ templates['headerTemplate'] = template(function (Handlebars,depth0,helpers,parti
   var foundHelper, self=this;
 
 
-  return "<div id=\"navbar\">\n\n    <div id=\"expandedNavBar\">\n        <!--<label for=\"search\">search:</label>-->\n        <!--<input id=\"search\" type=\"text\">-->\n\n        <div id=\"songInfo\">\n            <div id=\"currentArtist\">current artist</div>\n            <div id=\"currentSong\">current song</div>\n        </div>\n    </div>\n    <div id=\"menuCollapsed\">\n        <div id=\"menuButtonContainer\">\n            <img id=\"menuButton\" alt=\"menu button\" src=\"images/menu-button.png\">\n        </div>\n        <div id=\"songControlsWidget\"></div>\n\n        <div id=\"grabber\">\n            <img id=\"grabberButton\" alt=\"grabber\" src=\"images/grabber.png\">\n        </div>\n    </div>\n</div>\n\n<div id=\"menuExpanded\">\n    <ul>\n        <li><a href=\"/#artists\">Artists</a></li>\n        <li><a href=\"/#artists\">Songs</a></li>\n    </ul>\n</div>";}); 
+  return "<div id=\"navbar\">\n\n    <div id=\"expandedNavBar\">\n        <!--<label for=\"search\">search:</label>-->\n        <!--<input id=\"search\" type=\"text\">-->\n\n        <div id=\"songInfo\">\n            <div id=\"currentArtist\">current artist</div>\n            <div id=\"currentSong\">current song</div>\n        </div>\n    </div>\n    <div id=\"menuCollapsed\">\n        <div id=\"menuButtonContainer\">\n            <img id=\"menuButton\" alt=\"menu button\" src=\"images/menu-button.png\">\n        </div>\n        <div id=\"songControlsWidget\"></div>\n\n        <div id=\"grabber\">\n            <img id=\"grabberButton\" alt=\"grabber\" src=\"images/grabber.png\">\n        </div>\n    </div>\n</div>\n";}); 
 Handlebars.registerPartial("headerTemplate", templates["headerTemplate"]); 
 return templates["headerTemplate"]; 
 });
@@ -14190,7 +14193,6 @@ define('lib/widgets/HeaderWidget',[
     var HeaderWidget = core.mvc.View.extend({
         id:'header',
         template: headerTemplate,
-        navbarExpanded: false,
         initialize:function(){
             this.options.widgets = [
                 {selector:'#songControlsWidget', widget:new SongControlsWidget()}
@@ -14204,7 +14206,7 @@ define('lib/widgets/HeaderWidget',[
         handleNewSongBeingPlayed: function(metadata){
             core.log('HeaderWidget.handleNewSongBeingPlayed called.');
 
-            if(musicPlayer.currentSongInfo){ //todo:this is null when auto next song is played.
+            if(musicPlayer.currentSongInfo){
                 this.$el.find('#currentArtist').html(musicPlayer.currentSongInfo.artistName);
                 this.$el.find('#currentSong').html(musicPlayer.currentSongInfo.songName);
             }
@@ -14212,36 +14214,50 @@ define('lib/widgets/HeaderWidget',[
 
         },
         events:{
-            'click #menuButton' : function(e){
+            //todo: fastbutton2 intermittently stops working when the menu is shown. using tap for now.
+            'tap #menuButton' : function(e){
                 core.log('menuButton clicked');
-                this.$el.find('#menuExpanded').toggle();
+                //this.$el.find('#menuExpanded').toggle();
+                $('#menuWidget').toggleClass('menu-widget-expanded');
             },
             //tap is significantly faster on android 2.2 and 2.3. not so much faster on android 4.
             //zepto tap, however, bleeds through to underlying elements (eg the artist grid widget gets the click in android 2.2)
-            'click #grabber' : function(e){
+            'tap #grabber' : function(e){
                 core.log('asfd grabber clicked');
                 this.$el.find('#navbar').toggleClass('navbar-expanded');
-//                if(this.navbarExpanded){
-//                   //if it's currently expanded, the user wants to collapse it.
-//                    this.$el.find('#navbar').addClass('navbar-recollapse').removeClass('navbar-expanded');
-//                }else{
-//                    this.$el.find('#navbar').addClass('navbar-expanded').removeClass('navbar-recollapse');
-//                }
-//                this.navbarExpanded = !this.navbarExpanded;
             }
-        }//,
-//        render:function(){
-//            core.log('song control render override for fastbutton.');
-//            core.mvc.View.prototype.render.call(this);
-//            this.$el.find('#grabber').fastClick(function(){
-//                core.log('grabber clicked');
-//                this.$el.find('#navbar').toggleClass('navbar-expanded');
-//            }.bind(this));
-//            return this;
-//        }
+        }
+
     });
 
     return HeaderWidget;
+});
+define('compiled-templates/widgets/menuTemplate',["handlebars", "core/util/log"], function(Handlebars, log){ 
+log("menuTemplate precompiled template function module loaded."); 
+var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {}; 
+templates['menuTemplate'] = template(function (Handlebars,depth0,helpers,partials,data) {
+  helpers = helpers || Handlebars.helpers;
+  var foundHelper, self=this;
+
+
+  return "<ul id=\"menu\">\n    <li>\n        item 1\n    </li>\n    <li>\n        item 2\n    </li>\n</ul>";}); 
+Handlebars.registerPartial("menuTemplate", templates["menuTemplate"]); 
+return templates["menuTemplate"]; 
+});
+define('lib/widgets/Menu',[
+'core/core',
+'compiled-templates/widgets/menuTemplate'
+], function(core, menuTemplate){
+    core.log('Menu widget module loaded');
+    var Menu = core.mvc.View.extend({
+        id: 'menuContainer',
+        template:menuTemplate,
+        events:{
+
+        }
+    });
+
+    return Menu;
 });
 define('lib/features/artists/views/ArtistsView',[
     'core/core',
@@ -14249,8 +14265,9 @@ define('lib/features/artists/views/ArtistsView',[
     'jquery',
     'compiled-templates/features/artists/artistPageTemplate',
     'lib/features/artists/widgets/ArtistGridWidget',
-    'lib/widgets/HeaderWidget'
-], function(core, _, $, pageTemplate, ArtistGridWidget, HeaderWidget){
+    'lib/widgets/HeaderWidget',
+    'lib/widgets/Menu'
+], function(core, _, $, pageTemplate, ArtistGridWidget, HeaderWidget, MenuWidget){
 
     var ArtistsView = core.mvc.View.extend({
         template: pageTemplate,
@@ -14259,7 +14276,8 @@ define('lib/features/artists/views/ArtistsView',[
             core.log('ArtistsView.initialize called.' + this.el);
             this.options.widgets = [
                 {selector:'#artistsGridWidget', widget:new ArtistGridWidget()},
-                {selector:'#headerWidget', widget:new HeaderWidget()}
+                {selector:'#headerWidget', widget:new HeaderWidget()},
+                {selector:'#menuWidget', widget:new MenuWidget()}
             ];
         }
     });

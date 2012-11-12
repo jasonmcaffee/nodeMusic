@@ -1,17 +1,36 @@
 @import "src/css-preprocess/app/features/artists/artistGridWidget";
 @import "src/css-preprocess/app/widgets/header";
+@import "src/css-preprocess/app/widgets/menu";
+@import "src/css-preprocess/core/colors";
+@import "src/css-preprocess/util/speed";
+
 .artist-page{
     height:100%;
 
   #headerWidget{
     position:fixed;
-    z-index:10;
+    z-index:100;
     top:0;  //fixes android 2.3 margin.
     left:0; //fixes android 2.3 margin.
     width:100%;
     #header{
 
     }
+  }
+
+  #menuWidget{
+    //display:none;
+    height:100%;
+    @extend .transparent-orange;
+    @extend .menu-shadow;
+    width:200px;
+    left:-210px;
+    position:absolute;
+    z-index: 4;
+    padding-top:50px;
+    //margin-top:50px;
+    @extend .speed;
+    @extend .menu-transition;
   }
   #artistsGridWidget{
     height:100%;
@@ -22,6 +41,23 @@
   }
 }
 
+.menu-shadow{
+  -webkit-box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.74);
+  -moz-box-shadow:    3px 0px 5px rgba(0, 0, 0, 0.74);
+  box-shadow:         3px 0px 5px rgba(0, 0, 0, 0.74);
+}
+
+.menu-widget-expanded{
+  //display:block !important;
+  left:0px !important;
+  //width:25% !important;
+}
+.menu-transition{
+  transition: all .3s;
+  -moz-transition: all .3s; /* Firefox 4 */
+  -webkit-transition: all .3s; /* Safari and Chrome */
+  -o-transition: all .3s; /* Opera */
+}
 
 //get native like scrolling in ios
 .iphone-5_0, .iphone-gt-5_0, .android-gt-3_2_6{  //no good on android 2.3 and below.
