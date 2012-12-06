@@ -10,6 +10,7 @@ define([
         element.addEventListener('touchstart', this, false);
     }
     FastButton.prototype.handleEvent = function(event) {
+
         switch (event.type) {
             case 'touchstart': this.onTouchStart(event); break;
             case 'touchmove': this.onTouchMove(event); break;
@@ -35,6 +36,7 @@ define([
         this.reset();
         this.handler(event);
         if(event.type == 'touchend') {
+            //alert('ghost click');
             preventGhostClick(this.startX, this.startY);
         }
     };
@@ -71,9 +73,11 @@ define([
         var theTarget = document.elementFromPoint(this.startX, this.startY);
         if(theTarget.nodeType == 3) theTarget = theTarget.parentNode;
 
-        var theEvent = document.createEvent('MouseEvents');
-        theEvent.initEvent('click', true, true);
-        theTarget.dispatchEvent(theEvent);
+        //this randomly doesn't work when showing hiding elements. using trigger instead.
+//        var theEvent = document.createEvent('MouseEvents');
+//        theEvent.initEvent('click', true, true);
+//        theTarget.dispatchEvent(theEvent);
+        $(theTarget).trigger('click');
     }
 
 

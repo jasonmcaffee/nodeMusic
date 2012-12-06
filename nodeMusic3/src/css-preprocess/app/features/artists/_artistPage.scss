@@ -25,9 +25,12 @@
     @extend .menu-shadow;
     width:200px;
     left:-210px;
-    position:absolute;
-    z-index: 4;
+    position:fixed; //needs to be fixed for ipad.
+    z-index: 80;
     padding-top:50px;
+    margin-top:50px;
+    padding-left:1%;
+    padding-right:1%;
     //margin-top:50px;
     @extend .speed;
     @extend .menu-transition;
@@ -65,11 +68,11 @@
 
     #headerWidget{
       //position:relative !important;
-      z-index:90;
+      //z-index:90;
     }
 
     #artistsGridWidget{
-       height:100%;
+       //height:100%;
 
       #artistsGrid{
         overflow: scroll;

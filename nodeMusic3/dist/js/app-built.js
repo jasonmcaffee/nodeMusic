@@ -13004,6 +13004,7 @@ define('lib-third-party/FastButton2',[
         element.addEventListener('touchstart', this, false);
     }
     FastButton.prototype.handleEvent = function(event) {
+
         switch (event.type) {
             case 'touchstart': this.onTouchStart(event); break;
             case 'touchmove': this.onTouchMove(event); break;
@@ -13029,6 +13030,7 @@ define('lib-third-party/FastButton2',[
         this.reset();
         this.handler(event);
         if(event.type == 'touchend') {
+            //alert('ghost click');
             preventGhostClick(this.startX, this.startY);
         }
     };
@@ -13065,9 +13067,11 @@ define('lib-third-party/FastButton2',[
         var theTarget = document.elementFromPoint(this.startX, this.startY);
         if(theTarget.nodeType == 3) theTarget = theTarget.parentNode;
 
-        var theEvent = document.createEvent('MouseEvents');
-        theEvent.initEvent('click', true, true);
-        theTarget.dispatchEvent(theEvent);
+        //this randomly doesn't work when showing hiding elements. using trigger instead.
+//        var theEvent = document.createEvent('MouseEvents');
+//        theEvent.initEvent('click', true, true);
+//        theTarget.dispatchEvent(theEvent);
+        $(theTarget).trigger('click');
     }
 
 
@@ -13845,7 +13849,7 @@ templates['artistPageTemplate'] = template(function (Handlebars,depth0,helpers,p
   var foundHelper, self=this;
 
 
-  return "<div class=\"artist-page\">\n    <div id=\"headerWidget\"></div>\n\n    <div id=\"menuWidget\"></div>\n    <div id=\"artistsGridWidget\">\n    </div>\n\n</div>";}); 
+  return "<div class=\"artist-page\">\n    <div id=\"headerWidget\"></div>\n\n    <div id=\"menuWidget\"></div>\n\n    <div id=\"artistsGridWidget\">\n    </div>\n\n</div>";}); 
 Handlebars.registerPartial("artistPageTemplate", templates["artistPageTemplate"]); 
 return templates["artistPageTemplate"]; 
 });
@@ -14114,7 +14118,7 @@ templates['songControlsTemplate'] = template(function (Handlebars,depth0,helpers
   var foundHelper, self=this;
 
 
-  return "\n    <div id=\"previousButtonContainer\">\n        <img id=\"previousButton\" alt=\"previous button\" src=\"images/previous-button.png\">\n    </div>\n    <div id=\"playPauseButtonContainer\">\n        <!--<img id=\"playButton\" alt=\"play button\" src=\"images/play-button.png\">-->\n        <!--<img id=\"pauseButton\" alt=\"pause button\" src=\"images/pause-button.png\">-->\n\n    </div>\n    <div id=\"nextButtonContainer\">\n        <img id=\"nextButton\" alt=\"next button\" src=\"images/next-button.png\">\n    </div>\n    <div id=\"progressBar\">\n        <div id=\"progressBarInner\">&nbsp;</div>\n    </div>";}); 
+  return "\n    <div id=\"previousButtonContainer\">\n        <img id=\"previousButton\" alt=\"previous button\" src=\"images/previous-button.png\">\n\n        <!--<input id=\"previousButton\" type=\"checkbox\"/>-->\n    </div>\n    <div id=\"playPauseButtonContainer\">\n        <!--<img id=\"playButton\" alt=\"play button\" src=\"images/play-button.png\">-->\n        <!--<img id=\"pauseButton\" alt=\"pause button\" src=\"images/pause-button.png\">-->\n\n    </div>\n    <div id=\"nextButtonContainer\">\n        <img id=\"nextButton\" alt=\"next button\" src=\"images/next-button.png\">\n    </div>\n    <div id=\"progressBar\">\n        <div id=\"progressBarInner\">&nbsp;</div>\n    </div>";}); 
 Handlebars.registerPartial("songControlsTemplate", templates["songControlsTemplate"]); 
 return templates["songControlsTemplate"]; 
 });
@@ -14215,14 +14219,14 @@ define('lib/widgets/HeaderWidget',[
         },
         events:{
             //todo: fastbutton2 intermittently stops working when the menu is shown. using tap for now.
-            'tap #menuButton' : function(e){
+            'click #menuButton' : function(e){
                 core.log('menuButton clicked');
                 //this.$el.find('#menuExpanded').toggle();
                 $('#menuWidget').toggleClass('menu-widget-expanded');
             },
             //tap is significantly faster on android 2.2 and 2.3. not so much faster on android 4.
             //zepto tap, however, bleeds through to underlying elements (eg the artist grid widget gets the click in android 2.2)
-            'tap #grabber' : function(e){
+            'click #grabber' : function(e){
                 core.log('asfd grabber clicked');
                 this.$el.find('#navbar').toggleClass('navbar-expanded');
             }
@@ -14240,7 +14244,7 @@ templates['menuTemplate'] = template(function (Handlebars,depth0,helpers,partial
   var foundHelper, self=this;
 
 
-  return "<ul id=\"menu\">\n    <li>\n        item 1\n    </li>\n    <li>\n        item 2\n    </li>\n</ul>";}); 
+  return "<input type=\"text\" placeholder=\"search\"/>\n<ul id=\"menu\">\n    <li>\n        item 1\n    </li>\n    <li>\n        item 2\n    </li>\n</ul>";}); 
 Handlebars.registerPartial("menuTemplate", templates["menuTemplate"]); 
 return templates["menuTemplate"]; 
 });

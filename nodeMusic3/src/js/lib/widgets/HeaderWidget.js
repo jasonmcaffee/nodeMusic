@@ -31,14 +31,14 @@ define([
         },
         events:{
             //todo: fastbutton2 intermittently stops working when the menu is shown. using tap for now.
-            'tap #menuButton' : function(e){
+            'click #menuButton' : function(e){
                 core.log('menuButton clicked');
                 //this.$el.find('#menuExpanded').toggle();
                 $('#menuWidget').toggleClass('menu-widget-expanded');
             },
             //tap is significantly faster on android 2.2 and 2.3. not so much faster on android 4.
             //zepto tap, however, bleeds through to underlying elements (eg the artist grid widget gets the click in android 2.2)
-            'tap #grabber' : function(e){
+            'click #grabber' : function(e){
                 core.log('asfd grabber clicked');
                 this.$el.find('#navbar').toggleClass('navbar-expanded');
             }
