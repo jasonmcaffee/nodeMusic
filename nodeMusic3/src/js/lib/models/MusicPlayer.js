@@ -215,6 +215,7 @@ define([
     };
 
     MusicPlayer.prototype.notifyProgressListeners = function(data){
+        //alert('progress');
         log('notifyProgressListeners');
         this.notifyListeners(this.onProgressListeners);
     };

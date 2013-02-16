@@ -169,7 +169,7 @@ module.exports = function(grunt) {
 //============================================================================================================== Helpers
 
     //major build tasks
-    grunt.registerTask("compile-templates-and-build-app", "compile-handlebars-templates build-app");
+    grunt.registerTask("compile-templates-and-build-app", "compile-templates build-app");
     grunt.registerTask("build2", "build-app-cmd build-app-cmd");
     grunt.registerTask("build", "compile-templates-and-build-app");
     grunt.registerTask("dist", "build");
