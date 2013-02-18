@@ -54,6 +54,10 @@ define([
         this.currentSong.lastTime = 0;//fix progress bar.
 
         this.currentSong.src = '/getSong?songId='+songId;
+
+        //http://html5doctor.com/html5-audio-the-state-of-play/
+        this.currentSong.type = 'audio/mpeg; codecs="mp3"';
+
         this.currentSong.play();
 
         this.currentSongId = parseInt(songId);//so we can ++ for next song, -- for previous song.

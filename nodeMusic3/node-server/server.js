@@ -20,7 +20,7 @@ var app = express();//express.createServer();
 //configuration ===============================================================================================================
 var config = {
     viewsDirectory : __dirname + '/views/',
-    port: 4020,
+    port:80, //4020,
     publicStaticFiles :  path.resolve(__dirname + '/../dist'),
     musicRootFilePath : '/volumes/fourtera_2012/music'
 };
@@ -93,6 +93,10 @@ app.get('/getSong', function(req, res){
     console.log('====================getSong with id: ' + songId);
     //musicItemRepository.init(nodeMusic.options.musicRootFilePath);
 
+    console.log('--- request range: '+ req.headers.range);
+
+    var range = req.headers.range;
+
     musicItemRepository.getMusicItemById(songId, function(musicItem){
         if(!musicItem) {//end things if we can't find the song
             //musicItem = {id:-1, songName: 'not found', artist: 'not found'};
@@ -100,24 +104,40 @@ app.get('/getSong', function(req, res){
             res.end();
         }else{//we have found the song, so read it from disk and send it to them.
             console.log('getMusicItemById callback. found item with id: ' + musicItem.id);
-
             console.log('attempting to read file: ' + musicItem.fullPath);
-            res.set('Content-Type', 'audio/mpeg');
-            res.set('Content-Length', musicItem.size);
-            //song duration on iphone is infinity
-            //http://stackoverflow.com/questions/9629223/audio-duration-returns-infinity-on-safari-when-mp3-is-served-from-php
-            var shortSize = musicItem.size -1;
-            console.log('shortSize is ' + shortSize);
-            res.set("Pragma", "public");
-            res.set("Expires", "0");
-            res.set('Content-Transfer-Encoding', 'binary');
-            res.set('Content-Disposition', 'inline; filename="' + musicItem.songName +  '"');
-            res.set( 'Content-Range', 'bytes 0-'+ shortSize +'/' + musicItem.size);
-            res.set( 'Accept-Ranges', 'bytes');
-            res.set('X-Pad', 'avoid browser bug');
-            //res.set('Cache-Control', 'no-cache');
-            res.set('ETag', songId);
-            //
+
+
+
+            //https://groups.google.com/forum/?fromgroups=#!topic/nodejs/gzng3IJcBX8
+            //if the range was requested, caclulate appropriate byte range
+            //set response status to 206
+            if(range){
+                var byteRanges = range.replace(/bytes=/, '').split('-');
+                var ini = parseInt(byteRanges[0], 10);
+                var end = parseInt(byteRanges[1], 10);
+                if(isNaN(end)){ //chrome doesn't send 0-X, sometimes just 0-
+                    end = musicItem.size;
+                }
+                console.log('byteranges: ' + JSON.stringify(byteRanges));
+                console.log('ini: ' + ini);
+                console.log('end: ' + end);
+
+                var chunk = end - ini + 1;
+                        console.log('chunk is: ' + chunk);
+                var contentRangeString = 'bytes '+ ini + '-'+ end +'/' + musicItem.size;
+                        console.log('contentRangeString is: ' + contentRangeString);
+
+                res.writeHead(206,{
+                    'Content-Type':'audio/mpeg',
+                    'Content-Length':chunk,
+                    'Content-Range': contentRangeString,
+                    'Accept-Range': 'bytes'
+                });
+
+
+            }else{
+                //just write out the whole file.
+            }
 
             var readStream = fs.createReadStream(musicItem.fullPath);
             // We replaced all the event handlers with a simple call to util.pump()
@@ -236,5 +256,3 @@ app.get('/getSongOld', function(req, res){
 // Start server ===================================================================================================================
 console.log('Starting node music 3 server on port ' + config.port);
 app.listen(config.port);
-
-
